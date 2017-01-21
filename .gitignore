@@ -1,5 +1,6 @@
 includes/config.php
 includes/error.log
+includes/backups/*
 cache/*
 .buildpath
 .project
