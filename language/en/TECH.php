@@ -42,7 +42,6 @@ $LNG['shortNames'] = array (
 406 => 'Plasma Cannon',
 407 => 'Small Shield Dome',
 408 => 'Large Shield Dome',
-411 => 'Orbital Defence Platform',
 );
 
 $LNG['bonus'] = array(
@@ -132,7 +131,6 @@ $LNG['tech'] = array(
 406 => 'Plasma Cannon',
 407 => 'Small Shield Dome',
 408 => 'Large Shield Dome',
-411 => 'Orbital Defence Platform',
 
 500 => 'Missiles',
 502 => 'Interceptor',
@@ -232,7 +230,6 @@ $LNG['shortDescription'] = array(
 406 => 'the Plasma Turret uses a large nuclear reactor fuel cell to power an electromagnetic accelerator that fires a pulse, or toroid, of plasma.',
 407 => 'The Small Shield Dome envelops the whole planet in a field, which can absorb tremendous amounts of energy.',
 408 => 'The development of the Large Shield Dome needs substantially more energy to endur attacks.',
-411 => 'There is an immovable defensive platform. It has no direct power, and is held by Gravity in a stable orbit of the planet. The start of this process requires high masses of energy.',
 
 502 => 'Interceptor missiles are used to destroy attacking Interplanetary missiles.',
 503 => 'Interplanetary missiles are used to destroy the opponents defenses.',
@@ -322,7 +319,6 @@ $LNG['longDescription'] = array(
 406 => 'the Plasma Turret uses a large nuclear reactor fuel cell to power an electromagnetic accelerator that fires a pulse, or toroid, of plasma.',
 407 => 'The Small Shield Dome envelops the whole planet in a field, which can absorb tremendous amounts of energy.',
 408 => 'The development of the Large Shield Dome needs substantially more energy to endur attacks.',
-411 => 'There is an immovable defensive platform. It has no direct power, and is held by Gravity in a stable orbit of the planet. The start of this process requires high masses of energy.',
 
 502 => 'Interceptor missiles are used to destroy attacking Interplanetary missiles.',
 503 => 'Interplanetary missiles are used to destroy the opponents defenses.',
