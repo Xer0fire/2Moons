@@ -171,8 +171,7 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 		
 		$stealResourceInformation	.= sprintf($LNG['bs_steal_raport'], 
 			pretty_number(ceil($sumSteal / $pricelist[202]['capacity'])), $LNG['tech'][202], 
-			pretty_number(ceil($sumSteal / $pricelist[203]['capacity'])), $LNG['tech'][203], 
-			pretty_number(ceil($sumSteal / $pricelist[217]['capacity'])), $LNG['tech'][217]
+			pretty_number(ceil($sumSteal / $pricelist[203]['capacity'])), $LNG['tech'][203]
 		);
 
 		$reportInfo	= array(
