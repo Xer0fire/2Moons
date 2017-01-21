@@ -213,10 +213,6 @@
 	<td><input name="darkmatter_cost_trader" maxlength="11" size="11" value="{$darkmatter_cost_trader}" type="text"> {$Darkmatter}</td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_darkmatter_cost_trader_info}"></td>
 </tr><tr>
-	<td>{$se_factor_university}</td>
-	<td><input name="factor_university" maxlength="3" size="3" value="{$factor_university}" type="text"></td>
-	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_factor_university_info}"></td>
-</tr><tr>
 	<td>{$se_max_fleets_per_acs}</td>
 	<td><input name="max_fleets_per_acs" maxlength="3" size="3" value="{$max_fleets_per_acs}" type="text"></td>
 	<td><img src="./styles/resource/images/admin/i.gif" width="16" height="16" alt="" class="tooltip" data-tooltip-content="{$se_max_fleets_per_acs_info}"></td>

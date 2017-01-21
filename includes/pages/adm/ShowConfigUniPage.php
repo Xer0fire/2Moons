@@ -74,7 +74,6 @@ function ShowConfigUniPage()
 			'moon_factor'			=> $config->moon_factor,
 			'moon_chance'			=> $config->moon_chance,
 			'darkmatter_cost_trader'=> $config->darkmatter_cost_trader,
-			'factor_university'		=> $config->factor_university,
 			'max_fleets_per_acs'	=> $config->max_fleets_per_acs,
 			'vmode_min_time'		=> $config->vmode_min_time,
 			'gate_wait_time'		=> $config->gate_wait_time,
@@ -141,7 +140,6 @@ function ShowConfigUniPage()
 		$moon_factor			= HTTP::_GP('moon_factor', 0.0);
 		$moon_chance			= HTTP::_GP('moon_chance', 0);
 		$darkmatter_cost_trader	= HTTP::_GP('darkmatter_cost_trader', 0);
-		$factor_university		= HTTP::_GP('factor_university', 0);
 		$max_fleets_per_acs		= HTTP::_GP('max_fleets_per_acs', 0);
 		$vmode_min_time			= HTTP::_GP('vmode_min_time', 0);
 		$gate_wait_time			= HTTP::_GP('gate_wait_time', 0);
@@ -203,7 +201,6 @@ function ShowConfigUniPage()
 			'moon_factor'			=> $moon_factor,
 			'moon_chance'			=> $moon_chance,
 			'darkmatter_cost_trader'=> $darkmatter_cost_trader,
-			'factor_university'		=> $factor_university,
 			'max_fleets_per_acs'	=> $max_fleets_per_acs,
 			'vmode_min_time'		=> $vmode_min_time,
 			'gate_wait_time'		=> $gate_wait_time,
@@ -351,8 +348,6 @@ function ShowConfigUniPage()
 		'se_moon_chance_info'			=> $LNG['se_moon_chance_info'],
 		'se_darkmatter_cost_trader'		=> $LNG['se_darkmatter_cost_trader'],
 		'se_darkmatter_cost_trader_info'=> $LNG['se_darkmatter_cost_trader_info'],
-		'se_factor_university'			=> $LNG['se_factor_university'],
-		'se_factor_university_info'		=> $LNG['se_factor_university_info'],
 		'se_max_fleets_per_acs'			=> $LNG['se_max_fleets_per_acs'],
 		'se_max_fleets_per_acs_info'	=> $LNG['se_max_fleets_per_acs_info'],
 		'se_vmode_min_time'				=> $LNG['se_vmode_min_time'],
@@ -450,7 +445,6 @@ function ShowConfigUniPage()
 		'moon_factor'					=> $config->moon_factor,
 		'moon_chance'					=> $config->moon_chance,
 		'darkmatter_cost_trader'		=> $config->darkmatter_cost_trader,
-		'factor_university'				=> $config->factor_university,
 		'max_fleets_per_acs'			=> $config->max_fleets_per_acs,
 		'vmode_min_time'				=> $config->vmode_min_time,
 		'gate_wait_time'				=> $config->gate_wait_time,
