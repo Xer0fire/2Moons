@@ -178,11 +178,11 @@ CREATE TABLE `%PREFIX%config` (
   `LastSettedGalaxyPos` tinyint(3) unsigned NOT NULL DEFAULT '1',
   `LastSettedSystemPos` smallint(5) unsigned NOT NULL DEFAULT '1',
   `LastSettedPlanetPos` tinyint(3) unsigned NOT NULL DEFAULT '1',
-  `noobprotection` int(11) NOT NULL DEFAULT '0',
+  `noobprotection` int(11) NOT NULL DEFAULT '1',
   `noobprotectiontime` int(11) NOT NULL DEFAULT '5000',
   `noobprotectionmulti` int(11) NOT NULL DEFAULT '5',
-  `forum_url` varchar(128) NOT NULL DEFAULT 'http://2moons.cc',
-  `adm_attack` tinyint(1) unsigned NOT NULL DEFAULT '0',
+  `forum_url` varchar(128) NOT NULL DEFAULT '#',
+  `adm_attack` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `debug` tinyint(1) unsigned NOT NULL DEFAULT '0',
   `lang` varchar(2) NOT NULL DEFAULT '',
   `stat` tinyint(3) unsigned NOT NULL DEFAULT '0',
@@ -204,7 +204,7 @@ CREATE TABLE `%PREFIX%config` (
   `ts_login` varchar(32) NOT NULL DEFAULT '',
   `ts_password` varchar(32) NOT NULL DEFAULT '',
   `reg_closed` tinyint(1) NOT NULL DEFAULT '0',
-  `OverviewNewsFrame` tinyint(1) NOT NULL DEFAULT '1',
+  `OverviewNewsFrame` tinyint(1) NOT NULL DEFAULT '0',
   `OverviewNewsText` text NOT NULL,
   `capaktiv` tinyint(1) NOT NULL DEFAULT '0',
   `cappublic` varchar(42) NOT NULL DEFAULT '',
@@ -228,7 +228,7 @@ CREATE TABLE `%PREFIX%config` (
   `moduls` varchar(100) NOT NULL DEFAULT '',
   `trade_allowed_ships` varchar(255) NOT NULL DEFAULT '202,401',
   `trade_charge` varchar(5) NOT NULL DEFAULT '30',
-  `chat_closed` tinyint(1) NOT NULL DEFAULT '0',
+  `chat_closed` tinyint(1) NOT NULL DEFAULT '1',
   `chat_allowchan` tinyint(1) NOT NULL DEFAULT '1',
   `chat_allowmes` tinyint(1) NOT NULL DEFAULT '1',
   `chat_allowdelmes` tinyint(1) NOT NULL DEFAULT '1',
@@ -906,7 +906,7 @@ CREATE TABLE `%PREFIX%vars_requriements` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 INSERT INTO `%PREFIX%config` (`uni`, `VERSION`, `uni_name`, `game_name`, `close_reason`, `OverviewNewsText`, `moduls`, `disclamerAddress`, `disclamerPhone`, `disclamerMail`, `disclamerNotice`) VALUES
-(1, '%VERSION%', '', '2Moons', '', '', '', '', '', '', '');
+(1, '%VERSION%', '', '2Moons', '', '', '1;1;1;1;1;1;1;0;0;1;1;1;0;1;1;1;1;1;0;1;1;1;0;1;1;1;0;1;1;1;1;0;1;1;1;1;1;0;1;1;1;0', '', '', '', '');
 
 INSERT INTO `%PREFIX%cronjobs` (`cronjobID`, `name`, `isActive`, `min`, `hours`, `dom`, `month`, `dow`, `class`, `nextTime`, `lock`) VALUES
 (NULL, 'referral', 1, '0,30', '*', '*', '*', '*', 'ReferralCronjob', 0, NULL),
