@@ -181,9 +181,6 @@
 		<td colspan="3">
 			<span id="elementID209">{$recyclers|number}</span> {$LNG.gl_avaible_recyclers}
 		</td>
-		<td colspan="2">
-			<span id="elementID219">{$grecyclers|number}</span> {$LNG.gl_avaible_grecyclers}
-		</td>
 	</tr>
 	<tr style="display: none;" id="fleetstatusrow">
 		<th colspan="8">{$LNG.cff_fleet_target}</th>
