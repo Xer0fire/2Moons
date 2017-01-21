@@ -171,14 +171,14 @@
 		</td>
 	</tr>
 	<tr>
-		<td colspan="3"><span id="missiles">{$currentmip|number}</span> {$LNG.gl_avaible_missiles}</td>
-		<td colspan="5"><span id="slots">{$maxfleetcount}</span>/{$fleetmax} {$LNG.gl_fleets}</td>
+		<td colspan="4"><span id="missiles">{$currentmip|number}</span> {$LNG.gl_avaible_missiles}</td>
+		<td colspan="4"><span id="slots">{$maxfleetcount}</span>/{$fleetmax} {$LNG.gl_fleets}</td>
 	</tr>
 	<tr>
-		<td colspan="3">
+		<td colspan="4">
 			<span id="elementID210">{$spyprobes|number}</span> {$LNG.gl_avaible_spyprobes}
 		</td>
-		<td colspan="3">
+		<td colspan="4">
 			<span id="elementID209">{$recyclers|number}</span> {$LNG.gl_avaible_recyclers}
 		</td>
 	</tr>
