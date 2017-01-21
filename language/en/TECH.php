@@ -33,7 +33,6 @@ $LNG['shortNames'] = array (
 213 => 'Star Fighter',
 214 => 'Battle Fortress',
 215 => 'Battle Cruiser',
-220 => 'Dark Matter Collector',
 
 401 => 'Missile Launcher',
 402 => 'Light Laser Turret',
@@ -125,7 +124,6 @@ $LNG['tech'] = array(
 213 => 'Star Fighter',
 214 => 'Battle Fortress',
 215 => 'Battle Cruiser',
-220 => 'Dark Matter Collector',
 
 400 => 'Planetary Defense',
 401 => 'Missile Launcher',
@@ -229,7 +227,6 @@ $LNG['shortDescription'] = array(
 213 => 'The destroyer is the king of the warships.',
 214 => 'The destructive power of the Death Star is second to none and can destroy moons.',
 215 => 'The Battle Cruiser is specialized in the interception of hostile fleets.',
-220 => 'After long years of research dark matter is now collectable from the moon.',
 
 401 => 'The Rocket Launcher is a simple but cost-effective defense.',
 402 => 'Light Lasers are simple ground based weapons that utilize special targeting systems to track the enemy and fire a high intensity laser designed to cut through the hull of the target.',
@@ -322,7 +319,6 @@ $LNG['longDescription'] = array(
 213 => 'The destroyer is the king of the warships.',
 214 => 'The destructive power of the Death Star is second to none and can destroy moons.',
 215 => 'The Battle Cruiser is specialized in the interception of hostile fleets.',
-220 => 'After long years of research dark matter is now collectable from the moon.',
 
 401 => 'The Rocket Launcher is a simple but cost-effective defense.',
 402 => 'Light Lasers are simple ground based weapons that utilize special targeting systems to track the enemy and fire a high intensity laser designed to cut through the hull of the target.',
