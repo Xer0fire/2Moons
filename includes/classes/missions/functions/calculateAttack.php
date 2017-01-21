@@ -123,7 +123,7 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 				$thisDef	= $amount * ($CombatCaps[$element]['shield']) * $defTech ; //bouclier
 				$thisShield	= $amount * ($pricelist[$element]['cost'][901] + $pricelist[$element]['cost'][902]) / 10 * $shieldTech; //coque
 
-				if ($element == 407 || $element == 408 || $element == 409) $thisAtt = 0;
+				if ($element == 407 || $element == 408) $thisAtt = 0;
 
 				$defArray[$fleetID][$element] = array('def' => $thisDef, 'shield' => $thisShield, 'att' => $thisAtt);
 

@@ -42,7 +42,6 @@ $LNG['shortNames'] = array (
 406 => 'Plasma Cannon',
 407 => 'Small Shield Dome',
 408 => 'Large Shield Dome',
-409 => 'Atmospheric Shield',
 410 => 'Gravitons Cannon',
 411 => 'Orbital Defence Platform',
 );
@@ -134,7 +133,6 @@ $LNG['tech'] = array(
 406 => 'Plasma Cannon',
 407 => 'Small Shield Dome',
 408 => 'Large Shield Dome',
-409 => 'Atmospheric Shield',
 410 => 'Gravitons Cannon',
 411 => 'Orbital Defence Platform',
 
@@ -236,7 +234,6 @@ $LNG['shortDescription'] = array(
 406 => 'the Plasma Turret uses a large nuclear reactor fuel cell to power an electromagnetic accelerator that fires a pulse, or toroid, of plasma.',
 407 => 'The Small Shield Dome envelops the whole planet in a field, which can absorb tremendous amounts of energy.',
 408 => 'The development of the Large Shield Dome needs substantially more energy to endur attacks.',
-409 => 'The evolution of the Great Shield Dome Shield technology. It uses much more energy but can endur even more attacks than any other shield.',
 410 => 'After years of research at the gravitational force, researchers where able to develop a Graviation cannon that generate small concentrated Gravition field that can be shoot at the enemy.',
 411 => 'There is an immovable defensive platform. It has no direct power, and is held by Gravity in a stable orbit of the planet. The start of this process requires high masses of energy.',
 
@@ -328,7 +325,6 @@ $LNG['longDescription'] = array(
 406 => 'the Plasma Turret uses a large nuclear reactor fuel cell to power an electromagnetic accelerator that fires a pulse, or toroid, of plasma.',
 407 => 'The Small Shield Dome envelops the whole planet in a field, which can absorb tremendous amounts of energy.',
 408 => 'The development of the Large Shield Dome needs substantially more energy to endur attacks.',
-409 => 'The evolution of the Great Shield Dome Shield technology. It uses much more energy but can endur even more attacks than any other shield.',
 410 => 'After years of research at the gravitational force, researchers where able to develop a Graviation cannon that generate small concentrated Gravition field that can be shoot at the enemy.',
 411 => 'There is an immovable defensive platform. It has no direct power, and is held by Gravity in a stable orbit of the planet. The start of this process requires high masses of energy.',
 
