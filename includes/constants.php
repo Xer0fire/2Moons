@@ -55,7 +55,7 @@ if(!defined('CACHE_PATH')) {
 define('COMBAT_ENGINE'				, 'xnova');
 
 // For Fatal Errors!
-define('DEFAULT_LANG'				, 'de');
+define('DEFAULT_LANG'				, 'en');
 
 // SUPPORT WILDCAST DOMAINS
 define('UNIS_WILDCAST'				, false);
