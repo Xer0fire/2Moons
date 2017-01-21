@@ -31,7 +31,9 @@ class ShowTechtreePage extends AbstractGamePage
 
         $elementIDs		= array_merge(
             array(0),
-            $reslist['build'],
+            $reslist['pbuild'],
+            array(40),
+            $reslist['mbuild'],
             array(100),
             $reslist['tech'],
             array(200),
