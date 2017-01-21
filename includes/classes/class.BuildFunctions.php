@@ -167,7 +167,7 @@ class BuildFunctions
                 }
             }
 
-            $time	= $elementCost / (1000 * (1 + $Level)) / ($config->game_speed / 2500) * pow(1 - $config->factor_university / 100, $PLANET[$resource[6]]) * (1 + $USER['factor']['ResearchTime']);
+            $time	= $elementCost / (1000 * (1 + $Level)) / ($config->game_speed / 2500) * (1 + $USER['factor']['ResearchTime']);
         }
 
         if($forDestroy) {
