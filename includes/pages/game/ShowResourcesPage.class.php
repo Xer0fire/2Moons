@@ -184,10 +184,10 @@ class ShowResourcesPage extends AbstractGamePage
 		);
 		
 		$bonusProduction	= array(
-			901 => $temp[901]['plus'] * ($USER['factor']['Resource'] + 0.02),
-			902 => $temp[902]['plus'] * ($USER['factor']['Resource'] + 0.02),
-			903	=> $temp[903]['plus'] * ($USER['factor']['Resource'] + 0.02),
-			911	=> $temp[911]['plus'] * $USER['factor']['Energy'],
+			901 => $temp[901]['plus'] * 0,
+			902 => $temp[902]['plus'] * 0,
+			903	=> $temp[903]['plus'] * 0,
+			911	=> $temp[911]['plus'] * 0,
 		);
 		
 		$dailyProduction	= array(
