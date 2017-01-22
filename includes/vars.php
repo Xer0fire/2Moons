@@ -31,17 +31,3 @@ $reslist['ressources']  = array(901, 902, 903, 911, 921);
 $reslist['resstype'][1] = array(901, 902, 903);
 $reslist['resstype'][2] = array(911);
 $reslist['resstype'][3] = array(921);
-
-foreach ($reslist['build'] as $buildings) {
-    switch ($buildings){
-        case $buildings < 40:
-            $reslist['pbuild'][] = $buildings;
-        break;
-        case $buildings == 44:
-            $reslist['pbuild'][] = $buildings;
-        break;
-        case $buildings > 40 && $buildings != 44:
-            $reslist['mbuild'][] = $buildings;
-        break;
-    }
-}
