@@ -261,7 +261,6 @@ class ShowInformationPage extends AbstractGamePage
 						continue;
 
 					$production = round(eval(ResourceUpdate::getProd($ProdGrid[$elementID]['storage'][$ID])));
-					$production *= Config::get()->storage_multiplier;
 
 					$productionTable['storage'][$BuildLevel][$ID]	= $production;
 				}
