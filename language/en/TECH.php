@@ -176,7 +176,7 @@ $LNG['shortDescription'] = array(
 34 => 'The Alliance Depot offers the possibility to supply fuel to friendly fleets in orbit.',
 41 => 'The moon has no atmosphere therefore a lunar base must be built before the settlement of other buildings.',
 42 => 'The sensor array allows you to monitor fleet movements. The higher the stage, the greater is the range of the phalanx.',
-43 => 'Jump gates are huge transmitters that are able to send large fleets without loss of time through the universe.',
+43 => 'Jump gates are huge transmitters that are able to send large fleets without loss of time through the universe. With each level the time between jumps is decreased by 10%.',
 44 => 'missile silos used for storage of rockets.',
 
 106 => 'Information about other planets and moons can be gained using this technology.',
@@ -254,7 +254,7 @@ $LNG['longDescription'] = array(
 34 => 'The Alliance Depot offers the possibility to supply fuel to friendly fleets in orbit.',
 41 => 'The moon has no atmosphere therefore a lunar base must be built before the settlement of other buildings.',
 42 => 'The sensor array allows you to monitor fleet movements. The higher the stage, the greater is the range of the phalanx.',
-43 => 'Jump gates are huge transmitters that are able to send large fleets without loss of time through the universe.',
+43 => 'Jump gates are huge transmitters that are able to send large fleets without loss of time through the universe. With each level the time between jumps is decreased by 10%.',
 44 => 'missile silos used for storage of rockets.',
 
 106 => 'Information about other planets and moons can be gained using this technology.',

@@ -29,7 +29,9 @@ class ShowInformationPage extends AbstractGamePage
 
 	static function getNextJumpWaitTime($lastTime)
 	{
-		return $lastTime + Config::get()->gate_wait_time;
+	    global $PLANET, $resource;
+	    $percentage =  100 - (($PLANET[$resource[43]] - 1) * 10);
+		return $lastTime + ((Config::get()->gate_wait_time / 100) * $percentage);
 	}
 
 	public function sendFleet()
