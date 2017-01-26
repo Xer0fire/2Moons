@@ -65,8 +65,15 @@ class ResourceUpdate
 		global $reslist, $resource;
 		$Hash	= array();
 		foreach($reslist['prod'] as $ID) {
+		    //#SKTODO get value of ele45 'solarreflector if exists then add it to the hash'
 			$Hash[]	= $this->PLANET[$resource[$ID]];
 			$Hash[]	= $this->PLANET[$resource[$ID].'_porcent'];
+		}
+		$reflector = $this->getReflector($this->USER, $this->PLANET);
+		if (!empty($reflector)) {
+		    $Hash[] = $this->PLANET['id_luna'];
+			$Hash[]	= $reflector[0][$resource['45']];
+			$Hash[]	= $reflector[0][$resource['45'].'_porcent'];
 		}
 		
 		$ressource	= array_merge(array(), $reslist['resstype'][1], $reslist['resstype'][2]);
@@ -205,7 +212,20 @@ class ResourceUpdate
 		
 		return $researchLevelList;
 	}
-	
+
+	public static function getReflector($USER, $PLANET)
+	{
+		global $resource;
+
+		$sql = 'SELECT energy, '.$resource[45].', '.$resource[45].'_porcent FROM %%PLANETS%% WHERE id = :moonId AND id_owner = :userId AND destruyed = 0;';
+		$reflectorResult = Database::get()->select($sql, array(
+			':moonId'	=> $PLANET['id_luna'],
+			':userId'	=> $USER['id']
+		));
+
+        return $reflectorResult;
+	}
+
 	public function ReBuildCache()
 	{
 		global $ProdGrid, $resource, $reslist;
@@ -284,7 +304,11 @@ class ResourceUpdate
 		$this->PLANET['crystal_max']		= $temp[902]['max'] * $this->config->resource_multiplier * STORAGE_FACTOR;
 		$this->PLANET['deuterium_max']		= $temp[903]['max'] * $this->config->resource_multiplier * STORAGE_FACTOR;
 
-		$this->PLANET['energy']				= round($temp[911]['plus'] * $this->config->energySpeed);
+		$reflector = $this->getReflector($this->USER, $this->PLANET);
+		$reflectorEnergy = (!empty($reflector) ? $reflector[0]['energy'] : 0);
+
+		//SKTODO: inject moon reflector here
+		$this->PLANET['energy']				= round(($temp[911]['plus'] + $reflectorEnergy) * $this->config->energySpeed);
 		$this->PLANET['energy_used']		= $temp[911]['minus'] * $this->config->energySpeed;
 		if($this->PLANET['energy_used'] == 0) {
 			$this->PLANET['metal_perhour']		= 0;

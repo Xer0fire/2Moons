@@ -20,6 +20,7 @@
 	<td>{$basicProduction.902|number}</td>
 	<td>{$basicProduction.903|number}</td>
 	<td>{$basicProduction.911|number}</td>
+	<td><input value="{$LNG.rs_calculate}" type="submit"></td>
 </tr>
 {foreach $productionList as $productionID => $productionRow}
 <tr style="height:22px">
@@ -33,13 +34,22 @@
 	</td>
 </tr>
 {/foreach}
+{if empty($productionMoon) ||  $productionMoon.0.solarreflector == 0}
+{else}
+<tr style="height:22px">
+	<td>Solar Reflector (Level {$productionMoon.0.solarreflector})</td>
+	<td>0</td>
+	<td>0</td>
+	<td>0</td>
+	<td><span style="color:{if $productionMoon.0.energy > 0}lime{elseif $productionMoon.0.energy < 0}red{else}white{/if}">{$productionMoon.0.energy|number}</span></td>
+</tr>
+{/if}
 <tr style="height:22px">
 	<td>{$LNG.rs_ress_bonus}</td>
 	<td><span style="color:{if $bonusProduction.901 > 0}lime{elseif $bonusProduction.901 < 0}red{else}white{/if}">{$bonusProduction.901|number}</span></td>
 	<td><span style="color:{if $bonusProduction.902 > 0}lime{elseif $bonusProduction.902 < 0}red{else}white{/if}">{$bonusProduction.902|number}</span></td>
 	<td><span style="color:{if $bonusProduction.903 > 0}lime{elseif $bonusProduction.903 < 0}red{else}white{/if}">{$bonusProduction.903|number}</span></td>
 	<td><span style="color:{if $bonusProduction.911 > 0}lime{elseif $bonusProduction.911 < 0}red{else}white{/if}">{$bonusProduction.911|number}</span></td>
-	<td><input value="{$LNG.rs_calculate}" type="submit"></td>
 </tr>
 <tr style="height:22px">
 	<td>{$LNG.rs_storage_capacity}</td>
