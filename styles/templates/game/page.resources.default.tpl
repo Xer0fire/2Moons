@@ -37,7 +37,7 @@
 {if empty($productionMoon) ||  $productionMoon.0.solarreflector == 0}
 {else}
 <tr style="height:22px">
-	<td>Solar Reflector (Level {$productionMoon.0.solarreflector})</td>
+	<td>{$LNG.tech.45} ({$LNG.rs_lvl} {$productionMoon.0.solarreflector}) [{$LNG.type_planet_3}]</td>
 	<td>0</td>
 	<td>0</td>
 	<td>0</td>
