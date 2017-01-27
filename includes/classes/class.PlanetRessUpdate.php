@@ -307,7 +307,6 @@ class ResourceUpdate
 		$reflector = $this->getReflector($this->USER, $this->PLANET);
 		$reflectorEnergy = (!empty($reflector) ? $reflector[0]['energy'] : 0);
 
-		//SKTODO: inject moon reflector here
 		$this->PLANET['energy']				= round(($temp[911]['plus'] + $reflectorEnergy) * $this->config->energySpeed);
 		$this->PLANET['energy_used']		= $temp[911]['minus'] * $this->config->energySpeed;
 		if($this->PLANET['energy_used'] == 0) {
