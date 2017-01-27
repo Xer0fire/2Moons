@@ -1061,7 +1061,6 @@ $LNG['modul_29'] = 'Mission - Destroy';
 $LNG['modul_42'] = 'Mission - ACS';
 $LNG['modul_16'] = 'News';
 $LNG['modul_17'] = 'Notes';
-$LNG['modul_18'] = 'Officers';
 $LNG['modul_19'] = 'Phalanx';
 $LNG['modul_20'] = 'Player Card';
 $LNG['modul_21'] = 'Banned';

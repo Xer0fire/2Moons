@@ -41,9 +41,7 @@ class ShowTechtreePage extends AbstractGamePage
             array(400),
             $reslist['defense'],
             array(500),
-            $reslist['missile'],
-            array(600),
-            $reslist['officier']
+            $reslist['missile']
         );
 
         $techTreeList = array();

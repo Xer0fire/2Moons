@@ -137,21 +137,6 @@ $LNG['tech'] = array(
 502 => 'Interceptor',
 503 => 'Interplanetary missiles',
 
-600 => 'Officers',
-601 => 'Geologist',
-602 => 'Admiral',
-603 => 'Engineer',
-604 => 'Technocrat',
-
-	700 => 'Premium Optimizations',
-	701 => 'Weapons Upgrade',
-	702 => 'Shield Upgrade',
-	703 => 'Building Upgrade',
-	704 => 'Ressource Upgrade',
-	705 => 'Energy Upgrade',
-	706 => 'Research Upgrade',
-	707 => 'Fleet Upgrade',
-
 	900 => 'Ressources',
 	901 => 'Metal',
 	902 => 'Crystal',
@@ -223,20 +208,7 @@ $LNG['shortDescription'] = array(
 408 => 'The development of the Large Shield Dome needs substantially more energy to endur attacks.',
 
 502 => 'Interceptor missiles are used to destroy attacking Interplanetary missiles.',
-503 => 'Interplanetary missiles are used to destroy the opponents defenses.',
-
-601 => 'The Geologist is a expert in astro-mineralogy and crystalography. He assists his teams in metallurgy and chemistry as he also takes care of the interplanetary communications optimising the use and refining of the raw material along the empire.',
-602 => 'The Admiral is an experienced veteran and a skillful strategist. The hardest battle is able to get an idea of the situation and contact their admirals subordinates. A wise emperor could rely on their help during the fighting.',
-603 => 'The Engineer is a specialist in energy management. In peacetime, it increases the energy of all the colonies.',
-604 => 'The guild of the Technocrats is composed of genius scientists, and you will find them always over the realm where all human logic would be defied. For thousands of years, no normal humans have ever cracked the code of a Technocrat. The Technocrat inspires the researchers of the empire with his presence.',
-
-701 => 'Increases the attack value of the ships and defenses.',
-702 => 'Increases the value of ships shields and defenses',
-703 => 'Shorten the construction time for buildings',
-704 => 'Increases resource production',
-705 => 'Increases energy production',
-706 => 'Shortens research time',
-707 => 'Shortens flying time. Does not affect Expeditions.',
+503 => 'Interplanetary missiles are used to destroy the opponents defenses.'
 );
 
 $LNG['longDescription'] = array(
@@ -302,18 +274,5 @@ $LNG['longDescription'] = array(
 408 => 'The development of the Large Shield Dome needs substantially more energy to endur attacks.',
 
 502 => 'Interceptor missiles are used to destroy attacking Interplanetary missiles.',
-503 => 'Interplanetary missiles are used to destroy the opponents defenses.',
-
-601 => 'The Geologist is a expert in astro-mineralogy and crystalography. He assists his teams in metallurgy and chemistry as he also takes care of the interplanetary communications optimising the use and refining of the raw material along the empire.',
-602 => 'The Admiral is an experienced veteran and a skillful strategist. The hardest battle is able to get an idea of the situation and contact their admirals subordinates. A wise emperor could rely on their help during the fighting.',
-603 => 'The Engineer is a specialist in energy management. In peacetime, it increases the energy of all the colonies.',
-604 => 'The guild of the Technocrats is composed of genius scientists, and you will find them always over the realm where all human logic would be defied. For thousands of years, no normal humans have ever cracked the code of a Technocrat. The Technocrat inspires the researchers of the empire with his presence.',
-
-701 => 'Increases the attack value of the ships and defenses.',
-702 => 'Increases the value of ships shields and defenses',
-703 => 'Shorten the construction time for buildings',
-704 => 'Increases resource production',
-705 => 'Increases energy production',
-706 => 'Shortens research time',
-707 => 'Shortens flying time. Does not affect Expeditions.',
+503 => 'Interplanetary missiles are used to destroy the opponents defenses.'
 );
