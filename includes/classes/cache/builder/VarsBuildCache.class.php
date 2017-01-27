@@ -28,7 +28,6 @@ class VarsBuildCache implements BuildCache
 
 		$reslist['prod']		= array();
 		$reslist['storage']		= array();
-		$reslist['bonus']		= array();
 		$reslist['one']			= array();
 		$reslist['build']		= array();
 		$reslist['pbuild']      = array();
@@ -74,27 +73,7 @@ class VarsBuildCache implements BuildCache
 				'speed2'		=> $varsRow['speed2'],
 				'capacity'		=> $varsRow['capacity'],
 				'tech'			=> $varsRow['speedTech'],
-				'time'			=> $varsRow['timeBonus'],
-				'bonus'			=> array(
-					'Attack'			=> array($varsRow['bonusAttack'], $varsRow['bonusAttackUnit']),
-					'Defensive'			=> array($varsRow['bonusDefensive'], $varsRow['bonusDefensiveUnit']),
-					'Shield'			=> array($varsRow['bonusShield'], $varsRow['bonusShieldUnit']),
-					'BuildTime'			=> array($varsRow['bonusBuildTime'], $varsRow['bonusBuildTimeUnit']),
-					'ResearchTime'		=> array($varsRow['bonusResearchTime'], $varsRow['bonusResearchTimeUnit']),
-					'ShipTime'			=> array($varsRow['bonusShipTime'], $varsRow['bonusShipTimeUnit']),
-					'DefensiveTime'		=> array($varsRow['bonusDefensiveTime'], $varsRow['bonusDefensiveTimeUnit']),
-					'Resource'			=> array($varsRow['bonusResource'], $varsRow['bonusResourceUnit']),
-					'Energy'			=> array($varsRow['bonusEnergy'], $varsRow['bonusEnergyUnit']),
-					'ResourceStorage'	=> array($varsRow['bonusResourceStorage'], $varsRow['bonusResourceStorageUnit']),
-					'ShipStorage'		=> array($varsRow['bonusShipStorage'], $varsRow['bonusShipStorageUnit']),
-					'FlyTime'			=> array($varsRow['bonusFlyTime'], $varsRow['bonusFlyTimeUnit']),
-					'FleetSlots'		=> array($varsRow['bonusFleetSlots'], $varsRow['bonusFleetSlotsUnit']),
-					'Planets'			=> array($varsRow['bonusPlanets'], $varsRow['bonusPlanetsUnit']),
-					'SpyPower'			=> array($varsRow['bonusSpyPower'], $varsRow['bonusSpyPowerUnit']),
-					'Expedition'		=> array($varsRow['bonusExpedition'], $varsRow['bonusExpeditionUnit']),
-					'GateCoolTime'		=> array($varsRow['bonusGateCoolTime'], $varsRow['bonusGateCoolTimeUnit']),
-					'MoreFound'			=> array($varsRow['bonusMoreFound'], $varsRow['bonusMoreFoundUnit']),
-				),
+				'time'			=> $varsRow['timeBonus']
 			);
 			
 			$ProdGrid[$varsRow['elementID']]['production']	= array(
@@ -115,15 +94,7 @@ class VarsBuildCache implements BuildCache
 				
 			if(array_filter($ProdGrid[$varsRow['elementID']]['storage']))
 				$reslist['storage'][]	= $varsRow['elementID'];
-				
-			if(($varsRow['bonusAttack'] + $varsRow['bonusDefensive'] + $varsRow['bonusShield'] + $varsRow['bonusBuildTime'] + 
-				$varsRow['bonusResearchTime'] + $varsRow['bonusShipTime'] + $varsRow['bonusDefensiveTime'] + $varsRow['bonusResource'] + 
-				$varsRow['bonusEnergy'] + $varsRow['bonusResourceStorage'] + $varsRow['bonusShipStorage'] + $varsRow['bonusFlyTime'] + 
-				$varsRow['bonusFleetSlots'] + $varsRow['bonusPlanets'] + $varsRow['bonusSpyPower'] + $varsRow['bonusExpedition'] + 
-				$varsRow['bonusGateCoolTime'] + $varsRow['bonusMoreFound']) != 0)
-			{
-				$reslist['bonus'][]		= $varsRow['elementID'];
-			}
+
 			if($varsRow['onePerPlanet'] == 1)
 				$reslist['one'][]		= $varsRow['elementID'];
 			
