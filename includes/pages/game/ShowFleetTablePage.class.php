@@ -277,13 +277,7 @@ class ShowFleetTablePage extends AbstractGamePage
 			'targetType'			=> $targetType,
 			'targetMission'			=> $targetMission,
 			'acsData'				=> $acsData,
-			'isVacation'			=> IsVacationMode($USER),
-			'bonusAttack'			=> $USER[$resource[109]] * 10 + $USER['factor']['Attack'] * 100,
-			'bonusDefensive'		=> $USER[$resource[110]] * 10 + $USER['factor']['Defensive'] * 100,
-			'bonusShield'			=> $USER[$resource[111]] * 10 + $USER['factor']['Shield'] * 100,
-			'bonusCombustion'		=> $USER[$resource[115]] * 10,
-			'bonusImpulse'			=> $USER[$resource[117]] * 20,
-			'bonusHyperspace'		=> $USER[$resource[118]] * 30,
+			'isVacation'			=> IsVacationMode($USER)
 		));
 		
 		$this->display('page.fleetTable.default.tpl');

@@ -15,45 +15,6 @@
  * @link https://github.com/jkroepke/2Moons
  */
 
-function getFactors($USER, $Type = 'basic', $TIME = NULL) {
-	global $resource, $pricelist, $reslist;
-	if(empty($TIME))
-		$TIME	= TIMESTAMP;
-	
-	$bonusList	= BuildFunctions::getBonusList();
-	$factor		= ArrayUtil::combineArrayWithSingleElement($bonusList, 0);
-	
-	foreach($reslist['bonus'] as $elementID) {
-		$bonus = $pricelist[$elementID]['bonus'];
-		
-		if (isset($PLANET[$resource[$elementID]])) {
-			$elementLevel = $PLANET[$resource[$elementID]];
-		} elseif (isset($USER[$resource[$elementID]])) {
-			$elementLevel = $USER[$resource[$elementID]];
-		} else {
-			continue;
-		}
-		
-		if(in_array($elementID, $reslist['dmfunc'])) {
-			if(DMExtra($elementLevel, $TIME, false, true)) {
-				continue;
-			}
-			
-			foreach($bonusList as $bonusKey)
-			{
-				$factor[$bonusKey]	+= $bonus[$bonusKey][0];
-			}
-		} else {
-			foreach($bonusList as $bonusKey)
-			{
-				$factor[$bonusKey]	+= $elementLevel * $bonus[$bonusKey][0];
-			}
-		}
-	}
-	
-	return $factor;
-}
-
 function getPlanets($USER)
 {
 	if(isset($USER['PLANETS']))

@@ -105,11 +105,6 @@ class FleetFunctions
 		$SpeedFactor	+= 10;
 		$SpeedFactor	/= $GameSpeed;
 		
-		if(isset($USER['factor']['FlyTime']))
-		{
-			$SpeedFactor	*= max(0, 1 + $USER['factor']['FlyTime']);
-		}
-		
 		return max($SpeedFactor, MIN_FLEET_TIME);
 	}
  
@@ -129,7 +124,7 @@ class FleetFunctions
 	public static function GetMaxFleetSlots($USER)
 	{
 		global $resource;
-		return 1 + $USER[$resource[108]] + $USER['factor']['FleetSlots'];
+		return 1 + $USER[$resource[108]];
 	}
 
 	public static function GetFleetRoom($Fleet)

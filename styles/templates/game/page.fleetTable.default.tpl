@@ -117,13 +117,5 @@
 	{/if}
 </table>	
 </form>
-<br>
-<table style="min-width:519px;width:519px;">
-	<tr><th colspan="3">{$LNG.fl_bonus}</th></tr>
-	<tr><th style="width:33%">{$LNG.fl_bonus_attack}</th><th style="width:33%">{$LNG.fl_bonus_defensive}</th><th style="width:33%">{$LNG.fl_bonus_shield}</th></tr>
-	<tr><td>+{$bonusAttack} %</td><td>+{$bonusDefensive} %</td><td>+{$bonusShield} %</td></tr>
-	<tr><th style="width:33%">{$LNG.tech.115}</th><th style="width:33%">{$LNG.tech.117}</th><th style="width:33%">{$LNG.tech.118}</th></tr>
-	<tr><td>+{$bonusCombustion} %</td><td>+{$bonusImpulse} %</td><td>+{$bonusHyperspace} %</td></tr>
-</table>
 {/block}
 {block name="script" append}<script src="scripts/game/fleetTable.js"></script>{/block}

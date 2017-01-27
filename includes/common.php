@@ -191,7 +191,6 @@ if (MODE === 'INGAME' || MODE === 'ADMIN' || MODE === 'CRON')
 			}
 		}
 		
-		$USER['factor']		= getFactors($USER);
 		$USER['PLANETS']	= getPlanets($USER);
 	}
 	elseif (MODE === 'ADMIN')
