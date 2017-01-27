@@ -193,9 +193,9 @@ class ShowResourcesPage extends AbstractGamePage
 		);
 		
 		$totalProduction	= array(
-			901 => $PLANET[$resource[901].'_perhour'] + $basicProduction[901],
-			902 => $PLANET[$resource[902].'_perhour'] + $basicProduction[902],
-			903	=> $PLANET[$resource[903].'_perhour'] + $basicProduction[903],
+			901 => $PLANET[$resource[901].'_perhour'],
+			902 => $PLANET[$resource[902].'_perhour'],
+			903	=> $PLANET[$resource[903].'_perhour'],
 			911	=> $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'],
 		);
 
