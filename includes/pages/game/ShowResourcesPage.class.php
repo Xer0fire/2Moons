@@ -198,14 +198,7 @@ class ShowResourcesPage extends AbstractGamePage
 			903	=> $PLANET[$resource[903].'_perhour'] + $basicProduction[903],
 			911	=> $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'],
 		);
-		
-		$bonusProduction	= array(
-			901 => $temp[901]['plus'] * ($USER['factor']['Resource'] + 0.02),
-			902 => $temp[902]['plus'] * ($USER['factor']['Resource'] + 0.02),
-			903	=> $temp[903]['plus'] * ($USER['factor']['Resource'] + 0.02),
-			911	=> $temp[911]['plus'] * $USER['factor']['Energy'],
-		);
-		
+
 		$dailyProduction	= array(
 			901 => $totalProduction[901] * 24,
 			902 => $totalProduction[902] * 24,
@@ -233,7 +226,6 @@ class ShowResourcesPage extends AbstractGamePage
 		    'productionMoon'    => $productionMoon,
 			'basicProduction'	=> $basicProduction,
 			'totalProduction'	=> $totalProduction,
-			'bonusProduction'	=> $bonusProduction,
 			'dailyProduction'	=> $dailyProduction,
 			'weeklyProduction'	=> $weeklyProduction,
 			'storage'			=> $storage,

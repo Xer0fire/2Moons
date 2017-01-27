@@ -45,13 +45,6 @@
 </tr>
 {/if}
 <tr style="height:22px">
-	<td>{$LNG.rs_ress_bonus}</td>
-	<td><span style="color:{if $bonusProduction.901 > 0}lime{elseif $bonusProduction.901 < 0}red{else}white{/if}">{$bonusProduction.901|number}</span></td>
-	<td><span style="color:{if $bonusProduction.902 > 0}lime{elseif $bonusProduction.902 < 0}red{else}white{/if}">{$bonusProduction.902|number}</span></td>
-	<td><span style="color:{if $bonusProduction.903 > 0}lime{elseif $bonusProduction.903 < 0}red{else}white{/if}">{$bonusProduction.903|number}</span></td>
-	<td><span style="color:{if $bonusProduction.911 > 0}lime{elseif $bonusProduction.911 < 0}red{else}white{/if}">{$bonusProduction.911|number}</span></td>
-</tr>
-<tr style="height:22px">
 	<td>{$LNG.rs_storage_capacity}</td>
 	<td><span style="color:lime;">{$storage.901}</span></td>
 	<td><span style="color:lime;">{$storage.902}</span></td>
