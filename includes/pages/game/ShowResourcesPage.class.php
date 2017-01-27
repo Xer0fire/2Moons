@@ -191,13 +191,11 @@ class ShowResourcesPage extends AbstractGamePage
 			903	=> $basicIncome[903] * $config->resource_multiplier,
 			911	=> $basicIncome[911] * $config->energySpeed,
 		);
-		
-		$totalProduction	= array(
-			901 => $PLANET[$resource[901].'_perhour'],
-			902 => $PLANET[$resource[902].'_perhour'],
-			903	=> $PLANET[$resource[903].'_perhour'],
-			911	=> $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'],
-		);
+
+		($PLANET[$resource[901].'_perhour'] == 0 ? $totalProduction[901] = $basicProduction[901] : $totalProduction[901] = $PLANET[$resource[901].'_perhour']);
+		($PLANET[$resource[902].'_perhour'] == 0 ? $totalProduction[902] = $basicProduction[902] : $totalProduction[902] = $PLANET[$resource[902].'_perhour']);
+		($PLANET[$resource[903].'_perhour'] == 0 ? $totalProduction[903] = $basicProduction[903] : $totalProduction[903] = $PLANET[$resource[903].'_perhour']);
+		$totalProduction[911] = $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'];
 
 		$dailyProduction	= array(
 			901 => $totalProduction[901] * 24,
