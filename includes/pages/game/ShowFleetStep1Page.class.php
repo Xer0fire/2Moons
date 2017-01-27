@@ -46,16 +46,13 @@ class ShowFleetStep1Page extends AbstractGamePage
 			$Fleet[$ShipID]				= $amount;
 			$FleetRoom			   	   += $pricelist[$ShipID]['capacity'] * $amount;
 		}
-		
-		$FleetRoom	*= 1 + $USER['factor']['ShipStorage'];
-		
+
 		if (empty($Fleet))
 			FleetFunctions::GotoFleetPage();
 	
 		$FleetData	= array(
 			'fleetroom'			=> floatToString($FleetRoom),
 			'gamespeed'			=> FleetFunctions::GetGameSpeedFactor(),
-			'fleetspeedfactor'	=> max(0, 1 + $USER['factor']['FlyTime']),
 			'planet'			=> array('galaxy' => $PLANET['galaxy'], 'system' => $PLANET['system'], 'planet' => $PLANET['planet'], 'planet_type' => $PLANET['planet_type']),
 			'maxspeed'			=> FleetFunctions::GetFleetMaxSpeed($Fleet, $USER),
 			'ships'				=> FleetFunctions::GetFleetShipInfo($Fleet, $USER),
