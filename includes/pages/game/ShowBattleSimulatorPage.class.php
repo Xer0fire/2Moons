@@ -62,9 +62,7 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 					'dm_defensive' => 0,
 					'dm_attack' => 0
 				); 
-				
-				$attacker['player']['factor']	= getFactors($attacker['player'], 'attack');
-				
+
 				foreach($BattleSlot[0] as $ID => $Count)
 				{
 					if(!in_array($ID, $reslist['fleet']) || $BattleSlot[0][$ID] <= 0)
@@ -104,9 +102,7 @@ class ShowBattleSimulatorPage extends AbstractGamePage
 					'dm_attack' => 0,
 					'dm_defensive' => 0,
 				); 
-				
-				$defender['player']['factor']	= getFactors($defender['player'], 'attack');
-				
+
 				foreach($BattleSlot[1] as $ID => $Count)
 				{
 					if((!in_array($ID, $reslist['fleet']) && !in_array($ID, $reslist['defense'])) || $BattleSlot[1][$ID] <= 0)
