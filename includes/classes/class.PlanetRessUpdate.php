@@ -65,7 +65,6 @@ class ResourceUpdate
 		global $reslist, $resource;
 		$Hash	= array();
 		foreach($reslist['prod'] as $ID) {
-		    //#SKTODO get value of ele45 'solarreflector if exists then add it to the hash'
 			$Hash[]	= $this->PLANET[$resource[$ID]];
 			$Hash[]	= $this->PLANET[$resource[$ID].'_porcent'];
 		}
