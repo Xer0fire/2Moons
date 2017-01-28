@@ -121,11 +121,11 @@ class BuildFunctions
         }
 
         if	   (in_array($Element, $reslist['build'])) {
-            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]);
+            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[14]]) * pow(2, $PLANET[$resource[15]]));
         } elseif (in_array($Element, $reslist['fleet'])) {
-            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]);
+            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[21]]) * pow(2, $PLANET[$resource[15]]));
         } elseif (in_array($Element, $reslist['defense'])) {
-            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]);
+            $time	= $elementCost / ($config->game_speed * (1 + $PLANET[$resource[21]]) * pow(2, $PLANET[$resource[15]]));
         } elseif (in_array($Element, $reslist['tech'])) {
             if(is_numeric($PLANET[$resource[31].'_inter']))
             {
