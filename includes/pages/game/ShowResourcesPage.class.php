@@ -180,9 +180,9 @@ class ShowResourcesPage extends AbstractGamePage
 		);
 
 		$protectedProduction  = array(
-		    901 => pretty_number(ResourceUpdate::getProtectedResources($PLANET[$resource[35]])),
-		    902 => pretty_number(ResourceUpdate::getProtectedResources($PLANET[$resource[36]])),
-		    903 => pretty_number(ResourceUpdate::getProtectedResources($PLANET[$resource[37]]))
+		    901 => shortly_number(ResourceUpdate::getProtectedResources($PLANET[$resource[35]])),
+		    902 => shortly_number(ResourceUpdate::getProtectedResources($PLANET[$resource[36]])),
+		    903 => shortly_number(ResourceUpdate::getProtectedResources($PLANET[$resource[37]]))
 		);
 
 		($PLANET[$resource[901].'_perhour'] == 0 ? $totalProduction[901] = $basicProduction[901] : $totalProduction[901] = $PLANET[$resource[901].'_perhour']);
