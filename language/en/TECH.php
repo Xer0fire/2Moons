@@ -43,27 +43,6 @@ $LNG['shortNames'] = array (
 407 => 'Small Shield Dome',
 408 => 'Large Shield Dome',
 );
-
-$LNG['bonus'] = array(
-	'Attack'			=> 'Attack',
-	'Defensive'			=> 'Defence',
-	'Shield'			=> 'Shield',
-	'BuildTime'			=> 'Construction Time',
-	'ResearchTime'		=> 'Research time',
-	'ShipTime'			=> 'Ship Building time',
-	'DefensiveTime'		=> 'Defense Building time',
-	'Resource'			=> 'Production of Resources',
-	'Energy'			=> 'Production of Energy',
-	'ResourceStorage'	=> 'Resource storage',
-	'ShipStorage'		=> 'Ships storage',
-	'FlyTime'			=> 'Flying time',
-	'FleetSlots'		=> 'Fleet Slots',
-	'Planets'			=> 'Planets',
-	'SpyPower'			=> 'Espionage power',
-	'Expedition'		=> 'Expeditions',
-	'GateCoolTime'		=> 'Jump gate charging time',
-	'MoreFound'			=> 'Expedition Found',
-);
 					
 $LNG['tech'] = array(
   0 => 'Buildings',
