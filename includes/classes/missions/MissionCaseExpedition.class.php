@@ -328,7 +328,6 @@ HTML;
 				
 				$fleetAttack[$fleetID]['fleetDetail']		= $this->_fleet;
 				$fleetAttack[$fleetID]['player']			= $senderData;
-				$fleetAttack[$fleetID]['player']['factor']	= getFactors($fleetAttack[$this->_fleet['fleet_id']]['player'], 'attack', $this->_fleet['fleet_start_time']);
 				$fleetAttack[$fleetID]['unit']				= $fleetArray;
 				
 				$fleetDefend = array();
@@ -347,10 +346,7 @@ HTML;
 					'fleet_resource_deuterium'	=> 0
 				);
 
-				$bonusList	= BuildFunctions::getBonusList();
-
 				$fleetDefend[0]['player']	= $targetData;
-				$fleetDefend[0]['player']['factor']	= ArrayUtil::combineArrayWithSingleElement($bonusList, 0);
 				$fleetDefend[0]['unit']		= $targetFleetData;
 
 				require_once 'includes/classes/missions/functions/calculateAttack.php';

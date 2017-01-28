@@ -78,7 +78,6 @@ HTML;
 		$targetUser		= $db->selectSingle($sql, array(
 			':userId'	=> $targetPlanet['id_owner']
 		));
-		$targetUser['factor']	= getFactors($targetUser, 'basic', $this->_fleet['fleet_start_time']);
 
 		$planetUpdater	= new ResourceUpdate();
 		
@@ -116,7 +115,6 @@ HTML;
 				':userId'	=> $fleetDetail['fleet_owner']
 			));
 
-			$fleetAttack[$fleetID]['player']['factor']	= getFactors($fleetAttack[$fleetID]['player'], 'attack', $this->_fleet['fleet_start_time']);
 			$fleetAttack[$fleetID]['fleetDetail']		= $fleetDetail;
 			$fleetAttack[$fleetID]['unit']				= FleetFunctions::unserialize($fleetDetail['fleet_array']);
 			
@@ -144,7 +142,6 @@ HTML;
 				':userId'	=> $fleetDetail['fleet_owner']
 			));
 
-			$fleetDefend[$fleetID]['player']['factor']	= getFactors($fleetDefend[$fleetID]['player'], 'attack', $this->_fleet['fleet_start_time']);
 			$fleetDefend[$fleetID]['fleetDetail']		= $fleetDetail;
 			$fleetDefend[$fleetID]['unit']				= FleetFunctions::unserialize($fleetDetail['fleet_array']);
 			
@@ -154,7 +151,6 @@ HTML;
 		unset($targetFleetsResult);
 		
 		$fleetDefend[0]['player']			= $targetUser;
-		$fleetDefend[0]['player']['factor']	= getFactors($fleetDefend[0]['player'], 'attack', $this->_fleet['fleet_start_time']);
 		$fleetDefend[0]['fleetDetail']		= array(
 			'fleet_start_galaxy'	=> $targetPlanet['galaxy'], 
 			'fleet_start_system'	=> $targetPlanet['system'], 

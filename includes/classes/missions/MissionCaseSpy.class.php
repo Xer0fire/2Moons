@@ -50,9 +50,6 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 
 		$LNG			= $this->getLanguage($senderUser['lang']);
 
-		$senderUser['factor']	= getFactors($senderUser, 'basic', $this->_fleet['fleet_start_time']);
-		$targetUser['factor']	= getFactors($targetUser, 'basic', $this->_fleet['fleet_start_time']);
-
 		$planetUpdater 						= new ResourceUpdate();
 		list($targetUser, $targetPlanet)	= $planetUpdater->CalcResource($targetUser, $targetPlanet, true, $this->_fleet['fleet_start_time']);
 
@@ -72,7 +69,7 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 			}
 		}
 		
-		$fleetAmount	= $this->_fleet['fleet_amount'] * (1 + $senderUser['factor']['SpyPower']);
+		$fleetAmount	= $this->_fleet['fleet_amount'];
 
 		$senderSpyTech	= max($senderUser['spy_tech'], 1);
 		$targetSpyTech	= max($targetUser['spy_tech'], 1);

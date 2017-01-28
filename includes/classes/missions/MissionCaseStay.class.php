@@ -28,8 +28,6 @@ class MissionCaseStay extends MissionFunctions implements Mission
 		$senderUser			= Database::get()->selectSingle($sql, array(
 			':userId'	=> $this->_fleet['fleet_owner']
 		));
-
-		$senderUser['factor']	= getFactors($senderUser, 'basic', $this->_fleet['fleet_start_time']);
 		
 		$fleetArray			= FleetFunctions::unserialize($this->_fleet['fleet_array']);
 		$duration			= $this->_fleet['fleet_start_time'] - $this->_fleet['start_time'];

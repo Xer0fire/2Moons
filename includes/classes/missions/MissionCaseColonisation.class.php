@@ -32,8 +32,6 @@ class MissionCaseColonisation extends MissionFunctions implements Mission
 			':userId'	=> $this->_fleet['fleet_owner'],
 		));
 
-		$senderUser['factor']	= getFactors($senderUser, 'basic', $this->_fleet['fleet_start_time']);
-
 		$LNG	= $this->getLanguage($senderUser['lang']);
 
 		$checkPosition	= PlayerUtil::checkPosition($this->_fleet['fleet_universe'], $this->_fleet['fleet_end_galaxy'],

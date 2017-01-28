@@ -51,9 +51,6 @@ class MissionCaseRecycling extends MissionFunctions implements Mission
 			$targetUser			= Database::get()->selectSingle($sql, array(
 				':userId'	=> $this->_fleet['fleet_owner']
 			));
-
-			$targetUserFactors	= getFactors($targetUser);
-			$shipStorageFactor	= 1 + $targetUserFactors['ShipStorage'];
 		
 			// Get fleet capacity
 			$fleetData			= FleetFunctions::unserialize($this->_fleet['fleet_array']);
@@ -72,9 +69,6 @@ class MissionCaseRecycling extends MissionFunctions implements Mission
 					$otherFleetStorage += $pricelist[$shipId]['capacity'] * $shipAmount;
 				}
 			}
-			
-			$recyclerStorage	*= $shipStorageFactor;
-			$otherFleetStorage	*= $shipStorageFactor;
 
 			$incomingGoods		= 0;
 			foreach($resourceIDs as $resourceID)
