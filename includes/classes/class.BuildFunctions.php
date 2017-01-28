@@ -63,6 +63,10 @@ class BuildFunctions
 
             $price[$resType]	= $ressourceAmount;
 
+            if(isset($pricelist[$Element]['factor']) && $pricelist[$Element]['factor'] != 0 && $pricelist[$Element]['factor'] != 1) {
+                $price[$resType]	*= pow($pricelist[$Element]['factor'], $elementLevel);
+            }
+
             if($forLevel && (in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile']))) {
                 $price[$resType]	*= $elementLevel;
             }
