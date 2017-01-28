@@ -52,6 +52,13 @@
 	<td>-</td>
 </tr>
 <tr style="height:22px">
+	<td>Protected Production:</td>
+	<td><span style="color:lime;">{$protectedProduction.901}</span></td>
+	<td><span style="color:lime;">{$protectedProduction.902}</span></td>
+	<td><span style="color:lime;">{$protectedProduction.903}</span></td>
+	<td>-</span></td>
+</tr>
+<tr style="height:22px">
 	<td>{$LNG.rs_sum}:</td>
 	<td><span style="color:{if $totalProduction.901 > 0}lime{elseif $totalProduction.901 < 0}red{else}white{/if}">{$totalProduction.901|number}</span></td>
 	<td><span style="color:{if $totalProduction.902 > 0}lime{elseif $totalProduction.902 < 0}red{else}white{/if}">{$totalProduction.902|number}</span></td>

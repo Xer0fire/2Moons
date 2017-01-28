@@ -192,6 +192,12 @@ class ShowResourcesPage extends AbstractGamePage
 			911	=> $basicIncome[911] * $config->energySpeed,
 		);
 
+		$protectedProduction  = array(
+		    901 => pretty_number(ResourceUpdate::getProtectedResources($PLANET[$resource[35]])),
+		    902 => pretty_number(ResourceUpdate::getProtectedResources($PLANET[$resource[36]])),
+		    903 => pretty_number(ResourceUpdate::getProtectedResources($PLANET[$resource[37]]))
+		);
+
 		($PLANET[$resource[901].'_perhour'] == 0 ? $totalProduction[901] = $basicProduction[901] : $totalProduction[901] = $PLANET[$resource[901].'_perhour']);
 		($PLANET[$resource[902].'_perhour'] == 0 ? $totalProduction[902] = $basicProduction[902] : $totalProduction[902] = $PLANET[$resource[902].'_perhour']);
 		($PLANET[$resource[903].'_perhour'] == 0 ? $totalProduction[903] = $basicProduction[903] : $totalProduction[903] = $PLANET[$resource[903].'_perhour']);
@@ -223,6 +229,7 @@ class ShowResourcesPage extends AbstractGamePage
 			'productionList'	=> $productionList,
 		    'productionMoon'    => $productionMoon,
 			'basicProduction'	=> $basicProduction,
+			'protectedProduction'	=> $protectedProduction,
 			'totalProduction'	=> $totalProduction,
 			'dailyProduction'	=> $dailyProduction,
 			'weeklyProduction'	=> $weeklyProduction,
