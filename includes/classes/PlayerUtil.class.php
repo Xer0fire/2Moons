@@ -570,20 +570,14 @@ class PlayerUtil
 		$config	= Config::get($USER['universe']);
 
 		$planetPerTech	= $config->planets_tech;
-		$planetPerBonus	= $config->planets_officier;
-		
+
 		if($config->min_player_planets == 0)
 		{
 			$planetPerTech = 999;
 		}
-
-		if($config->min_player_planets == 0)
-		{
-			$planetPerBonus = 999;
-		}
 		
 		// http://owiki.de/index.php/Astrophysik#.C3.9Cbersicht
-		return (int) ceil($config->min_player_planets + min($planetPerTech, $USER[$resource[124]] * $config->planets_per_tech) + $planetPerBonus);
+		return (int) ceil($config->min_player_planets + min($planetPerTech, $USER[$resource[124]] * $config->planets_per_tech));
 	}
 
 	static public function allowPlanetPosition($position, $USER)

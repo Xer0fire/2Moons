@@ -250,7 +250,6 @@ CREATE TABLE `%PREFIX%config` (
   `max_elements_ships` tinyint(3) unsigned NOT NULL DEFAULT '10',
   `min_player_planets` tinyint(3) unsigned NOT NULL DEFAULT '9',
   `planets_tech` TINYINT NOT NULL DEFAULT  '11',
-  `planets_officier` TINYINT NOT NULL DEFAULT  '5',
   `planets_per_tech` FLOAT( 2, 1 ) NOT NULL DEFAULT  '0.5',
   `max_fleet_per_build` bigint(20) unsigned NOT NULL DEFAULT '1000000',
   `deuterium_cost_galaxy` int(11) unsigned NOT NULL DEFAULT '10',
