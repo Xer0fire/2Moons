@@ -64,19 +64,6 @@ class ShowResourcesPage extends AbstractGamePage
 		$this->redirectTo('game.php?page=resources');
 	}
 
-	public function getReflector($USER, $PLANET)
-	{
-	    global $resource;
-
-	    $sql = 'SELECT energy, '.$resource[45].' FROM %%PLANETS%% WHERE id = :moonId AND id_owner = :userId AND destruyed = 0;';
-	    $reflectorResult = Database::get()->select($sql, array(
-	            ':moonId'	=> $PLANET['id_luna'],
-	            ':userId'	=> $USER['id']
-	    ));
-
-	    return $reflectorResult;
-	}
-
 	function show()
 	{
 		global $LNG, $ProdGrid, $resource, $reslist, $USER, $PLANET;
@@ -177,7 +164,7 @@ class ShowResourcesPage extends AbstractGamePage
 			}
 		}
 
-		$productionMoon =  $this->getReflector($USER, $PLANET);
+		$productionMoon =  ResourceUpdate::getReflector($USER, $PLANET);
 
 		$storage	= array(
 			901 => shortly_number($PLANET[$resource[901].'_max']),
