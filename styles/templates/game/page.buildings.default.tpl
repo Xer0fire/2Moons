@@ -138,7 +138,7 @@
 						{/if}
 					</td>
 					<td class="transparent right" style="white-space:nowrap;">
-						{$LNG.fgf_time}:<br>{$Element.elementTime|time}
+						{$LNG.fgf_time} {$Element.elementTime|time}
 					</td>
 				</tr>	
 			</table>
