@@ -96,7 +96,14 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 		
 		if($SpyBuild) 
 		{
-			$classIDs[0]	= $reslist['build'];
+		    switch ($targetPlanet['planet_type']) {
+		        case 1:
+		            $classIDs[0] = array_diff($reslist['pbuild'], $reslist['sbuild']);
+		        break;
+		        case 3:
+		            $classIDs[0] = array_diff($reslist['mbuild'], $reslist['sbuild']);
+		        break;
+		    }
 		}
 		
 		if($SpyTechno) 
