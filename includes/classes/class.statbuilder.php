@@ -172,10 +172,15 @@ class statbuilder
             // Points = (All resources / PointsPerCost) + 1)
             // PointsPerCot == Config::get()->stat_settings
 			$TechCounts		+= $USER[$resource[$Techno]];
-            $TechPoints     += ($pricelist[$Techno]['cost'][901] + $pricelist[$Techno]['cost'][902] + $pricelist[$Techno]['cost'][903]) + 1;
-
-
-            $this->setRecords($USER['id'], $Techno, $USER[$resource[$Techno]]);
+			$TechPoints     +=
+			($pricelist[$Techno]['cost'][901] + $pricelist[$Techno]['cost'][902] + $pricelist[$Techno]['cost'][903])
+			* $pricelist[$Techno]['factor']
+			* (
+			        2 * (
+			                pow($pricelist[$Techno]['factor'], $USER[$resource[$Techno]]) - $pricelist[$Techno]['factor']
+			                ) + 1
+			        );
+			$this->setRecords($USER['id'], $Techno, $USER[$resource[$Techno]]);
 		}
 		
 		return array('count' => $TechCounts, 'points' => ($TechPoints / Config::get()->stat_settings));
