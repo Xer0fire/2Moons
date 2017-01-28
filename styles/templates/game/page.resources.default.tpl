@@ -52,14 +52,14 @@
 	<td>-</td>
 </tr>
 <tr style="height:22px">
-	<td>Protected Production:</td>
+	<td>{$LNG.rs_protected}</td>
 	<td><span style="color:{if $protectedProduction.901 > 0}lime{elseif $protectedProduction.901 < 0}red{else}white{/if}">{$protectedProduction.901}</span></td>
 	<td><span style="color:{if $protectedProduction.902 > 0}lime{elseif $protectedProduction.902 < 0}red{else}white{/if}">{$protectedProduction.902}</span></td>
 	<td><span style="color:{if $protectedProduction.903 > 0}lime{elseif $protectedProduction.903 < 0}red{else}white{/if}">{$protectedProduction.903}</span></td>
 	<td>-</span></td>
 </tr>
 <tr style="height:22px">
-	<td>{$LNG.rs_sum}:</td>
+	<td>{$LNG.rs_sum}</td>
 	<td><span style="color:{if $totalProduction.901 > 0}lime{elseif $totalProduction.901 < 0}red{else}white{/if}">{$totalProduction.901|number}</span></td>
 	<td><span style="color:{if $totalProduction.902 > 0}lime{elseif $totalProduction.902 < 0}red{else}white{/if}">{$totalProduction.902|number}</span></td>
 	<td><span style="color:{if $totalProduction.903 > 0}lime{elseif $totalProduction.903 < 0}red{else}white{/if}">{$totalProduction.903|number}</span></td>
