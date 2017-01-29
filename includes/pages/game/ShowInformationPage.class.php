@@ -331,21 +331,22 @@ class ShowInformationPage extends AbstractGamePage
 			$CurrentLevel		= $PLANET[$resource[$elementID]];
 			$BuildStartLvl   	= max($CurrentLevel - 2, 0);
 
+			switch ($elementID) {
+			    case 35:
+			        $ressIDs = 901;
+			    break;
+			    case 36:
+			        $ressIDs = 902;
+			    break;
+			    case 37:
+			        $ressIDs = 903;
+			    break;
+			}
+
 			for($BuildLevel = $BuildStartLvl; $BuildLevel < $BuildStartLvl + 15; $BuildLevel++)
 			{
-				foreach($ressIDs as $ID)
-				{
-		            $production = ResourceUpdate::getProtectedResources($BuildLevel);
-                    if ($ID == 901 && $elementID == 35) {
-		              $productionTable['protected'][$BuildLevel][$ID]	= $production;
-                    }
-                    if ($ID == 902 && $elementID == 36) {
-		              $productionTable['protected'][$BuildLevel][$ID]	= $production;
-                    }
-                    if ($ID == 903 && $elementID == 37) {
-		              $productionTable['protected'][$BuildLevel][$ID]	= $production;
-                    }
-				}
+			    $production = ResourceUpdate::getProtectedResources($BuildLevel);
+		        $productionTable['protected'][$BuildLevel][$ressIDs] = $production;
 			}
 
 			$productionTable['usedResource']	= array_keys($productionTable['protected'][$BuildStartLvl]);
