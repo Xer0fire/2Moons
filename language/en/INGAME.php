@@ -478,6 +478,7 @@ $LNG['in_rf_again']    			            = 'Rapidfire against';
 $LNG['in_rf_from']     			            = 'Rapidfire from';
 $LNG['in_level']       				        = 'Level';
 $LNG['in_storage'] 							= 'Storage';
+$LNG['in_protected'] 						= 'Protected';
 $LNG['in_prod_p_hour'] 						= 'Prod. per hour';
 $LNG['in_difference']  						= 'Difference';
 $LNG['in_range']       						= 'Sensor range';

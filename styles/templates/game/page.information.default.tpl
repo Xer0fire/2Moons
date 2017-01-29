@@ -49,4 +49,7 @@
 {if !empty($MissileList)}
 {include file="shared.information.missiles.tpl"}
 {/if}
+{if !empty($productionTable.protected)}
+{include file="shared.information.protected.tpl"}
+{/if}
 {/block}

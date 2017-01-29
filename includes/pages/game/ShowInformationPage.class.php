@@ -326,6 +326,30 @@ class ShowInformationPage extends AbstractGamePage
 				}
 			}
 		}
+		elseif (in_array($elementID, $reslist['sbuild']))
+		{
+			$CurrentLevel		= $PLANET[$resource[$elementID]];
+			$BuildStartLvl   	= max($CurrentLevel - 2, 0);
+
+			for($BuildLevel = $BuildStartLvl; $BuildLevel < $BuildStartLvl + 15; $BuildLevel++)
+			{
+				foreach($ressIDs as $ID)
+				{
+		            $production = ResourceUpdate::getProtectedResources($BuildLevel);
+                    if ($ID == 901 && $elementID == 35) {
+		              $productionTable['protected'][$BuildLevel][$ID]	= $production;
+                    }
+                    if ($ID == 902 && $elementID == 36) {
+		              $productionTable['protected'][$BuildLevel][$ID]	= $production;
+                    }
+                    if ($ID == 903 && $elementID == 37) {
+		              $productionTable['protected'][$BuildLevel][$ID]	= $production;
+                    }
+				}
+			}
+
+			$productionTable['usedResource']	= array_keys($productionTable['protected'][$BuildStartLvl]);
+		}
 
 		if($elementID == 43 && $PLANET[$resource[43]] > 0)
 		{
