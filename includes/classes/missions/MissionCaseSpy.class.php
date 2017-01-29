@@ -91,7 +91,14 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 		
 		if($SpyDef) 
 		{
-			$classIDs[400]	= array_merge($reslist['defense'], $reslist['missile']);
+		    switch ($targetPlanet['planet_type']) {
+		        case 1:
+		            $classIDs[400]	= array_merge($reslist['defense'], $reslist['missile']);
+		        break;
+		        case 3:
+		            $classIDs[400]	= array_merge($reslist['defense']);
+		        break;
+		    }
 		}
 		
 		if($SpyBuild) 
