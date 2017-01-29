@@ -242,7 +242,7 @@ class ShowFleetStep1Page extends AbstractGamePage
 		if ($targetPlanet != Config::get()->max_planets + 1)
 		{
 			$db = Database::get();
-            $sql = "SELECT u.id, u.urlaubs_modus, u.user_lastip, u.authattack,
+            $sql = "SELECT u.id, u.urlaubs_modus, u.ally_id, u.user_lastip, u.authattack,
             	p.destruyed, p.der_metal, p.der_crystal, p.destruyed
                 FROM %%USERS%% as u, %%PLANETS%% as p WHERE
                 p.universe = :universe AND
@@ -260,6 +260,11 @@ class ShowFleetStep1Page extends AbstractGamePage
                 ':targetType' => (($targetPlanetType == 2) ? 1 : $targetPlanetType),
             ));
 
+			$sql = "SELECT owner_1, owner_2 FROM %%DIPLO%% WHERE (accept = 1 AND level != 5) AND (owner_1 = :id OR owner_2 = :id)";
+			$diplomaticResult =  $db->select($sql, array(
+			        ':id'           => $USER['ally_id']
+			));
+
             if ($targetPlanetType == 3 && !isset($planetData))
 			{
 				$this->sendJSON($LNG['fl_error_no_moon']);
@@ -274,6 +279,14 @@ class ShowFleetStep1Page extends AbstractGamePage
 			{
 				$this->sendJSON($LNG['fl_admin_attack']);
 			}
+
+            if (!empty($diplomaticResult)) {
+                foreach ($diplomaticResult as $diplomacy) {
+                    if ($diplomacy['owner_1'] == $planetData['ally_id'] || $diplomacy['owner_2'] == $planetData['ally_id']) {
+                        $this->sendJSON($LNG['fl_pact_attack']);
+                    }
+                }
+            }
 
 			if ($planetData['destruyed'] != 0)
 			{

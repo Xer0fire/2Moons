@@ -360,6 +360,7 @@ $LNG['fl_no_expedition_slot']				= 'You cant start more expeditions!';
 $LNG['fl_invalid_mission']					= 'Invalid mission';
 $LNG['fl_bash_protection']					= 'Bash Rule';
 $LNG['fl_admin_attack']						= 'You can attack the administrators';
+$LNG['fl_pact_attack']						= 'You cannot attack an alliance is at peace with you';
 $LNG['fl_target_exists']					= 'Target planet';
 $LNG['fl_target_not_exists']				= 'Target planet does not exist!';
 $LNG['fl_only_planets_colonizable']			= 'Only planets can be colonized.';
