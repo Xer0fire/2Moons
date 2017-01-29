@@ -12,12 +12,23 @@
 	<tr>
 		<th colspan="2">{$LNG.al_diplo_level.$diploMode}</th>
 	</tr>
-		{foreach $diploAlliances as $diploID => $diploName}
+		{foreach $diploAlliances as $diploID}
 		<tr>
-			<td style="width:90%">{$diploName}</td>
-			<td>
-				<a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyDelete&amp;id={$diploID}" onclick="return confirm('{$LNG.al_diplo_confirm_delete}');"><img src="styles/resource/images/false.png" alt="" width="16" height="16"></a>
-			</td>
+			{if $diploMode == 5}
+				{if $diploID.own == true}
+					<td style="width:90%">{$diploID.name}</td>
+					<td>
+						<a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyDelete&amp;id={$diploID.id}" onclick="return confirm('{$LNG.al_diplo_confirm_delete}');"><img src="styles/resource/images/false.png" alt="" width="16" height="16"></a>
+					</td>
+				{else}
+					<td style="width:100%">{$diploID.name}</td>
+				{/if}
+			{else}
+				<td style="width:90%">{$diploID.name}</td>
+				<td>
+					<a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyDelete&amp;id={$diploID.id}" onclick="return confirm('{$LNG.al_diplo_confirm_delete}');"><img src="styles/resource/images/false.png" alt="" width="16" height="16"></a>
+				</td>
+			{/if}
 		</tr>
 		{foreachelse}
 		<tr>

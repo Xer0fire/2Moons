@@ -1520,7 +1520,9 @@ class ShowAlliancePage extends AbstractGamePage
 		foreach($diplomaticResult as $diplomaticRow) {
 			$own	= $diplomaticRow['owner_1'] == $this->allianceData['id'];
 			if($diplomaticRow['accept'] == 1) {
-				$diplomaticList[0][$diplomaticRow['level']][$diplomaticRow['id']] = $diplomaticRow['ally_name'];
+				$diplomaticList[0][$diplomaticRow['level']][$diplomaticRow['id']]['id'] = $diplomaticRow['id'];
+				$diplomaticList[0][$diplomaticRow['level']][$diplomaticRow['id']]['name'] = $diplomaticRow['ally_name'];
+				$diplomaticList[0][$diplomaticRow['level']][$diplomaticRow['id']]['own'] = $own;
 			} elseif($own) {
 				$diplomaticList[2][$diplomaticRow['level']][$diplomaticRow['id']] = $diplomaticRow['ally_name'];
 			} else {
@@ -1560,11 +1562,26 @@ class ShowAlliancePage extends AbstractGamePage
 
 		$db = Database::get();
 
-		$sql = "DELETE FROM %%DIPLO%% WHERE id = :id AND (owner_1 = :allianceId OR owner_2 = :allianceId);";
-		$db->delete($sql, array(
-			':allianceId'   => $this->allianceData['id'],
+		$sql = "SELECT owner_1, level FROM %%DIPLO%% WHERE id = :id";
+		$diplomaticResult =  $db->select($sql, array(
 			':id'           => HTTP::_GP('id', 0)
 		));
+
+		if ($diplomaticResult[0]['level'] == 5) {
+		    if ($diplomaticResult[0]['owner_1'] == $this->allianceData['id']) {
+		        $sql = "DELETE FROM %%DIPLO%% WHERE id = :id AND (owner_1 = :allianceId OR owner_2 = :allianceId);";
+		        $db->delete($sql, array(
+		                ':allianceId'   => $this->allianceData['id'],
+		                ':id'           => HTTP::_GP('id', 0)
+		        ));
+		    }
+		} else {
+		    $sql = "DELETE FROM %%DIPLO%% WHERE id = :id AND (owner_1 = :allianceId OR owner_2 = :allianceId);";
+		    $db->delete($sql, array(
+		            ':allianceId'   => $this->allianceData['id'],
+		            ':id'           => HTTP::_GP('id', 0)
+		    ));
+		}
 
 		$this->redirectTo('game.php?page=alliance&mode=admin&action=diplomacy');
 	}
@@ -1646,17 +1663,19 @@ class ShowAlliancePage extends AbstractGamePage
 
 		$level	= HTTP::_GP('level', 0);
 		$text	= HTTP::_GP('text', '', true);
+		$forceaccepted = 0;
 
 		if($level == 5)
 		{
-			PlayerUtil::sendMessage($targetAlliance['ally_owner'], $USER['id'], $LNG['al_circular_alliance'].$this->allianceData['ally_tag'], 1, $LNG['al_diplo_war'], sprintf($LNG['al_diplo_war_mes'], "[".$this->allianceData['ally_tag']."] ".$this->allianceData['ally_name'], "[".$targetAlliance['ally_tag']."] ".$targetAlliance['ally_name'], $LNG['al_diplo_level'][$level], $text), TIMESTAMP);
+			PlayerUtil::sendMessage($targetAlliance['ally_owner'], $USER['id'], TIMESTAMP, 1, $LNG['al_circular_alliance'].$this->allianceData['ally_tag'], $LNG['al_diplo_war'], sprintf($LNG['al_diplo_war_mes'], "[".$this->allianceData['ally_tag']."] ".$this->allianceData['ally_name'], "[".$targetAlliance['ally_tag']."] ".$targetAlliance['ally_name'], $LNG['al_diplo_level'][$level], $text));
+			$forceaccepted = 1;
 		}
 		else
 		{
 			PlayerUtil::sendMessage($targetAlliance['ally_owner'], $USER['id'], $LNG['al_circular_alliance'].$this->allianceData['ally_tag'], 1, $LNG['al_diplo_war'], sprintf($LNG['al_diplo_ask_mes'], $LNG['al_diplo_level'][$level], "[".$this->allianceData['ally_tag']."] ".$this->allianceData['ally_name'], "[".$targetAlliance['ally_tag']."] ".$targetAlliance['ally_name'], $text), TIMESTAMP);
 		}
 
-		$sql = "INSERT INTO %%DIPLO%% SET owner_1 = :allianceId, owner_2 = :allianceTargetID, level	= :level, accept = 0, accept_text = :text, universe	= :universe";
+		$sql = "INSERT INTO %%DIPLO%% SET owner_1 = :allianceId, owner_2 = :allianceTargetID, level	= :level, accept = ".$forceaccepted.", accept_text = :text, universe	= :universe";
 		$db->insert($sql, array(
 			':allianceId'   => $USER['ally_id'],
 			':allianceTargetID'  => $targetAlliance['id'],
