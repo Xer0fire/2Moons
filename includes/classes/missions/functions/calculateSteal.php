@@ -39,7 +39,7 @@ function calculateSteal($attackFleets, $defenderPlanet, $simulate = false)
 		
 		foreach($Attacker['unit'] as $Element => $amount)	
 		{
-			$SortFleets[$FleetID]		+= $pricelist[$Element]['capacity'] * $amount;
+			$SortFleets[$FleetID]		+= ($pricelist[$Element]['capacity'] * $amount) * (1 + (floor(($Attacker['player']['hyperspace_tech'] - 7) / 2) * 0.20));
 		}
 		
 		$SortFleets[$FleetID]	-= $Attacker['fleetDetail']['fleet_resource_metal'];
