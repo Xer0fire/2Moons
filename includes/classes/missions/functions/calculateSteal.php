@@ -39,7 +39,11 @@ function calculateSteal($attackFleets, $defenderPlanet, $simulate = false)
 		
 		foreach($Attacker['unit'] as $Element => $amount)	
 		{
-			$SortFleets[$FleetID]		+= ($pricelist[$Element]['capacity'] * $amount) * (1 + (floor(($Attacker['player']['hyperspace_tech'] - 7) / 2) * 0.20));
+		    if (($Element == 202 || $Element == 203 || $Element == 209) && $Attacker['player']['hyperspace_tech'] > 8 ) {
+		        $SortFleets[$FleetID]		+= ($pricelist[$Element]['capacity'] * $amount) * (1 + (floor(($Attacker['player']['hyperspace_tech'] - 7) / 2) * 0.20));
+		    } else {
+		        $SortFleets[$FleetID]		+= $pricelist[$Element]['capacity'] * $amount;
+		    }
 		}
 		
 		$SortFleets[$FleetID]	-= $Attacker['fleetDetail']['fleet_resource_metal'];
