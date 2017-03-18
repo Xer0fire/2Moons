@@ -73,7 +73,7 @@ class ShowShipyardPage extends AbstractGamePage
 	
 	private function BuildAuftr($fmenge)
 	{
-		global $USER, $PLANET, $reslist, $resource;
+		global $USER, $PLANET, $LNG, $reslist, $resource;
 		
 		$Missiles	= array(
 			502	=> $PLANET[$resource[502]],
@@ -82,6 +82,20 @@ class ShowShipyardPage extends AbstractGamePage
 
 		foreach($fmenge as $Element => $Count)
 		{
+
+		    if($PLANET['planet_type'] == 1 && !in_array($Element, $reslist['pfleet'])) {
+                $this->printMessage($LNG['sys_buildlist_fail'], array(array(
+                    'label'	=> $LNG['sys_back'],
+                    'url'	=> 'game.php?page=shipyard&mode=fleet'
+                )));
+		    }
+		    if($PLANET['planet_type'] == 3 && !in_array($Element, $reslist['mfleet'])) {
+                $this->printMessage($LNG['sys_buildlist_fail'], array(array(
+                    'label'	=> $LNG['sys_back'],
+                    'url'	=> 'game.php?page=shipyard&mode=fleet'
+                )));
+		    }
+
 			if(empty($Count)
 				|| !in_array($Element, array_merge($reslist['fleet'], $reslist['defense'], $reslist['missile']))
 				|| !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element)
