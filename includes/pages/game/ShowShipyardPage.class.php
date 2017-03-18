@@ -216,7 +216,12 @@ class ShowShipyardPage extends AbstractGamePage
 		if($mode == 'defense') {
 			$elementIDs	= array_merge($reslist['defense'], $reslist['missile']);
 		} else {
-			$elementIDs	= $reslist['fleet'];
+		    if ($PLANET['planet_type'] == 1) {
+			    $elementIDs	= $reslist['pfleet'];
+		    }
+		    if ($PLANET['planet_type'] == 3) {
+			    $elementIDs	= $reslist['mfleet'];
+		    }
 		}
 		
 		$Missiles	= array();

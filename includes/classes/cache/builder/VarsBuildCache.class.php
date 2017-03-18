@@ -37,6 +37,8 @@ class VarsBuildCache implements BuildCache
 		$reslist['allow'][3]	= array();
 		$reslist['tech']		= array();
 		$reslist['fleet']		= array();
+		$reslist['pfleet']		= array();
+		$reslist['mfleet']		= array();
 		$reslist['defense']		= array();
 		$reslist['missile']		= array();
 		$reslist['dmfunc']		= array();
@@ -121,6 +123,15 @@ class VarsBuildCache implements BuildCache
 				break;
 				case 200: 
 					$reslist['fleet'][]	= $varsRow['elementID'];
+					$tmp	= explode(',', $varsRow['onPlanetType']);
+					foreach($tmp as $type) {
+					    if ($type == 1) {
+					        $reslist['pfleet'][] = $varsRow['elementID'];
+					    }
+					    if ($type == 3) {
+					        $reslist['mfleet'][] = $varsRow['elementID'];
+					    }
+					}
 				break;
 				case 400: 
 					$reslist['defense'][]	= $varsRow['elementID'];
