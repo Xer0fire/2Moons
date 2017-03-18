@@ -91,7 +91,7 @@ class ShowFleetAjaxPage extends AbstractGamePage
 					':planetID' => $planetID
 				), 'sum');
 
-				$recElementIDs	= array(219, 209);
+				$recElementIDs	= array(209);
 
 				$fleetArray		= array();
 

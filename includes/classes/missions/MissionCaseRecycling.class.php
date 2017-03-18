@@ -60,7 +60,7 @@ class MissionCaseRecycling extends MissionFunctions implements Mission
 
 			foreach ($fleetData as $shipId => $shipAmount)
 			{
-				if ($shipId == 209 ||  $shipId == 219)
+				if ($shipId == 209)
 				{
 					$recyclerStorage   += $pricelist[$shipId]['capacity'] * $shipAmount;
 				}
