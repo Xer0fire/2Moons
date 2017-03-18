@@ -278,6 +278,7 @@ class ShowInformationPage extends AbstractGamePage
 				'attack'		=> $CombatCaps[$elementID]['attack'],
 				'shield'		=> $CombatCaps[$elementID]['shield'],
 				'capacity'		=> $pricelist[$elementID]['capacity'],
+				'capacity2'		=> (string)($pricelist[$elementID]['capacity'] * (1 + (floor(($USER['hyperspace_tech'] - 7) / 2) * 0.20))),
 				'speed1'		=> $pricelist[$elementID]['speed'],
 				'speed2'		=> $pricelist[$elementID]['speed2'],
 				'consumption1'	=> $pricelist[$elementID]['consumption'],

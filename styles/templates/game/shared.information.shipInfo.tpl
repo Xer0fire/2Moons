@@ -21,7 +21,7 @@
 		{if !empty($FleetInfo.capacity)}
 		<tr>
 			<td style="width:50%">{$LNG.in_capacity}</td>
-			<td style="width:50%">{$FleetInfo.capacity|number}</td>
+			<td style="width:50%">{$FleetInfo.capacity|number}{if ($FleetInfo.capacity2 > $FleetInfo.capacity) and ($elementID == 202 || $elementID == 203 || $elementID == 209)} <span style="color:yellow">({$FleetInfo.capacity2|number})</span>{/if}</td>
 		</tr>
 		{/if}
 		{if !empty($FleetInfo.speed1)}

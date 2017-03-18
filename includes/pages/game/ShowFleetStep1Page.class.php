@@ -44,7 +44,11 @@ class ShowFleetStep1Page extends AbstractGamePage
 			if ($amount < 1 || $ShipID == 212) continue;
 
 			$Fleet[$ShipID]				= $amount;
-			$FleetRoom			   	   += $pricelist[$ShipID]['capacity'] * $amount;
+			if (($ShipID == 202 || $ShipID == 203 || $ShipID == 209) && $USER['hyperspace_tech'] > 8 ) {
+			    $FleetRoom			   	   += ($pricelist[$ShipID]['capacity'] * $amount) * (1 + (floor(($USER['hyperspace_tech'] - 7) / 2) * 0.20));
+			} else {
+			    $FleetRoom			   	   += $pricelist[$ShipID]['capacity'] * $amount;
+			}
 		}
 
 		if (empty($Fleet))
