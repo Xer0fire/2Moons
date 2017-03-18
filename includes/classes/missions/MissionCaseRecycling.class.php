@@ -62,7 +62,7 @@ class MissionCaseRecycling extends MissionFunctions implements Mission
 			{
 				if ($shipId == 209)
 				{
-					$recyclerStorage   += $pricelist[$shipId]['capacity'] * $shipAmount;
+				    $recyclerStorage   += ($pricelist[$shipId]['capacity'] * $shipAmount) * (1 + (floor(($targetUser['hyperspace_tech'] - 7) / 2) * 0.20));
 				}
 				else
 				{
