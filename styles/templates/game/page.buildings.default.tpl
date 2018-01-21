@@ -56,10 +56,17 @@
 		<td>
 			<table style="width:100%">
 				<tr>
-					<td class="transparent left" style="width:90%;padding:10px;"><p>{$LNG.shortDescription.{$ID}}</p>
+					<td class="transparent left" style="width:70%;padding:10px;"><p>{$LNG.shortDescription.{$ID}}</p>
 					<p>{foreach $Element.costResources as $RessID => $RessAmount}
 					{$LNG.tech.{$RessID}}: <b><span style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
 					{/foreach}</p></td>
+					<td class="transparent" style="width:20%;padding:10px;">
+						{if $CanBuildElement && $Element.buyable}{else}{$LNG.bd_remaining}<br>{/if}
+						{foreach $Element.costOverflow as $ResType => $ResCount}
+						{if $ResCount|number != 0}{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>{/if}
+						{/foreach}
+						<br>
+					</td>
 					<td class="transparent" style="vertical-align:middle;width:100px">
 					{if $Element.maxLevel == $Element.levelToBuild}
 						<span style="color:red">{$LNG.bd_maxlevel}</span>
@@ -90,18 +97,13 @@
 			<table style="width:100%">
 				<tr>
 					<td class="transparent left">
-						{$LNG.bd_remaining}<br>
-						{foreach $Element.costOverflow as $ResType => $ResCount}
-						{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>
-						{/foreach}
-						<br>
+
 					</td>
 				</tr>
 				<tr>		
 					<td class="transparent left" style="width:68%">
 						{if !empty($Element.infoEnergy)}
-							{$LNG.bd_next_level}<br>
-							{$Element.infoEnergy}<br>
+							{$LNG.bd_next_level} {$Element.infoEnergy}<br>
 						{/if}
 						{if $Element.level > 0}
 							{if $ID == 43}<a href="#" onclick="return Dialog.info({$ID})">{$LNG.bd_jump_gate_action}</a>{/if}
