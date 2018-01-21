@@ -62,10 +62,16 @@
 		<td>
 			<table style="width:100%">
 				<tr>
-					<td class="transparent left" style="width:90%;padding:10px;"><p>{$LNG.shortDescription.{$ID}}</p>
+					<td class="transparent left" style="width:70%;padding:10px;"><p>{$LNG.shortDescription.{$ID}}</p>
 					<p>{foreach $Element.costResources as $RessID => $RessAmount}
 					{$LNG.tech.{$RessID}}: <b><span style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
 					{/foreach}</p></td>
+					<td class="transparent" style="width:20%;padding:10px;">
+						{if $IsLabinBuild || $IsFullQueue || $Element.buyable}{else}{$LNG.bd_remaining}<br>{/if}
+						{foreach $Element.costOverflow as $ResType => $ResCount}
+						{if $ResCount|number != 0}{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>{/if}
+						{/foreach}
+					</td>
 					<td class="transparent" style="vertical-align:middle;width:100px">
 					{if $Element.maxLevel == $Element.levelToBuild}
 						<span style="color:red">{$LNG.bd_maxlevel}</span>
@@ -87,23 +93,8 @@
 		<td colspan="2" style="margin-bottom:10px;">  
 			<table style="width:100%">
 				<tr>
-					<td class="transparent left">
-						{$LNG.bd_remaining}<br>
-						{foreach $Element.costOverflow as $ResType => $ResCount}
-						{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>
-						{/foreach}
-						<br>
-					</td>
-					<td class="transparent right">
-						{$LNG.fgf_time}
-					</td>
-				</tr>
-				<tr>		
-					<td class="transparent left" style="width:68%">
-						&nbsp;
-					</td>
 					<td class="transparent right" style="white-space:nowrap;">
-						{$Element.elementTime|time}
+						{$LNG.fgf_time} {$Element.elementTime|time}
 					</td>
 				</tr>	
 			</table>
