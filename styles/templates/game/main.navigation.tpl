@@ -23,7 +23,7 @@
 		{if isModuleAvailable($smarty.const.MODULE_SEARCH)}<li><a href="game.php?page=search">{$LNG.lm_search}</a></li>{/if}
 		{if isModuleAvailable($smarty.const.MODULE_CHAT)}<li><a href="game.php?page=chat">{$LNG.lm_chat}</a></li>{/if}
 		{if isModuleAvailable($smarty.const.MODULE_SUPPORT)}<li><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}
-		<li><a href="game.php?page=questions">{$LNG.lm_faq}</a></li>
+		{if isModuleAvailable($smarty.const.MODULE_FAQ)}<li><a href="game.php?page=questions">{$LNG.lm_faq}</a></li>{/if}
 		{if isModuleAvailable($smarty.const.MODULE_BANLIST)}<li><a href="game.php?page=banList">{$LNG.lm_banned}</a></li>{/if}
 		<li><a href="index.php?page=rules" target="rules">{$LNG.lm_rules}</a></li>
 		{if isModuleAvailable($smarty.const.MODULE_SIMULATOR)}<li><a href="game.php?page=battleSimulator">{$LNG.lm_battlesim}</a></li>{/if}
