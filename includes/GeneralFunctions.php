@@ -301,7 +301,13 @@ function isModuleAvailable($ID)
 		$modules[$ID] = 1;
 	}
 
-	return $modules[$ID] == 1 || (isset($USER['authlevel']) && $USER['authlevel'] > AUTH_USR);
+	foreach ($modules as $k => $v) {
+	    if ($k == $ID) {
+	        return $v;
+	    }
+	}
+
+    //return $modules[$ID] == 1 || (isset($USER['authlevel']) && $USER['authlevel'] > AUTH_USR);
 }
 
 function ClearCache()
