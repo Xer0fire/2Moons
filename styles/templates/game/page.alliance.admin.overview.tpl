@@ -65,14 +65,6 @@
 		<td><input type="text" name="image" value="{$ally_image}" size="70"></td>
 	</tr>
 	<tr>
-		<td>{$LNG.al_view_stats}</td>
-		<td>{html_options name=stats options=$YesNoSelector selected=$ally_stats_data}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.al_view_diplo}</td>
-		<td>{html_options name=diplo options=$YesNoSelector selected=$ally_diplo_data}</td>
-	</tr>
-	<tr>
 		<td>{$LNG.al_view_events}</td>
 		<td>
 			<select name="events[]" size="{$available_events|@count}" multiple>

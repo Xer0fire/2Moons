@@ -114,32 +114,26 @@ class ShowAlliancePage extends AbstractGamePage
 
 		require 'includes/classes/BBCode.class.php';
 
-		if ($this->allianceData['ally_diplo'] == 1)
-		{
-			$diplomaticmaticData	= $this->getDiplomatic();
-		}
+		$diplomaticmaticData	= $this->getDiplomatic();
 
-		if ($this->allianceData['ally_stats'] == 1)
-		{
-			$sql	= 'SELECT SUM(wons) as wons, SUM(loos) as loos, SUM(draws) as draws, SUM(kbmetal) as kbmetal,
-            SUM(kbcrystal) as kbcrystal, SUM(lostunits) as lostunits, SUM(desunits) as desunits
-            FROM %%USERS%% WHERE ally_id = :allyID;';
+		$sql	= 'SELECT SUM(wons) as wons, SUM(loos) as loos, SUM(draws) as draws, SUM(kbmetal) as kbmetal,
+        SUM(kbcrystal) as kbcrystal, SUM(lostunits) as lostunits, SUM(desunits) as desunits
+        FROM %%USERS%% WHERE ally_id = :allyID;';
 
-			$statisticResult = Database::get()->selectSingle($sql, array(
-				':allyID'	=> $this->allianceData['id']
-			));
+		$statisticResult = Database::get()->selectSingle($sql, array(
+			':allyID'	=> $this->allianceData['id']
+		));
 
-			$statisticData	= array(
-				'totalfight'	=> $statisticResult['wons'] + $statisticResult['loos'] + $statisticResult['draws'],
-				'fightwon'		=> $statisticResult['wons'],
-				'fightlose'		=> $statisticResult['loos'],
-				'fightdraw'		=> $statisticResult['draws'],
-				'unitsshot'		=> pretty_number($statisticResult['desunits']),
-				'unitslose'		=> pretty_number($statisticResult['lostunits']),
-				'dermetal'		=> pretty_number($statisticResult['kbmetal']),
-				'dercrystal'	=> pretty_number($statisticResult['kbcrystal']),
-			);
-		}
+		$statisticData	= array(
+			'totalfight'	=> $statisticResult['wons'] + $statisticResult['loos'] + $statisticResult['draws'],
+			'fightwon'		=> $statisticResult['wons'],
+			'fightlose'		=> $statisticResult['loos'],
+			'fightdraw'		=> $statisticResult['draws'],
+			'unitsshot'		=> pretty_number($statisticResult['desunits']),
+			'unitslose'		=> pretty_number($statisticResult['lostunits']),
+			'dermetal'		=> pretty_number($statisticResult['kbmetal']),
+			'dercrystal'	=> pretty_number($statisticResult['kbcrystal']),
+		);
 
 		$sql	= 'SELECT total_points
 		FROM %%STATPOINTS%%
@@ -161,8 +155,6 @@ class ShowAlliancePage extends AbstractGamePage
 			'ally_max_members' 				=> $this->allianceData['ally_max_members'],
 			'ally_name' 					=> $this->allianceData['ally_name'],
 			'ally_tag' 						=> $this->allianceData['ally_tag'],
-			'ally_stats' 					=> $this->allianceData['ally_stats'],
-			'ally_diplo' 					=> $this->allianceData['ally_diplo'],
 			'ally_request'              	=> !$this->hasAlliance && !$this->hasApply && $this->allianceData['ally_request_notallow'] == 0 && $this->allianceData['ally_max_members'] > $this->allianceData['ally_members'],
 			'ally_request_min_points'		=> $userPoints >= $this->allianceData['ally_request_min_points'],
 			'ally_request_min_points_info'  => sprintf($LNG['al_requests_min_points'], pretty_number($this->allianceData['ally_request_min_points']))
@@ -751,8 +743,6 @@ class ShowAlliancePage extends AbstractGamePage
 			$this->allianceData['ally_request_notallow'] 	= HTTP::_GP('request_notallow', 0);
 			$this->allianceData['ally_max_members'] 		= max(HTTP::_GP('ally_max_members', ''), $this->allianceData['ally_members']);
 			$this->allianceData['ally_request_min_points']  = HTTP::_GP('request_min_points', 0);
-			$this->allianceData['ally_stats'] 				= HTTP::_GP('stats', 0);
-			$this->allianceData['ally_diplo'] 				= HTTP::_GP('diplo', 0);
 			$this->allianceData['ally_events'] 				= implode(',', HTTP::_GP('events', array(0)));
 
 			$new_ally_tag 	= HTTP::_GP('ally_tag', $this->allianceData['ally_tag'], UTF8_SUPPORT);
@@ -832,8 +822,6 @@ class ShowAlliancePage extends AbstractGamePage
 			ally_request_notallow = :AllianceRequestNotAllow,
 			ally_max_members = :AllianceMaxMember,
 			ally_request_min_points = :AllianceRequestMinPoints,
-			ally_stats = :AllianceStats,
-			ally_diplo = :AllianceDiplo,
 			ally_events = :AllianceEvents
 			WHERE id = :AllianceID;";
 
@@ -846,8 +834,6 @@ class ShowAlliancePage extends AbstractGamePage
 				':AllianceRequestNotAllow'	=> $this->allianceData['ally_request_notallow'],
 		    	':AllianceMaxMember'        => $this->allianceData['ally_max_members'],
 				':AllianceRequestMinPoints'	=> $this->allianceData['ally_request_min_points'],
-				':AllianceStats'			=> $this->allianceData['ally_stats'],
-				':AllianceDiplo'			=> $this->allianceData['ally_diplo'],
 				':AllianceEvents'			=> $this->allianceData['ally_events'],
 				':AllianceID'				=> $this->allianceData['id'],
 				':text'						=> $text
@@ -890,8 +876,6 @@ class ShowAlliancePage extends AbstractGamePage
 			'ally_max_members' 			=> $this->allianceData['ally_max_members'],
 			'ally_request_min_points'   => $this->allianceData['ally_request_min_points'],
 			'ally_owner_range'			=> $this->allianceData['ally_owner_range'],
-			'ally_stats_data'			=> $this->allianceData['ally_stats'],
-			'ally_diplo_data'			=> $this->allianceData['ally_diplo'],
 			'ally_events'				=> explode(',', $this->allianceData['ally_events']),
 			'available_events'			=> $available_events,
 		));

@@ -46,8 +46,6 @@ CREATE TABLE `%PREFIX%alliance` (
   `ally_request_min_points` bigint(20) unsigned NOT NULL DEFAULT '0',
   `ally_owner_range` varchar(32) DEFAULT '',
   `ally_members` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  `ally_stats` tinyint(1) unsigned NOT NULL DEFAULT '1',
-  `ally_diplo` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `ally_universe` tinyint(3) unsigned NOT NULL,
   `ally_max_members` int(5) unsigned NOT NULL DEFAULT 20,
   `ally_events` varchar(55) NOT NULL DEFAULT '',
