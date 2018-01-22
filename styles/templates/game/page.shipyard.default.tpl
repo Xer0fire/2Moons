@@ -60,23 +60,11 @@
 		<td colspan="2" style="margin-bottom:10px;">  
 			<table style="width:100%">
 				<tr>
-					<td class="transparent left">
-						{$LNG.bd_remaining}<br>
-						{foreach $Element.costOverflow as $ResType => $ResCount}
-						{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>
-						{/foreach}
-						<br>
-					</td>
-					<td class="transparent right">
-						{$LNG.fgf_time}
-					</td>
-				</tr>
-				<tr>		
 					<td class="transparent left" style="width:68%">
-						{$LNG.bd_max_ships_long}:<br><span style="font-weight:700">{$Element.maxBuildable|number}</span>
+						{$LNG.bd_max_ships_long}: <span style="font-weight:700">{$Element.maxBuildable|number}</span>
 					</td>
 					<td class="transparent right" style="white-space:nowrap;">
-						{$Element.elementTime|time}
+						{$LNG.fgf_time} {$Element.elementTime|time}
 					</td>
 				</tr>	
 			</table>
