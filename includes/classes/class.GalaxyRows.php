@@ -229,10 +229,9 @@ class GalaxyRows
 			{
 				case 1:
 				case 2:
-					$Class	= array('member');
-				break;
+				case 3:
 				case 4:
-					$Class	= array('friend');
+					$Class	= array('pact');
 				break;
 				case 5:
 					$Class	= array('enemy');
