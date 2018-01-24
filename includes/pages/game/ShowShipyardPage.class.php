@@ -82,14 +82,13 @@ class ShowShipyardPage extends AbstractGamePage
 
 		foreach($fmenge as $Element => $Count)
 		{
-
-		    if($PLANET['planet_type'] == 1 && !in_array($Element, $reslist['pfleet'])) {
+		    if($PLANET['planet_type'] == 1 && !in_array($Element, array_merge($reslist['pfleet'], $reslist['pdef'], $reslist['missile']))) {
                 $this->printMessage($LNG['sys_buildlist_fail'], array(array(
                     'label'	=> $LNG['sys_back'],
                     'url'	=> 'game.php?page=shipyard&mode=fleet'
                 )));
 		    }
-		    if($PLANET['planet_type'] == 3 && !in_array($Element, $reslist['mfleet'])) {
+		    if($PLANET['planet_type'] == 3 && !in_array($Element, array_merge($reslist['mfleet'], $reslist['mdef']))) {
                 $this->printMessage($LNG['sys_buildlist_fail'], array(array(
                     'label'	=> $LNG['sys_back'],
                     'url'	=> 'game.php?page=shipyard&mode=fleet'
@@ -228,7 +227,12 @@ class ShowShipyardPage extends AbstractGamePage
 		$mode		= HTTP::_GP('mode', 'fleet');
 		
 		if($mode == 'defense') {
-			$elementIDs	= array_merge($reslist['defense'], $reslist['missile']);
+		    if ($PLANET['planet_type'] == 1) {
+		        $elementIDs	= array_merge($reslist['pdef'], $reslist['missile']);
+		    }
+		    if ($PLANET['planet_type'] == 3) {
+		        $elementIDs	= $reslist['mdef'];
+		    }
 		} else {
 		    if ($PLANET['planet_type'] == 1) {
 			    $elementIDs	= $reslist['pfleet'];

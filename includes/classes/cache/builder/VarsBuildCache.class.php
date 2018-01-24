@@ -135,6 +135,15 @@ class VarsBuildCache implements BuildCache
 				break;
 				case 400: 
 					$reslist['defense'][]	= $varsRow['elementID'];
+					$tmp	= explode(',', $varsRow['onPlanetType']);
+					foreach($tmp as $type) {
+					    if ($type == 1) {
+					        $reslist['pdef'][] = $varsRow['elementID'];
+					    }
+					    if ($type == 3) {
+					        $reslist['mdef'][] = $varsRow['elementID'];
+					    }
+					}
 				break;
 				case 500: 
 					$reslist['missile'][]	= $varsRow['elementID'];
