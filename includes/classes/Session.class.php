@@ -53,7 +53,7 @@ class Session
 		
 		session_set_cookie_params(SESSION_LIFETIME, $HTTP_ROOT, NULL, HTTPS, true);
 		session_cache_limiter('nocache');
-		session_name('2Moons');
+		session_name('omicron');
 
 		return true;
 	}
