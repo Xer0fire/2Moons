@@ -63,7 +63,7 @@ require 'includes/classes/class.theme.php';
 require 'includes/classes/class.template.php';
 
 // Say Browsers to Allow ThirdParty Cookies (Thanks to morktadela)
-HTTP::sendHeader('P3P', 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
+//HTTP::sendHeader('P3P', 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 define('AJAX_REQUEST', HTTP::_GP('ajax', 0));
 
 $THEME		= new Theme();
