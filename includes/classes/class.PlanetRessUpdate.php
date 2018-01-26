@@ -302,9 +302,9 @@ class ResourceUpdate
 			}
 		}
 
-		$this->PLANET['metal_max']			= $temp[901]['max'] * $this->config->resource_multiplier * STORAGE_FACTOR;
-		$this->PLANET['crystal_max']		= $temp[902]['max'] * $this->config->resource_multiplier * STORAGE_FACTOR;
-		$this->PLANET['deuterium_max']		= $temp[903]['max'] * $this->config->resource_multiplier * STORAGE_FACTOR;
+		$this->PLANET['metal_max']			= $temp[901]['max'] * $this->config->resource_multiplier * $this->config->storage_multiplier;
+		$this->PLANET['crystal_max']		= $temp[902]['max'] * $this->config->resource_multiplier * $this->config->storage_multiplier;
+		$this->PLANET['deuterium_max']		= $temp[903]['max'] * $this->config->resource_multiplier * $this->config->storage_multiplier;
 
 		$reflector = $this->getReflector($this->USER, $this->PLANET);
 		$reflectorEnergy = (!empty($reflector) ? $reflector[0]['energy'] : 0);
