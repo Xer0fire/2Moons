@@ -1,6 +1,10 @@
 includes/config.php
 includes/error.log
 cache/*
+.buildpath
+.project
+.settings/*
+includes/backups/*
 
 !cache/.htaccess
 
