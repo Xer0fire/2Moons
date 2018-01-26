@@ -36,7 +36,7 @@ class SQLDumper
 		
 	private function canNative($command)
 	{
-		return function_exists('shell_exec') && function_exists('escapeshellarg') && shell_exec($command) !== NULL;
+		return function_exists('shell_exec') && function_exists('escapeshellarg') && shell_exec("which " . $command) !== "";
 	}
 	
 	private function nativeDumpToFile($dbTables, $filePath)
@@ -53,7 +53,7 @@ class SQLDumper
         }
 
 		$dbTables	= array_map('escapeshellarg', $dbTables);
-		$sqlDump	= shell_exec("mysqldump --host='".escapeshellarg($database['host'])."' --port=".((int) $database['port'])." --user='".escapeshellarg($database['user'])."' ".$passwordArgument." --no-create-db --order-by-primary --add-drop-table --comments --complete-insert --hex-blob '".escapeshellarg($database['databasename'])."' ".implode(' ', $dbTables)." 2>&1 1> ".$filePath);
+		$sqlDump	= shell_exec("mysqldump --host=".escapeshellarg($database['host'])." --port=".((int) $database['port'])." --user=".escapeshellarg($database['user'])." ".$passwordArgument." --no-create-db --order-by-primary --add-drop-table --comments --complete-insert --hex-blob ".escapeshellarg($database['databasename'])." ".implode(' ', $dbTables)." 2>&1 1> ".$filePath);
 		if(strlen($sqlDump) !== 0) #mysqldump error
 		{
 			throw new Exception($sqlDump);
@@ -117,7 +117,7 @@ class SQLDumper
 			$sql = "SELECT COUNT(*) as state FROM ".$dbTable.";";
 
 			$count	= $db->nativeQuery($sql);
-			if($count[1]['state'] == 0)
+			if($count[0]['state'] == 0)
 			{
 				fwrite($fp, "\n\n--\n-- No data for table `{$dbTable}`\n--\n\n");
 				continue;
@@ -181,7 +181,7 @@ LOCK TABLES `{$dbTable}` WRITE;
 					}
 					else
 					{
-						$rowData[]	= $value === NULL ? 'NULL' : "'".$db->quote($value)."'";
+						$rowData[]	= $value === NULL ? 'NULL' : $db->quote($value);
 					}
 				}
 				fwrite($fp, "(".implode(", ",$rowData).")");

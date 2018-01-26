@@ -285,6 +285,7 @@ $LNG['ml_date'] = 'Datum';
 $LNG['ml_type'] = 'Nachrichtentyp';
 $LNG['ml_subject'] = 'Betreff';
 $LNG['ml_date_range'] = 'Zeitraum';
+$LNG['ml_deleted'] = 'Nachricht gelöscht';
 
 
 $LNG['ml_page'] = 'Seite';
@@ -342,6 +343,7 @@ $LNG['se_normal_speed_fleet'] = 'Normaler Flottenspeed: 1 <br> Maximal empfohlen
 $LNG['se_normal_speed_halt'] = 'Normaler Expospeed: 1 <br> Maximal empfohlene Einstellungen: 20';
 $LNG['se_fleet_speed'] = 'Flottenspeed';
 $LNG['se_resources_producion_speed'] = 'Rohstoffspeed';
+$LNG['se_storage_producion_speed'] = 'Speicher Factor';
 $LNG['se_halt_speed'] = 'Expedition-Factor';
 $LNG['se_energy_speed'] = 'Energie-Factor';
 $LNG['se_forum_link'] = 'Forum link';
@@ -426,6 +428,11 @@ $LNG['se_google_info'] = 'Google Analytics ist die Unternehmenslösung für Weba
 $LNG['se_google_active'] = 'Aktivieren?';
 $LNG['se_google_key'] = 'Analytics Key';
 $LNG['se_google_key_info'] = 'Der Identify-Key für ihre Webseite. Diese beginnt immer mit UA, z.B.: UA-13185300-3';
+$LNG['se_messages'] = 'Nachrichten';
+$LNG['se_message_delete_behavior'] = 'Nachrichten Löschverhalten';
+$LNG['se_message_delete_behavior_0'] = 'Nachrichten direkt löschen';
+$LNG['se_message_delete_behavior_1'] = 'Nachrichten nach einer Zeit löschen.';
+$LNG['se_message_delete_days'] = 'Lösche gelöschte Nachrichten nach x Tagen.';
 $LNG['se_ttf_file'] = 'Pfad zur TFF File';
 $LNG['se_ttf_file_info'] = 'Die TTF wird benötigt, um im Statistiken Banner kyrillische, oder chinesische Zeichen darstellen zu können';
 $LNG['se_max_galaxy'] = 'Max. Galaxie';

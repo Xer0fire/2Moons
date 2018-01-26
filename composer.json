@@ -2,9 +2,6 @@
     "name": "2moons/2moons",
     "description": "Online browser game.",
     "type": "project",
-    "require-dev": {
-        "raveren/kint": "^1.0"
-    },
     "license": "MIT",
     "authors": [
         {
@@ -13,5 +10,6 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {},
+    "require-dev": {}
 }

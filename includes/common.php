@@ -25,19 +25,6 @@ if (file_exists($composerAutoloader)) {
     require $composerAutoloader;
 }
 
-// Magic Quotes work around.
-// http://www.php.net/manual/de/security.magicquotes.disabling.php#91585
-if (function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc() == 1) {
-    function stripslashes_gpc(&$value)
-    {
-        $value = stripslashes($value);
-    }
-    array_walk_recursive($_GET, 'stripslashes_gpc');
-    array_walk_recursive($_POST, 'stripslashes_gpc');
-    array_walk_recursive($_COOKIE, 'stripslashes_gpc');
-    array_walk_recursive($_REQUEST, 'stripslashes_gpc');
-}
-
 if (function_exists('mb_internal_encoding')) {
 	mb_internal_encoding("UTF-8");
 }
@@ -52,7 +39,7 @@ ini_set('display_errors', 1);
 header('Content-Type: text/html; charset=UTF-8');
 define('TIMESTAMP',	time());
 	
-require 'includes/constants.php' ;
+require 'includes/constants.php';
 
 ini_set('log_errors', 'On');
 ini_set('error_log', 'includes/error.log');
@@ -86,7 +73,7 @@ if (MODE === 'INSTALL')
 	return;
 }
 
-if(!file_exists('includes/config.php')) {
+if(!file_exists('includes/config.php') || filesize('includes/config.php') === 0) {
 	HTTP::redirectTo('install/index.php');
 }
 

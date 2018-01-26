@@ -342,10 +342,10 @@ class FleetFunctions
 			}
 		}
 		
-		if($fleetResult['fleet_mission'] == 5){
-		$fleetEndTime	= ($fleetResult['fleet_start_time'] - $fleetResult['start_time']) + TIMESTAMP;
-		}else{
-		$fleetEndTime	= (TIMESTAMP - $fleetResult['start_time']) + TIMESTAMP;
+		if($fleetResult['fleet_mission'] == 5 && $fleetResult['fleet_mess'] == FLEET_HOLD) {
+			$fleetEndTime	= ($fleetResult['fleet_start_time'] - $fleetResult['start_time']) + TIMESTAMP;
+		} else {
+			$fleetEndTime	= (TIMESTAMP - $fleetResult['start_time']) + TIMESTAMP;
 		}
 		
 		$sql	= 'UPDATE %%FLEETS%%, %%FLEETS_EVENT%% SET
@@ -461,10 +461,10 @@ class FleetFunctions
 
 		$sql	= 'SELECT COUNT(*) as state
 		FROM %%LOG_FLEETS%%
-		WHERE fleet_owner = :fleetOwner,
-		AND fleet_end_id = :fleetEndId,
-		AND fleet_state != :fleetState,
-		AND fleet_start_time > :fleetStartTime,
+		WHERE fleet_owner = :fleetOwner
+		AND fleet_end_id = :fleetEndId
+		AND fleet_state != :fleetState
+		AND fleet_start_time > :fleetStartTime
 		AND fleet_mission IN (1,2,9);';
 
 		$Count	= Database::get()->selectSingle($sql, array(
@@ -474,7 +474,7 @@ class FleetFunctions
 			':fleetStartTime'	=> (TIMESTAMP - BASH_TIME),
 		));
 
-		return $Count >= BASH_COUNT;
+		return $Count['state'] >= BASH_COUNT;
 	}
 	
 	public static function sendFleet($fleetArray, $fleetMission, $fleetStartOwner, $fleetStartPlanetID,
@@ -491,7 +491,7 @@ class FleetFunctions
 
 		$params			= array(':planetId'	=> $fleetStartPlanetID);
 
-		$planetQuery	= "";
+		$planetQuery	= array();
 		foreach($fleetArray as $ShipID => $ShipCount) {
 			$fleetData[]	= $ShipID.','.floatToString($ShipCount);
 			$planetQuery[]	= $resource[$ShipID]." = ".$resource[$ShipID]." - :".$resource[$ShipID];

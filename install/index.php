@@ -29,6 +29,7 @@ $LNG->includeData(array('L18N', 'INGAME', 'INSTALL', 'CUSTOM'));
 $mode = HTTP::_GP('mode', '');
 
 $template = new template();
+$template->setCaching(false);
 $template->assign(array(
 	'lang'       => $LNG->getLanguage(),
 	'Selector'   => $LNG->getAllowedLangs(false),
@@ -101,13 +102,11 @@ switch ($mode) {
 		break;
 	case 'upgrade':
 		// Willkommen zum Update page. Anzeige, von und zu geupdatet wird. Informationen, dass ein backup erstellt wird.
-        require 'includes/config.php';
-        require 'includes/dbtables.php';
 
         try {
-            $sql	= "SELECT dbVersion FROM %%SYSTEM%%;";
+            $sql    = "SELECT dbVersion FROM %%SYSTEM%%;";
 
-            $dbVersion	= $db->selectSingle($sql, array(), 'dbVersion');
+            $dbVersion  = Database::get()->selectSingle($sql, array(), 'dbVersion');
         } catch (Exception $e) {
             $dbVersion  = 0;
         }
@@ -172,7 +171,7 @@ switch ($mode) {
         try {
             $sql	= "SELECT dbVersion FROM %%SYSTEM%%;";
 
-            $dbVersion	= $db->selectSingle($sql, array(), 'dbVersion');
+            $dbVersion	= Database::get()->selectSingle($sql, array(), 'dbVersion');
         } catch (Exception $e) {
             $dbVersion  = 0;
         }
@@ -270,7 +269,8 @@ switch ($mode) {
 					}
 					else {
 						$template->assign(array(
-							'accept' => false,));
+							'accept' => false
+                        ));
 					}
 				}
 				$template->show('ins_license.tpl');
@@ -285,7 +285,8 @@ switch ($mode) {
 					$PHP   = "<span class=\"no\">" . $LNG['reg_no'] . ", v" . PHP_VERSION . "</span>";
 					$error = true;
 				}
-				if (class_exists('PDO')) {
+
+				if (class_exists('PDO') && in_array('mysql', PDO::getAvailableDrivers())) {
 					$pdo = "<span class=\"yes\">" . $LNG['reg_yes'] . "</span>";
 				}
 				else {
@@ -384,6 +385,12 @@ switch ($mode) {
 				$template->show('ins_req.tpl');
 				break;
 			case 3:
+                $template->assign(array(
+                    'host'     => getenv('DB_HOST'),
+                    'user'     => getenv('DB_USER'),
+                    'password' => getenv('DB_PASSWORD'),
+                    'dbname'   => getenv('DB_NAME'),
+                ));
 				$template->show('ins_form.tpl');
 				break;
 			case 4:
@@ -496,12 +503,13 @@ switch ($mode) {
 					$db->query(str_replace(array(
 						'%PREFIX%',
 						'%VERSION%',
-						'%REVISION%'
+						'%REVISION%',
+                        '%DB_VERSION%'
 					), array(
 						DB_PREFIX,
 						$installVersion,
 						$installRevision,
-						$installSQL
+                        DB_VERSION_REQUIRED
 					), $installSQL));
 
 					$config = Config::get(Universe::current());
@@ -536,6 +544,11 @@ switch ($mode) {
 				}
 				break;
 			case 7:
+                $template->assign(array(
+                    'name'     => getenv('ADMIN_NAME'),
+                    'password' => getenv('ADMIN_PASSWORD'),
+                    'mail'     => getenv('ADMIN_MAIL'),
+                ));
 				$template->show('ins_acc.tpl');
 				break;
 			case 8:
