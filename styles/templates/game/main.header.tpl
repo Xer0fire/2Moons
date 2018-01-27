@@ -27,6 +27,7 @@
   <link href="./styles/resources/css/jquery-ui.min.css" rel="stylesheet">
   
   <!-- inspect -->
+  <!-- extract relevant styles bin rest -->
   <link href="{$dpath}formate.css?v={$REV}" rel="stylesheet">
   
 	<script type="text/javascript">
