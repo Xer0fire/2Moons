@@ -1,6 +1,11 @@
-<div class="clear"></div>
-<div id="footer">
-	{if $ga_active}
+  </div>
+
+  <footer class="app-footer">
+    <span>{$uni_name}</span>
+    <span class="ml-auto">Modified version of <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
+  </footer>
+
+{if $ga_active}
 	<script type="text/javascript">
 	var _gaq = _gaq || [];
 	_gaq.push(['_setAccount', '{$ga_key}']);
@@ -17,7 +22,14 @@
 	<script type="text/javascript">
 	onerror = handleErr;
 	</script>
-	{/if}
-</div>
+{/if}
+
+  <!-- Main scripts for this application -->
+  <script src="./styles/resources/js/jquery.min.js"></script>
+  <script src="./styles/resources/js/bootstrap.min.js"></script>
+  <script src="./styles/resources/js/cookieconsent.min.js"></script>
+
+  <script src="./styles/resources/js/app.js"></script>
+
 </body>
 </html>

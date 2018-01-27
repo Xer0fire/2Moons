@@ -1,12 +1,11 @@
-<!DOCTYPE html>
+<html lang="{$lang}">
 
-<!--[if lt IE 7 ]> <html lang="{$lang}" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="{$lang}" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="{$lang}" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="{$lang}" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="{$lang}" class="no-js"> <!--<![endif]-->
 <head>
-	<title>{block name="title"} - {$uni_name} - {$game_name}{/block}</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="{$game_name}">
+  <link rel="shortcut icon" href="./styles/resource/img/favicon.png">
 	<meta name="generator" content="2Moons {$VERSION}">
 	<!-- 
 		This website is powered by 2Moons {$VERSION}
@@ -17,14 +16,17 @@
 	{if !empty($goto)}
 	<meta http-equiv="refresh" content="{$gotoinsec};URL={$goto}">
 	{/if}
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/boilerplate.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/ingame/main.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/jquery.fancybox.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="./styles/resource/css/base/validationEngine.jquery.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="{$dpath}formate.css?v={$REV}">
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+  <title>{block name="title"} - {$uni_name} - {$game_name}{/block}</title>
+
+  <!-- Main styles for this application -->
+  <link href="./styles/resources/css/style.min.css" rel="stylesheet">
+  <link href="./styles/resources/css/cookieconsent.min.css" rel="stylesheet">
+  <link href="./styles/resources/css/font-awesome.min.css" rel="stylesheet">
+  <link href="./styles/resources/css/custom.css" rel="stylesheet">
+  
+  <!-- inspect -->
+  <link href="{$dpath}formate.css?v={$REV}" rel="stylesheet">
+  
 	<script type="text/javascript">
 	var ServerTimezoneOffset = {$Offset};
 	var serverTime 	= new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
@@ -64,6 +66,7 @@
 		{$execscript}
 	});
 	</script>
+  
 </head>
-<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
-	<div id="tooltip" class="tip"></div>
+
+<body class="app header-fixed sidebar-fixed aside-menu-fixed">
