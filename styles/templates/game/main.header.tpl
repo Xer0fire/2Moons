@@ -24,6 +24,10 @@
   <link href="./styles/resources/css/font-awesome.min.css" rel="stylesheet">
   <link href="./styles/resources/css/custom.css" rel="stylesheet">
   
+  <link href="./styles/resources/css/jquery-ui.min.css" rel="stylesheet">
+  <link href="./styles/resources/css/jquery-ui.structure.min.css" rel="stylesheet">
+  <link href="./styles/resources/css/jquery-ui.theme.min.css" rel="stylesheet">
+  
   <!-- inspect -->
   <link href="{$dpath}formate.css?v={$REV}" rel="stylesheet">
   
@@ -49,13 +53,15 @@
 		serverTime.setSeconds(serverTime.getSeconds()+1);
 	}, 1000);
 	</script>
-	<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>
+	<script src="./styles/resources/js/jquery.min.js"></script>
+	<script src="./styles/resources/js/jquery-ui.min.js"></script>
+	<!--<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>-->
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>
+	<!--<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.validationEngine.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/tooltip.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/base/tooltip.js?v={$REV}"></script>-->
 	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
 	{foreach item=scriptname from=$scripts}
 	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>

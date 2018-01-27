@@ -3,8 +3,15 @@
   <footer class="app-footer">
     <span>{$uni_name}</span>
     <span class="ml-auto">Modified version of <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
+	{if $hasAdminAccess}
+		<div class="globalWarning">
+			{$LNG.admin_access_1} <a id="drop-admin">{$LNG.admin_access_link}</a>{$LNG.admin_access_2}
+		</div>
+	{/if}
   </footer>
 
+
+  
 {if $ga_active}
 	<script type="text/javascript">
 	var _gaq = _gaq || [];
@@ -24,8 +31,8 @@
 	</script>
 {/if}
 
-  <!-- Main scripts for this application -->
-  <script src="./styles/resources/js/jquery.min.js"></script>
+  <!-- Main scripts for this application 
+  <script src="./styles/resources/js/jquery.min.js"></script>-->
   <script src="./styles/resources/js/bootstrap.min.js"></script>
   <script src="./styles/resources/js/cookieconsent.min.js"></script>
 
