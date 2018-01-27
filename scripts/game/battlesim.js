@@ -32,7 +32,7 @@ $(function() {
 		tabTemplate: '<li><a href="#{href}">#{label}</a></li>',
 	});
 	
-	$('.reset').live('click', function(e) {
+	$('.reset').on('click', function(e) {
 		e.preventDefault();
 	
 		var index = $(this).parent().index();

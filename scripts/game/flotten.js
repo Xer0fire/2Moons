@@ -298,7 +298,7 @@ function SaveShortcuts(reedit) {
 }
 
 $(function() {
-	$('.shortcut-delete').live('click', function() {
+	$('.shortcut-delete').on('click', function() {
 		$(this).prev().val('');
 		$(this).parent().find('input');
 		SaveShortcuts(true);
