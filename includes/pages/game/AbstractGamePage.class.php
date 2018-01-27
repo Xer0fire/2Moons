@@ -163,7 +163,11 @@ abstract class AbstractGamePage
 			);
 		}
 
-		$pagename = htmlspecialchars(strip_tags($_GET["page"]));
+		if (!empty($_GET['page'])) {
+			$pagename = htmlspecialchars(strip_tags($_GET['page']));
+		} else {
+			$pagename = '';
+		}
 
 		$this->assign(array(
 			'PlanetSelect'		=> $PlanetSelect,
