@@ -1,8 +1,8 @@
   </div>
 
   <footer class="app-footer">
-    <span>{$uni_name}</span>
-    <span class="ml-auto">Modified version of <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
+    <span>{$game_name} {$uni_name}</span>
+    <span class="ml-auto">A modified version of <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
 	{if $hasAdminAccess}
 		<div class="globalWarning">
 			{$LNG.admin_access_1} <a id="drop-admin">{$LNG.admin_access_link}</a>{$LNG.admin_access_2}
