@@ -139,6 +139,32 @@ abstract class AbstractGamePage
 
 		$themeSettings	= $THEME->getStyleSettings();
 
+		foreach($USER['PLANETS'] as $ID => $CPLANET)
+		{
+			if ($CPLANET['planet_type'] == 3)
+				continue;
+
+			if (!empty($CPLANET['b_building']) && $CPLANET['b_building'] > TIMESTAMP) {
+				$Queue				= unserialize($CPLANET['b_building_id']);
+				$BuildPlanet		= $LNG['tech'][$Queue[0][0]]." (".$Queue[0][1].")";
+			} else {
+				$BuildPlanet = '';
+			}
+
+			$AllPlanets[] = array(
+				'id'		=> $CPLANET['id'],
+				'id_luna'	=> $CPLANET['id_luna'],
+				'name'		=> $CPLANET['name'],
+				'galaxy'	=> $CPLANET['galaxy'],
+				'system'	=> $CPLANET['system'],
+				'planet'	=> $CPLANET['planet'],
+				'image'		=> $CPLANET['image'],
+				'build'		=> $BuildPlanet,
+			);
+		}
+
+		$pagename = htmlspecialchars(strip_tags($_GET["page"]));
+
 		$this->assign(array(
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
@@ -152,7 +178,10 @@ abstract class AbstractGamePage
 			'closed'			=> !$config->game_disable,
 			'hasBoard'			=> filter_var($config->forum_url, FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED),
 			'hasAdminAccess'	=> !empty(Session::load()->adminAccess),
-			'hasGate'			=> $PLANET[$resource[43]] > 0
+			'hasGate'			=> $PLANET[$resource[43]] > 0,
+			'username'			=> $USER['username'],
+			'pagename'			=> $pagename,
+			'AllPlanets'		=> $AllPlanets
 		));
 	}
 
