@@ -69,6 +69,9 @@
 .res_max {
 	color: #4dbd74;
 }
+.app-footer {
+	font-size: .75rem;
+}
 @media (max-width: 375.98px) {
 	.app-header.navbar .nav-item {
 		min-width: 34px;
