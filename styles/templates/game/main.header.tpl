@@ -25,8 +25,6 @@
   <link href="./styles/resources/css/custom.css" rel="stylesheet">
   
   <link href="./styles/resources/css/jquery-ui.min.css" rel="stylesheet">
-  <link href="./styles/resources/css/jquery-ui.structure.min.css" rel="stylesheet">
-  <link href="./styles/resources/css/jquery-ui.theme.min.css" rel="stylesheet">
   
   <!-- inspect -->
   <link href="{$dpath}formate.css?v={$REV}" rel="stylesheet">
