@@ -41,7 +41,7 @@
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
-            <strong>[[ACCOUNT NAME]]</strong>
+            <strong>{$username}</strong>
           </div>
 		  {if isModuleAvailable($smarty.const.MODULE_NOTICE)}
           <a class="dropdown-item" href="game.php?page=notes"><i class="fa fa-address-book"></i> {$LNG.lm_notes}</a>
@@ -49,6 +49,7 @@
           <a class="dropdown-item" href="index.php?page=rules"><i class="fa fa-key"></i> {$LNG.lm_rules}</a>
           <a class="dropdown-item" href="game.php?page=settings"><i class="fa fa-server"></i> {$LNG.lm_options}</a>
           <a class="dropdown-item" href="game.php?page=logout"><i class="fa fa-sign-out"></i> Logout</a>
+          <a class="dropdown-item" href="game.php?page=changelog"><i class="fa fa-repeat"></i> {$LNG.lm_changelog}</a>
 		  {if $authlevel > 0}
           <a class="dropdown-item" href="./admin.php"><i class="fa fa-star"></i> {$LNG.lm_administration} ({$VERSION})</a>
 		  {/if}

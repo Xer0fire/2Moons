@@ -2,9 +2,6 @@
       <nav class="sidebar-nav">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="game.php?page=changelog" target="_top"><i class="fa fa-tachometer"></i> {$LNG.lm_changelog}</a>
-          </li>
-          <li class="nav-item">
             <a class="nav-link" href="game.php?page=overview" target="_top"><i class="fa fa-tachometer"></i> {$LNG.lm_overview}</a>
           </li>
           <li class="nav-item nav-dropdown">
