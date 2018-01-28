@@ -19,7 +19,7 @@
 			  {/if}
 			  {if isModuleAvailable($smarty.const.MODULE_BUILDING)}
               <li class="nav-item">
-                <a class="nav-link" href="game.php?page=buildings" target="_top"><i class="fa fa-building"></i> {$LNG.lm_buildings}</a>
+                <a class="nav-link" href="game.php?page=buildings" target="_top"><i class="fa fa-university"></i> {$LNG.lm_buildings}</a>
               </li>
 			  {/if}
 			  {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}
