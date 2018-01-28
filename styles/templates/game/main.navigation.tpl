@@ -65,7 +65,7 @@
 			  {/if}
 			  {if isModuleAvailable($smarty.const.MODULE_STATISTICS)}
               <li class="nav-item">
-                <a class="nav-link" href="game.php?page=statistics" target="_top"><i class="fa fa-line-chart"></i> {$LNG.lm_statistics} <span class="badge badge-pill badge-info align-self-center">1</span></a>
+                <a class="nav-link" href="game.php?page=statistics" target="_top"><i class="fa fa-line-chart"></i> {$LNG.lm_statistics} {nocache}<span class="badge badge-pill badge-info align-self-center">{$statRank}</span>{/nocache}</a>
               </li>
 			  {/if}
 			  {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}

@@ -169,6 +169,15 @@ abstract class AbstractGamePage
 			$pagename = '';
 		}
 
+		$sql	= 'SELECT total_rank
+		FROM %%STATPOINTS%%
+		WHERE id_owner = :userId AND stat_type = :statType';
+
+		$statData	= Database::get()->selectSingle($sql, array(
+			':userId'	=> $USER['id'],
+			':statType'	=> 1
+		));
+
 		$this->assign(array(
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
@@ -185,7 +194,8 @@ abstract class AbstractGamePage
 			'hasGate'			=> $PLANET[$resource[43]] > 0,
 			'username'			=> $USER['username'],
 			'pagename'			=> $pagename,
-			'AllPlanets'		=> $AllPlanets
+			'AllPlanets'		=> $AllPlanets,
+			'statRank'			=> $statData['total_rank']
 		));
 	}
 
