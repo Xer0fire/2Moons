@@ -176,11 +176,12 @@ $(document).ready(function($){
 */
 
 $('.card-actions').on('click', 'a, button', function(e){
-  e.preventDefault();
 
   if ($(this).hasClass('btn-close')) {
+    e.preventDefault();
     $(this).parent().parent().parent().fadeOut();
   } else if ($(this).hasClass('btn-minimize')) {
+    e.preventDefault();
     // var $target = $(this).parent().parent().next('.card-body').collapse({toggle: true});
     if ($(this).hasClass('collapsed')) {
       $('i',$(this)).removeClass($.panelIconOpened).addClass($.panelIconClosed);
@@ -188,6 +189,7 @@ $('.card-actions').on('click', 'a, button', function(e){
       $('i',$(this)).removeClass($.panelIconClosed).addClass($.panelIconOpened);
     }
   } else if ($(this).hasClass('btn-setting')) {
+    e.preventDefault();
     $('#myModal').modal('show');
   }
 
