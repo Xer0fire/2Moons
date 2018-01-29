@@ -52,10 +52,10 @@
 		serverTime.setSeconds(serverTime.getSeconds()+1);
 	}, 1000);
 	</script>
+	<!--slim jquery requires no jquery ui try to elimiate -->
 	<script src="./styles/resources/js/jquery.min.js"></script>
 	<script src="./styles/resources/js/jquery-ui.min.js"></script>
-	<!--<script type="text/javascript" src="./scripts/base/jquery.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.ui.js?v={$REV}"></script>-->
+	<script src="./styles/resources/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
 	<!--<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.validationEngine.js?v={$REV}"></script>
