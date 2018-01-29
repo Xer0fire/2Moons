@@ -7,10 +7,10 @@
 <div class="card-header">
 Queue
 <div class="card-actions">
-<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#buildingsqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 </div>
 </div>
-<div class="card-body collapse show" id="events">
+<div class="card-body collapse show" id="buildingsqueue">
 <div id="buildlist" class="buildlist">
 	{foreach $Queue as $List}
 		{$ID = $List.element}
@@ -23,7 +23,7 @@ Queue
 						<button type="submit" class="build_submit onlist">{$List@iteration}. {$LNG.tech.{$ID}} {$List.level}{if $List.destroy} {$LNG.bd_dismantle}{/if}</button>
 					</form>
 				{else}
-					{$LNG.tech.{$ID}} {$List.level} {if $List.destroy}{$LNG.bd_dismantle}{/if}
+					{$List@iteration}. {$LNG.tech.{$ID}} {$List.level} {if $List.destroy}{$LNG.bd_dismantle}{/if}
 				{/if}
 				{if $List@first}
 				<div id="progressbar" data-time="{$List.resttime}"></div>
