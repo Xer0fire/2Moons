@@ -31,19 +31,25 @@ $(document).ready(function($){
 
   //check if BLOCKED_BY_CLIENT
   if (typeof(cookieconsent) != "undefined") {
-      window.cookieconsent.initialise({
-        "palette": {
-        "popup": {
-        "background": "#000"
-       },
-        "button": {
-        "background": "transparent",
-        "text": "#f1d600",
-        "border": "#f1d600"
-        }
-        },
-      "position": "bottom-right"
-    });
+	window.cookieconsent.initialise({
+		"palette": {
+			"popup": {
+				"background": "#000"
+			},
+			"button": {
+				"background": "transparent",
+				"text": "#f1d600",
+				"border": "#f1d600"
+			}
+		},
+		"content": {
+			"message": "This website uses cookies, by using this website you consent to all cookies.",
+			"dismiss": "Got it!",
+			"link": "Learn more",
+			"href": "https://cookiesandyou.com"
+		},
+		"position": "bottom-right"
+	});
   }
 
   // Add class .active to current link
