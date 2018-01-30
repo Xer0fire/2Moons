@@ -196,6 +196,11 @@ class ShowBuildingsPage extends AbstractGamePage
 			if($pricelist[$Element]['max'] < $BuildLevel)
 				return;
 				
+			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $BuildLevel);
+
+			if(!BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources))
+			    return;
+
 			$elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, NULL, !$AddMode, $BuildLevel);
 			$BuildEndTime				= $CurrentQueue[$ActualCount - 1][3] + $elementTime;
 			$CurrentQueue[]				= array($Element, $BuildLevel, $elementTime, $BuildEndTime, $BuildMode);
@@ -324,7 +329,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			$destroyResources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, true);
 			$destroyTime		= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $destroyResources);
 			$destroyOverflow	= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $destroyResources);
-			$buyable			= $QueueCount != 0 || BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
+			$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
 
 			$BuildInfoList[$Element]	= array(
 				'level'				=> $PLANET[$resource[$Element]],
@@ -339,6 +344,10 @@ class ShowBuildingsPage extends AbstractGamePage
 				'buyable'			=> $buyable,
 				'levelToBuild'		=> $levelToBuild,
 			);
+			foreach($costResources as $k => $v) {
+				$ResourceCost[$Element][$k]['cost'] = $v;
+				$ResourceCost[$Element][$k]['overflow'] = $costOverflow[$k];
+			}
 		}
 
 		
@@ -348,6 +357,7 @@ class ShowBuildingsPage extends AbstractGamePage
 		
 		$this->assign(array(
 			'BuildInfoList'		=> $BuildInfoList,
+			'ResourceCost'		=> $ResourceCost,
 			'CanBuildElement'	=> $CanBuildElement,
 			'RoomIsOk'			=> $RoomIsOk,
 			'Queue'				=> $Queue,

@@ -55,6 +55,7 @@
 	<!--slim jquery requires no jquery ui try to elimiate -->
 	<script src="./styles/resources/js/jquery.min.js"></script>
 	<script src="./styles/resources/js/jquery-ui.min.js"></script>
+	<script src="./styles/resources/js/popper.min.js"></script>
 	<script src="./styles/resources/js/ie10-viewport-bug-workaround.js"></script>
 	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
 	<!--<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>

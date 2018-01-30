@@ -58,62 +58,101 @@ Queue
 </div>
 </div>
 {/if}
-{foreach $BuildInfoList as $ID => $Element}
+
+
 <div class="row">
 	<div class="col-md-12">
-		<a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a>{if $Element.level > 0} ({$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}){/if}
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-10">
-		<div class="media">
-			<a href="#">
-				<img class="mr-2" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" width="120" height="120">
-			</a>
-			<div class="media-body align-self-center">
-				<span class="d-none d-md-block">{$LNG.shortDescription.{$ID}}</br></span>
-				{foreach $Element.costResources as $RessID => $RessAmount}
-					{$LNG.tech.{$RessID}}: <b><span style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
-				{/foreach}</br>
-				{if $CanBuildElement && $Element.buyable}{else}{$LNG.bd_remaining}<br>{/if}
-				{foreach $Element.costOverflow as $ResType => $ResCount}
-					{if $ResCount|number != 0}{$LNG.tech.{$ResType}}: <span style="font-weight:700">{$ResCount|number}</span><br>{/if}
-				{/foreach}
-			</div>
+	  <div class="card border-0">
+		<div class="card-header">
+		  Buildings
 		</div>
-	</div>
-	<div class="col-md-2 align-self-center">
-		{if $Element.maxLevel == $Element.levelToBuild}
-			<span style="color:red">{$LNG.bd_maxlevel}</span>
-		{elseif ($isBusy.research && ($ID == 6 || $ID == 31)) || ($isBusy.shipyard && ($ID == 15 || $ID == 21))}
-			<span style="color:red">{$LNG.bd_working}</span>
-		{else}
-			{if $RoomIsOk}
-				{if $CanBuildElement && $Element.buyable}
-				<form action="game.php?page=buildings" method="post" class="build_form">
-					<input type="hidden" name="cmd" value="insert">
-					<input type="hidden" name="building" value="{$ID}">
-					<button type="submit" class="build_submit">{if $Element.level == 0}{$LNG.bd_build}{else}{$LNG.bd_build_next_level}{$Element.levelToBuild + 1}{/if}</button>
-				</form>
-				{else}
-				<span style="color:red">{if $Element.level == 0}{$LNG.bd_build}{else}{$LNG.bd_build_next_level}{$Element.levelToBuild + 1}{/if}</span>
-				{/if}
-			{else}
-			<span style="color:red">{$LNG.bd_no_more_fields}</span>
-			{/if}
-		{/if}
-	</div>
-</div>
-<div class="row">
-	<div class="col-md-9">
-	{if !empty($Element.infoEnergy)}
-		{$LNG.bd_next_level} {$Element.infoEnergy}<br>
-	{/if}
-	</div>
-	<div class="col-md-3">
-		<span class="float-none float-md-right">{$LNG.fgf_time} {$Element.elementTime|time}</span>
-	</div>
-</div>
+		<div class="card-body" id="buildings">
+			{foreach $BuildInfoList as $ID => $Element}
+				<div class="row">
+					<div class="col d-none d-sm-block"><img class="img-fluid" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}"/></div>
+					<div class="col-sm-10">
+						<div class="row content-center">
+							<div class="col-sm-8">
+								<p class="h5"><a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a></p>
+							</div>
+							<div class="col-sm-4">
+								<span class="float-sm-right">{if $Element.level > 0} {$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8">{$LNG.fgf_time} {$Element.elementTime|time} </br> {if !empty($Element.infoEnergy)}{$LNG.bd_next_level} {$Element.infoEnergy}{/if}</div>
+						</div>
+						<div class="row">
+							<div class="col d-none d-md-block">
+								{$LNG.shortDescription.{$ID}}
+							</div>
+						</div>
+						<hr/>
+						<div class="row">
+							<div class="col-sm-12">Required to improve to level {$Element.levelToBuild+1}:</div>
+						</div>
+						{foreach $Element.costResources as $RessID => $RessAmount}{/foreach}
+						<div class="row content-center">
+						{foreach $ResourceCost.$ID as $ResID => $ResAmount}
+							<div class="col">
+								<div class="media">
+									<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$ResID}}.gif">
+									<div class="media-body">
+										<span class="{if $ResAmount.overflow == 0}text-green{else}text-red{/if}">{$ResAmount.cost|number}</span><br/>
+										{$ResAmount.overflow|number}
+									</div>
+								</div>
+							</div>
+						{/foreach}
+						</div>
+						<div class="row content-center">
+							{if $Element.maxLevel == $Element.levelToBuild}
+								<div class="col btn-group">
+									<button type="button" class="btn btn-danger btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">{$LNG.bd_maxlevel}</button>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<div class="dropdown-menu">
+										<a class="btn btn-danger btn-lg btn-block" href="#">Demolish</a>
+									</div>
+								</div>
+							{elseif ($isBusy.research && ($ID == 6 || $ID == 31)) || ($isBusy.shipyard && ($ID == 15 || $ID == 21))}
+								<div class="col">
+									<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">{$LNG.bd_working}</button>
+								</div>
+							{else}
+								{if $RoomIsOk}
+									{if $CanBuildElement && $Element.buyable}
+										<div class="col btn-group">
+											<button type="button" class="btn btn-success btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<form action="game.php?page=buildings" method="post" class="btn-block">
+													<input type="hidden" name="cmd" value="insert">
+													<input type="hidden" name="building" value="{$ID}">
+													<button type="submit" class="btn btn-success btn-lg btn-block mt-1">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
+												</form>
+												<span class="sr-only">Toggle Dropdown</span>
+											</button>
+											<div class="dropdown-menu">
+												<a class="btn btn-danger btn-lg btn-block" href="#">Demolish</a>
+											</div>
+										</div>
+									{else}
+										<div class="col btn-group">
+											<button type="button" class="btn btn-danger btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
+												<span class="sr-only">Toggle Dropdown</span>
+											</button>
+											<div class="dropdown-menu">
+												<a class="btn btn-danger btn-lg btn-block" href="#">Demolish</a>
+											</div>
+										</div>
+									{/if}
+								{/if}
+							{/if}
+						</div>
+					</div>
+				</div>
+<!--
 <div class="row">
 	<div class="col-auto">
 	{if $Element.level > 0}
@@ -151,5 +190,7 @@ Queue
 		{/if}
 	</div>
 </div>
-{/foreach}
+-->
+				<hr/>
+			{/foreach}
 {/block}
