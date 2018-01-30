@@ -8,10 +8,18 @@
                   Events
                   <div class="card-actions">
                     <a href="game.php?page=fleetTable"><i class="fa fa-space-shuttle"></i></a>
-                    <a href="#" class="btn-minimize" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+					{if !empty($fleets)}
+						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+					{else}
+						<a href="#" class="btn-minimize collapsed" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+					{/if}
                   </div>
                 </div>
-                <div class="card-body collapse show" id="events">
+				{if !empty($fleets)}
+					<div class="card-body collapse show" id="events">
+				{else}
+					<div class="card-body collapse" id="events">
+				{/if}
                   {foreach $fleets as $index => $fleet}
 					<span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
 					<span colspan="2">{$fleet.text}</span>
