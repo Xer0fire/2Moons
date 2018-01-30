@@ -29,6 +29,7 @@
 							{/if}
 						</div>
 					</div>
+					<hr/>
 				{/if}
 		{/foreach}
 	</div>
