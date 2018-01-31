@@ -1,4 +1,4 @@
-<table style="width:100%;">
+<table class="table table-responsive-sm table-sm">
 	<tr>
 		<th>{$LNG.in_missilestype}</th><th>{$LNG.in_missilesamount}</th><th>{$LNG.in_destroy}</th>
 	</tr>

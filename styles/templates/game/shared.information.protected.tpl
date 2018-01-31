@@ -1,6 +1,6 @@
 {$count = $productionTable.usedResource}
 
-<table style="width:100%;">
+<table class="table table-responsive-sm table-sm">
 	<tbody>
 		<tr>
 			<td colspan="2">
