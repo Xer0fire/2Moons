@@ -120,7 +120,7 @@ abstract class AbstractGamePage
 			}
 			else
 			{
-				$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'] + $config->{$resource[$resourceID].'_basic_income'} * $resourceSpeed;
+				$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'] * $resourceSpeed;
 			}
 		}
 
