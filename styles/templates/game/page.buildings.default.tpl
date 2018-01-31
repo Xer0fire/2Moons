@@ -206,7 +206,7 @@ Queue
 								{foreach $Element.destroyResources as $ResType => $ResCount}
 									<div class="col">
 										<div class="media">
-											<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$ResType}}.gif">
+											<img class="d-flex mr-2 mt-1 align-self-center" src="{$dpath}images//{$LNG.tech.{$ResType}}.gif">
 											<div class="media-body">
 												<span class="{if empty($Element.destroyOverflow[$RessID])}text-green{else}text-red{/if}">{$ResCount|number}</span>
 											</div>

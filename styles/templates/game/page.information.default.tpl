@@ -25,20 +25,26 @@
 </div>
 
 {if !empty($productionTable.production)}
+<hr/>
 {include file="shared.information.production.tpl"}
 {/if}
 {if !empty($productionTable.storage)}
+<hr/>
 {include file="shared.information.storage.tpl"}
 {/if}
 {if !empty($FleetInfo)}
+<hr/>
 {include file="shared.information.shipInfo.tpl"}
 {/if}
 {if !empty($gateData)}
+<hr/>
 {include file="shared.information.gate.tpl"}
 {/if}
 {if !empty($MissileList)}
+<hr/>
 {include file="shared.information.missiles.tpl"}
 {/if}
 {if !empty($productionTable.protected)}
+<hr/>
 {include file="shared.information.protected.tpl"}
 {/if}
