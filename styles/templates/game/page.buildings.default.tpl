@@ -67,6 +67,7 @@ Queue
 		  Buildings
 			<div class="card-actions">
 			<a href="game.php?page=resources"><i class="fa fa-leaf"></i></a>
+			<a href="game.php?page=research"><i class="fa fa-flask"></i></a>
 		  </div>
 		</div>
 		<div class="card-body" id="buildings">
