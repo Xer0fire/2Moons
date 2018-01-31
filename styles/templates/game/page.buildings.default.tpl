@@ -65,6 +65,9 @@ Queue
 	  <div class="card border-0">
 		<div class="card-header">
 		  Buildings
+			<div class="card-actions">
+			<a href="game.php?page=resources"><i class="fa fa-leaf"></i></a>
+		  </div>
 		</div>
 		<div class="card-body" id="buildings">
 			{foreach $BuildInfoList as $ID => $Element}
@@ -113,7 +116,9 @@ Queue
 										<span class="sr-only">Toggle Dropdown</span>
 									</button>
 									<div class="dropdown-menu">
-										<a class="btn btn-danger btn-lg btn-block" href="#">Demolish</a>
+										<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
+											{$LNG.bd_dismantle}
+										</button>
 									</div>
 								</div>
 							{elseif ($isBusy.research && ($ID == 6 || $ID == 31)) || ($isBusy.shipyard && ($ID == 15 || $ID == 21))}
@@ -133,7 +138,9 @@ Queue
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>
 											<div class="dropdown-menu">
-												<a class="btn btn-danger btn-lg btn-block" href="#">Demolish</a>
+												<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
+													{$LNG.bd_dismantle}
+												</button>
 											</div>
 										</div>
 									{else}
@@ -143,7 +150,9 @@ Queue
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>
 											<div class="dropdown-menu">
-												<a class="btn btn-danger btn-lg btn-block" href="#">Demolish</a>
+												<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
+													{$LNG.bd_dismantle}
+												</button>
 											</div>
 										</div>
 									{/if}
@@ -152,6 +161,53 @@ Queue
 						</div>
 					</div>
 				</div>
+				
+				<div class="modal fade" id="{$LNG.bd_dismantle}_{$ID}" tabindex="-1" role="dialog" aria-labelledby="{$LNG.bd_dismantle}_{$ID}" aria-hidden="true">
+					<div class="modal-dialog modal-danger" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">{$LNG.bd_dismantle} {$LNG.tech.{$ID}} ({$Element.level})</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col">
+										{$LNG.bd_price_for_destroy}
+									</div>
+								</div>
+								<div class="row">
+								{foreach $Element.destroyResources as $ResType => $ResCount}
+									<div class="col">
+										<div class="media">
+											<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$ResType}}.gif">
+											<div class="media-body">
+												<span class="{if empty($Element.destroyOverflow[$RessID])}text-green{else}text-red{/if}">{$ResCount|number}</span>
+											</div>
+										</div>
+									</div>
+								{/foreach}
+								</div>
+								<div class="row">
+									<div class="col">
+										{$LNG.bd_destroy_time} {$Element.destroyTime|time}
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<form action='game.php?page=buildings' method='post' class='build_form'>
+									<input type='hidden' name='cmd' value='destroy'>
+									<input type='hidden' name='building' value='{$ID}'>
+									<button type='submit' class='btn btn-danger'>{$LNG.bd_dismantle}</button>
+								</form>
+							</div>
+						</div>
+					<!-- /.modal-content -->
+					</div>
+				<!-- /.modal-dialog -->
+				</div>
+				
 <!--
 <div class="row">
 	<div class="col-auto">
@@ -188,9 +244,11 @@ Queue
 		{else}
 			&nbsp;
 		{/if}
-	</div>
-</div>
 -->
 				<hr/>
 			{/foreach}
+			</div>
+		</div>
+	</div>
+</div>
 {/block}
