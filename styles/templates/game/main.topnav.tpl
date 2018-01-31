@@ -24,7 +24,7 @@
 					{/if}<br/>
 					{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
 					{else}
-						<span class="res_max" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</span>
+						<span class="text-green" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</span>
 					{/if}
 			</div>
 			{/if}

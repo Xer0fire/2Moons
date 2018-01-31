@@ -64,11 +64,15 @@
 								<span class="res_current">
 								<span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number} / {$resourceData.max|number}</span>
 								{else}
+								{if isset($resourceData.production)}
+									<span class="text-green">(+{$resourceData.production|number})</span> 
+								{/if}
 								<span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</span>
 							{/if}
 							{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
 							{else}
-								/ <span class="res_max" id="max_{$resourceData.name}">{$resourceData.max|number}</span>
+								/ <span class="text-green" id="max_{$resourceData.name}">{$resourceData.max|number}
+								</span>
 							{/if}
 						{/if}
                     </div>
