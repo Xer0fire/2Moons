@@ -76,7 +76,7 @@ Queue
 					<div class="col-sm-10">
 						<div class="row content-center">
 							<div class="col-sm-8">
-								<p class="h5"><a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a></p>
+								<p class="h5"><a href="#" data-toggle="modal" data-target="#info_{$ID}">{$LNG.tech.{$ID}}</a></p>
 							</div>
 							<div class="col-sm-4">
 								<span class="float-sm-right">{if $Element.level > 0} {$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}</span>
@@ -162,6 +162,31 @@ Queue
 					</div>
 				</div>
 				
+				<div class="modal fade" id="info_{$ID}" tabindex="-1" role="dialog" aria-labelledby="info_{$ID}" aria-hidden="true" style="display: none;">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">{$LNG.tech.{$ID}}</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								{assign var="info" value=$infoObj->show($ID)}
+								{assign var="elementID" value=$info.elementID}
+								{assign var="productionTable" value=$info.productionTable}
+								{assign var="FleetInfo" value=$info.FleetInfo}
+								{assign var="gateData" value=$info.gateData}
+								{assign var="MissileList" value=$info.MissileList}
+								{assign var="CurrentLevel" value=$info.CurrentLevel}
+								{include file="page.information.default.tpl"}
+							</div>
+						</div>
+					<!-- /.modal-content -->
+					</div>
+				<!-- /.modal-dialog -->
+				</div>
+
 				<div class="modal fade" id="{$LNG.bd_dismantle}_{$ID}" tabindex="-1" role="dialog" aria-labelledby="{$LNG.bd_dismantle}_{$ID}" aria-hidden="true">
 					<div class="modal-dialog modal-danger" role="document">
 						<div class="modal-content">
@@ -207,7 +232,7 @@ Queue
 					</div>
 				<!-- /.modal-dialog -->
 				</div>
-				
+
 <!--
 <div class="row">
 	<div class="col-auto">
