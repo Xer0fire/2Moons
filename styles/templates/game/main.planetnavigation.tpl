@@ -13,7 +13,10 @@
 				<span class="planet-nav-building">{$PlanetRow.build}</span>
 			</div>
 		</div>
-		<hr />
+
+		{if !$PlanetRow@last}
+			<hr />
+		{/if}
 		{/foreach}
 	</div>
     </aside>
