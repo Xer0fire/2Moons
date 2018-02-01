@@ -112,8 +112,8 @@ Queue
 						<div class="row content-center">
 							{if $Element.maxLevel == $Element.levelToBuild}
 								<div class="col btn-group">
-									<button type="button" class="btn btn-danger btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-											<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">{$LNG.bd_maxlevel}</button>
+									<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_maxlevel}</button>
 										<span class="sr-only">Toggle Dropdown</span>
 									</button>
 									<div class="dropdown-menu">
@@ -124,17 +124,17 @@ Queue
 								</div>
 							{elseif ($isBusy.research && ($ID == 6 || $ID == 31)) || ($isBusy.shipyard && ($ID == 15 || $ID == 21))}
 								<div class="col">
-									<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">{$LNG.bd_working}</button>
+									<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_working}</button>
 								</div>
 							{else}
 								{if $RoomIsOk}
 									{if $CanBuildElement && $Element.buyable}
 										<div class="col btn-group">
-											<button type="button" class="btn btn-success btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<button type="button" class="btn btn-success btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												<form action="game.php?page=buildings" method="post" class="btn-block">
 													<input type="hidden" name="cmd" value="insert">
 													<input type="hidden" name="building" value="{$ID}">
-													<button type="submit" class="btn btn-success btn-lg btn-block mt-1">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
+													<button type="submit" class="btn btn-success btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
 												</form>
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>
@@ -146,8 +146,8 @@ Queue
 										</div>
 									{else}
 										<div class="col btn-group">
-											<button type="button" class="btn btn-danger btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
+											<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
 												<span class="sr-only">Toggle Dropdown</span>
 											</button>
 											<div class="dropdown-menu">
@@ -159,8 +159,8 @@ Queue
 									{/if}
 								{else}
 									<div class="col btn-group">
-										<button type="button" class="btn btn-danger btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">{$LNG.bd_no_more_fields}</button>
+										<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_no_more_fields}</button>
 											<span class="sr-only">Toggle Dropdown</span>
 										</button>
 										<div class="dropdown-menu">
