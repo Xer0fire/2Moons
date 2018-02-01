@@ -121,7 +121,7 @@
             <!--/.col-->
           </div>
 
-		  <div class="row justify-content-md-center">
+		  <div class="row justify-content-around">
             <div class="col-md-auto">
               <div class="card border-0">
                 <div class="card-header">
