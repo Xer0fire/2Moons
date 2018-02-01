@@ -298,7 +298,12 @@ class ShowBuildingsPage extends AbstractGamePage
 				continue;
 
 			$infoEnergy	= "";
-			
+
+			if ($Element == 43)
+			{
+				$this->tplObj->loadscript('gate.js');
+			}
+
 			if(isset($queueData['quickinfo'][$Element]))
 			{
 				$levelToBuild	= $queueData['quickinfo'][$Element];

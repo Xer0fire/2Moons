@@ -356,7 +356,7 @@ class OmicronShowInformationPage extends AbstractGamePage
 
 		if($elementID == 43 && $PLANET[$resource[43]] > 0)
 		{
-			$this->tplObj->loadscript('gate.js');
+			//$this->tplObj->loadscript('gate.js');
 			$nextTime	= self::getNextJumpWaitTime($PLANET['last_jump_time']);
 			$gateData	= array(
 				'nextTime'	=> _date($LNG['php_tdformat'], $nextTime, $USER['timezone']),
