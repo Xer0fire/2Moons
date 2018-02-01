@@ -69,8 +69,14 @@
 	border-style: solid;
 	border-width: 1px 2px; 
 }
-.res_max {
-	color: #4dbd74;
+.pill-top-right {
+	position: absolute;
+	top: 0px;
+	right: 0px;
+}
+.pill-top-right-moon {
+	position: absolute;
+	margin-left: -5px;
 }
 .app-footer {
 	font-size: .75rem;
