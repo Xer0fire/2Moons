@@ -11,7 +11,7 @@
 					{if !empty($fleets)}
 						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 					{else}
-						<a href="#" class="btn-minimize collapsed" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+						<a href="#" class="btn-minimize collapsed" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-down"></i></a>
 					{/if}
                   </div>
                 </div>

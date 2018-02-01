@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .app-body{
-	background: #252831 url(../img/bg.png) no-repeat top center;
+	background: #252831 url(../img/bg.png) top center;
 }
 .app-footer {
 	background: #1e2026 url(../img/bg_footer.png) no-repeat bottom center;
@@ -25,7 +25,10 @@
 	padding-top: 1.5rem;
 }
 .card {
-	background-color: rgba(245, 245, 245, 0.6) !important;
+	background-color: rgba(5, 5, 5, 0.3) !important;
+	border: 1px solid #444;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
 }
 .card-header, .card-header .card-actions a, .card-header .card-actions button{
 	color: #fff;
@@ -33,6 +36,11 @@
 }
 .card-header {
 	background-color: #252831;
+	border-bottom: 1px solid #444
+}
+.card-header , .card {
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
 }
 .aside-menu {
 	color: #fff;
