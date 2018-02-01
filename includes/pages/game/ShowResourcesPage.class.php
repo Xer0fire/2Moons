@@ -127,7 +127,7 @@ class ShowResourcesPage extends AbstractGamePage
 				continue;
 
 			$productionList[$ProdID]	= array(
-				'production'	=> array(901 => 0, 902 => 0, 903 => 0, 911 => 0),
+				'production'	=> array(),
 				'elementLevel'	=> $PLANET[$resource[$ProdID]],
 				'prodLevel'		=> $PLANET[$resource[$ProdID].'_porcent'],
 			);
