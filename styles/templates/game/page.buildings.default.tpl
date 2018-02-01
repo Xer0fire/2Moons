@@ -157,6 +157,18 @@ Queue
 											</div>
 										</div>
 									{/if}
+								{else}
+									<div class="col btn-group">
+										<button type="button" class="btn btn-danger btn-lg mt-1 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1">{$LNG.bd_no_more_fields}</button>
+											<span class="sr-only">Toggle Dropdown</span>
+										</button>
+										<div class="dropdown-menu">
+											<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
+												{$LNG.bd_dismantle}
+											</button>
+										</div>
+									</div>
 								{/if}
 							{/if}
 						</div>
