@@ -22,12 +22,12 @@
 						</div>
 						<div class="row">
 								<div class="col-10 col-md-9 align-self-center">
-								<div class="row justify-content-between">
+								<div class="row">
 								{foreach $productionRow.production as $resID => $resVal}
 									{if $productionRow.production|@count == 1}
 										<div class="col-md-6"></div>
 									{/if}
-									<div class="col-auto col-md-6">
+									<div class="col-auto col-md-6 align-self-center">
 										<div class="media">
 											<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$resID}}.gif">
 											<div class="media-body">
@@ -61,9 +61,9 @@
 						</div>
 						<div class="row">
 							<div class="col-10 col-md-9 align-self-center">
-								<div class="row justify-content-between">
+								<div class="row">
 									<div class="col-md-6"></div>
-									<div class="col-auto col-md-6">
+									<div class="col-auto col-md-6 align-self-center">
 										<div class="media">
 											<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.911}.gif">
 											<div class="media-body">
