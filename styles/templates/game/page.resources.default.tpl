@@ -7,6 +7,7 @@
 					Resources
 					<div class="card-actions">
 						<a href="game.php?page=buildings"><i class="fa fa-university"></i></a>
+						<a href="game.php?page=shipyard&mode=fleet"><i class="fa fa-microchip"></i></a>
 						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#resources" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				  </div>
 				</div>
