@@ -73,7 +73,7 @@ Queue
 		<div class="card-body" id="buildings">
 			{foreach from=$BuildInfoList key=ID item=Element name=List}
 				<div class="row">
-					<div class="col d-none d-sm-block"><img class="img-fluid" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}"/></div>
+					<div class="col d-none d-sm-block align-self-center"><img class="img-fluid" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}"/></div>
 					<div class="col-sm-10">
 						<div class="row content-center">
 							<div class="col-sm-8">
