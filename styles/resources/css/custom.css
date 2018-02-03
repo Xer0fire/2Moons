@@ -89,6 +89,33 @@
 .app-footer {
 	font-size: .75rem;
 }
+.tab-content {
+	background-color: transparent;
+	border: 0;
+}
+.nav-tabs .nav-link.active, .nav-tabs .navbar .active.dropdown-toggle, .navbar .nav-tabs .active.dropdown-toggle {
+    color: #fff;
+    background: #252831;
+    border-color: #777 #777 #fff;
+}
+.nav-tabs .nav-link.active:focus, .nav-tabs .navbar .active.dropdown-toggle:focus, .navbar .nav-tabs .active.dropdown-toggle:focus {
+    background: #2d313c;
+    border-color: #777 #777 #fff;
+}
+.tab-content .tab-pane {
+	padding: 0;
+}
+.table {
+	margin-bottom: 0;
+}
+.table thead th {
+	border-bottom: 0;
+}
+.table td, .table th {
+    white-space: nowrap;
+	border-top: 0;
+}
+
 @media (max-width: 375.98px) {
 	.app-header.navbar .nav-item {
 		min-width: 34px;
