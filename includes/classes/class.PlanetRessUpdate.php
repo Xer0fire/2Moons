@@ -142,9 +142,9 @@ class ResourceUpdate
 		if($this->PLANET['planet_type'] == 3)
 			return;
 			
-		$MaxMetalStorage		= $this->PLANET['metal_max']     * $this->config->max_overflow;
-		$MaxCristalStorage		= $this->PLANET['crystal_max']   * $this->config->max_overflow;
-		$MaxDeuteriumStorage	= $this->PLANET['deuterium_max'] * $this->config->max_overflow;
+		$MaxMetalStorage		= $this->PLANET['metal_max']     * $this->config->storage_multiplier * $this->config->max_overflow;
+		$MaxCristalStorage		= $this->PLANET['crystal_max']   * $this->config->storage_multiplier * $this->config->max_overflow;
+		$MaxDeuteriumStorage	= $this->PLANET['deuterium_max'] * $this->config->storage_multiplier * $this->config->max_overflow;
 		
 		$MetalTheoretical		= $this->ProductionTime * (($this->config->metal_basic_income * $this->config->resource_multiplier) + $this->PLANET['metal_perhour']) / 3600;
 		
@@ -302,9 +302,9 @@ class ResourceUpdate
 			}
 		}
 
-		$this->PLANET['metal_max']			= $temp[901]['max'] * $this->config->resource_multiplier * $this->config->storage_multiplier;
-		$this->PLANET['crystal_max']		= $temp[902]['max'] * $this->config->resource_multiplier * $this->config->storage_multiplier;
-		$this->PLANET['deuterium_max']		= $temp[903]['max'] * $this->config->resource_multiplier * $this->config->storage_multiplier;
+		$this->PLANET['metal_max']			= $temp[901]['max'] * $this->config->storage_multiplier;
+		$this->PLANET['crystal_max']		= $temp[902]['max'] * $this->config->storage_multiplier;
+		$this->PLANET['deuterium_max']		= $temp[903]['max'] * $this->config->storage_multiplier;
 
 		$reflector = $this->getReflector($this->USER, $this->PLANET);
 		$reflectorEnergy = (!empty($reflector) ? $reflector[0]['energy'] : 0);
