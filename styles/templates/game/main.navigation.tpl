@@ -5,7 +5,7 @@
             <a class="nav-link" href="game.php?page=overview" target="_top"><i class="fa fa-tachometer"></i> {$LNG.lm_overview}</a>
           </li>
           <li class="nav-item nav-dropdown">
-            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-university"></i> BUILDINGS</a>
+            <a class="nav-link nav-dropdown-toggle" href="#"><i class="fa fa-fort-awesome"></i> BUILDINGS</a>
             <ul class="nav-dropdown-items">
               {if isModuleAvailable($smarty.const.MODULE_IMPERIUM)}
               <li class="nav-item">
