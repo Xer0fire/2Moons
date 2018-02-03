@@ -19,13 +19,13 @@
 					{$resourceData.current = $resourceData.max + $resourceData.used}
 					<span class="res_current">
 					<span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number} / {$resourceData.max|number}</span>
-					{else}
-						<span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</span>
-					{/if}<br/>
-					{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
-					{else}
-						<span class="text-green" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</span>
-					{/if}
+				{else}
+					<span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</span>
+				{/if}<br/>
+				{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
+				{else}
+					<span class="text-green" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</span>
+				{/if}
 			</div>
 			{/if}
 			
