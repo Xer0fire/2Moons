@@ -210,9 +210,11 @@ class ResourceUpdate
 		return $researchLevelList;
 	}
 
-	public static function getProtectedResources($denLevel) {
-        //XFTODO: $config->resource_multiplier
-	    return round(2089 * (pow($denLevel, 4) / max($denLevel, 1)));
+	public static function getProtectedResources($denLevel)
+	{
+		global $config;
+
+		return round(3125 * (pow($denLevel, 4) / max($denLevel - 1, 1))) * $config->storage_multiplier;
 	}
 
 	public static function getReflector($USER, $PLANET)
