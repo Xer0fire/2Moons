@@ -128,39 +128,14 @@ Queue
 								</div>
 							{else}
 								{if $RoomIsOk}
-									{if $CanBuildElement && $Element.buyable}
-										<div class="col btn-group">
-											<button type="button" class="btn btn-success btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<form action="game.php?page=buildings" method="post" class="btn-block">
-													<input type="hidden" name="cmd" value="insert">
-													<input type="hidden" name="building" value="{$ID}">
-													<button type="submit" class="btn btn-success btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
-												</form>
-												<span class="sr-only">Toggle Dropdown</span>
-											</button>
-											<div class="dropdown-menu">
-												<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
-													{$LNG.bd_dismantle}
-												</button>
-											</div>
-										</div>
-									{else}
-										<div class="col btn-group">
-											<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-													<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
-												<span class="sr-only">Toggle Dropdown</span>
-											</button>
-											<div class="dropdown-menu">
-												<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
-													{$LNG.bd_dismantle}
-												</button>
-											</div>
-										</div>
-									{/if}
-								{else}
 									<div class="col btn-group">
-										<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-												<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_no_more_fields}</button>
+									{if $CanBuildElement && $Element.buyable}
+										<button type="button" class="btn btn-success btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<form action="game.php?page=buildings" method="post" class="btn-block">
+												<input type="hidden" name="cmd" value="insert">
+												<input type="hidden" name="building" value="{$ID}">
+												<button type="submit" class="btn btn-success btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
+											</form>
 											<span class="sr-only">Toggle Dropdown</span>
 										</button>
 										<div class="dropdown-menu">
@@ -168,8 +143,29 @@ Queue
 												{$LNG.bd_dismantle}
 											</button>
 										</div>
+									{else}
+										<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+												<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
+											<span class="sr-only">Toggle Dropdown</span>
+										</button>
+										<div class="dropdown-menu">
+											<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
+												{$LNG.bd_dismantle}
+											</button>
+										</div>
+									{/if}
+								{else}
+									<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+											<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_no_more_fields}</button>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<div class="dropdown-menu">
+										<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#{$LNG.bd_dismantle}_{$ID}">
+											{$LNG.bd_dismantle}
+										</button>
 									</div>
 								{/if}
+								</div>
 							{/if}
 						</div>
 					</div>
