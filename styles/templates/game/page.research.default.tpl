@@ -94,7 +94,7 @@ Queue
 							</div>
 						</div>
 						<div class="row">
-							<div class="col-sm-8">{$LNG.fgf_time} {$Element.elementTime|time} </br> {if !empty($Element.infoEnergy)}{$LNG.bd_next_level} {$Element.infoEnergy}{/if}</div>
+							<div class="col-sm-8">{$LNG.fgf_time} {$Element.elementTime|time}</div>
 						</div>
 						<div class="row">
 							<div class="col d-none d-md-block">
