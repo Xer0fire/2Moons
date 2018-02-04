@@ -1,32 +1,60 @@
 {block name="title" prepend}{if $mode == "defense"}{$LNG.lm_defenses}{else}{$LNG.lm_shipshard}{/if}{/block}
 {block name="content"}
-{if !$NotBuilding}<table width="70%" id="infobox" style="border: 2px solid red; text-align:center;background:transparent"><tr><td>{$LNG.bd_building_shipyard}</td></tr></table><br><br>{/if}
-{if !empty($BuildList)}
-<table style="width:760px">
-	<tr>
-		<td class="transparent">
-			<div id="bx" class="z"></div>
-			<br>
-			<form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
-			<input type="hidden" name="action" value="delete">
-			<table>
-			<tr>
-				<th>&nbsp;</th>
-			</tr>
-			<tr>
-				<td><select name="auftr[]" id="auftr" size="10" multiple><option>&nbsp;</option></select><br><br>{$LNG.bd_cancel_warning}<br><input type="submit" value="{$LNG.bd_cancel_send}"></td>
-			</tr>
-			<tr>
-				<th>&nbsp;</th>
-			</tr>
-			</table>
-			</form>
-			<br><span id="timeleft"></span><br><br>
-		</td>
-	</tr>
-</table>
-<br>
+{if !$NotBuilding}
+<div class="row">
+	<div class="col">
+		<div class="alert alert-danger" role="alert">
+			{$LNG.bd_building_shipyard}
+		</div>
+	</div>
+</div>
 {/if}
+{if !empty($BuildList)}
+
+<div class="row">
+	<div class="col-md-12">
+		<div class="card border-0">
+			<div class="card-header">
+				Queue
+				<div class="card-actions">
+				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#queue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+				</div>
+			</div>
+			<div class="card-body collapse show" id="queue">
+				<div class="row text-center mb-2">
+					<div class="col-12 col-md-6">
+						Current production: <span id="bx" class="z"></span>
+					</div>
+					<div class="col-12 col-md-6">
+						Total production time: <span id="timeleft"></span>
+					</div>
+				</div>
+				<form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
+					<input type="hidden" name="action" value="delete">
+					<div class="row">
+						<div class="col">
+							<select class="form-control" name="auftr[]" id="auftr" size="10" multiple><option>&nbsp;</option></select>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="alert alert-danger mt-1" role="alert">
+								{$LNG.bd_cancel_warning}
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<button type="submit" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_cancel_send}</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+{/if}
+
 <form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
 <div class="row">
 	<div class="col-md-12">
@@ -84,17 +112,17 @@
 							<div class="controls mt-1 col-12">
 								<div class="input-group">
 									{if $Element.AlreadyBuild}
-											<input id="appendedInputButton" disabled="disabled" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="{$LNG.bd_protection_shield_only_one}" tabindex="{$smarty.foreach.FleetList.iteration}" />
+											<input id="input_{$ID}" disabled="disabled" class="form-control" size="16" type="text" name="fmenge[{$ID}]" id="input_{$ID}" value="{$LNG.bd_protection_shield_only_one}" tabindex="{$smarty.foreach.FleetList.iteration}" />
 											<span class="input-group-append">
 												<button disabled="disabled" class="btn btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
 											</span>
 									{elseif $NotBuilding && $Element.buyable}
-											<input id="appendedInputButton" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
+											<input id="input_{$ID}" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
 											<span class="input-group-append">
 												<button class="btn btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
 											</span>
 									{else}
-											<input id="appendedInputButton" disabled="disabled" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
+											<input id="input_{$ID}" disabled="disabled" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
 											<span class="input-group-append">
 												<button disabled="disabled" class="btn btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
 											</span>
