@@ -93,14 +93,17 @@
 	background-color: transparent;
 	border: 0;
 }
+.nav-tabs {
+	border-bottom: 1px solid #777;
+}
 .nav-tabs .nav-link.active, .nav-tabs .navbar .active.dropdown-toggle, .navbar .nav-tabs .active.dropdown-toggle {
     color: #fff;
     background: #252831;
-    border-color: #777 #777 #fff;
+    border-color: #333 #333 #777;
 }
 .nav-tabs .nav-link.active:focus, .nav-tabs .navbar .active.dropdown-toggle:focus, .navbar .nav-tabs .active.dropdown-toggle:focus {
     background: #2d313c;
-    border-color: #777 #777 #fff;
+    border-color: #333 #333 #777;
 }
 .tab-content .tab-pane {
 	padding: 0;
