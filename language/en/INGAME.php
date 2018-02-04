@@ -417,7 +417,7 @@ $LNG['bd_next_level']                       = 'Next level:';
 $LNG['bd_need_engine']                      = 'Uses an additional <font color="#FF0000">%s</font> %s';
 $LNG['bd_more_engine']                      = 'Produces an additional <font color="#00FF00">%s</font> %s';
 $LNG['bd_jump_gate_action']                 = 'Jump';
-$LNG['bd_cancel_warning']                   = 'ATTENTION! <br> If you cancel only will receive 60% of your resources s invested.';
+$LNG['bd_cancel_warning']                   = 'ATTENTION! If you cancel only will receive 60% of your resources s invested.';
 $LNG['bd_cancel_send']                      = 'Cancel construction';
 $LNG['bd_destroy_time'] 					= 'Duration';
 $LNG['bd_max_ships']                        = 'max';
