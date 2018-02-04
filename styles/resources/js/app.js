@@ -52,6 +52,12 @@ $(document).ready(function($){
 	});
   }
 
+  //stop modal adding padding and margins to body and nav elements
+  $.fn.modal.Constructor.prototype._setScrollbar = function () {};
+
+  //move modals
+  $("#modal-container").append( $("div.modal") );
+
   // Add class .active to current link
   $.navigation.find('a').each(function(){
 

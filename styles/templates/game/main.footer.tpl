@@ -1,5 +1,7 @@
   </div>
 
+  <div id="modal-container"></div>
+
   <footer class="app-footer">
     <span>{$game_name} {$uni_name}</span>
     <span class="ml-auto">A modified version of <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
@@ -10,8 +12,6 @@
 	{/if}
   </footer>
 
-
-  
 {if $ga_active}
 	<script type="text/javascript">
 	var _gaq = _gaq || [];
