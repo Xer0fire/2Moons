@@ -28,51 +28,120 @@
 <br>
 {/if}
 <form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
-<table style="width:760px">
-	{foreach $elementList as $ID => $Element}
-	<tr>
-		<td rowspan="2" style="width:120px;">
-			<a href="#" onclick="return Dialog.info({$ID})">
-				<img src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}" width="120" height="120">
-			</a>
-		</td>
-		<th>
-			<a href="#" onclick="return Dialog.info({$ID})">{$LNG.tech.{$ID}}</a><span id="val_{$ID}">{if $Element.available != 0} ({$LNG.bd_available} {$Element.available|number}){/if}</span>
-		</th>
-	</tr>
-	<tr>
-		<td>
-			<table style="width:100%">
-				<tr>
-					<td class="transparent left" style="width:90%;padding:10px;"><p>{$LNG.shortDescription.{$ID}}</p><p>{foreach $Element.costResources as $RessID => $RessAmount}
-					{$LNG.tech.{$RessID}}: <b><span style="color:{if $Element.costOverflow[$RessID] == 0}lime{else}red{/if}">{$RessAmount|number}</span></b>
-					{/foreach}</p></td>
-					<td class="transparent" style="vertical-align:middle;width:100px">
-					<p>{if $Element.AlreadyBuild}<span style="color:red">{$LNG.bd_protection_shield_only_one}</span>{elseif $NotBuilding && $Element.buyable}<input type="text" name="fmenge[{$ID}]" id="input_{$ID}" size="{$maxlength}" maxlength="{$maxlength}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}"></p><p>
-					<input type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')"></p>
-					{/if}
-					</td>
-				</tr>
-			</table>
-		</td>
-	</tr>
-	<tr>
-		<td colspan="2" style="margin-bottom:10px;">  
-			<table style="width:100%">
-				<tr>
-					<td class="transparent left" style="width:68%">
-						{$LNG.bd_max_ships_long}: <span style="font-weight:700">{$Element.maxBuildable|number}</span>
-					</td>
-					<td class="transparent right" style="white-space:nowrap;">
-						{$LNG.fgf_time} {$Element.elementTime|time}
-					</td>
-				</tr>	
-			</table>
-		</td>
-	</tr>
-	{/foreach}
-	{if $NotBuilding}<tr><th colspan="2" style="text-align:center"><input type="submit" value="{$LNG.bd_build_ships}"></th></tr>{/if}
-</table>
+<div class="row">
+	<div class="col-md-12">
+	  <div class="card border-0">
+		<div class="card-header">
+		{if $mode == "defense"}
+			{$LNG.lm_defenses}
+			<div class="card-actions">
+				<a href="game.php?page=shipyard&amp;mode=fleet"><i class="fa fa-microchip"></i></a>
+			</div>
+		{else}
+			{$LNG.lm_shipshard}
+			<div class="card-actions">
+				<a href="game.php?page=fleettable"><i class="fa fa-space-shuttle"></i></a>
+				<a href="game.php?page=shipyard&amp;mode=defense"><i class="fa fa-flag"></i></a>
+			</div>
+		{/if}
+		</div>
+		<div class="card-body" id="">
+			{foreach $elementList as $ID => $Element}
+				<div class="row">
+					<div class="col d-none d-sm-block align-self-center"><img class="img-fluid" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}"/></div>
+					<div class="col-sm-10">
+						<div class="row content-center">
+							<div class="col-sm-12">
+								<p class="h5"><a href="#" data-toggle="modal" data-target="#info_{$ID}">{$LNG.tech.{$ID}}</a> {if $Element.available != 0} ({$LNG.bd_available} {$Element.available|number}){/if}</p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-8">{$LNG.fgf_time} {$Element.elementTime|time} </br> {$LNG.bd_max_ships_long}: {$Element.maxBuildable|number}</div>
+						</div>
+						<div class="row">
+							<div class="col d-none d-md-block">
+								{$LNG.shortDescription.{$ID}}
+							</div>
+						</div>
+						<hr/>
+						<div class="row">
+							<div class="col-sm-12">Required per unit:</div>
+						</div>
+						{foreach $Element.costResources as $RessID => $RessAmount}{/foreach}
+						<div class="row content-center">
+						{foreach $ResourceCost.$ID as $ResID => $ResAmount}
+							<div class="col">
+								<div class="media">
+									<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$ResID}}.gif">
+									<div class="media-body">
+										<span class="{if $ResAmount.overflow == 0}text-green{else}text-red{/if}">{$ResAmount.cost|number}</span>
+									</div>
+								</div>
+							</div>
+						{/foreach}
+						</div>
+						<div class="row content-center">
+							<div class="controls mt-1 col-12">
+								<div class="input-group">
+									{if $Element.AlreadyBuild}
+											<input id="appendedInputButton" disabled="disabled" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="{$LNG.bd_protection_shield_only_one}" tabindex="{$smarty.foreach.FleetList.iteration}" />
+											<span class="input-group-append">
+												<button disabled="disabled" class="btn btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
+											</span>
+									{elseif $NotBuilding && $Element.buyable}
+											<input id="appendedInputButton" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
+											<span class="input-group-append">
+												<button class="btn btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
+											</span>
+									{else}
+											<input id="appendedInputButton" disabled="disabled" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
+											<span class="input-group-append">
+												<button disabled="disabled" class="btn btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
+											</span>
+									{/if}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<div class="modal fade" id="info_{$ID}" tabindex="-1" role="dialog" aria-labelledby="info_{$ID}" aria-hidden="true" style="display: none;">
+					<div class="modal-dialog modal-info" role="document">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h4 class="modal-title">{$LNG.tech.{$ID}}</h4>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">×</span>
+								</button>
+							</div>
+							<div class="modal-body">
+								{assign var="info" value=$infoObj->show($ID)}
+								{assign var="elementID" value=$info.elementID}
+								{assign var="productionTable" value=$info.productionTable}
+								{assign var="FleetInfo" value=$info.FleetInfo}
+								{assign var="gateData" value=$info.gateData}
+								{assign var="MissileList" value=$info.MissileList}
+								{assign var="CurrentLevel" value=$info.CurrentLevel}
+								{include file="page.information.default.tpl"}
+							</div>
+						</div>
+					<!-- /.modal-content -->
+					</div>
+				<!-- /.modal-dialog -->
+				</div>
+				{if !$smarty.foreach.List.last}
+					<hr/>
+				{/if}
+			{/foreach}
+			{if $NotBuilding}
+				<button type="submit" class="btn btn-success btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_build_ships}</button>
+			{else}
+				<button type="submit" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_build_ships}</button>
+			{/if}
+			</div>
+		</div>
+	</div>
+</div>
 </form>
 {/block}
 {block name="script" append}

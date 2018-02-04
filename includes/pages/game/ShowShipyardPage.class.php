@@ -15,6 +15,7 @@
  * @link https://github.com/jkroepke/2Moons
  */
  
+require 'includes/pages/game/OmicronShowInformationPage.class.php';
 
 class ShowShipyardPage extends AbstractGamePage
 {
@@ -278,14 +279,23 @@ class ShowShipyardPage extends AbstractGamePage
 				'maxBuildable'		=> floatToString($maxBuildable),
 				'AlreadyBuild'		=> $AlreadyBuild,
 			);
+			foreach($costResources as $k => $v) {
+				$ResourceCost[$Element][$k]['cost'] = $v;
+				$ResourceCost[$Element][$k]['overflow'] = $costOverflow[$k];
+			}
 		}
+
+		$infoObj = new OmicronShowInformationPage;
+
 		
 		$this->assign(array(
 			'elementList'	=> $elementList,
+			'ResourceCost'	=> $ResourceCost,
 			'NotBuilding'	=> $NotBuilding,
 			'BuildList'		=> $buildList,
 			'maxlength'		=> strlen(Config::get()->max_fleet_per_build),
 			'mode'			=> $mode,
+			'infoObj'		=> $infoObj,
 		));
 
 		$this->display('page.shipyard.default.tpl');
