@@ -118,6 +118,9 @@
     white-space: nowrap;
 	border-top: 0;
 }
+.modal-open {
+	overflow: auto;
+}
 
 @media (max-width: 375.98px) {
 	.app-header.navbar .nav-item {
