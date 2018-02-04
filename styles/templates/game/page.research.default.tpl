@@ -120,23 +120,19 @@ Queue
 						{/foreach}
 						</div>
 						<div class="row content-center">
-							{if $Element.maxLevel == $Element.levelToBuild}
-								<div class="col">
+							<div class="col">
+								{if $Element.maxLevel == $Element.levelToBuild}
 									<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_maxlevel}</button>
-								</div>
-							{elseif $IsLabinBuild || $IsFullQueue || !$Element.buyable}
-								<div class="col">
+								{elseif $IsLabinBuild || $IsFullQueue || !$Element.buyable}
 									<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
-								</div>
-							{else}
-								<div class="col">
+								{else}
 									<form action="game.php?page=research" method="post" class="btn-block">
 										<input type="hidden" name="cmd" value="insert">
 										<input type="hidden" name="tech" value="{$ID}">
 										<button type="submit" class="btn btn-success btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
 									</form>
-								</div>
-							{/if}
+								{/if}
+							</div>
 						</div>
 					</div>
 				</div>
