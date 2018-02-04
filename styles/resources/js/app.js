@@ -43,7 +43,7 @@ $(document).ready(function($){
 			}
 		},
 		"content": {
-			"message": "This website uses cookies, by using this website you consent to all cookies.",
+			"message": "This website uses cookies, by using this website you consent to all of our cookies.",
 			"dismiss": "Got it!",
 			"link": "Learn more",
 			"href": "https://cookiesandyou.com"
