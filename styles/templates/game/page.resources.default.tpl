@@ -27,7 +27,7 @@
 									{if $productionRow.production|@count == 1}
 										<div class="col-md-6"></div>
 									{/if}
-									<div class="col-auto col-md-6 align-self-center">
+									<div class="col-12 col-md-6 align-self-center">
 										<div class="media">
 											<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$resID}}.gif">
 											<div class="media-body">
