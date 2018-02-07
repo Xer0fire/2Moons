@@ -35,28 +35,8 @@
 	{/foreach}
     </ul>
     <ul class="nav navbar-nav ml-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img src="img/avatars/default.jpg" class="img-avatar">
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-          <div class="dropdown-header text-center">
-            <strong>{$username}</strong>
-          </div>
-		  {if isModuleAvailable($smarty.const.MODULE_NOTICE)}
-          <a class="dropdown-item" href="game.php?page=notes"><i class="fa fa-address-book"></i> {$LNG.lm_notes}</a>
-		  {/if}
-          <a class="dropdown-item" href="index.php?page=rules"><i class="fa fa-key"></i> {$LNG.lm_rules}</a>
-          <a class="dropdown-item" href="game.php?page=settings"><i class="fa fa-server"></i> {$LNG.lm_options}</a>
-          <a class="dropdown-item" href="game.php?page=logout"><i class="fa fa-sign-out"></i> Logout</a>
-          <a class="dropdown-item" href="game.php?page=changelog"><i class="fa fa-repeat"></i> {$LNG.lm_changelog}</a>
-		  {if $authlevel > 0}
-          <a class="dropdown-item" target="_blank" href="./admin.php"><i class="fa fa-star"></i> {$LNG.lm_administration} ({$VERSION})</a>
-		  {/if}
-        </div>
-      </li>
 	  {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown d-none d-md-block">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-envelope-o"></i>{nocache}{if $new_message > 0}<span class="badge badge-pill badge-success">{$new_message}</span>{/if}{/nocache}</a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
@@ -108,6 +88,26 @@
         </div>
       </li>
 	  {/if}
+      <li class="nav-item dropdown">
+        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+          <img src="img/avatars/default.jpg" class="img-avatar">
+        </a>
+        <div class="dropdown-menu dropdown-menu-right">
+          <div class="dropdown-header text-center">
+            <strong>{$username}</strong>
+          </div>
+		  {if isModuleAvailable($smarty.const.MODULE_NOTICE)}
+          <a class="dropdown-item" href="game.php?page=notes"><i class="fa fa-address-book"></i> {$LNG.lm_notes}</a>
+		  {/if}
+          <a class="dropdown-item" href="index.php?page=rules"><i class="fa fa-key"></i> {$LNG.lm_rules}</a>
+          <a class="dropdown-item" href="game.php?page=settings"><i class="fa fa-server"></i> {$LNG.lm_options}</a>
+          <a class="dropdown-item" href="game.php?page=logout"><i class="fa fa-sign-out"></i> Logout</a>
+          <a class="dropdown-item" href="game.php?page=changelog"><i class="fa fa-repeat"></i> {$LNG.lm_changelog}</a>
+		  {if $authlevel > 0}
+          <a class="dropdown-item" target="_blank" href="./admin.php"><i class="fa fa-star"></i> {$LNG.lm_administration} ({$VERSION})</a>
+		  {/if}
+        </div>
+      </li>
     </ul>
 
     <button class="navbar-toggler mobile-aside-menu-toggler d-lg-none" type="button">
