@@ -6,24 +6,24 @@
 		</div>
 		<div class="card-body no-gutters">
 			<ul class="empire-nav nav nav-tabs" role="tablist">
-				<li class="nav-item mr-1">
+				<li class="nav-item">
 					<a class="nav-link active" data-toggle="tab" href="#{$LNG.lv_resources}" role="tab" aria-controls="{$LNG.lv_resources}"><i class="fa fa-leaf"></i></a>
 				</li>
-				<li class="nav-item mr-1">
+				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#{$LNG.lv_buildings}" role="tab" aria-controls="{$LNG.lv_buildings}"><i class="fa fa-university"></i></a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#{$LNG.lv_technology}" role="tab" aria-controls="{$LNG.lv_technology}"><i class="fa fa-flask"></i></a>
 				</li>
-				<li class="nav-item mr-1">
+				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#{$LNG.lv_ships}" role="tab" aria-controls="{$LNG.lv_ships}"><i class="fa fa-microchip"></i></a>
 				</li>
-				<li class="nav-item mr-1">
+				<li class="nav-item">
 					<a class="nav-link" data-toggle="tab" href="#{$LNG.lv_defenses}" role="tab" aria-controls="{$LNG.lv_defenses}"><i class="fa fa-flag"></i></a>
 				</li>
 			</ul>
 			<div class="tab-content">
-				<div class="tab-pane active" id="{$LNG.lv_resources}" role="tabpanel">
+				<div class="p-0 tab-pane active" id="{$LNG.lv_resources}" role="tabpanel">
 					<table class="table table-striped table-responsive-sm table-sm">
 						<thead>
 							<tr>
@@ -66,7 +66,7 @@
 					</table>
 				</div>
 
-				<div class="tab-pane" id="{$LNG.lv_buildings}" role="tabpanel">
+				<div class="p-0 tab-pane" id="{$LNG.lv_buildings}" role="tabpanel">
 					<table class="table table-striped table-responsive-sm table-sm">
 						<thead>
 							<tr>
@@ -101,7 +101,7 @@
 					</table>
 				</div>
 
-				<div class="tab-pane" id="{$LNG.lv_technology}" role="tabpanel">
+				<div class="p-0 tab-pane" id="{$LNG.lv_technology}" role="tabpanel">
 					<table class="table table-striped table-responsive-sm table-sm">
 						<thead>
 							<tr>
@@ -120,7 +120,7 @@
 					</table>
 				</div>
 				
-				<div class="tab-pane" id="{$LNG.lv_ships}" role="tabpanel">
+				<div class="p-0 tab-pane" id="{$LNG.lv_ships}" role="tabpanel">
 					<table class="table table-striped table-responsive-sm table-sm">
 						<thead>
 							<tr>
@@ -163,7 +163,7 @@
 					</table>
 				</div>
 
-				<div class="tab-pane" id="{$LNG.lv_defenses}" role="tabpanel">
+				<div class="p-0 tab-pane" id="{$LNG.lv_defenses}" role="tabpanel">
 					<table class="table table-striped table-responsive-sm table-sm">
 						<thead>
 							<tr>
