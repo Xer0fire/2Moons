@@ -21,14 +21,6 @@
 				</div>
 			</div>
 			<div class="card-body collapse show" id="queue">
-				<div class="row text-center mb-2">
-					<div class="col-12 col-md-6">
-						Current production: <span id="bx" class="z"></span>
-					</div>
-					<div class="col-12 col-md-6">
-						Total production time: <span id="timeleft"></span>
-					</div>
-				</div>
 				<form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
 					<input type="hidden" name="action" value="delete">
 					<div class="row">
@@ -49,6 +41,30 @@
 						</div>
 					</div>
 				</form>
+			</div>
+			<div class="card-footer">
+				<div class="row">
+					<div class="col-12 col-md-6">
+						<div class="row">
+							<div class="col-12 col-md-auto">
+								Current production:
+							</div>
+							<div class="col-12 col-md-auto">
+								<span id="bx" class="z"></span>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-6 text-md-right">
+						<div class="row d-flex justify-content-end">
+							<div class="col-12 col-md-auto">
+								Total production time:
+							</div>
+							<div class="col-12 col-md-auto">
+								<span id="timeleft"></span>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
