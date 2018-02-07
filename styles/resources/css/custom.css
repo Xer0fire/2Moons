@@ -118,6 +118,9 @@
 .modal-open {
 	overflow: auto;
 }
+form {
+	margin-bottom: 0;
+}
 
 @media (max-width: 375.98px) {
 	.app-header.navbar .nav-item {
