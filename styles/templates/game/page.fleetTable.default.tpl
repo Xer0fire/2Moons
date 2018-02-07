@@ -139,10 +139,6 @@
 									<span class="h5">
 										<a title="{$LNG.fl_speed_title} {$FleetRow.speed}">{$LNG.tech.{$FleetRow.id}}</a> (<span id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</span>)
 									</span>
-								{else}
-									<span class="h5">
-										{$LNG.tech.{$FleetRow.id}} (<span id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</span>)
-									</span>
 								{/if}
 							</div>
 							{if $FleetRow.speed != 0}
@@ -158,9 +154,6 @@
 											</span>
 										</div>
 									</div>
-								</div>
-							{else}
-								<div class="col">
 								</div>
 							{/if}
 						</div>
