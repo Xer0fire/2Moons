@@ -114,27 +114,27 @@
 								<div class="input-group">
 									{if $Element.AlreadyBuild}
 											<span class="input-group-append">
-												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" value="zero" onclick="$('#input_{$ID}').val('0')">zero</button>
+												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" onclick="$('#input_{$ID}').val('0')">zero</button>
 											</span>
 											<input id="input_{$ID}" disabled="disabled" class="form-control" size="16" type="text" name="fmenge[{$ID}]" id="input_{$ID}" value="{$LNG.bd_protection_shield_only_one}" tabindex="{$smarty.foreach.FleetList.iteration}" />
 											<span class="input-group-append">
-												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
+												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
 											</span>
 									{elseif $NotBuilding && $Element.buyable}
 											<span class="input-group-append">
-												<button class="btn btn-lg btn-warning" type="button" value="zero" onclick="$('#input_{$ID}').val('0')">zero</button>
+												<button class="btn btn-lg btn-warning" type="button" onclick="$('#input_{$ID}').val('0')">zero</button>
 											</span>
 											<input id="input_{$ID}" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
 											<span class="input-group-append">
-												<button class="btn btn-lg btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
+												<button class="btn btn-lg btn-warning" type="button" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
 											</span>
 									{else}
 											<span class="input-group-append">
-												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" value="zero" onclick="$('#input_{$ID}').val('0')">zero</button>
+												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" onclick="$('#input_{$ID}').val('0')">zero</button>
 											</span>
 											<input id="input_{$ID}" disabled="disabled" class="form-control" size="16" type="text" id="input_{$ID}" name="fmenge[{$ID}]" id="input_{$ID}" value="0" tabindex="{$smarty.foreach.FleetList.iteration}" />
 											<span class="input-group-append">
-												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" value="{$LNG.bd_max_ships}" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
+												<button disabled="disabled" class="btn btn-lg btn-warning" type="button" onclick="$('#input_{$ID}').val('{$Element.maxBuildable}')">max</button>
 											</span>
 									{/if}
 								</div>
