@@ -24,7 +24,8 @@
 			</ul>
 			<div class="tab-content">
 				<div class="p-0 tab-pane active" id="{$LNG.lv_resources}" role="tabpanel">
-					<table class="table table-striped table-responsive-sm table-sm">
+					<div class="table-responsive">
+					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
 								<td></td>
@@ -64,10 +65,12 @@
 							{/foreach}
 						</tbody>
 					</table>
+					</div>
 				</div>
 
 				<div class="p-0 tab-pane" id="{$LNG.lv_buildings}" role="tabpanel">
-					<table class="table table-striped table-responsive-sm table-sm">
+					<div class="table-responsive">
+					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
 								<td></td>
@@ -99,10 +102,12 @@
 								{/foreach}
 						</tbody>
 					</table>
+					</div>
 				</div>
 
 				<div class="p-0 tab-pane" id="{$LNG.lv_technology}" role="tabpanel">
-					<table class="table table-striped table-responsive-sm table-sm">
+					<div class="table-responsive">
+					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
 								<th>{$LNG.lv_name}</td>
@@ -118,10 +123,12 @@
 							{/foreach}
 						</tbody>
 					</table>
+					</div>
 				</div>
 				
 				<div class="p-0 tab-pane" id="{$LNG.lv_ships}" role="tabpanel">
-					<table class="table table-striped table-responsive-sm table-sm">
+					<div class="table-responsive">
+					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
 								<td></td>
@@ -161,10 +168,12 @@
 								{/foreach}
 						</tbody>
 					</table>
+					</div>
 				</div>
 
 				<div class="p-0 tab-pane" id="{$LNG.lv_defenses}" role="tabpanel">
-					<table class="table table-striped table-responsive-sm table-sm">
+					<div class="table-responsive">
+					<table class="table table-striped table-sm">
 						<thead>
 							<tr>
 								<td></td>
@@ -196,6 +205,7 @@
 								{/foreach}
 						</tbody>
 					</table>
+					</div>
 				</div>
 
 			</div>
