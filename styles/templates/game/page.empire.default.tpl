@@ -4,7 +4,7 @@
 		<div class="card-header">
 		  Empire
 		</div>
-		<div class="card-body no-gutters">
+		<div class="card-body p-0">
 			<ul class="empire-nav nav nav-tabs" role="tablist">
 				<li class="nav-item">
 					<a class="nav-link active" data-toggle="tab" href="#{$LNG.lv_resources}" role="tab" aria-controls="{$LNG.lv_resources}"><i class="fa fa-leaf"></i></a>
