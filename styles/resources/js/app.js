@@ -29,6 +29,24 @@ $.grayLightest =  '#f8f9fa';
 
 $(document).ready(function($){
 
+  toastr.options = {
+	  "closeButton": false,
+	  "debug": false,
+	  "newestOnTop": false,
+	  "progressBar": true,
+	  "positionClass": "toast-bottom-right",
+	  "preventDuplicates": false,
+	  "onclick": null,
+	  "showDuration": "300",
+	  "hideDuration": "1000",
+	  "timeOut": "5000",
+	  "extendedTimeOut": "1000",
+	  "showEasing": "swing",
+	  "hideEasing": "linear",
+	  "showMethod": "fadeIn",
+	  "hideMethod": "fadeOut"
+  }
+
   //check if BLOCKED_BY_CLIENT
   if (typeof(cookieconsent) != "undefined") {
 	window.cookieconsent.initialise({

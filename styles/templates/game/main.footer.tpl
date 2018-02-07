@@ -4,11 +4,17 @@
 
   <footer class="app-footer">
     <span>{$game_name} {$uni_name}</span>
-    <span class="ml-auto">A modified version of <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
+    <span class="ml-auto">Powered by <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
 	{if $hasAdminAccess}
-		<div class="globalWarning">
-			{$LNG.admin_access_1} <a id="drop-admin">{$LNG.admin_access_link}</a>{$LNG.admin_access_2}
-		</div>
+		<script type="text/javascript">
+			toastr.options = {
+				"closeButton": true,
+				"positionClass": "toast-bottom-right",
+				"timeOut": 0,
+				"extendedTimeOut": 0
+			}
+			toastr["warning"]("{$LNG.admin_access_1} <a id='drop-admin'>{$LNG.admin_access_link}</a>{$LNG.admin_access_2}", "Warning");
+		</script>
 	{/if}
   </footer>
 
@@ -31,12 +37,7 @@
 	</script>
 {/if}
 
-  <!-- Main scripts for this application 
-  <script src="./styles/resources/js/jquery.min.js"></script>-->
-  <script src="./styles/resources/js/bootstrap.min.js"></script>
-  <script src="./styles/resources/js/cookieconsent.min.js"></script>
-
-  <script src="./styles/resources/js/app.js"></script>
+  <!-- Main scripts for this application -->
 
 </body>
 </html>
