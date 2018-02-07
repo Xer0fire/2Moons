@@ -30,15 +30,21 @@
 	border-top-left-radius: 2px;
 	border-top-right-radius: 2px;
 }
-.card-header, .card-header .card-actions a, .card-header .card-actions button{
+.card-header, .card-header .card-actions a, .card-header .card-actions button
+.card-footer, .card-footer .card-actions a, .card-footer .card-actions button{
 	color: #fff;
 	border-left: 0;
 }
-.card-header {
+.card-header, .card-footer {
 	background-color: #252831;
+}
+.card-header {
 	border-bottom: 1px solid #444
 }
-.card-header , .card {
+.card-footer {
+	border-top: 1px solid #444
+}
+.card-footer, .card {
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
 }
