@@ -15,7 +15,6 @@
 				<div class="table-responsive">
 				<table class="table table-striped table-sm">
 					<tr>
-						<td>{$LNG.fl_number}</td>
 						<td>{$LNG.fl_mission}</td>
 						<td>{$LNG.fl_ammount}</td>
 						<td>{$LNG.fl_beginning}</td>
@@ -27,7 +26,6 @@
 					</tr>
 					{foreach name=FlyingFleets item=FlyingFleetRow from=$FlyingFleetList}
 						<tr>
-							<td>{$smarty.foreach.FlyingFleets.iteration}</td>
 							<td>{$LNG["type_mission_{$FlyingFleetRow.mission}"]}
 								{if $FlyingFleetRow.state == 1}
 									 <a title="{$LNG.fl_returning}">{$LNG.fl_r}</a>
@@ -110,10 +108,10 @@
 		</div>
 	</div>
 </div>
+
 {if !empty($acsData)}
 {include file="shared.fleetTable.acsTable.tpl"}
 {/if}
-
 
 <div class="row">
 	<div class="col-12">
@@ -165,10 +163,10 @@
 							</div>
 						{else}
 							<div class="col">
-								<button class="btn btn-lg btn-block btn-warning" type="button" onclick="javascript:noShips()">{$LNG.fl_remove_all_ships}</button>
+								<button class="btn btn-block btn-warning" type="button" onclick="javascript:noShips()">{$LNG.fl_remove_all_ships}</button>
 							</div>
 							<div class="col">
-								<button class="btn btn-lg btn-block btn-warning" type="button" onclick="javascript:maxShips()">{$LNG.fl_select_all_ships}</button>
+								<button class="btn btn-block btn-warning" type="button" onclick="javascript:maxShips()">{$LNG.fl_select_all_ships}</button>
 							</div>
 						{/if}
 					</div>

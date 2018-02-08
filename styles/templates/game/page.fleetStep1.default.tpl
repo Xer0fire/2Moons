@@ -179,22 +179,20 @@
 	</div>
 	
 	{if $ACSList}
-	<table class="table519" style="table-layout: fixed;">
-		<tr style="height:20px;">
-			<th colspan="{$themeSettings.COLONY_ROWS_ON_FLEET1}">{$LNG.fl_acs_title}</th>
-		</tr>
-		{foreach $ACSList as $ACSRow}
-		{if ($ACSRow@iteration % $themeSettings.ACS_ROWS_ON_FLEET1) === 1}<tr style="height:20px;">{/if}
-		<tr style="height:20px;">
-			<td><a href="javascript:setACSTarget({$ACSRow.galaxy},{$ACSRow.system},{$ACSRow.planet},{$ACSRow.planet_type},{$ACSRow.id});">{$ACSRow.name} - [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}]</a></td>
-		</tr>
-		{if $ACSRow@last && ($ACSRow@iteration % $themeSettings.ACS_ROWS_ON_FLEET1) !== 0}
-		{$to = $themeSettings.ACS_ROWS_ON_FLEET1 - ($ACSRow@iteration % $themeSettings.ACS_ROWS_ON_FLEET1)}
-		{for $foo=1 to $to}<td>&nbsp;</td>{/for}
-		{/if}
-		{if ($ACSRow@iteration % $themeSettings.ACS_ROWS_ON_FLEET1) === 0}</tr>{/if}
-		{/foreach}
-	</table>
+		<div class="card">
+			<div class="card-header">
+				{$LNG.fl_acs_title}
+			</div>
+			<div class="card-body">
+				<div class="row justify-content-md-around">
+					{foreach $ACSList as $ACSRow}
+						<div class="col-auto">
+							<a href="javascript:setACSTarget({$ACSRow.galaxy},{$ACSRow.system},{$ACSRow.planet},{$ACSRow.planet_type},{$ACSRow.id});">{$ACSRow.name} - [{$ACSRow.galaxy}:{$ACSRow.system}:{$ACSRow.planet}]</a>
+						</div>
+					{/foreach}
+				</div>
+			</div>
+		</div>
 	{/if}
 	
 	<div class="row mb-4">

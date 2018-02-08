@@ -110,8 +110,9 @@
 									<div class="input-group">
 										<label class="col-form-label">{$LNG.fl_hold_time}</label>
 										<div class="input-group-append">
-											{html_options class="form-control" name=staytime options=$StaySelector} {$LNG.fl_hours}
+											{html_options class="form-control mr-1 ml-1" name=staytime options=$StaySelector}
 										</div>
+										<label class="col-form-label">{$LNG.fl_hours}</label>
 									</div>
 								</div>
 							</div>
