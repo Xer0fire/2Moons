@@ -53,22 +53,8 @@
 		serverTime.setSeconds(serverTime.getSeconds()+1);
 	}, 1000);
 	</script>
-	<!--slim jquery requires no jquery ui try to elimiate -->
 	<script src="./styles/resources/js/jquery.min.js"></script>
 	<script src="./styles/resources/js/jquery-ui.min.js"></script>
-	<script src="./styles/resources/js/cookieconsent.min.js"></script>
-	<script src="./styles/resources/js/popper.min.js"></script>
-	<script src="./styles/resources/js/popovers.js"></script>
-	<script src="./styles/resources/js/tooltips.js"></script>
-	<script src="./styles/resources/js/bootstrap.min.js"></script>
-	<script src="./styles/resources/js/ie10-viewport-bug-workaround.js"></script>
-	<script src="./styles/resources/js/toastr.min.js"></script>
-	<script src="./styles/resources/js/app.js"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<!--<script type="text/javascript" src="./scripts/base/jquery.fancybox.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/jquery.validationEngine.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/l18n/validationEngine/jquery.validationEngine-{$lang}.js?v={$REV}"></script>
-	<script type="text/javascript" src="./scripts/base/tooltip.js?v={$REV}"></script>-->
 	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
 	{foreach item=scriptname from=$scripts}
 	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>
