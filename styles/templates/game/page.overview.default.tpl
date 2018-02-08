@@ -67,7 +67,7 @@
 								{if isset($resourceData.production)}
 									<span class="text-green">(+{$resourceData.production|number})</span> 
 								{/if}
-								<span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</span>
+								<span class="ovr_current" id="ovr_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</span>
 							{/if}
 							{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
 							{else}
@@ -238,6 +238,24 @@
             </div>
             <!-- /.modal-dialog -->
           </div>
+		{if !$vmode}
+		<script type="text/javascript">
+		var viewShortlyNumber	= {$shortlyNumber|json};
+		var vacation			= {$vmode};
+        $(function() {
+		{foreach $resourceTable as $resourceID => $resourceData}
+		{if isset($resourceData.production)}
+            overviewTicker({
+                available: {$resourceData.current|json},
+                limit: [0, {$resourceData.max|json}],
+                production: {$resourceData.production|json},
+                valueElem: "ovr_{$resourceData.name}"
+            }, true);
+		{/if}
+		{/foreach}
+        });
+		</script>
+		{/if}
 {/block}
 {block name="script" append}
     <script src="scripts/game/overview.js"></script>
