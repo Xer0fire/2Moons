@@ -1,74 +1,123 @@
 {block name="title" prepend}{$LNG.lm_fleet}{/block}
 {block name="content"}
-<form action="game.php?page=fleetStep3" method="post">
-<input type="hidden" name="token" value="{$token}">
-   	<table class="table519">
-        <tr>
-        	<th colspan="2">{$galaxy}:{$system}:{$planet} - {$LNG["type_planet_{$type}"]}</th>
-        </tr>
-		<tr>
-			<th>{$LNG.fl_mission}</th>
-        	<th>{$LNG.fl_resources}</th>
-        </tr>
-		<tr>
-			<td class="left top" style="width:50%;margin:0;padding:0;"{if $StaySelector} rowspan="3"{/if}>
-        		<table border="0" cellpadding="0" cellspacing="0" width="259" style="margin:0;padding:0;">
-        			{foreach $MissionSelector as $MissionID} 
-					<tr style="height:20px;">
-						<td class="transparent left">
-						<input id="radio_{$MissionID}" type="radio" name="mission" value="{$MissionID}" {if $mission == $MissionID}checked="checked"{/if} style="width:60px;"><label for="radio_{$MissionID}">{$LNG["type_mission_{$MissionID}"]}</label><br>
-							{if $MissionID == 15}<br><div style="color:red;padding-left:13px;">{$LNG.fl_expedition_alert_message}</div><br>{/if}
-							{if $MissionID == 11}<br><div style="color:red;padding-left:13px;">{$fl_dm_alert_message}</div><br>{/if}
-						</td>
-					</tr>
-					{/foreach}
-        		</table>
-        	</td>
-        	<td class="top">
-				<table border="0" cellpadding="0" cellspacing="0" width="259">
-                    <tr style="height:20px;">
-        				<td class="transparent">{$LNG.tech.901}</td>
-        				<td class="transparent"><a href="javascript:maxResource('metal');">{$LNG.fl_max}</a></th>
-        				<td class="transparent"><input name="metal" size="10" onchange="calculateTransportCapacity();" type="text"></td>
-        			</tr>
-                    <tr style="height:20px;">
-        				<td class="transparent">{$LNG.tech.902}</td>
-        				<td class="transparent"><a href="javascript:maxResource('crystal');">{$LNG.fl_max}</a></th>
-        				<td class="transparent"><input name="crystal" size="10" onchange="calculateTransportCapacity();" type="text"></td>
-        			</tr>
-                    <tr style="height:20px;">
-        				<td class="transparent">{$LNG.tech.903}</td>
-        				<td class="transparent"><a href="javascript:maxResource('deuterium');">{$LNG.fl_max}</a></td>
-        				<td class="transparent"><input name="deuterium" size="10" onchange="calculateTransportCapacity();" type="text"></td>
-        			</tr>
-                    <tr style="height:20px;">
-        				<td class="transparent">{$LNG.fl_resources_left}</td>
-        				<td class="transparent" colspan="2" id="remainingresources">-</td>
-        			</tr>
-                    <tr style="height:20px;">
-        				<td class="transparent" colspan="3"><a href="javascript:maxResources()">{$LNG.fl_all_resources}</a></td>
-        			</tr>
-                    <tr style="height:20px;">
-        				<td class="transparent" colspan="3">{$LNG.fl_fuel_consumption}: <span id="consumption" class="consumption">{$consumption}</span></td>
-        			</tr>
-				</table>
-			</td>
-		</tr>
-		{if $StaySelector}
-		<tr style="height:20px;">
-			<th>{$LNG.fl_hold_time}</th>
-		</tr>
-		<tr style="height:20px;">
-			<td>
-			{html_options name=staytime options=$StaySelector} {$LNG.fl_hours}
-			</td>
-		</tr>
-		{/if}
-        <tr style="height:20px;">
-        	<td colspan="2"><input value="{$LNG.fl_continue}" type="submit" /></td>
-        </tr>
-    </table>
-</form>
+	<div class="card">
+		<div class="card-header">
+			{$galaxy}:{$system}:{$planet} - {$LNG["type_planet_{$type}"]}
+		</div>
+		<div class="card-body">
+			<form action="game.php?page=fleetStep3" method="post">
+				<input type="hidden" name="token" value="{$token}">
+				<div class="row">
+					<div class="col-12 col-md-4">
+						<div class="row">
+							<div class="col-12">
+								{$LNG.fl_mission}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 form-group">
+							{foreach $MissionSelector as $MissionID}
+								<div class="form-check p-0">
+									<input id="radio_{$MissionID}" type="radio" name="mission" value="{$MissionID}" {if $mission == $MissionID}checked="checked"{/if}>
+									<label for="radio_{$MissionID}">{$LNG["type_mission_{$MissionID}"]}</label>
+									{if $MissionID == 15}<span>{$LNG.fl_expedition_alert_message}</span>{/if}
+									{if $MissionID == 11}<span>{$fl_dm_alert_message}</span>{/if}
+								</div>
+							{/foreach}
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-md-8">
+						<div class="row">
+							<div class="col-12">
+								{$LNG.fl_resources}
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><img src="{$dpath}images/{$LNG.tech.901}.gif"></span>
+									</div>
+									<div class="input-group-prepend">
+										<button class="btn btn-warning" type="button">zero</button>
+									</div>
+									<input name="metal" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
+									<div class="input-group-append">
+										<button class="btn btn-warning" type="button" onclick="javascript:maxResource('metal')">{$LNG.fl_max}</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><img src="{$dpath}images/{$LNG.tech.902}.gif"></span>
+									</div>
+									<div class="input-group-prepend">
+										<button class="btn btn-warning" type="button">zero</button>
+									</div>
+									<input name="crystal" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
+									<div class="input-group-append">
+										<button class="btn btn-warning" type="button" onclick="javascript:maxResource('crystal')">{$LNG.fl_max}</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 form-group">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text"><img src="{$dpath}images/{$LNG.tech.903}.gif"></span>
+									</div>
+									<div class="input-group-prepend">
+										<button class="btn btn-warning" type="button">zero</button>
+									</div>
+									<input name="deuterium" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
+									<div class="input-group-append">
+										<button class="btn btn-warning" type="button" onclick="javascript:maxResource('deuterium')">{$LNG.fl_max}</button>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								{$LNG.fl_resources_left}: <span id="remainingresources">-</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<button class="btn btn-block btn-success" type="button" onclick="javascript:maxResources()">{$LNG.fl_all_resources}</button>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								{$LNG.fl_fuel_consumption}: <span id="consumption" class="consumption">{$consumption}</span>
+							</div>
+						</div>
+						{if $StaySelector}
+							<div class="row">
+								<div class="col-12 form-group">
+									<div class="input-group">
+										<label class="col-form-label">{$LNG.fl_hold_time}</label>
+										<div class="input-group-append">
+											{html_options class="form-control" name=staytime options=$StaySelector} {$LNG.fl_hours}
+										</div>
+									</div>
+								</div>
+							</div>
+						{/if}
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<button class="btn btn-block btn-success mt-2" type="submit">{$LNG.fl_continue}</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
 <script type="text/javascript">
 data	= {$fleetdata|json};
 </script>

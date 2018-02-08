@@ -124,7 +124,7 @@
 .modal-open {
 	overflow: auto;
 }
-form {
+form, .form-group {
 	margin-bottom: 0;
 }
 
