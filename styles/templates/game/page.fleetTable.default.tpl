@@ -134,7 +134,7 @@
 						{else}
 							<div class="row mt-3 mt-md-0">
 						{/if}
-							<div class="col-12 col-md-6">
+							<div class="col-12 col-md-6 align-self-center">
 								{if $FleetRow.speed != 0} 
 									<span class="h5">
 										<a title="{$LNG.fl_speed_title} {$FleetRow.speed}">{$LNG.tech.{$FleetRow.id}}</a> (<span id="ship{$FleetRow.id}_value">{$FleetRow.count|number}</span>)
@@ -143,7 +143,7 @@
 							</div>
 							{if $FleetRow.speed != 0}
 								<div class="col-12 col-md-6">
-									<div class="controls mt-1 col-12">
+									<div class="controls p-0 mt-1 col-12">
 										<div class="input-group">
 											<span class="input-group-append">
 												<button class="btn btn-warning" type="button" onclick="$('ship{$FleetRow.id}_input').val('0')">zero</button>
