@@ -77,7 +77,6 @@
 							<td>-</td>
 							<td>-</td>
 							<td>-</td>
-							<td>-</td>
 							<td class="d-none d-md-table-cell">-</td>
 							<td>-</td>
 							<td class="d-none d-md-table-cell">-</td>
