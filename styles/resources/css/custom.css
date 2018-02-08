@@ -127,6 +127,13 @@
 form, .form-group {
 	margin-bottom: 0;
 }
+.popover-header {
+	border-top: 1px solid #444;
+	border-bottom: 1px solid #444;
+}
+.popover-header, .popover-body, .arrow {
+	background-color: #252831;
+}
 
 @media (max-width: 375.98px) {
 	.app-header.navbar .nav-item {
