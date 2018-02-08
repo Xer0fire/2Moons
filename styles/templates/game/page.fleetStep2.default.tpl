@@ -16,9 +16,17 @@
 						</div>
 						<div class="row">
 							<div class="col-12 form-group">
-							{foreach $MissionSelector as $MissionID}
+							{foreach from=$MissionSelector key=ID item=MissionID name=List}
 								<div class="form-check p-0">
-									<input id="radio_{$MissionID}" type="radio" name="mission" value="{$MissionID}" {if $mission == $MissionID}checked="checked"{/if}>
+									{if $mission == $MissionID}
+										<input id="radio_{$MissionID}" type="radio" name="mission" value="{$MissionID}" checked="checked">
+									{else}
+										{if $smarty.foreach.List.first}
+											<input id="radio_{$MissionID}" type="radio" name="mission" value="{$MissionID}" checked="checked">
+										{else}
+											<input id="radio_{$MissionID}" type="radio" name="mission" value="{$MissionID}">
+										{/if}
+									{/if}
 									<label for="radio_{$MissionID}">{$LNG["type_mission_{$MissionID}"]}</label>
 									{if $MissionID == 15}<span>{$LNG.fl_expedition_alert_message}</span>{/if}
 									{if $MissionID == 11}<span>{$fl_dm_alert_message}</span>{/if}
