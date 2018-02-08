@@ -72,7 +72,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		{
 			$this->printMessage($LNG['fl_error_same_planet'], array(array(
 				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleet1'
+				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
 
@@ -82,7 +82,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 			($targetType !== 1 && $targetType !== 2 && $targetType !== 3)) {
 			$this->printMessage($LNG['fl_invalid_target'], array(array(
 				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleet1'
+				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
 
@@ -90,7 +90,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		{
 			$this->printMessage($LNG['fl_no_noresource'], array(array(
 				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleet2'
+				'url'	=> 'game.php?page=fleetStep2'
 			)));
 		}
 		
@@ -137,14 +137,14 @@ class ShowFleetStep3Page extends AbstractGamePage
 			if (!empty($targetPlanetData)) {
 				$this->printMessage($LNG['fl_target_exists'], array(array(
 					'label'	=> $LNG['sys_back'],
-					'url'	=> 'game.php?page=fleet1'
+					'url'	=> 'game.php?page=fleetStep1'
 				)));
 			}
 			
 			if ($targetType != 1) {
 				$this->printMessage($LNG['fl_only_planets_colonizable'], array(array(
 					'label'	=> $LNG['sys_back'],
-					'url'	=> 'game.php?page=fleet1'
+					'url'	=> 'game.php?page=fleetStep1'
 				)));
 			}
 		}
@@ -158,14 +158,14 @@ class ShowFleetStep3Page extends AbstractGamePage
 			if ($targetPlanetData["destruyed"] != 0) {
 				$this->printMessage($LNG['fl_no_target'], array(array(
 					'label'	=> $LNG['sys_back'],
-					'url'	=> 'game.php?page=fleet1'
+					'url'	=> 'game.php?page=fleetStep1'
 				)));
 			}
 				
 			if (empty($targetPlanetData)) {
 				$this->printMessage($LNG['fl_no_target'], array(array(
 					'label'	=> $LNG['sys_back'],
-					'url'	=> 'game.php?page=fleet1'
+					'url'	=> 'game.php?page=fleetStep1'
 				)));
 			}
 		}
@@ -236,7 +236,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 		{
 			$this->printMessage($LNG['fl_empty_target'], array(array(
 				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleet1'
+				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
 		
@@ -253,14 +253,14 @@ class ShowFleetStep3Page extends AbstractGamePage
 		if (!in_array($targetMission, $availableMissions['MissionSelector'])) {
 			$this->printMessage($LNG['fl_invalid_mission'], array(array(
 				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleet2'
+				'url'	=> 'game.php?page=fleetStep2'
 			)));
 		}
 		
 		if ($targetMission != 8 && IsVacationMode($targetPlayerData)) {
 			$this->printMessage($LNG['fl_target_exists'], array(array(
 				'label'	=> $LNG['sys_back'],
-				'url'	=> 'game.php?page=fleet1'
+				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
 		
