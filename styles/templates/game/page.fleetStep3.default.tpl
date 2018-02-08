@@ -1,49 +1,89 @@
 {block name="title" prepend}{$LNG.lm_fleet}{/block}
 {block name="content"}
-<table class="table519">
-	<tr style="height:20px">
-		<th colspan="2" class="success">{$LNG.fl_fleet_sended}</span></th>
-	</tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_mission}</td>
-        <td>{$LNG["type_mission_{$targetMission}"]}</td>
-	</tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_distance}</td>
-        <td>{$distance|number}</td>
-    </tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_fleet_speed}</td>
-        <td>{$MaxFleetSpeed|number}</td>
-    </tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_fuel_consumption}</td>
-        <td>{$consumption|number}</td>
-    </tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_from}</td>
-        <td>{$from}</td>
-    </tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_destiny}</td>
-        <td>{$destination}</td>
-    </tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_arrival_time}</td>
-        <td>{$fleetStartTime}</td>
-    </tr>
-    <tr style="height:20px">
-        <td>{$LNG.fl_return_time}</td>
-        <td>{$fleetEndTime}</td>
-    </tr>
-    <tr style="height:20px">
-        <th colspan="2">{$LNG.fl_fleet}</th>
-    </tr>
-	{foreach $FleetList as $ShipID => $ShipCount}
-	<tr>
-		<td>{$LNG.tech.{$ShipID}}</td>
-		<td>{$ShipCount|number}</td>
-	</tr>
-	{/foreach}
-</table>
+	<div class="card">
+		<div class="card-header">
+			{$LNG.fl_fleet_sended}
+		</div>
+		<div class="card-body">
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_mission}
+				</div>
+				<div class="col-6">
+					{$LNG["type_mission_{$targetMission}"]}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_distance}
+				</div>
+				<div class="col-6">
+					{$distance|number}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_fleet_speed}
+				</div>
+				<div class="col-6">
+					{$MaxFleetSpeed|number}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_fuel_consumption}
+				</div>
+				<div class="col-6">
+					{$consumption|number}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_from}
+				</div>
+				<div class="col-6">
+					{$from}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_destiny}
+				</div>
+				<div class="col-6">
+					{$destination}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_arrival_time}
+				</div>
+				<div class="col-6">
+					{$fleetStartTime}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					{$LNG.fl_return_time}
+				</div>
+				<div class="col-6">
+					{$fleetEndTime}
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					{$LNG.fl_fleet}
+				</div>
+			</div>
+			{foreach $FleetList as $ShipID => $ShipCount}
+			<div class="row">
+				<div class="col-6">
+					{$LNG.tech.{$ShipID}}
+				</div>
+				<div class="col-6">
+					{$ShipCount|number}
+				</div>
+			</div>
+			{/foreach}
+		</div>
+	</div>
 {/block}
