@@ -19,6 +19,18 @@ function Buildlist() {
 	document.title	= GetRestTimeFormat(rest) + ' - ' + buildname + ' - ' + Gamename;
 	
 	$('#time').text(GetRestTimeFormat(rest));
+	if (rest <= 0) {
+		window.clearInterval(interval);
+		$('#timequeue').text(Ready);
+		document.title	= Ready + ' - ' + Gamename;
+		window.setTimeout(function() {
+			window.location.href = 'game.php?page=research';
+		}, 1000);
+		return true;
+	}
+	document.title	= GetRestTimeFormat(rest) + ' - ' + buildname + ' - ' + Gamename;
+
+	$('#timequeue').text(GetRestTimeFormat(rest));
 }
 
 function CreateProcessbar() {

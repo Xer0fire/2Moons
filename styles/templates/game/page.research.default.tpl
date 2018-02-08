@@ -29,6 +29,9 @@ Queue
 				{$List@iteration}. {$LNG.tech.{$ID}} {$List.level}{if !empty($List.planet)} @ {$List.planet}{/if}
 			{/if}
 			{if $List@first}
+			{assign var="firstqueuename" value="{$LNG.tech.{$ID}}"}
+			{assign var="firstqueuelvl" value="{$List.level}"}
+			{assign var="firstqueueresttime" value="{$List.resttime}"}
 			<div id="progressbar" data-time="{$List.resttime}"></div>
 		</div>
 		<div class="col-4">
@@ -55,6 +58,13 @@ Queue
 		</div>
 		{/if}
 	{/foreach}
+		</div>
+	</div>
+	<div class="card-footer">
+		<div class="row">
+			<div class="col-12 text-center">
+				{$firstqueuename} ({$firstqueuelvl}) <div id="timequeue" class="d-inline-block" data-time="{$firstqueueresttime}"></div>
+			</div>
 		</div>
 	</div>
   </div>
