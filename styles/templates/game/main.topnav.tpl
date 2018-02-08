@@ -136,7 +136,7 @@
 		</script>
         <script src="scripts/game/topnav.js"></script>
         {if $hasGate}<script src="scripts/game/gate.js"></script>{/if}
-		{/if}
+	{/if}
 
 	{if $closed}
 	<div class="infobox">{$LNG.ov_closed}</div>
