@@ -16,7 +16,9 @@
 					<div class="controls mt-1 col-12 col-md-9">
 						<div class="input-group">
 							<input class="form-control form-control-sm" type="text" id="galaxy" name="galaxy" size="3" maxlength="2" onkeyup="updateVars()" value="{$galaxy}">
+							<span class="ml-1 mr-1">:</span>
 							<input class="form-control form-control-sm" type="text" id="system" name="system" size="3" maxlength="3" onkeyup="updateVars()" value="{$system}">
+							<span class="ml-1 mr-1">:</span>
 							<input class="form-control form-control-sm" type="text" id="planet" name="planet" size="3" maxlength="2" onkeyup="updateVars()" value="{$planet}">
 							<select class="form-control form-control-sm" id="type" name="type" onchange="updateVars()">
 								{html_options options=$typeSelect selected=$type}
