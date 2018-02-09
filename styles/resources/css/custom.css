@@ -45,8 +45,8 @@
 	border-top: 1px solid #444
 }
 .card-footer, .card {
-	border-bottom-left-radius: 15px;
-	border-bottom-right-radius: 15px;
+	border-bottom-left-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 .aside-menu {
 	color: #fff;
