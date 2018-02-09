@@ -249,6 +249,11 @@ class ShowFleetStep3Page extends AbstractGamePage
 		$MisInfo['Ship'] 		= $fleetArray;		
 		
 		$availableMissions		= FleetFunctions::GetFleetMissions($USER, $MisInfo, $targetPlanetData);
+
+		$sql = "SELECT owner_1, owner_2 FROM %%DIPLO%% WHERE (accept = 1 AND level != 5) AND (owner_1 = :id OR owner_2 = :id)";
+		$diplomaticResult =  $db->select($sql, array(
+				':id'           => $USER['ally_id']
+		));
 		
 		if (!in_array($targetMission, $availableMissions['MissionSelector'])) {
 			$this->printMessage($LNG['fl_invalid_mission'], array(array(
@@ -263,7 +268,21 @@ class ShowFleetStep3Page extends AbstractGamePage
 				'url'	=> 'game.php?page=fleetStep1'
 			)));
 		}
-		
+		if (!empty($diplomaticResult) && $targetMission == 1) {
+			$sql = "SELECT ally_id FROM %%USERS%% WHERE id = :id_owner";
+			$result =  $db->select($sql, array(
+					':id_owner'           => $targetPlanetData['id_owner']
+			));
+			foreach ($diplomaticResult as $diplomacy) {
+				if ($diplomacy['owner_1'] == $result[0]['ally_id'] || $diplomacy['owner_2'] == $result[0]['ally_id']) {
+					$this->printMessage($LNG['fl_pact_attack'], array(array(
+						'label'	=> $LNG['sys_back'],
+						'url'	=> 'game.php?page=fleetStep2'
+					)));
+				}
+			}
+		}
+
 		if($targetMission == 1 || $targetMission == 2 || $targetMission == 9) {
 			if(FleetFunctions::CheckBash($targetPlanetData['id']))
 			{
@@ -273,7 +292,7 @@ class ShowFleetStep3Page extends AbstractGamePage
 				)));
 			}
 		}
-		
+
 		if($targetMission == 1 || $targetMission == 2 || $targetMission == 5 || $targetMission == 6 || $targetMission == 9)
 		{
 			if(Config::get()->adm_attack == 1 && $targetPlayerData['authattack'] > $USER['authlevel'])
