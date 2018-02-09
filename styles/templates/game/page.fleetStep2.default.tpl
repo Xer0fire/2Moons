@@ -48,9 +48,9 @@
 										<span class="input-group-text"><img src="{$dpath}images/{$LNG.tech.901}.gif"></span>
 									</div>
 									<div class="input-group-prepend">
-										<button class="btn btn-warning" type="button">zero</button>
+										<button class="btn btn-warning" type="button" onclick="$('#fleetmetal').val('0')">zero</button>
 									</div>
-									<input name="metal" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
+									<input id="fleetmetal" name="metal" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
 									<div class="input-group-append">
 										<button class="btn btn-warning" type="button" onclick="javascript:maxResource('metal')">{$LNG.fl_max}</button>
 									</div>
@@ -64,9 +64,9 @@
 										<span class="input-group-text"><img src="{$dpath}images/{$LNG.tech.902}.gif"></span>
 									</div>
 									<div class="input-group-prepend">
-										<button class="btn btn-warning" type="button">zero</button>
+										<button class="btn btn-warning" type="button" onclick="$('#fleetcrystal').val('0')">zero</button>
 									</div>
-									<input name="crystal" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
+									<input id="fleetcrystal" name="crystal" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
 									<div class="input-group-append">
 										<button class="btn btn-warning" type="button" onclick="javascript:maxResource('crystal')">{$LNG.fl_max}</button>
 									</div>
@@ -80,9 +80,9 @@
 										<span class="input-group-text"><img src="{$dpath}images/{$LNG.tech.903}.gif"></span>
 									</div>
 									<div class="input-group-prepend">
-										<button class="btn btn-warning" type="button">zero</button>
+										<button class="btn btn-warning" type="button" onclick="$('#fleetdeuterium').val('0')">zero</button>
 									</div>
-									<input name="deuterium" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
+									<input id="fleetdeuterium" name="deuterium" type="text" class="form-control" value="0" onchange="calculateTransportCapacity();">
 									<div class="input-group-append">
 										<button class="btn btn-warning" type="button" onclick="javascript:maxResource('deuterium')">{$LNG.fl_max}</button>
 									</div>

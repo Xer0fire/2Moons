@@ -143,7 +143,7 @@
 									<div class="controls p-0 mt-1 col-12">
 										<div class="input-group">
 											<span class="input-group-append">
-												<button class="btn btn-warning" type="button" onclick="$('ship{$FleetRow.id}_input').val('0')">zero</button>
+												<button class="btn btn-warning" type="button" onclick="$('#ship{$FleetRow.id}_input').val('0')">zero</button>
 											</span>
 											<input id="ship{$FleetRow.id}_input" class="form-control" size="16" type="text" name="ship{$FleetRow.id}" value="0" tabindex="">
 											<span class="input-group-append">
