@@ -155,19 +155,20 @@
 							{/if}
 						</div>
 					{/foreach}
-					<div class="row mt-3">
-						{if count($FleetsOnPlanet) == 0}
+					{if count($FleetsOnPlanet) == 0}
+						<div class="row">
 							<div class="col">
 								{$LNG.fl_no_ships}
 							</div>
-						{else}
+					{else}
+						<div class="row mt-3">
 							<div class="col">
 								<button class="btn btn-block btn-warning" type="button" onclick="javascript:noShips()">{$LNG.fl_remove_all_ships}</button>
 							</div>
 							<div class="col">
 								<button class="btn btn-block btn-warning" type="button" onclick="javascript:maxShips()">{$LNG.fl_select_all_ships}</button>
 							</div>
-						{/if}
+					{/if}
 					</div>
 					<div class="row mt-3">
 						<div class="col">
