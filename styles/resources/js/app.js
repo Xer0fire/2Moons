@@ -77,6 +77,7 @@ $(document).ready(function($){
   $("#modal-container").append( $("div.modal") );
 
   // Add class .active to current link
+  /*
   $.navigation.find('a').each(function(){
 
     var cUrl = String(window.location).split('?')[0];
@@ -93,6 +94,7 @@ $(document).ready(function($){
       });
     }
   });
+  */
 
   // Dropdown Menu
   $.navigation.on('click', 'a', function(e){
@@ -225,9 +227,11 @@ $('.card-actions').on('click', 'a, button', function(e){
 
 });
 
+/*
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+*/
 
 function init(url) {
 
