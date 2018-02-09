@@ -4,7 +4,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
-					{$LNG.al_your_ally}
+					{$LNG.al_ally_information}
 					<div class="card-actions">
 						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#alliance-info" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 					</div>
@@ -129,7 +129,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="row">
 		<div class="col-12">
 			<div class="card">
