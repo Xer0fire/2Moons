@@ -161,7 +161,7 @@
 							</td>
 							{$currentPlanet = $GalaxyRows[$planet]}
 							<td>
-								<a href="#" data-toggle="popover" data-html="true" data-content="
+								<a class="position-relative" href="#" data-toggle="popover" data-html="true" data-content="
 									{if $currentPlanet.missions.6}
 										<a href='javascript:doit(6,{$currentPlanet.planet.id});'>{$LNG['type_mission_6']}</a>
 										<br><br>
@@ -190,10 +190,11 @@
 										<br>
 									{/if}
 								" data-original-title="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-								<img src="{$dpath}planeten/small/s_{$currentPlanet.planet.image}.jpg" height="30" width="30" alt="">
+								<span class="position-absolute badge badge-pill badge-warning pill-galaxy">{$currentPlanet.lastActivity}</span>
+								<img src="{$dpath}planeten/small/s_{$currentPlanet.planet.image}.jpg" height="40" width="40" alt="">
 								</a>
 							</td>
-							<td class="d-none d-md-table-cell">{$currentPlanet.planet.name} {$currentPlanet.lastActivity}</td>
+							<td class="d-none d-md-table-cell">{$currentPlanet.planet.name}</td>
 							<td>
 								{if $currentPlanet.moon}
 									
@@ -231,7 +232,7 @@
 										<br>
 									{/if}
 								" data-original-title="{$LNG.gl_moon} {$currentPlanet.moon.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-								<img src="{$dpath}planeten/small/s_mond.jpg" height="22" width="22" alt="{$currentPlanet.moon.name}">
+								<img src="{$dpath}planeten/small/s_mond.jpg" height="40" width="40" alt="{$currentPlanet.moon.name}">
 								</a>
 								{/if}
 							</td>
@@ -247,7 +248,7 @@
 											<a href='javascript:doit(8, {$currentPlanet.planet.id});'>{$LNG['type_mission_8']}</a>
 										{/if}
 									" data-original-title="{$LNG.gl_debris_field} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-									<img src="{$dpath}planeten/debris.jpg" height="22" width="22" alt="">
+									<img src="{$dpath}planeten/debris.jpg" height="40" width="40" alt="">
 									</a>
 								{/if}
 							</td>
