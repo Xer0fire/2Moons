@@ -155,7 +155,7 @@ $(document).ready(function($){
 
   /* ---------- Main Menu Open/Close, Min/Full ---------- */
   $('.sidebar-toggler').click(function(){
-    var $this = $(this);
+    /* var $this = $(this); */
     sidebarNav = !sidebarNav;
     $('body').toggleClass('sidebar-hidden', sidebarNav);
     localStorage.setItem("omicron-sidebarNav", sidebarNav);
@@ -163,7 +163,7 @@ $(document).ready(function($){
   });
 
   $('.sidebar-minimizer').click(function(){
-    var $this = $(this);
+    /* var $this = $(this); */
     sidebarMinimized = !sidebarMinimized;
     $('body').toggleClass('sidebar-minimized', sidebarMinimized);
     localStorage.setItem("omicron-sidebarMinimized", sidebarMinimized);
@@ -175,7 +175,7 @@ $(document).ready(function($){
   });
 
   $('.aside-menu-toggler').click(function(){
-    var $this = $(this);
+    /* var $this = $(this); */
     asideNav = !asideNav;
     $('body').toggleClass('aside-menu-hidden', asideNav);
     localStorage.setItem("omicron-asideNav", asideNav);
