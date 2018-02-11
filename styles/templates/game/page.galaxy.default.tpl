@@ -338,12 +338,9 @@
 											<i class="fa fa-bolt"></i>
 										</a>
 									{/if}
-								{else}
-									-
 								{/if}
 								{if $currentPlanet.planet.phalanx}
-									<a class="textForBlind" href="#" onclick="OpenPopup('?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1','',640,510);return false;">
-										<span>{$LNG.gl_phalanx}</span>
+									<a class="textForBlind" href="#" onclick="OpenPopup('?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1','',640,510);return false;"><i class="fa fa-assistive-listening-systems"></i>
 									</a>
 								{/if}
 							</td>
