@@ -38,7 +38,7 @@
 								{/if}
 							</td>
 							<td>
-								<a href="game.php?page=buddyList&amp;mode=delete&amp;id={$myBuddyID}"><img src="styles/resource/images/false.png" alt="{$LNG.bu_delete}" title="{$LNG.bu_delete}"></a>
+								<a href="game.php?page=buddyList&amp;mode=delete&amp;id={$myBuddyID}"><i class="fa fa-times text-red"></i></a>
 							</td>
 						</tr>
 					{foreachelse}
@@ -88,7 +88,7 @@
 									{$otherRequestRow.text}
 								</td>
 								<td>
-									<a href="game.php?page=buddyList&amp;mode=accept&amp;id={$otherRequestID}"><img src="styles/resource/images/true.png" alt="{$LNG.bu_accept}" title="{$LNG.bu_accept}"></a><a href="game.php?page=buddyList&amp;mode=delete&amp;id={$otherRequestID}"><img src="styles/resource/images/false.png" alt="{$LNG.bu_decline}" title="{$LNG.bu_decline}"></a>
+									<a href="game.php?page=buddyList&amp;mode=accept&amp;id={$otherRequestID}"><i class="fa fa-tick text-green"></i></a><a href="game.php?page=buddyList&amp;mode=delete&amp;id={$otherRequestID}"><i class="fa fa-times text-red"></i></a>
 								</td>
 							</tr>
 						{foreachelse}
@@ -127,7 +127,7 @@
 									{$myRequestRow.text}
 								</td>
 								<td>
-									<a href="game.php?page=buddyList&amp;mode=delete&amp;id={$myRequestID}"><img src="styles/resource/images/false.png" alt="{$LNG.bu_cancel_request}" title="{$LNG.bu_cancel_request}"></a>
+									<a href="game.php?page=buddyList&amp;mode=delete&amp;id={$myRequestID}"><i class="fa fa-times text-red"></i></a>
 								</td>
 							</tr>
 						{foreachelse}
