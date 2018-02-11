@@ -26,6 +26,17 @@
 		</script>
 	{/if}
 
+	<!-- Main scripts for this application -->
+	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
+	<script type="text/javascript" src="./styles/resources/js/popper.min.js"></script>
+	<script type="text/javascript" src="./styles/resources/js/popovers.js"></script>
+	<script type="text/javascript" src="./styles/resources/js/tooltips.js"></script>
+	<script type="text/javascript" src="./styles/resources/js/ie10-viewport-bug-workaround.js"></script>
+	<script type="text/javascript" src="./styles/resources/js/toastr.min.js"></script>
+	<script type="text/javascript" src="./styles/resources/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="./styles/resources/js/cookieconsent.min.js"></script>
+	<script type="text/javascript" src="./styles/resources/js/app.js"></script>
+
 	{if isset($hasAdminAccess) && $hasAdminAccess}
 		<script type="text/javascript">
 			toastr.options = {
@@ -37,17 +48,6 @@
 			toastr["warning"]("{$LNG.admin_access_1} <a id='drop-admin'>{$LNG.admin_access_link}</a>{$LNG.admin_access_2}", "Warning");
 		</script>
 	{/if}
-	
-	<!-- Main scripts for this application -->
-	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<script type="text/javascript" src="./styles/resources/js/popper.min.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/popovers.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/tooltips.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/ie10-viewport-bug-workaround.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/toastr.min.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/cookieconsent.min.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/app.js"></script>
 
 </body>
 </html>
