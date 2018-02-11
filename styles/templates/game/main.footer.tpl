@@ -26,7 +26,7 @@
 		</script>
 	{/if}
 
-	{if $hasAdminAccess}
+	{if isset($hasAdminAccess) && $hasAdminAccess}
 		<script type="text/javascript">
 			toastr.options = {
 				"closeButton": true,
