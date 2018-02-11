@@ -88,7 +88,12 @@
 }
 .pill-galaxy {
 	top: -5px;
-	left: -15px;
+	left: -10px;
+}
+.pill-galaxy-yellow {
+	border: 1px solid #ffc107;
+	color: #ffc107;
+	background-color: #000;
 }
 .app-footer {
 	font-size: .75rem;

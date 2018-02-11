@@ -190,7 +190,17 @@
 										<br>
 									{/if}
 								" data-original-title="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-								<span class="position-absolute badge badge-pill badge-warning pill-galaxy">{$currentPlanet.lastActivity}</span>
+									{if $currentPlanet.lastActivity == 'lessthan15'}
+										<span class="position-absolute badge pill-galaxy">
+											<i class="fa fa-exclamation-triangle text-red"></i>
+										</span>
+									{elseif $currentPlanet.lastActivity == ''}
+									{else}
+										<span class="position-absolute badge pill-galaxy pill-galaxy-yellow">
+											{$currentPlanet.lastActivity}
+										</span>
+									{/if}
+								</span>
 								<img src="{$dpath}planeten/small/s_{$currentPlanet.planet.image}.jpg" height="40" width="40" alt="">
 								</a>
 							</td>
