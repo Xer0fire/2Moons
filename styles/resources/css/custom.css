@@ -132,6 +132,9 @@ form, .form-group {
 .popover-header, .popover-body, .arrow {
 	background-color: #252831;
 }
+.switch {
+	margin-bottom: 0;
+}
 
 @media (max-width: 375.98px) {
 	.app-header.navbar .nav-item {
