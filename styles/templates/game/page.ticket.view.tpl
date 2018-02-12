@@ -1,46 +1,59 @@
 {block name="title" prepend}{$LNG.ti_read} - {$LNG.lm_support}{/block}
 {block name="content"}
-<form action="game.php?page=ticket&mode=send" method="post" id="form">
-<input type="hidden" name="id" value="{$ticketID}">
-<table class="table519">
-	{foreach $answerList as $answerID => $answerRow}	
-	{if $answerRow@first}
-	<tr>
-		<th colspan="2">{$LNG.ti_read} :: {$answerRow.subject}</th>
-	</tr>
-	{/if}
-	<tr>
-		<td class="left" colspan="2">
-			{$LNG.ti_msgtime} <b>{$answerRow.time}</b> {$LNG.ti_from} <b>{$answerRow.ownerName}</b>
+	<div class="card">
+		{foreach $answerList as $answerID => $answerRow}
 			{if $answerRow@first}
-				<br>{$LNG.ti_category}: {$categoryList[$answerRow.categoryID]}
+				<div class="card-header">
+					<div class="row">
+						<div class="col-9">
+							{$LNG.ti_read} :: {$answerRow.subject}
+						</div>
+						<div class="col-3 align-self-center text-right">
+							<span class="badge badge-info">{$categoryList[$answerRow.categoryID]}</span>
+						</div>
+					</div>
+				</div>
+				<div class="card-body">
 			{/if}
-			<hr>
-			<p>
-				{$answerRow.message}
-			</p>
-		</td>
-	</tr>
-	{/foreach}
+				<div class="row">
+					<div class="col">
+						{$LNG.ti_msgtime} <b>{$answerRow.time}</b> {$LNG.ti_from} <b>{$answerRow.ownerName}</b>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						{$answerRow.message}
+					</div>
+				</div>
+			{if !$answerRow@last}
+				<hr/>
+			{/if}
+			{if $answerRow@last}
+				</div>
+			{/if}
+		{/foreach}
+	</div>
+
 	{if $status < 2}
-	<tr>
-		<th colspan="2">{$LNG.ti_answer}</th>
-	</tr>
-	<tr>
-		<td style="width:30%"><label for="message">{$LNG.ti_message}</label></td>
-		<td style="width:70%"><textarea class="validate[required]" id="message" name="message" rows="60" cols="8" style="height:100px;"></textarea></td>
-	</tr>
-	<tr>
-		<td colspan="2"><input type="submit" value="{$LNG.ti_submit}"></td>
-	</tr>
+	<form action="game.php?page=ticket&mode=send" method="post" id="form">
+		<input type="hidden" name="id" value="{$ticketID}">
+		<div class="card">
+			<div class="card-header">
+				{$LNG.ti_answer}
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<div class="col">
+						<textarea class="form-control" id="message" name="message" rows="60" cols="8" style="height:100px;"></textarea>
+					</div>
+				</div>
+				<div class="row mt-3">
+					<div class="col">
+						<input class="btn btn-block btn-success" type="submit" value="{$LNG.ti_submit}">
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
 	{/if}
-</table>
-</form>
-{/block}
-{block name="script" append}
-<script>
-$(document).ready(function() {
-	$("#form").validationEngine('attach');
-});
-</script>
 {/block}
