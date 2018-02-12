@@ -23,11 +23,9 @@
 		</div>
 	</div>
 </form>
-<table class="table519">
 {if $who == 1}
 	{include file="shared.statistics.playerTable.tpl"}
 {elseif $who == 2}
 	{include file="shared.statistics.allianceTable.tpl"}
 {/if}
-</table>
 {/block}
