@@ -11,7 +11,19 @@
 	{foreach $resourceTable as $resourceID => $resourceData}
       <li class="nav-item px-2">
 		<div class="media">
-			<img class="d-flex mr-2 align-self-center" src="{$dpath}images/{$resourceData.name}.gif">
+			{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
+				<img class="d-flex mr-2 align-self-center" src="{$dpath}images/{$resourceData.name}.gif">
+			{else}
+			<a class="d-flex mr-2 align-self-center" href="#" data-toggle="popover" data-trigger="hover" data-html="true" data-content="
+				Production[per hour]: {$resourceData.production|number}
+				{if $resourceData.current < $resourceData.max}
+				<br/>
+				Max Storage: {$resourceData.max|number}
+				{/if}
+			" data-original-title="{$resourceData.name}" data-placement="bottom">
+				<img class="" src="{$dpath}images/{$resourceData.name}.gif">
+			</a>
+			{/if}
 			{if $shortlyNumber}
 			{else}
 			<div class="media-body">
@@ -24,7 +36,7 @@
 				{/if}<br/>
 				{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
 				{else}
-					<span class="text-green" id="max_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.max|number}</span>
+					<span class="text-green" id="fullin_{$resourceData.name}" data-prod="{$resourceData.production}"></span>
 				{/if}
 			</div>
 			{/if}
@@ -129,6 +141,12 @@
                 limit: [0, {$resourceData.max|json}],
                 production: {$resourceData.production|json},
                 valueElem: "current_{$resourceData.name}"
+            }, true);
+			getRestStorage({
+                current: {$resourceData.current|json},
+                max: [0, {$resourceData.max|json}],
+                prod: {$resourceData.production|json},
+                valueElem: "fullin_{$resourceData.name}"
             }, true);
 		{/if}
 		{/foreach}

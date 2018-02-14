@@ -208,6 +208,46 @@ function UhrzeitAnzeigen() {
    $(".servertime").text(getFormatedDate(serverTime.getTime(), tdformat));
 }
 
+function _timeformat (seconds) {
+    if (seconds < 0 || isNaN(seconds) || !isFinite(seconds)) {
+      return '';
+    }
+
+    seconds = Math.floor(seconds);
+    var ret = '';
+    var units = 0;
+    if (seconds > 86400) {
+      var days = Math.floor(seconds / 86400);
+      ret += days + 'd' + ' ';
+      seconds -= days * 86400;
+      units++;
+    }
+
+    if (seconds > 3600) {
+      var hours = Math.floor(seconds / 3600);
+      ret += hours + 'h' + ' ';
+      seconds -= hours * 3600;
+      units++;
+      if (units >= 2) {
+        return ret.trim();
+      }
+    }
+
+    if (seconds > 60) {
+      var minutes = Math.floor(seconds / 60);
+      ret += minutes + 'm' + ' ';
+      seconds -= minutes * 60;
+      units++;
+      if (units >= 2) {
+        return ret.trim();
+      }
+    }
+
+    ret += seconds + 's';
+    ret = ret.trim();
+
+    return ret;
+}
 
 $.widget("custom.catcomplete", $.ui.autocomplete, {
 	_renderMenu: function( ul, items ) {

@@ -8,8 +8,7 @@ function resourceTicker(config, init) {
 		window.setInterval(function(){resourceTicker(config)}, 1000);
 		
 	var element	= $('#'+config.valueElem);
-
-	if(element.hasClass('res_current_max'))
+	if(element.hasClass('text-red'))
 	{
 		return false;
 	}
@@ -29,10 +28,34 @@ function resourceTicker(config, init) {
 			element.html(NumberGetHumanReadable(nrResource));
 		}
 	} else {
-		element.addClass('res_current_max');
+		element.addClass('text-red');
 	}
 }
 
 function getRessource(name) {
 	return parseInt($('#current_'+name).data('real'));
+}
+
+function getRestStorage(config, init) {
+	if(typeof init !== "undefined" && init === true)
+		window.setInterval(function(){getRestStorage(config)}, 1000);
+
+	var element = $('#'+config.valueElem)
+	if(element.hasClass('text-red'))
+	{
+		return false;
+	}
+
+	var timeLeft = ((config.max[1] - parseFloat(config.current)) / (parseFloat(config.prod) / 3600)) - ((serverTime.getTime() - startTime) / 1000)
+
+	if (parseFloat(config.current) < config.max[1])
+	{
+		if (parseFloat(timeLeft) < 86400 && !element.hasClass('text-yellow')) {
+			element.removeClass('text-green');
+			element.addClass('text-yellow');
+		}
+		element.html(_timeformat(timeLeft));
+	} else {
+		element.html(config.max[1]);
+	}
 }
