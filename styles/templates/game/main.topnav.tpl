@@ -15,7 +15,7 @@
 				<img class="d-flex mr-2 align-self-center" src="{$dpath}images/{$resourceData.name}.gif">
 			{else}
 			<a class="d-flex mr-2 align-self-center" href="#" data-toggle="popover" data-trigger="hover" data-html="true" data-content="
-				Production[per hour]: {$resourceData.production|number}
+				Production per hour: {$resourceData.production|number}
 				{if $resourceData.current < $resourceData.max}
 				<br/>
 				Max Storage: {$resourceData.max|number}
