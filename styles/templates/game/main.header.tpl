@@ -29,7 +29,7 @@
   
   <!-- inspect -->
   <!-- extract relevant styles bin rest -->
-  <link href="{$dpath}formate.css?v={$REV}" rel="stylesheet">
+  <!-- <link href="{$dpath}formate.css?v={$REV}" rel="stylesheet"> -->
   
 	<script type="text/javascript">
 	var ServerTimezoneOffset = {$Offset};

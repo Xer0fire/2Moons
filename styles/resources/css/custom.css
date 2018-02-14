@@ -140,6 +140,170 @@ form, .form-group {
 .switch {
 	margin-bottom: 0;
 }
+.onlist {
+	background-color: transparent;
+	border: 0;
+}
+
+
+/* formate */
+.res_current {
+	color: #333;
+}
+
+body,input,select,button,textarea,a,td,th,tr,table,a:visited{
+	color:#DDD;
+}
+
+a:hover {
+	color:red;
+	text-decoration:none
+}
+
+.admin {
+	color:red;
+}
+.mod {
+	color:yellow;
+}
+.ops {
+	color:skyblue;
+}
+
+.galaxy-alliance-member {
+	color:#99FF66;
+}
+
+.galaxy-alliance-friend {
+	color:#99FFFF;
+}
+
+.galaxy-alliance-enemy {
+	color:#FF0000;
+}
+
+.galaxy-alliance-pact {
+	color:#aa00ff;
+}
+
+.galaxy-short-noob,
+.galaxy-username-noob{
+	color:#a0ffa0
+}
+
+.galaxy-short-strong,
+.galaxy-username-strong {
+	color:#ffa0a0
+}
+
+.galaxy-short-vacation,
+.galaxy-username-vacation {
+	color:#659ec7
+}
+
+.galaxy-short-inactive,
+.galaxy-username-inactive {
+	color:#ccc
+}
+
+.galaxy-short-longinactive,
+.galaxy-username-longinactive {
+	color:#999
+}
+
+.galaxy-short-banned {
+	text-decoration:line-through
+}
+
+.ownattack {
+	color:#6c3
+}
+
+.owncolony {
+	color:#c1c1c1
+}
+
+.owndeploy {
+	color:#666
+}
+
+.owndestroy {
+	color:#ff9
+}
+
+.ownfederation {
+	color:#c66
+}
+
+.ownharvest {
+	color:#ceff68
+}
+
+.ownhold {
+	color:#80a0c0
+}
+
+.destroy {
+	color:#d4a017
+}
+
+.hold {
+	color:#39c
+}
+
+.warning {
+	color:#FF8040
+}
+
+.notice {
+	color:#FF0
+}
+
+.return {
+	color:#444
+}
+
+.allymember,.colony,.deploy,.harvest,.transport,.success {
+	color:lime
+}
+
+.owntransport {
+	color:#a0ffa0
+}
+
+.ownespionage,.ownmissile {
+	color:#fc6
+}
+
+.espionage,.missile {
+	color:#f60
+}
+
+.raportWin {
+	color:lime;
+}
+
+.raportLose {
+	color:red;
+}
+
+.spyRaportContainerHead {
+	background: #212428;
+	color: white;
+	font-weight: 700;
+	text-align: left;
+	margin: 3px 0;
+	padding: 3px;
+}
+
+.spyRaportContainerRow {
+	border-top:1px solid #DDD;
+}
+.spyRaportContainerHead + .spyRaportContainerRow {
+	border-top:0 none;
+}
+
+/* end formate */
 
 @media (max-width: 375.98px) {
 	.app-header.navbar .nav-item {
