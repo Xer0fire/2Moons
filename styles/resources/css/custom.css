@@ -134,8 +134,12 @@ form, .form-group {
 	border-top: 1px solid #444;
 	border-bottom: 1px solid #444;
 }
-.popover-header, .popover-body, .arrow {
+.modal-body, .popover-header, .popover-body, .arrow {
 	background-color: #252831;
+	color: #ddd;
+}
+.arrow {
+	background-color: transparent;
 }
 .switch {
 	margin-bottom: 0;
@@ -144,14 +148,18 @@ form, .form-group {
 	background-color: transparent;
 	border: 0;
 }
-
-
-/* formate */
-.res_current {
+.bs-popover-auto[x-placement^=bottom] .popover-header::before, .bs-popover-bottom .popover-header::before {
+	border: 0;
+}
+body {
+	color: #ddd;
+}
+.nav-item .res_current {
 	color: #333;
 }
 
-body,input,select,button,textarea,a,td,th,tr,table,a:visited{
+/* formate */
+td,th,tr,table{
 	color:#DDD;
 }
 
