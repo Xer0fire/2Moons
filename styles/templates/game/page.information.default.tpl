@@ -3,26 +3,32 @@
 		{$LNG.longDescription.$elementID}
 	</div>
 </div>
-<div class="row">
-	<div class="col">
-		{if !empty($FleetInfo)}
-			{if !empty($FleetInfo.rapidfire.to)}
-				<p>
-				{foreach $FleetInfo.rapidfire.to as $rapidfireID => $shoots}
-					{$LNG.in_rf_again} {$LNG.tech.$rapidfireID}: <span style="color:#00ff00">{$shoots|number}</span><br>
+{if !empty($FleetInfo)}
+	{if !empty($FleetInfo.rapidfire.to)}
+		<div class="row mt-2">
+			<div class="col">
+				{foreach from=$FleetInfo.rapidfire.from key=rapidfireID item=shoots name=RFfrom}
+					{$LNG.in_rf_again} {$LNG.tech.$rapidfireID}: <span style="color:#00ff00">{$shoots|number}</span>
+					{if !$smarty.foreach.RFfrom.last}
+						<br/>
+					{/if}
 				{/foreach}
-				</p>
-			{/if}
-			{if !empty($FleetInfo.rapidfire.from)}
-				<p>
-				{foreach $FleetInfo.rapidfire.from as $rapidfireID => $shoots}
-					{$LNG.in_rf_from} {$LNG.tech.$rapidfireID}: <span style="color:#ff0000">{$shoots|number}</span><br>
+			</div>
+		</div>
+	{/if}
+	{if !empty($FleetInfo.rapidfire.from)}
+		<div class="row mt-2">
+			<div class="col">
+				{foreach from=$FleetInfo.rapidfire.from key=rapidfireID item=shoots name=RFto}
+					{$LNG.in_rf_from} {$LNG.tech.$rapidfireID}: <span style="color:#ff0000">{$shoots|number}</span>
+					{if !$smarty.foreach.RFto.last}
+						<br/>
+					{/if}
 				{/foreach}
-				</p>
-			{/if}
-		{/if}
-	</div>
-</div>
+			</div>
+		</div>
+	{/if}
+{/if}
 
 {if !empty($productionTable.production)}
 <hr/>
