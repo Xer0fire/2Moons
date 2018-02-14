@@ -157,6 +157,12 @@ body {
 .nav-item .res_current {
 	color: #333;
 }
+.table-striped tbody tr:nth-of-type(odd) {
+	background-color: rgba(0,0,0,.35);
+}
+.table-striped tbody tr:nth-of-type(even) {
+	background-color: rgba(0,0,0,.3);
+}
 
 /* formate */
 td,th,tr,table{
