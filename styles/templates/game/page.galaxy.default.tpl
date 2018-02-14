@@ -68,6 +68,9 @@
 			<div class="card border-0">
 				<div class="card-header">
 				{$LNG.gl_missil_launch} [{$galaxy}:{$system}:{$planet}]
+				<div class="card-actions">
+                    <a href="#" class="btn-close"><i class="fa fa-close"></i></a>
+                  </div>
 				</div>
 				<div class="card-body" id="missileattack">
 					<form action="?page=fleetMissile" method="post">
