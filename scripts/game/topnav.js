@@ -46,8 +46,7 @@ function getRestStorage(config, init) {
 		return false;
 	}
 
-	var timeLeft = ((config.max[1] - parseFloat(config.current)) / (parseFloat(config.prod) / 3600)) - ((serverTime.getTime() - startTime) / 1000)
-
+	var timeLeft = (config.max[1] - parseFloat(config.current)) / (parseFloat(config.prod) / 3600) - ((serverTime.getTime() - startTime) / 1000)
 	if (parseFloat(config.current) < config.max[1])
 	{
 		if (parseFloat(timeLeft) < 86400 && !element.hasClass('text-yellow')) {
@@ -56,6 +55,6 @@ function getRestStorage(config, init) {
 		}
 		element.html(_timeformat(timeLeft));
 	} else {
-		element.html(config.max[1]);
+		element.html(number_format(config.max[1]));
 	}
 }

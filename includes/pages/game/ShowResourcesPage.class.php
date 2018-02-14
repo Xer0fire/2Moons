@@ -191,16 +191,16 @@ class ShowResourcesPage extends AbstractGamePage
 		$totalProduction[911] = $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'];
 
 		$dailyProduction	= array(
-			901 => $totalProduction[901] * $config->resource_multiplier * 24,
-			902 => $totalProduction[902] * $config->resource_multiplier * 24,
-			903	=> $totalProduction[903] * $config->resource_multiplier * 24,
+			901 => $totalProduction[901] * 24,
+			902 => $totalProduction[902] * 24,
+			903	=> $totalProduction[903] * 24,
 			911	=> $totalProduction[911],
 		);
 		
 		$weeklyProduction	= array(
-			901 => $totalProduction[901] * $config->resource_multiplier * 168,
-			902 => $totalProduction[902] * $config->resource_multiplier * 168,
-			903	=> $totalProduction[903] * $config->resource_multiplier * 168,
+			901 => $totalProduction[901] * 168,
+			902 => $totalProduction[902] * 168,
+			903	=> $totalProduction[903] * 168,
 			911	=> $totalProduction[911],
 		);
 			
