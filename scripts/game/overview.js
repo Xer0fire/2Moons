@@ -25,31 +25,28 @@ $(document).ready(function()
 });
 
 function overviewTicker(config, init) {
-if(typeof init !== "undefined" && init === true)
-	window.setInterval(function(){resourceTicker(config)}, 1000);
+	if(typeof init !== "undefined" && init === true)
+		window.setInterval(function(){resourceTicker(config)}, 1000);
 
-var element	= $('#'+config.valueElem);
-
-if(element.hasClass('ovr_current_max'))
-{
-	return false;
-}
-
-var nrResource = Math.max(0, Math.floor(parseFloat(config.available) + parseFloat(config.production) / 3600 * (serverTime.getTime() - startTime) / 1000));
-
-if (nrResource < config.limit[1])
-{
-	if (!element.hasClass('ovr_current_warn') && nrResource >= config.limit[1] * 0.9)
+	var element	= $('#'+config.valueElem);
+	if(element.hasClass('text-red'))
 	{
-		element.addClass('ovr_current_warn');
+		return false;
 	}
-	if(viewShortlyNumber) {
-		element.attr('data-tooltip-content', NumberGetHumanReadable(nrResource));
-		element.html(shortly_number(nrResource));
+
+	var timepast = (serverTime.getTime() - startTime) / 1000;
+	var prodpersec = parseFloat(config.production) / 3600;
+	var nrResource = Math.max(0, (timepast * prodpersec) + parseFloat(config.available));
+
+	if (nrResource < config.limit[1]) 
+	{
+		if(viewShortlyNumber) {
+			element.attr('data-tooltip-content', NumberGetHumanReadable(nrResource));
+			element.html(shortly_number(nrResource));
+		} else {
+			element.html(NumberGetHumanReadable(nrResource));
+		}
 	} else {
-		element.html(NumberGetHumanReadable(nrResource));
+		element.addClass('text-red');
 	}
-} else {
-	element.addClass('ovr_current_max');
-}
 }

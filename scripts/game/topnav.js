@@ -13,14 +13,12 @@ function resourceTicker(config, init) {
 		return false;
 	}
 	
-	var nrResource = Math.max(0, Math.floor(parseFloat(config.available) + parseFloat(config.production) / 3600 * (serverTime.getTime() - startTime) / 1000));
-	
+	var timepast = (serverTime.getTime() - startTime) / 1000;
+	var prodpersec = parseFloat(config.production) / 3600;
+	var nrResource = Math.max(0, (timepast * prodpersec) + parseFloat(config.available));
+
 	if (nrResource < config.limit[1]) 
 	{
-		if (!element.hasClass('res_current_warn') && nrResource >= config.limit[1] * 0.9)
-		{
-			element.addClass('res_current_warn');
-		}
 		if(viewShortlyNumber) {
 			element.attr('data-tooltip-content', NumberGetHumanReadable(nrResource));
 			element.html(shortly_number(nrResource));
@@ -46,15 +44,21 @@ function getRestStorage(config, init) {
 		return false;
 	}
 
-	var timeLeft = (config.max[1] - parseFloat(config.current)) / (parseFloat(config.prod) / 3600) - ((serverTime.getTime() - startTime) / 1000)
+	var timepast = (serverTime.getTime() - startTime) / 1000;
+	var prodpersec = (parseFloat(config.prod) / 3600);
+	var newcurrent = parseFloat(config.current) + (prodpersec * timepast);
+	var rest = config.max[1] - newcurrent;
+	var timeLeft = rest / prodpersec;
 	if (parseFloat(config.current) < config.max[1])
 	{
-		if (parseFloat(timeLeft) < 86400 && !element.hasClass('text-yellow')) {
+		if (timeLeft < 43200 && !element.hasClass('text-yellow')) {
 			element.removeClass('text-green');
 			element.addClass('text-yellow');
 		}
 		element.html(_timeformat(timeLeft));
 	} else {
+		element.removeClass('text-green');
+		element.addClass('text-red');
 		element.html(number_format(config.max[1]));
 	}
 }

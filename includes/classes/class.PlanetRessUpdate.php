@@ -68,19 +68,20 @@ class ResourceUpdate
 			$Hash[]	= $this->PLANET[$resource[$ID]];
 			$Hash[]	= $this->PLANET[$resource[$ID].'_porcent'];
 		}
+
 		$reflector = $this->getReflector($this->USER, $this->PLANET);
 		if (!empty($reflector)) {
 		    $Hash[] = $this->PLANET['id_luna'];
 			$Hash[]	= $reflector[0][$resource['45']];
 			$Hash[]	= $reflector[0][$resource['45'].'_porcent'];
 		}
-		
 		$ressource	= array_merge(array(), $reslist['resstype'][1], $reslist['resstype'][2]);
 		foreach($ressource as $ID) {
 			$Hash[]	= $this->config->{$resource[$ID].'_basic_income'};
 		}
 		
 		$Hash[]	= $this->config->resource_multiplier;
+		$Hash[]	= $this->config->storage_multiplier;
 		$Hash[]	= $this->config->energySpeed;
 		$Hash[]	= $this->PLANET[$resource[22]];
 		$Hash[]	= $this->PLANET[$resource[23]];
@@ -142,11 +143,11 @@ class ResourceUpdate
 		if($this->PLANET['planet_type'] == 3)
 			return;
 			
-		$MaxMetalStorage		= $this->PLANET['metal_max']     * $this->config->storage_multiplier * $this->config->max_overflow;
-		$MaxCristalStorage		= $this->PLANET['crystal_max']   * $this->config->storage_multiplier * $this->config->max_overflow;
-		$MaxDeuteriumStorage	= $this->PLANET['deuterium_max'] * $this->config->storage_multiplier * $this->config->max_overflow;
+		$MaxMetalStorage		= $this->PLANET['metal_max']     * $this->config->max_overflow;
+		$MaxCristalStorage		= $this->PLANET['crystal_max']   * $this->config->max_overflow;
+		$MaxDeuteriumStorage	= $this->PLANET['deuterium_max'] * $this->config->max_overflow;
 		
-		$MetalTheoretical		= $this->ProductionTime * (($this->config->metal_basic_income * $this->config->resource_multiplier) + $this->PLANET['metal_perhour']) / 3600;
+		$MetalTheoretical		= $this->ProductionTime * (($this->config->metal_basic_income * $this->config->resource_multiplier) + ($this->PLANET['metal_perhour'] * $this->config->resource_multiplier)) / 3600;
 		
 		if($MetalTheoretical < 0)
 		{
@@ -157,7 +158,7 @@ class ResourceUpdate
 			$this->PLANET['metal']      = min($this->PLANET['metal'] + $MetalTheoretical, $MaxMetalStorage);
 		}
 		
-		$CristalTheoretical	= $this->ProductionTime * (($this->config->crystal_basic_income * $this->config->resource_multiplier) + $this->PLANET['crystal_perhour']) / 3600;
+		$CristalTheoretical	= $this->ProductionTime * (($this->config->crystal_basic_income * $this->config->resource_multiplier) + ($this->PLANET['crystal_perhour'] * $this->config->resource_multiplier)) / 3600;
 		if ($CristalTheoretical < 0)
 		{
 			$this->PLANET['crystal']      = max($this->PLANET['crystal'] + $CristalTheoretical, 0);
@@ -167,7 +168,7 @@ class ResourceUpdate
 			$this->PLANET['crystal']      = min($this->PLANET['crystal'] + $CristalTheoretical, $MaxCristalStorage);
 		}
 		
-		$DeuteriumTheoretical	= $this->ProductionTime * (($this->config->deuterium_basic_income * $this->config->resource_multiplier) + $this->PLANET['deuterium_perhour']) / 3600;
+		$DeuteriumTheoretical	= $this->ProductionTime * (($this->config->deuterium_basic_income * $this->config->resource_multiplier) + ($this->PLANET['deuterium_perhour'] * $this->config->resource_multiplier)) / 3600;
 		if ($DeuteriumTheoretical < 0)
 		{
 			$this->PLANET['deuterium']    = max($this->PLANET['deuterium'] + $DeuteriumTheoretical, 0);
@@ -227,7 +228,7 @@ class ResourceUpdate
 			':userId'	=> $USER['id']
 		));
 
-        return $reflectorResult;
+		return $reflectorResult;
 	}
 
 	public function ReBuildCache()
@@ -320,9 +321,9 @@ class ResourceUpdate
 		} else {
 			$prodLevel	= min(1, $this->PLANET['energy'] / abs($this->PLANET['energy_used']));
 			
-			$this->PLANET['metal_perhour']		= ($this->config->metal_basic_income * $this->config->resource_multiplier) + ($temp[901]['plus'] * $prodLevel + $temp[901]['minus']) * $this->config->resource_multiplier;
-			$this->PLANET['crystal_perhour']	= ($this->config->crystal_basic_income * $this->config->resource_multiplier) + ($temp[902]['plus'] * $prodLevel + $temp[902]['minus']) * $this->config->resource_multiplier;
-			$this->PLANET['deuterium_perhour']	= ($this->config->deuterium_basic_income * $this->config->resource_multiplier) + ($temp[903]['plus'] * $prodLevel + $temp[903]['minus']) * $this->config->resource_multiplier;
+			$this->PLANET['metal_perhour']		= ($temp[901]['plus'] * $prodLevel + $temp[901]['minus']) * $this->config->resource_multiplier;
+			$this->PLANET['crystal_perhour']	= ($temp[902]['plus'] * $prodLevel + $temp[902]['minus']) * $this->config->resource_multiplier;
+			$this->PLANET['deuterium_perhour']	= ($temp[903]['plus'] * $prodLevel + $temp[903]['minus']) * $this->config->resource_multiplier;
 		}
 	}
 	
