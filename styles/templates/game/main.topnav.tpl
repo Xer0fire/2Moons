@@ -102,7 +102,7 @@
 	  {/if}
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img src="img/avatars/default.jpg" class="img-avatar">
+          <img src="styles/resources/img/default_avatar.png" class="img-avatar">
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">
