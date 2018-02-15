@@ -113,7 +113,7 @@
 							<div class="col-sm-12">Required per unit:</div>
 						</div>
 						{foreach $Element.costResources as $RessID => $RessAmount}{/foreach}
-						<div class="row content-center">
+						<div class="row content-center mb-2">
 						{foreach $ResourceCost.$ID as $ResID => $ResAmount}
 							<div class="col">
 								<div class="media">

@@ -116,14 +116,14 @@ Queue
 							<div class="col-sm-12">Required to improve to level {$Element.levelToBuild+1}:</div>
 						</div>
 						{foreach $Element.costResources as $RessID => $RessAmount}{/foreach}
-						<div class="row content-center">
+						<div class="row content-center mb-2">
 						{foreach $ResourceCost.$ID as $ResID => $ResAmount}
 							<div class="col">
 								<div class="media">
 									<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$ResID}}.gif">
 									<div class="media-body">
 										<span class="{if $ResAmount.overflow == 0}text-green{else}text-red{/if}">{$ResAmount.cost|number}</span><br/>
-										{$ResAmount.overflow|number}
+										{if $ResAmount.overflow != 0}{$ResAmount.overflow|number}{/if}
 									</div>
 								</div>
 							</div>
