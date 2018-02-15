@@ -5,6 +5,7 @@
   <footer class="app-footer">
     <span>{$game_name} {$uni_name}</span>
     <span class="ml-auto">Powered by <a href="https://github.com/jkroepke/2Moons">2Moons</a></span>
+	<span class="d-md-none mr-5">&nbsp;</span>
   </footer>
 
 	{if $ga_active}

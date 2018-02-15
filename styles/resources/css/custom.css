@@ -163,6 +163,14 @@ body {
 .table-striped tbody tr:nth-of-type(even) {
 	background-color: rgba(0,0,0,.3);
 }
+#bk2top {
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	cursor: pointer;
+	display: none;
+	border-radius: 100px
+}
 
 /* formate */
 td,th,tr,table{

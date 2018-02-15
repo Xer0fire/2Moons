@@ -227,6 +227,19 @@ $('.card-actions').on('click', 'a, button', function(e){
 
 });
 
+$('.animated').append('<button id="bk2top" type="button" class="d-md-none btn btn-primary"><i class="fa fa-arrow-up"></i></button>');
+	$(window).scroll(function () {
+		if ($(this).scrollTop() != 0) {
+			$('#bk2top').fadeIn();
+		} else {
+			$('#bk2top').fadeOut();
+		}
+	});
+$('#bk2top').click(function(){
+	$("html, body").animate({ scrollTop: 0 }, 600);
+	return false;
+});
+
 /*
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
