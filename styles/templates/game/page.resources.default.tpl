@@ -37,7 +37,13 @@
 													({$basicProduction.$resID|number})
 												{/if}
 												<span class="{if $productionRow.production.$resID > 0}text-green{elseif $productionRow.production.$resID < 0}text-red{else}text-white{/if}">
-													{$resVal|number}
+													{if isset($basicProduction.$resID)}
+														{$res=$resVal}
+														{$res=$res-$basicProduction.$resID}
+														{$res|number}
+													{else}
+														{$resVal|number}
+													{/if}
 												</span>
 												{if $productionID  != 12 && $resID != 911} <br/> Max: {$storage.$resID}{/if}
 											</div>
