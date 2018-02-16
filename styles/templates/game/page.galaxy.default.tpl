@@ -273,6 +273,8 @@
 											{$LNG.gl_buddy_request}
 											<br/>
 										{/if}
+										<a href='#' onclick='PM({$currentPlanet.user.id},``)' data-toggle='modal' data-target='#messageModal'>{$LNG.write_message}</a>
+										<br/>
 										{$LNG.gl_playercard}
 										<br/>
 										<a href='?page=statistics&amp;who=1&amp;start={$currentPlanet.user.rank}'>{$LNG.gl_see_on_stats}</a>
@@ -327,7 +329,7 @@
 										</a>
 									{/if}
 									{if $currentPlanet.action.message}
-										<a class="mr-2" href="#" onclick="return Dialog.PM({$currentPlanet.user.id})">
+										<a class="mr-2" href="#" onclick="PM({$currentPlanet.user.id},'')" data-toggle="modal" data-target="#messageModal">
 											<i class="fa fa-envelope-o"></i>
 										</a>
 									{/if}
@@ -473,6 +475,21 @@
 		</div>
 	</div>
 
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{$LNG.mg_send_new}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="messageModalBody" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="script" append}
 	<script type="text/javascript">
 		status_ok		= '{$LNG.gl_ajax_status_ok}';
 		status_fail		= '{$LNG.gl_ajax_status_fail}';

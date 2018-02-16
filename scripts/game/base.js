@@ -195,6 +195,19 @@ var Dialog	= {
 	}
 }
 
+function PM(ID, Subject) {
+	if(typeof Subject !== 'string')
+			Subject	= '';
+
+	$('.popover').each(function() {
+		$(this).popover('hide');
+	});
+	$.get('game.php?page=messages&mode=write&id='+ID+'&subject='+encodeURIComponent(Subject)+'&message='+encodeURIComponent(Subject)+'&ajax=1', function(data) {
+		$('#messageModalBody').empty();
+		$('#messageModalBody').append(data);
+	});
+}
+
 function NotifyBox(text) {
 	tip = $('#tooltip')
 	tip.html(text).addClass('notify').css({

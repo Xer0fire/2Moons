@@ -327,7 +327,7 @@ class ShowMessagesPage extends AbstractGamePage
     function write()
     {
         global $LNG, $USER;
-        $this->setWindow('popup');
+        $this->setWindow('ajax');
         $this->initTemplate();
 
         $db = Database::get();
