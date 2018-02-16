@@ -13,11 +13,11 @@
 					{$LNG.tech.$Class}
 				</div>
 			</div>
+			<div class="row">
 			{foreach from=$elementIDs key=elementID item=amount name=List2}
-				{if ($amount@iteration % 2) === 1}<div class="row{if !$smarty.foreach.List2.first} mt-1{/if}">{/if}
-					<div class="col-6">{$LNG.tech.$elementID} - {$amount|number}</div>
-				{if ($amount@iteration % 2) === 0}</div>{/if}
+				<div class="col-6">{$LNG.tech.$elementID} <br/> {$amount|number}</div>
 			{/foreach}
+			</div>
 		</div>
 	{/foreach}
 	<div class="spyRaportFooter">
