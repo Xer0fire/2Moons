@@ -5,21 +5,13 @@
             <div class="col-md-12">
               <div class="card border-0">
                 <div class="card-header">
-                  Events
+                  Fleet Events{if sizeof($fleets) != 0} ({sizeof($fleets)}){/if}
                   <div class="card-actions">
                     <a href="game.php?page=fleetTable"><i class="fa fa-space-shuttle"></i></a>
-					{if !empty($fleets)}
-						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
-					{else}
-						<a href="#" class="btn-minimize collapsed" data-toggle="collapse" data-target="#events" aria-expanded="true"><i class="fa fa-chevron-down"></i></a>
-					{/if}
+                    <a href="#" class="btn-minimize" data-toggle="collapse" data-target="#fleetevents" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
                   </div>
                 </div>
-				{if !empty($fleets)}
-					<div class="card-body collapse show" id="events">
-				{else}
-					<div class="card-body collapse" id="events">
-				{/if}
+                  <div class="card-body collapse show" id="fleetevents">
                   {foreach $fleets as $index => $fleet}
 					<span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
 					<span colspan="2">{$fleet.text}</span>

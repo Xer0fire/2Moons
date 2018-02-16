@@ -17,10 +17,10 @@
 			<div class="card-header">
 				Queue
 				<div class="card-actions">
-				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#queue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#hangerqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				</div>
 			</div>
-			<div class="card-body collapse show" id="queue">
+			<div class="card-body collapse show" id="hangerqueue">
 				<form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
 					<input type="hidden" name="action" value="delete">
 					<div class="row">

@@ -140,6 +140,15 @@ $(document).ready(function($){
     });
   }
 
+  var lsCollapsed = JSON.parse(localStorage.getItem("omicron-collapse"));
+  if (!lsCollapsed) {
+    lsCollapsed = [];
+  }
+  lsCollapsed.forEach(function(v) {
+    var toggle = localStorage.getItem("omicron-collapse-"+v);
+	$('#'+v).collapse(toggle)
+  });
+
   var sidebarNav = localStorage.getItem("omicron-sidebarNav");
   sidebarNav = sidebarNav=='true';
   $('body').toggleClass('sidebar-hidden', sidebarNav);
@@ -194,6 +203,23 @@ $(document).ready(function($){
 
   $('.sidebar-close').click(function(){
     $('body').toggleClass('sidebar-opened').parent().toggleClass('sidebar-opened');
+  });
+
+  $('.btn-minimize').click(function(){
+    var dataTarget = $(this).attr("data-target").substr(1);
+    var lsCollapsed = JSON.parse(localStorage.getItem("omicron-collapse"));
+    if (!lsCollapsed) {
+        lsCollapsed = [];
+    }
+    if ($.inArray(dataTarget, lsCollapsed) == '-1') {
+        lsCollapsed.push(dataTarget);
+        localStorage.setItem("omicron-collapse", JSON.stringify(lsCollapsed));
+    }
+    if ($(this).hasClass("collapsed")) {
+        localStorage.setItem("omicron-collapse-"+dataTarget, "show");
+    } else {
+        localStorage.setItem("omicron-collapse-"+dataTarget, "hide");
+    }
   });
 
   /* ---------- Disable moving to top ---------- */
