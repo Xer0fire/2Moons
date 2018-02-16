@@ -47,7 +47,7 @@
 						<span class="title">{$LNG.mg_subject} :</span>
 						{$Message.subject}
 						{if $Message.type == 1 && $MessID != 999}
-							<a href="#" onclick="return Dialog.PM({$Message.sender}, Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}"><img src="{$dpath}img/m.gif" border="0"></a>
+							<a href="#" onclick="PM({$Message.sender},Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope"></i></a>
 						{/if}
 					</div>
 				</div>

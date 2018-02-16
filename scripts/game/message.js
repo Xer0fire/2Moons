@@ -57,7 +57,7 @@ Message	= {
 			var re = Answer.replace(/Re\[(\d+)\]:.*/, '$1');
 			return 'Re['+(parseInt(re)+1)+']:'+Answer.substr(5+parseInt(re.length))
 		} else {
-			return 'Re:'+Answer
+			return 'Re: '+Answer
 		}
 	},
 	
