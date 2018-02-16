@@ -108,20 +108,12 @@ abstract class AbstractGamePage
 		}
 
 		$resourceTable	= array();
-		$resourceSpeed	= $config->resource_multiplier;
 		foreach($reslist['resstype'][1] as $resourceID)
 		{
 			$resourceTable[$resourceID]['name']			= $resource[$resourceID];
 			$resourceTable[$resourceID]['current']		= $PLANET[$resource[$resourceID]];
 			$resourceTable[$resourceID]['max']			= $PLANET[$resource[$resourceID].'_max'];
-			if($USER['urlaubs_modus'] == 1 || $PLANET['planet_type'] != 1)
-			{
-				$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'];
-			}
-			else
-			{
-				$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'] * $resourceSpeed;
-			}
+			$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'];
 		}
 
 		foreach($reslist['resstype'][2] as $resourceID)

@@ -141,7 +141,7 @@ class ShowResourcesPage extends AbstractGamePage
 				if(!isset($ProdGrid[$ProdID]['production'][$ID]))
 					continue;
 
-				$Production	= eval(ResourceUpdate::getProd($ProdGrid[$ProdID]['production'][$ID])) * $config->resource_multiplier;
+				$Production	= eval(ResourceUpdate::getProd($ProdGrid[$ProdID]['production'][$ID]));
 
 				if(in_array($ID, $reslist['resstype'][2]))
 				{
@@ -185,9 +185,9 @@ class ShowResourcesPage extends AbstractGamePage
 		    903 => pretty_number(ResourceUpdate::getProtectedResources($PLANET[$resource[37]]))
 		);
 
-		($PLANET[$resource[901].'_perhour'] == 0 ? $totalProduction[901] = $basicProduction[901] * $config->resource_multiplier : $totalProduction[901] = $PLANET[$resource[901].'_perhour'] * $config->resource_multiplier);
-		($PLANET[$resource[902].'_perhour'] == 0 ? $totalProduction[902] = $basicProduction[902] * $config->resource_multiplier : $totalProduction[902] = $PLANET[$resource[902].'_perhour'] * $config->resource_multiplier);
-		($PLANET[$resource[903].'_perhour'] == 0 ? $totalProduction[903] = $basicProduction[903] * $config->resource_multiplier : $totalProduction[903] = $PLANET[$resource[903].'_perhour'] * $config->resource_multiplier);
+		($PLANET[$resource[901].'_perhour'] == 0 ? $totalProduction[901] = $basicProduction[901] * $config->resource_multiplier : $totalProduction[901] = $PLANET[$resource[901].'_perhour']);
+		($PLANET[$resource[902].'_perhour'] == 0 ? $totalProduction[902] = $basicProduction[902] * $config->resource_multiplier : $totalProduction[902] = $PLANET[$resource[902].'_perhour']);
+		($PLANET[$resource[903].'_perhour'] == 0 ? $totalProduction[903] = $basicProduction[903] * $config->resource_multiplier : $totalProduction[903] = $PLANET[$resource[903].'_perhour'] );
 		$totalProduction[911] = $PLANET[$resource[911]] + $basicProduction[911] + $PLANET[$resource[911].'_used'];
 
 		$dailyProduction	= array(
