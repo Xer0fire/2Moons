@@ -111,7 +111,7 @@
 		  {if isModuleAvailable($smarty.const.MODULE_NOTICE)}
           <a class="dropdown-item" href="game.php?page=notes"><i class="fa fa-address-book"></i> {$LNG.lm_notes}</a>
 		  {/if}
-          <a class="dropdown-item" href="index.php?page=rules"><i class="fa fa-key"></i> {$LNG.lm_rules}</a>
+          <a class="dropdown-item" href="game.php?page=rules"><i class="fa fa-key"></i> {$LNG.lm_rules}</a>
           <a class="dropdown-item" href="game.php?page=settings"><i class="fa fa-server"></i> {$LNG.lm_options}</a>
           <a class="dropdown-item" href="game.php?page=logout"><i class="fa fa-sign-out"></i> Logout</a>
           <a class="dropdown-item" href="game.php?page=changelog"><i class="fa fa-repeat"></i> {$LNG.lm_changelog}</a>
