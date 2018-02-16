@@ -40,8 +40,8 @@ Message	= {
 		
 		$.get('game.php?page=messages&mode=view&messcat='+MessID+'&site='+page+'&ajax=1', function(data) {
 			$('#loading').hide();
-			$('#messagestable').remove();
-			$('#content table:eq(0)').after(data);
+			$('#messagestable').empty();
+			$('#messagestable').append(data);
 		});
 	},
 

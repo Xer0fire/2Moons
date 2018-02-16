@@ -514,15 +514,15 @@ $LNG['in_bonus'] 							= 'Bonus:';
 
 //----------------------------------------------------------------------------//
 // Mensagens
-$LNG['mg_type'][0]                          = 'Spy messages';
-$LNG['mg_type'][1]                          = 'Player messages';
-$LNG['mg_type'][2]                          = 'Alliance messages';
-$LNG['mg_type'][3]                          = 'Combat messages';
-$LNG['mg_type'][4]                          = 'System messages';
-$LNG['mg_type'][5]                          = 'Transport messages';
-$LNG['mg_type'][15]                         = 'Expedition messages';
-$LNG['mg_type'][50]                         = 'Game messages';
-$LNG['mg_type'][99]                         = 'Construction messages';
+$LNG['mg_type'][0]                          = 'Spy';
+$LNG['mg_type'][1]                          = 'Player';
+$LNG['mg_type'][2]                          = 'Alliance';
+$LNG['mg_type'][3]                          = 'Combat';
+$LNG['mg_type'][4]                          = 'System';
+$LNG['mg_type'][5]                          = 'Transport';
+$LNG['mg_type'][15]                         = 'Expedition';
+$LNG['mg_type'][50]                         = 'Game';
+$LNG['mg_type'][99]                         = 'Construction';
 $LNG['mg_type'][100]                        = 'All messages';
 $LNG['mg_type'][999]                        = 'Outbox';
 $LNG['mg_no_subject']			            = 'No subject';
