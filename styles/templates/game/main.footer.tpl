@@ -28,14 +28,14 @@
 	{/if}
 
 	<!-- Main scripts for this application -->
-	<script type="text/javascript" src="./scripts/base/jquery.cookie.js?v={$REV}"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
 	<script type="text/javascript" src="./styles/resources/js/popper.min.js"></script>
 	<script type="text/javascript" src="./styles/resources/js/popovers.js"></script>
 	<script type="text/javascript" src="./styles/resources/js/tooltips.js"></script>
 	<script type="text/javascript" src="./styles/resources/js/ie10-viewport-bug-workaround.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/toastr.min.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./styles/resources/js/cookieconsent.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="./styles/resources/js/app.js"></script>
 
 	{if isset($hasAdminAccess) && $hasAdminAccess}
