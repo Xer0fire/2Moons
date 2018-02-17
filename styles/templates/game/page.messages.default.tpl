@@ -6,7 +6,7 @@
 		</div>
 		<div class="card-body">
 			<div class="row">
-				<div class="col-12 col-md-4">
+				<div class="col-12 col-md-4 col-xl-3">
 					<nav>
 						<ul class="nav mail-nav">
 							{foreach $CategoryList as $CategoryID => $CategoryRow}
@@ -17,7 +17,7 @@
 						</ul>
 					</nav>
 				</div>
-				<div class="col-12 col-md-8">
+				<div class="col-12 col-md-8 col-xl-9">
 					<div class="toolbar">
 						<button type="button" class="btn btn-light">
 							<span class="fa fa-trash-o"></span>
