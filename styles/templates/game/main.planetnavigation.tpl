@@ -3,13 +3,13 @@
 		{foreach $AllPlanets as $PlanetRow}
 			<div class="row">
 				<div class="col-auto align-self-center">
-					<a class="position-relative" href="game.php?page={$pagename}&amp;cp={$PlanetRow.id}" title="{$PlanetRow.name}">
-						<img src="{$dpath}planeten/small/s_{$PlanetRow.image}.jpg" alt="{$PlanetRow.name}" width="50px" height="50px"/>
+					<a href="game.php?page={$pagename}&amp;cp={$PlanetRow.id}" title="{$PlanetRow.name}">
 						{if $PlanetRow.id == $current_pid}
-							<span class="position-absolute badge text-blue pill-planetnav">
-								<i class="fa fa-certificate"></i>
+							<span class="badge text-blue">
+								<i class="position-absolute fa fa-certificate pill-planetnav"></i>
 							</span>
 						{/if}
+						<div class="planet-sprite sprite-{$PlanetRow.image}"></div>
 					</a>
 				</div>
 				<div class="col-8">
@@ -20,12 +20,12 @@
 							&nbsp;<a href="game.php?page={$pagename}&amp;cp={$PlanetRow.id_luna}">
 								<span class="badge text-blue">
 									<i class="position-absolute fa fa-certificate"></i>
-									<img src="{$dpath}planeten/mond.jpg" width="30px" height="30px"/>
+									<div class="d-inline-block planet-sprite sprite-mond align-middle"></div>
 								</span>
 							</a>
 						{else}
 							&nbsp;<a href="game.php?page={$pagename}&amp;cp={$PlanetRow.id_luna}">
-								<img src="{$dpath}planeten/mond.jpg" width="30px" height="30px"/>
+								<div class="d-inline-block planet-sprite sprite-mond align-middle"></div>
 							</a>
 						{/if}
 					{/if}</br>
