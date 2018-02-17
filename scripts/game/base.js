@@ -202,9 +202,12 @@ function PM(ID, Subject) {
 	$('.popover').each(function() {
 		$(this).popover('hide');
 	});
-	$.get('game.php?page=messages&mode=write&id='+ID+'&subject='+encodeURIComponent(Subject)+'&message='+encodeURIComponent(Subject)+'&ajax=1', function(data) {
-		$('#messageModalBody').empty();
-		$('#messageModalBody').append(data);
+	$.ajax({
+		url: "game.php?page=messages&mode=write&id="+ID+"&subject="+encodeURIComponent(Subject)+"&message="+encodeURIComponent(Subject)+"&ajax=1", 
+		success: function(data){
+			$('#messageModalBody').empty();
+			$('#messageModalBody').append(data);
+		}
 	});
 }
 

@@ -37,11 +37,14 @@ Message	= {
 		Message.MessageCount(MessID);
 		
 		$('#loading').show();
-		
-		$.get('game.php?page=messages&mode=view&messcat='+MessID+'&site='+page+'&ajax=1', function(data) {
-			$('#loading').hide();
-			$('#messagestable').empty();
-			$('#messagestable').append(data);
+
+		$.ajax({
+			url: "game.php?page=messages&mode=view&messcat="+MessID+"&site="+page+"&ajax=1", 
+			success: function(data){
+				$('#loading').hide();
+				$('#messagestable').empty();
+				$('#messagestable').append(data);
+			}
 		});
 	},
 
