@@ -12,7 +12,7 @@
       <li class="nav-item px-2">
 		<div class="media">
 			{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
-				<img class="d-flex mr-2 align-self-center" src="{$dpath}images/{$resourceData.name}.gif">
+				<div class="d-flex mr-2 align-self-center res-sprite sprite-{$resourceData.name}"></div>
 			{else}
 			<a class="d-flex mr-2 align-self-center" href="#" data-toggle="popover" data-trigger="hover" data-html="true" data-content="
 				Production per hour: {$resourceData.production|number}
@@ -21,7 +21,7 @@
 				Max Storage: {$resourceData.max|number}
 				{/if}
 			" data-original-title="{$resourceData.name}" data-placement="bottom">
-				<img class="" src="{$dpath}images/{$resourceData.name}.gif">
+				<div class="res-sprite sprite-{$resourceData.name}"></div>
 			</a>
 			{/if}
 			{if $shortlyNumber}

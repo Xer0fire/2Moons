@@ -29,7 +29,7 @@
 									{/if}
 									<div class="col-12 col-md-6 align-self-center">
 										<div class="media">
-											<img class="d-flex mr-2 align-self-center" src="{$dpath}images//{$LNG.tech.{$resID}}.gif">
+											<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.tech.{$resID}}"></div>
 											<div class="media-body">
 												{if $resID != 911 && $productionID != 12 && $productionID != 212}
 													({$basicProduction.$resID|number})

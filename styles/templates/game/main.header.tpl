@@ -24,6 +24,7 @@
   <link href="./styles/resources/css/font-awesome.min.css" rel="stylesheet">
   <link href="./styles/resources/css/toastr.min.css" rel="stylesheet">
   <link href="./styles/resources/css/custom.css" rel="stylesheet">
+  <link href="{$dpath}theme.css" rel="stylesheet">
   
   <link href="./styles/resources/css/jquery-ui.min.css" rel="stylesheet">
   
