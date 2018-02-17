@@ -19,9 +19,12 @@
   <title>{block name="title"} - {$uni_name} - {$game_name}{/block}</title>
 
   <!-- Main styles for this application -->
-  <link href="./styles/resources/css/core.min.css" rel="stylesheet">
+  <link href="./styles/resources/css/style.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
   <link href="./styles/resources/css/custom.css" rel="stylesheet">
-  <link href="{$dpath}theme.css" rel="stylesheet">
+  <link href="{$dpath}theme.min.css" rel="stylesheet">
   
   <link href="./styles/resources/css/jquery-ui.min.css" rel="stylesheet">
   
