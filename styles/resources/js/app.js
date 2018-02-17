@@ -145,8 +145,10 @@ $(document).ready(function($){
     lsCollapsed = [];
   }
   lsCollapsed.forEach(function(v) {
-    var toggle = localStorage.getItem("omicron-collapse-"+v);
-	$('#'+v).collapse(toggle)
+	if($("#"+v).length != 0) {
+		var toggle = localStorage.getItem("omicron-collapse-"+v);
+		$('#'+v).collapse(toggle);
+	}
   });
 
   var sidebarNav = localStorage.getItem("omicron-sidebarNav");
