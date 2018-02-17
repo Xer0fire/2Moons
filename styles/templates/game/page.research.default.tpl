@@ -93,8 +93,8 @@ Queue
 		<div class="card-body" id="research">
 			{foreach from=$ResearchList key=ID item=Element name=List}
 				<div class="row">
-					<div class="col d-none d-sm-block align-self-center"><img class="img-fluid" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}"/></div>
-					<div class="col-sm-10">
+					<div class="col-4 col-xl-2 d-none d-sm-block align-self-center"><div class="mx-auto build-sprite sprite-{$ID}"></div></div>
+					<div class="col-12 col-sm-8 col-xl-10">
 						<div class="row content-center">
 							<div class="col-sm-8">
 								<p class="h5"><a href="#" data-toggle="modal" data-target="#info_{$ID}">{$LNG.tech.{$ID}}</a></p>

@@ -93,8 +93,8 @@
 		<div class="card-body" id="">
 			{foreach $elementList as $ID => $Element}
 				<div class="row">
-					<div class="col d-none d-sm-block align-self-center"><img class="img-fluid" src="{$dpath}gebaeude/{$ID}.gif" alt="{$LNG.tech.{$ID}}"/></div>
-					<div class="col-sm-10">
+					<div class="col-4 col-xl-2 d-none d-sm-block align-self-center"><div class="mx-auto build-sprite sprite-{$ID}"></div></div>
+					<div class="col-12 col-sm-8 col-xl-10">
 						<div class="row content-center">
 							<div class="col-sm-12">
 								<p class="h5"><a href="#" data-toggle="modal" data-target="#info_{$ID}">{$LNG.tech.{$ID}}</a> {if $Element.available != 0} ({$LNG.bd_available} {$Element.available|number}){/if}</p>
