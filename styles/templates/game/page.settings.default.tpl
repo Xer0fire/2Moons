@@ -125,6 +125,7 @@
 						{html_options class="form-control" name=planetOrder options=$Selectors.SortUpDown selected=$planetOrder}
 					</div>
 				</div>
+				<!--
 				{if count($Selectors.Skins) > 1}
 				<div class="row mt-2">
 					<div class="col-12 col-md-6 align-self-center">
@@ -135,6 +136,7 @@
 					</div>
 				</div>
 				{/if}
+				-->
 				<div class="row mt-3 mt-md-2">
 					<div class="col-7 col-md-6 align-self-center">
 						{$LNG.op_active_build_messages}
