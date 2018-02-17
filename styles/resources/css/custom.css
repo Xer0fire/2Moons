@@ -1,9 +1,9 @@
 @charset "UTF-8";
 .app-body{
-	background: #252831 url(../img/bg.png) top center;
+	background: #252831 url(../img/bg.jpg) top center;
 }
 .app-footer {
-	background: #1e2026 url(../img/bg_footer.png) no-repeat bottom center;
+	background: #1e2026 url(../img/bg_footer.jpg) no-repeat bottom center;
 	color: #fff;
 	border-top: solid 1px #30333c;
 }
