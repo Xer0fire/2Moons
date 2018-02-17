@@ -193,18 +193,17 @@
 										<br>
 									{/if}
 								" data-original-title="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-									{if $currentPlanet.lastActivity == 'lessthan15'}
-										<span class="position-absolute badge pill-galaxy">
-											<i class="fa fa-exclamation-triangle text-red"></i>
-										</span>
-									{elseif $currentPlanet.lastActivity == ''}
-									{else}
-										<span class="position-absolute badge pill-galaxy pill-galaxy-yellow">
-											{$currentPlanet.lastActivity}
-										</span>
-									{/if}
-								</span>
-								<img src="{$dpath}planeten/small/s_{$currentPlanet.planet.image}.jpg" height="40" width="40" alt="">
+								{if $currentPlanet.lastActivity == 'lessthan15'}
+									<span class="badge ml-3 ml-md-0 ml-lg-4 pill-galaxy">
+										<i class="fa fa-exclamation-triangle text-red"></i>
+									</span>
+								{elseif $currentPlanet.lastActivity == ''}
+								{else}
+									<span class="badge ml-3 ml-md-0 ml-lg-4 pill-galaxy pill-galaxy-yellow">
+										{$currentPlanet.lastActivity}
+									</span>
+								{/if}
+								<div class="mx-auto planet-sprite sprite-{$currentPlanet.planet.image}"></div>
 								</a>
 							</td>
 							<td class="d-none d-md-table-cell">{$currentPlanet.planet.name}</td>
@@ -245,7 +244,7 @@
 										<br>
 									{/if}
 								" data-original-title="{$LNG.gl_moon} {$currentPlanet.moon.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-								<img src="{$dpath}planeten/small/s_mond.jpg" height="40" width="40" alt="{$currentPlanet.moon.name}">
+								<div class="mx-auto planet-sprite sprite-mond"></div>
 								</a>
 								{/if}
 							</td>
@@ -261,7 +260,7 @@
 											<a href='javascript:doit(8, {$currentPlanet.planet.id});'>{$LNG['type_mission_8']}</a>
 										{/if}
 									" data-original-title="{$LNG.gl_debris_field} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-									<img src="{$dpath}planeten/debris.jpg" height="40" width="40" alt="">
+									<div class="mx-auto planet-sprite sprite-debris"></div>
 									</a>
 								{/if}
 							</td>

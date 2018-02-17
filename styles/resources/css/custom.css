@@ -84,16 +84,19 @@
 	border-width: 1px 2px; 
 }
 .pill-planetnav {
+	position: absolute;
 	top: -10px;
 }
 .pill-galaxy {
-	top: -5px;
-	left: -10px;
+	position: absolute;
+    margin-top: -5px;
+	z-index: 2;
 }
 .pill-galaxy-yellow {
 	border: 1px solid #ffc107;
 	color: #ffc107;
 	background-color: #000;
+	z-index: 2;
 }
 .app-footer {
 	font-size: .75rem;

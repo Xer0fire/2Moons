@@ -391,3 +391,374 @@
     height: 100px;
     background-position: -265px -915px;
 }
+
+.planet-sprite {
+    background-image: url(images/planetspritesheet.png);
+    background-repeat: no-repeat;
+}
+
+.sprite-debris {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -5px;
+}
+
+.sprite-deshjungelplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -5px;
+}
+
+.sprite-dschjungelplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -5px;
+}
+
+.sprite-dschjungelplanet02 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -5px;
+}
+
+.sprite-dschjungelplanet03 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -5px;
+}
+
+.sprite-dschjungelplanet04 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -5px;
+}
+
+.sprite-dschjungelplanet05 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -5px;
+}
+
+.sprite-dschjungelplanet06 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -45px;
+}
+
+.sprite-dschjungelplanet07 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -45px;
+}
+
+.sprite-dschjungelplanet08 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -45px;
+}
+
+.sprite-dschjungelplanet09 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -45px;
+}
+
+.sprite-dschjungelplanet10 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -45px;
+}
+
+.sprite-eisplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -45px;
+}
+
+.sprite-eisplanet02 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -45px;
+}
+
+.sprite-eisplanet03 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -85px;
+}
+
+.sprite-eisplanet04 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -85px;
+}
+
+.sprite-eisplanet05 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -85px;
+}
+
+.sprite-eisplanet06 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -85px;
+}
+
+.sprite-eisplanet07 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -85px;
+}
+
+.sprite-eisplanet08 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -85px;
+}
+
+.sprite-eisplanet09 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -85px;
+}
+
+.sprite-eisplanet10 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -125px;
+}
+
+.sprite-gasplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -125px;
+}
+
+.sprite-gasplanet02 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -125px;
+}
+
+.sprite-gasplanet03 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -125px;
+}
+
+.sprite-gasplanet04 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -125px;
+}
+
+.sprite-gasplanet05 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -125px;
+}
+
+.sprite-gasplanet06 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -125px;
+}
+
+.sprite-gasplanet07 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -165px;
+}
+
+.sprite-gasplanet08 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -165px;
+}
+
+.sprite-mond {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -165px;
+}
+
+.sprite-normaltempplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -165px;
+}
+
+.sprite-normaltempplanet02 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -165px;
+}
+
+.sprite-normaltempplanet03 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -165px;
+}
+
+.sprite-normaltempplanet04 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -165px;
+}
+
+.sprite-normaltempplanet05 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -205px;
+}
+
+.sprite-normaltempplanet06 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -205px;
+}
+
+.sprite-normaltempplanet07 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -205px;
+}
+
+.sprite-trockenplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -205px;
+}
+
+.sprite-trockenplanet02 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -205px;
+}
+
+.sprite-trockenplanet03 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -205px;
+}
+
+.sprite-trockenplanet04 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -205px;
+}
+
+.sprite-trockenplanet05 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -245px;
+}
+
+.sprite-trockenplanet06 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -245px;
+}
+
+.sprite-trockenplanet07 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -245px;
+}
+
+.sprite-trockenplanet08 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -245px;
+}
+
+.sprite-trockenplanet09 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -245px;
+}
+
+.sprite-trockenplanet10 {
+    width: 30px;
+    height: 30px;
+    background-position: -205px -245px;
+}
+
+.sprite-wasserplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -245px -245px;
+}
+
+.sprite-wasserplanet02 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -5px;
+}
+
+.sprite-wasserplanet03 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -45px;
+}
+
+.sprite-wasserplanet04 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -85px;
+}
+
+.sprite-wasserplanet05 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -125px;
+}
+
+.sprite-wasserplanet06 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -165px;
+}
+
+.sprite-wasserplanet07 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -205px;
+}
+
+.sprite-wasserplanet08 {
+    width: 30px;
+    height: 30px;
+    background-position: -285px -245px;
+}
+
+.sprite-wasserplanet09 {
+    width: 30px;
+    height: 30px;
+    background-position: -5px -285px;
+}
+
+.sprite-wuestenplanet01 {
+    width: 30px;
+    height: 30px;
+    background-position: -45px -285px;
+}
+
+.sprite-wuestenplanet02 {
+    width: 30px;
+    height: 30px;
+    background-position: -85px -285px;
+}
+
+.sprite-wuestenplanet03 {
+    width: 30px;
+    height: 30px;
+    background-position: -125px -285px;
+}
+
+.sprite-wuestenplanet04 {
+    width: 30px;
+    height: 30px;
+    background-position: -165px -285px;
+}
