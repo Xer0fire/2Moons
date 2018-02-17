@@ -31,7 +31,7 @@
 								<td></td>
 								<td></td>
 								{foreach $planetList.image as $planetID => $image}
-								<td><a href="game.php?page=overview&amp;cp={$planetID}"><img width="50px" height="50px" border="0" src="{$dpath}planeten/small/s_{$image}.jpg"></a></td>
+									<td><a href="game.php?page=overview&amp;cp={$planetID}"><div class="mx-auto planet-sprite sprite-{$image}"></div></td>
 								{/foreach}
 							</tr>
 							<tr>
@@ -75,7 +75,7 @@
 							<tr>
 								<td></td>
 								{foreach $planetList.image as $planetID => $image}
-								<td><a href="game.php?page=overview&amp;cp={$planetID}"><img width="50px" height="50px" border="0" src="{$dpath}planeten/small/s_{$image}.jpg"></a></td>
+									<td><a href="game.php?page=overview&amp;cp={$planetID}"><div class="mx-auto planet-sprite sprite-{$image}"></div></td>
 								{/foreach}
 							</tr>
 							<tr>
@@ -134,7 +134,7 @@
 								<td></td>
 								<td></td>
 								{foreach $planetList.image as $planetID => $image}
-								<td><a href="game.php?page=overview&amp;cp={$planetID}"><img width="50px" height="50px" border="0" src="{$dpath}planeten/small/s_{$image}.jpg"></a></td>
+									<td><a href="game.php?page=overview&amp;cp={$planetID}"><div class="mx-auto planet-sprite sprite-{$image}"></div></td>
 								{/foreach}
 							</tr>
 							<tr>
@@ -178,7 +178,7 @@
 							<tr>
 								<td></td>
 								{foreach $planetList.image as $planetID => $image}
-								<td><a href="game.php?page=overview&amp;cp={$planetID}"><img width="50px" height="50px" border="0" src="{$dpath}planeten/small/s_{$image}.jpg"></a></td>
+									<td><a href="game.php?page=overview&amp;cp={$planetID}"><div class="mx-auto planet-sprite sprite-{$image}"></div></td>
 								{/foreach}
 							</tr>
 							<tr>
