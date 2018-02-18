@@ -160,7 +160,7 @@
 				</div>
 				
 				<div class="modal fade" id="info_{$ID}" tabindex="-1" role="dialog" aria-labelledby="info_{$ID}" aria-hidden="true" style="display: none;">
-					<div class="modal-dialog modal-info" role="document">
+					<div class="modal-dialog modal-lg modal-info" role="document">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h4 class="modal-title">{$LNG.tech.{$ID}}</h4>
