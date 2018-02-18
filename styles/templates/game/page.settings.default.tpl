@@ -270,7 +270,7 @@
 					</div>
 					<div class="col-4 col-md-6">
 						<label class="switch switch-text switch-lg switch-danger">
-							<input class="switch-input" name="delete" type="checkbox" value="1" {if $delete > 0}checked="checked"{/if}>
+							<input class="switch-input" name="delete" type="checkbox" value="1" {if is_bool($delete) === false}checked="checked"{/if}>
 							<span class="switch-label" data-on="On" data-off="Off"></span>
 							<span class="switch-handle"></span>
 						</label>
