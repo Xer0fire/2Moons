@@ -25,13 +25,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
   <link href="./styles/resources/css/custom.css" rel="stylesheet">
   <link href="{$dpath}theme.min.css" rel="stylesheet">
-  
-  <link href="./styles/resources/css/jquery-ui.min.css" rel="stylesheet">
-  
-  <!-- inspect -->
-  <!-- extract relevant styles bin rest -->
-  <!-- <link href="{$dpath}formate.css?v={$REV}" rel="stylesheet"> -->
-  
+
 	<script type="text/javascript">
 	var ServerTimezoneOffset = {$Offset};
 	var serverTime 	= new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
@@ -56,10 +50,9 @@
 	</script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-	<script type="text/javascript" src="./styles/resources/js/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="./scripts/game/base.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/game/base.js"></script>
 	{foreach item=scriptname from=$scripts}
-	<script type="text/javascript" src="./scripts/game/{$scriptname}.js?v={$REV}"></script>
+	<script type="text/javascript" src="./scripts/game/{$scriptname}.js"></script>
 	{/foreach}
 	{block name="script"}{/block}
 	<script type="text/javascript">

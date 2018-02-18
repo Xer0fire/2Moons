@@ -32,7 +32,9 @@ Queue
 			{assign var="firstqueuename" value="{$LNG.tech.{$ID}}"}
 			{assign var="firstqueuelvl" value="{$List.level}"}
 			{assign var="firstqueueresttime" value="{$List.resttime}"}
-			<div id="progressbar" data-time="{$List.resttime}"></div>
+			<div class="progress">
+				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" data-time="{$List.resttime}" aria-valuenow="0.01" aria-valuemin="0" aria-valuemax="100"></div>
+			</div>
 		</div>
 		<div class="col-4">
 			<div id="time" data-time="{$List.time}"><br></div>
