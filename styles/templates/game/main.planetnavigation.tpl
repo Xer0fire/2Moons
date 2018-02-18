@@ -5,29 +5,23 @@
 				<div class="col-auto align-self-center">
 					<a href="game.php?page={$pagename}&amp;cp={$PlanetRow.id}" title="{$PlanetRow.name}">
 						{if $PlanetRow.id == $current_pid}
-							<span class="badge text-blue">
-								<i class="position-absolute fa fa-certificate pill-planetnav"></i>
-							</span>
+							<div class="planet-nav-badge planet-sprite sprite-{$PlanetRow.image}"></div>
+						{else}
+							<div class="planet-sprite sprite-{$PlanetRow.image}"></div>
 						{/if}
-						<div class="planet-sprite sprite-{$PlanetRow.image}"></div>
 					</a>
 				</div>
 				<div class="col-8">
 					{$PlanetRow.name}</br>
 					<a href="game.php?page=galaxy&amp;galaxy=1&amp;system=1">[{$PlanetRow.galaxy}:{$PlanetRow.system}:{$PlanetRow.planet}]</a>
 					{if $PlanetRow.id_luna != 0}
+						&nbsp;<a href="game.php?page={$pagename}&amp;cp={$PlanetRow.id_luna}">
 						{if $PlanetRow.id_luna == $current_pid}
-							&nbsp;<a href="game.php?page={$pagename}&amp;cp={$PlanetRow.id_luna}">
-								<span class="badge text-blue">
-									<i class="position-absolute fa fa-certificate"></i>
-									<div class="d-inline-block planet-sprite sprite-mond align-middle"></div>
-								</span>
-							</a>
+							<div class="planet-nav-badge d-inline-block planet-sprite sprite-mond align-middle"></div>
 						{else}
-							&nbsp;<a href="game.php?page={$pagename}&amp;cp={$PlanetRow.id_luna}">
-								<div class="d-inline-block planet-sprite sprite-mond align-middle"></div>
-							</a>
+							<div class="d-inline-block planet-sprite sprite-mond align-middle"></div>
 						{/if}
+						</a>
 					{/if}</br>
 					<span class="planet-nav-building">{$PlanetRow.build}</span>
 				</div>
