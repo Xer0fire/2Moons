@@ -29,6 +29,8 @@ $.grayLightest =  '#f8f9fa';
 
 $(document).ready(function($){
 
+  init();
+
   toastr.options = {
 	  "closeButton": false,
 	  "debug": false,
@@ -274,12 +276,15 @@ function capitalizeFirstLetter(string) {
 }
 */
 
-function init(url) {
+function init() {
 
   /* ---------- Tooltip ---------- */
   $('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"bottom",delay: { show: 400, hide: 200 }});
 
   /* ---------- Popover ---------- */
-  $('[rel="popover"],[data-rel="popover"],[data-toggle="popover"]').popover();
+  $('[data-toggle="popover"]').popover();
+    $('.popover-dismiss').popover({
+		trigger: 'focus'
+  });
 
 }
