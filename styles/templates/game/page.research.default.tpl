@@ -33,7 +33,7 @@ Queue
 			{assign var="firstqueuelvl" value="{$List.level}"}
 			{assign var="firstqueueresttime" value="{$List.resttime}"}
 			<div class="progress">
-				<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" data-time="{$List.resttime}" aria-valuenow="0.01" aria-valuemin="0" aria-valuemax="100"></div>
+				<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" data-time="{$List.resttime}" aria-valuenow="0.01" aria-valuemin="0" aria-valuemax="100"></div>
 			</div>
 		</div>
 		<div class="col-4">
