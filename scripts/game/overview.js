@@ -23,30 +23,3 @@ $(document).ready(function()
 	}, 1000);
 
 });
-
-function overviewTicker(config, init) {
-	if(typeof init !== "undefined" && init === true)
-		window.setInterval(function(){resourceTicker(config)}, 1000);
-
-	var element	= $('#'+config.valueElem);
-	if(element.hasClass('text-red'))
-	{
-		return false;
-	}
-
-	var timepast = (serverTime.getTime() - startTime) / 1000;
-	var prodpersec = parseFloat(config.production) / 3600;
-	var nrResource = Math.max(0, (timepast * prodpersec) + parseFloat(config.available));
-
-	if (nrResource < config.limit[1]) 
-	{
-		if(viewShortlyNumber) {
-			element.attr('data-tooltip-content', NumberGetHumanReadable(nrResource));
-			element.html(shortly_number(nrResource));
-		} else {
-			element.html(NumberGetHumanReadable(nrResource));
-		}
-	} else {
-		element.addClass('text-red');
-	}
-}

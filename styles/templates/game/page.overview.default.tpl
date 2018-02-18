@@ -230,6 +230,8 @@
             </div>
             <!-- /.modal-dialog -->
           </div>
+{/block}
+{block name="script" append}
 		{if !$vmode}
 		<script type="text/javascript">
 		var viewShortlyNumber	= {$shortlyNumber|json};
@@ -237,7 +239,7 @@
         $(function() {
 		{foreach $resourceTable as $resourceID => $resourceData}
 		{if isset($resourceData.production)}
-            overviewTicker({
+            resourceTicker({
                 available: {$resourceData.current|json},
                 limit: [0, {$resourceData.max|json}],
                 production: {$resourceData.production|json},
@@ -248,7 +250,5 @@
         });
 		</script>
 		{/if}
-{/block}
-{block name="script" append}
     <script src="scripts/game/overview.js"></script>
 {/block}
