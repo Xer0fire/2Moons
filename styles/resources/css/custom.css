@@ -2,6 +2,9 @@
 .app-body{
 	background: #252831 url(../img/bg.jpg) top center;
 }
+.header-fixed .app-header {
+	z-index: 1099;
+}
 .app-footer {
 	background: #1e2026 url(../img/bg_footer.jpg) no-repeat bottom center;
 	color: #fff;
