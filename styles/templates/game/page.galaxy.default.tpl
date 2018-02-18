@@ -164,7 +164,7 @@
 							</td>
 							{$currentPlanet = $GalaxyRows[$planet]}
 							<td>
-								<a class="position-relative" href="#" data-toggle="popover" data-html="true" data-content="
+								<a href="#" data-toggle="popover" data-html="true" data-content="
 									{if $currentPlanet.missions.6}
 										<a href='javascript:doit(6,{$currentPlanet.planet.id});'>{$LNG['type_mission_6']}</a>
 										<br><br>
@@ -194,16 +194,12 @@
 									{/if}
 								" data-original-title="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
 								{if $currentPlanet.lastActivity == 'lessthan15'}
-									<span class="badge ml-3 ml-md-0 ml-lg-4 pill-galaxy">
-										<i class="fa fa-exclamation-triangle text-red"></i>
-									</span>
+									<div class="galaxy-badge-e mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="e"></div>
 								{elseif $currentPlanet.lastActivity == ''}
+									<div class="mx-auto planet-sprite sprite-{$currentPlanet.planet.image}"></div>
 								{else}
-									<span class="badge ml-3 ml-md-0 ml-lg-4 pill-galaxy pill-galaxy-yellow">
-										{$currentPlanet.lastActivity}
-									</span>
+									<div class="galaxy-badge-y mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="{$currentPlanet.lastActivity}"></div>
 								{/if}
-								<div class="mx-auto planet-sprite sprite-{$currentPlanet.planet.image}"></div>
 								</a>
 							</td>
 							<td class="d-none d-md-table-cell">{$currentPlanet.planet.name}</td>

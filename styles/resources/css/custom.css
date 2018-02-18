@@ -86,17 +86,6 @@
 .pill-planetnav {
 	left: 12px;
 }
-.pill-galaxy {
-	position: absolute;
-    margin-top: -5px;
-	z-index: 2;
-}
-.pill-galaxy-yellow {
-	border: 1px solid #ffc107;
-	color: #ffc107;
-	background-color: #000;
-	z-index: 2;
-}
 .app-footer {
 	font-size: .75rem;
 }
@@ -181,6 +170,32 @@ body {
 }
 .spyReportHead {
 	font-weight: bold;
+}
+.galaxy-badge-e, .galaxy-badge-y {
+	position:relative;
+}
+.galaxy-badge-e[data-badge="e"]:after {
+	content: "\f071";
+	position:absolute;
+	top:-5px;
+	left:-5px;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: #f86c6b!important;
+}
+.galaxy-badge-y[data-badge]:after {
+	content: attr(data-badge);
+	position:absolute;
+	top:-5px;
+	left:-5px;
+	padding-left: 3px;
+	padding-right: 3px;
+	border: 1px solid #ffc107;
+	color: #ffc107;
+	background-color: #000;
 }
 
 /* formate */
