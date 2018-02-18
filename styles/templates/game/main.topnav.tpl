@@ -157,11 +157,56 @@
 	{/if}
 
 	{if $closed}
-	<div class="infobox">{$LNG.ov_closed}</div>
+		<script type="text/javascript">
+			toastr.options = {
+				"closeButton": true,
+				"progressBar": true,
+				"showEasing": "swing",
+				"hideEasing": "linear",
+				"showMethod": "fadeIn",
+				"hideMethod": "fadeOut",
+				"showDuration": "600",
+				"hideDuration": "2000",
+				"timeOut": "5000",
+				"extendedTimeOut": "2000",
+				"positionClass": "toast-bottom-right"
+			}
+			toastr["warning"]("{$LNG.ov_closed}", "Warning");
+		</script>
 	{elseif $delete}
-	<div class="infobox">{$delete}</div>
+		<script type="text/javascript">
+			toastr.options = {
+				"closeButton": true,
+				"progressBar": true,
+				"showEasing": "swing",
+				"hideEasing": "linear",
+				"showMethod": "fadeIn",
+				"hideMethod": "fadeOut",
+				"showDuration": "600",
+				"hideDuration": "2000",
+				"timeOut": "5000",
+				"extendedTimeOut": "2000",
+				"positionClass": "toast-bottom-right"
+			}
+			toastr["warning"]("{$delete}", "Warning");
+		</script>
 	{elseif $vacation}
-	<div class="infobox">{$LNG.tn_vacation_mode} {$vacation}</div>
+		<script type="text/javascript">
+			toastr.options = {
+				"closeButton": true,
+				"progressBar": true,
+				"showEasing": "swing",
+				"hideEasing": "linear",
+				"showMethod": "fadeIn",
+				"hideMethod": "fadeOut",
+				"showDuration": "600",
+				"hideDuration": "2000",
+				"timeOut": "5000",
+				"extendedTimeOut": "2000",
+				"positionClass": "toast-bottom-right"
+			}
+			toastr["info"]("{$LNG.tn_vacation_mode}<br/>{$vacation}", "Info");
+		</script>
 	{/if}
 
   </header>
