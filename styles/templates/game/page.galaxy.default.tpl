@@ -428,7 +428,7 @@
 						{$LNG.gl_legend}
 						</a>
 					</td>
-					<td colspan="6">({$planetcount})</td>
+					<td colspan="6" class="text-center">({$planetcount})</td>
 				</tr>
 				</table>
 			</div>
