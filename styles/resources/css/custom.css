@@ -192,7 +192,7 @@ body {
 	top:-5px;
 	left:-5px;
 	font: normal normal normal 14px/1 FontAwesome;
-	font-size: inherit;
+	font-size: 12px;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -203,6 +203,7 @@ body {
 	position:absolute;
 	top:-5px;
 	left:-5px;
+	font-size: 12px;
 	padding-left: 3px;
 	padding-right: 3px;
 	border: 1px solid #ffc107;
