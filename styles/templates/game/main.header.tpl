@@ -26,6 +26,7 @@
   <link href="./styles/resources/css/custom.css" rel="stylesheet">
   <link href="{$dpath}theme.min.css" rel="stylesheet">
 
+	<!-- Critical vars for this application -->
 	<script type="text/javascript">
 	var ServerTimezoneOffset = {$Offset};
 	var serverTime 	= new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
