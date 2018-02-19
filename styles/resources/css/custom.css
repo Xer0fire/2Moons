@@ -223,9 +223,6 @@ body {
 }
 
 /* formate */
-td,th,tr,table{
-	color:#DDD;
-}
 
 a:hover {
 	color:red;

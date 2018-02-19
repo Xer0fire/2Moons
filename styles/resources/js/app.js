@@ -130,6 +130,10 @@ $(document).ready(function($){
     }, 62.5);
   }
 
+  $('.flyingfleet').click(function(e){
+    $('.flyingfleet').not(this).popover('hide');
+  });
+
   /* ---------- Menu States ---------- */
   var navState = localStorage.getItem("omicron-navState");
   if (navState) {
@@ -277,9 +281,6 @@ function capitalizeFirstLetter(string) {
 */
 
 function init() {
-
-  /* ---------- Tooltip ---------- */
-  $('[rel="tooltip"],[data-rel="tooltip"]').tooltip({"placement":"bottom",delay: { show: 400, hide: 200 }});
 
   /* ---------- Popover ---------- */
   $('[data-toggle="popover"]').popover();

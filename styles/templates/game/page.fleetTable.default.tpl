@@ -34,7 +34,7 @@
 								{/if}
 							</td>
 							<td>
-								<a class="tooltip_sticky" data-tooltip-content="<table width='100%'><tr><th colspan='2' style='text-align:center;'>{$LNG.fl_info_detail}</th></tr>{foreach $FlyingFleetRow.FleetList as $shipID => $shipCount}<tr><td class='transparent'>{$LNG.tech.{$shipID}}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$FlyingFleetRow.amount}</a>
+								<a class="flyingfleet" href="#" data-toggle="popover" data-html="true" data-content="<table>{foreach $FlyingFleetRow.FleetList as $shipID => $shipCount}<tr><td class='transparent'>{$LNG.tech.{$shipID}}:</td><td class='transparent'>{$shipCount}</td></tr>{/foreach}</table>">{$FlyingFleetRow.amount}</a>
 							</td>
 							<td>
 								<a href="game.php?page=galaxy&amp;galaxy={$FlyingFleetRow.startGalaxy}&amp;system={$FlyingFleetRow.startSystem}">[{$FlyingFleetRow.startGalaxy}:{$FlyingFleetRow.startSystem}:{$FlyingFleetRow.startPlanet}]</a>
@@ -55,11 +55,11 @@
 							<td id="fleettime_{$smarty.foreach.FlyingFleets.iteration}" class="fleets" data-fleet-end-time="{$FlyingFleetRow.returntime}" data-fleet-time="{$FlyingFleetRow.resttime}">
 								{pretty_fly_time({$FlyingFleetRow.resttime})}
 							</td>
-							<td>
+							<td class="pb-2">
 								{if !$isVacation && $FlyingFleetRow.state != 1}
 									<form action="game.php?page=fleetTable&amp;action=sendfleetback" method="post">
 										<input name="fleetID" value="{$FlyingFleetRow.id}" type="hidden">
-										<input value="{$LNG.fl_send_back}" type="submit">
+										<input class="btn btn-warning btn-sm" value="{$LNG.fl_send_back}" type="submit">
 									</form>
 									{if $FlyingFleetRow.mission == 1}
 										<form action="game.php?page=fleetTable&amp;action=acs" method="post">
