@@ -147,6 +147,7 @@ class ShowAlliancePage extends AbstractGamePage
 		$this->assign(array(
 			'diplomaticData'				=> $diplomaticmaticData,
 			'statisticData'					=> $statisticData,
+			'myalliance'					=> $USER['ally_id'],
 			'ally_description' 				=> BBCode::parse($this->allianceData['ally_description']),
 			'ally_id'	 					=> $this->allianceData['id'],
 			'ally_image' 					=> $this->allianceData['ally_image'],

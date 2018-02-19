@@ -105,7 +105,11 @@
 								<div class="row justify-content-around">
 									{foreach item=PaktInfo from=$diplomaticData.$diplonum}
 										<div class="col-auto">
-											<a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a>
+											{if $myalliance == $PaktInfo.1}
+												<a href="?page=alliance">{$PaktInfo.0}</a>
+											{else}
+												<a href="?page=alliance&mode=info&amp;id={$PaktInfo.1}">{$PaktInfo.0}</a>
+											{/if}
 										</div>
 									{/foreach}
 								</div>
