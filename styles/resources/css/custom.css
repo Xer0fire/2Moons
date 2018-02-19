@@ -38,8 +38,14 @@
 	color: #fff;
 	border-left: 0;
 }
-.card-header, .card-footer, .spyReportCat {
+.modal-body, .modal-footer, .card-header, .card-footer, .spyReportCat {
 	background-color: #252831;
+}
+.modal-header {
+	border-bottom: 0;
+}
+.modal-footer {
+	border-top: 0;
 }
 .spyReportHead, .spyReportCat {
 	font-weight:bold;
@@ -134,7 +140,7 @@ form, .card-body .form-group {
 	border-top: 1px solid #444;
 	border-bottom: 1px solid #444;
 }
-.modal-body, .popover-header, .popover-body, .arrow {
+.popover-header, .popover-body, .arrow {
 	background-color: #252831;
 	color: #ddd;
 }
