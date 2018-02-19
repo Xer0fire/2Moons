@@ -5,6 +5,9 @@
 .popover {
 	z-index: 1000;
 }
+.dropdown-message {
+	min-width: 18rem;
+}
 .app-footer {
 	background: #1e2026 url(../img/bg_footer.jpg) no-repeat bottom center;
 	color: #fff;

@@ -50,50 +50,24 @@
 	  {if isModuleAvailable($smarty.const.MODULE_MESSAGES)}
       <li class="nav-item dropdown d-none d-md-block">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-envelope-o"></i>{nocache}{if $new_message > 0}<span class="badge badge-pill badge-success">{$new_message}</span>{/if}{/nocache}</a>
-        <div class="dropdown-menu dropdown-menu-right">
+        <div class="dropdown-menu dropdown-message dropdown-menu-right">
           <div class="dropdown-header text-center">
             <strong>Most Recent</strong>
           </div>
-          <a href="#" class="dropdown-item">
-            <div class="message">
-              <div>
-                <small class="text-muted">From: [[USERNAME]]</small>
-                <small class="text-muted float-right mt-1">Just now</small>
-              </div>
-              <div class="text-truncate">
-                This is my extremely long example subject</div>
-            </div>
-          </a>
-          <a href="#" class="dropdown-item">
-            <div class="message">
-              <div>
-                <small class="text-muted">From: [[USERNAME]]</small>
-                <small class="text-muted float-right mt-1">Just now</small>
-              </div>
-              <div class="text-truncate">
-                This is my extremely long example subject</div>
-            </div>
-          </a>
-          <a href="#" class="dropdown-item">
-            <div class="message">
-              <div>
-                <small class="text-muted">From: [[USERNAME]]</small>
-                <small class="text-muted float-right mt-1">Just now</small>
-              </div>
-              <div class="text-truncate">
-                This is my extremely long example subject</div>
-            </div>
-          </a>
-          <a href="#" class="dropdown-item">
-            <div class="message">
-              <div>
-                <small class="text-muted">From: [[USERNAME]]</small>
-                <small class="text-muted float-right mt-1">Just now</small>
-              </div>
-              <div class="text-truncate">
-                This is my extremely long example subject</div>
-            </div>
-          </a>
+          {nocache}
+		  {foreach $MessageResult as $mid => $mv}
+			<a href="game.php?page=messages" class="dropdown-item">
+				<div class="message">
+				  <div>
+					<small class="text-muted">From: {$mv.message_from}</small>
+					<small class="text-muted float-right">{$mv.message_time|date_format:"%D %I:%M %p"}</small>
+				  </div>
+				  <div class="text-truncate">
+					Subject: {$mv.message_subject}</div>
+				</div>
+			</a>
+          {/foreach}
+          {/nocache}
           <a href="game.php?page=messages" class="dropdown-item text-center">
             <strong>View all messages</strong>
           </a>

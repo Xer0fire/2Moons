@@ -170,9 +170,21 @@ abstract class AbstractGamePage
 			':statType'	=> 1
 		));
 
+		$sql = "SELECT message_id, message_time, message_from, message_subject
+		FROM %%MESSAGES%%
+		WHERE message_owner = :userId AND message_deleted IS NULL
+		ORDER BY message_time DESC
+		LIMIT :limit";
+
+		$MessageResult = Database::get()->select($sql, array(
+			':userId'   => $USER['id'],
+			':limit'    => 4
+		));
+
 		$this->assign(array(
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
+			'MessageResult' 		=> $MessageResult,
 			'vacation'			=> $USER['urlaubs_modus'] ? _date($LNG['php_tdformat'], $USER['urlaubs_until'], $USER['timezone']) : false,
 			'delete'			=> $USER['db_deaktjava'] ? sprintf($LNG['tn_delete_mode'], _date($LNG['php_tdformat'], $USER['db_deaktjava'] + ($config->del_user_manually * 86400)), $USER['timezone']) : false,
 			'darkmatter'		=> $USER['darkmatter'],
