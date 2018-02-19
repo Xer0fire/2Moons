@@ -2,13 +2,14 @@
 <center>
 <table width="500">
 <tr>
-    <th colspan="3">{$mod_module}</th>
+    <th colspan="4">{$mod_module}</th>
 </tr>
 <tr>
-    <td colspan="3"><strong>{$mod_info}</strong></td>
+    <td colspan="4"><strong>{$mod_info}</strong></td>
 </tr>
 {foreach key=ID item=Info from=$Modules}
 <tr>
+	<td>{$ID}</td>
 	<td>{$Info.name}</td>
 	{if $Info.state == 1}
 		<td style="color:green"><b>{$mod_active}</b></td>
