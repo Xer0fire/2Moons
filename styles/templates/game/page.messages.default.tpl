@@ -18,19 +18,6 @@
 					</nav>
 				</div>
 				<div class="col-12 col-md-8 col-xl-9">
-					<div class="toolbar">
-						<button type="button" class="btn btn-light">
-							<span class="fa fa-trash-o"></span>
-						</button>
-						<div class="btn-group float-right">
-							<button type="button" class="btn btn-light">
-								<span class="fa fa-chevron-left"></span>
-							</button>
-							<button type="button" class="btn btn-light">
-								<span class="fa fa-chevron-right"></span>
-							</button>
-						</div>
-					</div>
 					<div id="messagestable" class="messages">
 					</div>
 				</div>
