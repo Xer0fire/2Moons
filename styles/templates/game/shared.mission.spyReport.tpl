@@ -1,5 +1,5 @@
-<div class="spyReport">
-	<div class="row">
+<div class="spyReportContainer">
+	<div class="row spyReportHead">
 		<div class="col">
 			<a href="game.php?page=galaxy&amp;galaxy={$targetPlanet.galaxy}&amp;system={$targetPlanet.system}">{$title}</a>
 			<br/>
@@ -7,13 +7,13 @@
 		</div>
 	</div>
 	{foreach from=$spyData key=Class item=elementIDs name=List}
-		<div class="spyReportContainer{if !$smarty.foreach.List.first} mt-2{/if}">
+		<div class="spyReport{if !$smarty.foreach.List.first} mt-2{/if}">
 			<div class="row class-{$Class}">
-				<div class="spyReportHead col">
-					{$LNG.tech.$Class}
+				<div class="col">
+					<p class="spyReportCat">{$LNG.tech.$Class}</p>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row spyReportDetail">
 			{foreach from=$elementIDs key=elementID item=amount name=List2}
 				<div class="col-6">{$LNG.tech.$elementID} <br/> {$amount|number}</div>
 			{/foreach}

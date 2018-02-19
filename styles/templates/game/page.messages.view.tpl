@@ -28,27 +28,29 @@
 
 		{foreach from=$MessageList key=ID item=Message name=List}
 			<div id="envelope"{if $smarty.foreach.List.first} class="mt-3"{/if}>
-				<div id="messagehead_{$Message.id}" class="row">
-					{if $MessID != 999}
-						<div class="col-2 align-self-center">
-							<input class="form-check" name="messageID[{$Message.id}]" value="1" type="checkbox">
-						</div>
-					{/if}
-					<div class="ml-md-auto text-right col-9 text-md-left col-md-auto align-self-center">
-						<i class="fa fa-paperclip"></i> {$Message.time}
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-12 col-md-auto">
-						<span class="title">{if $MessID != 999}{$LNG.mg_from}{else}{$LNG.mg_to}{/if} :</span>
-						{$Message.from}
-					</div>
-					<div class="col-12 ml-md-auto col-md-auto">
-						<span class="title">{$LNG.mg_subject} :</span>
-						{$Message.subject}
-						{if $Message.type == 1 && $MessID != 999}
-							<a href="#" onclick="PM({$Message.sender},Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope"></i></a>
+				<div id="messagehead_{$Message.id}">
+					<div class="row">
+						{if $MessID != 999}
+							<div class="col-2 align-self-center">
+								<input class="form-check" name="messageID[{$Message.id}]" value="1" type="checkbox">
+							</div>
 						{/if}
+						<div class="ml-md-auto text-right col-9 text-md-left col-md-auto align-self-center">
+							<i class="fa fa-paperclip"></i> {$Message.time}
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 col-md-auto">
+							<span class="title">{if $MessID != 999}{$LNG.mg_from}{else}{$LNG.mg_to}{/if} :</span>
+							{$Message.from}
+						</div>
+						<div class="col-12 ml-md-auto col-md-auto">
+							<span class="title">{$LNG.mg_subject} :</span>
+							{$Message.subject}
+							{if $Message.type == 1 && $MessID != 999}
+								<a href="#" onclick="PM({$Message.sender},Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope"></i></a>
+							{/if}
+						</div>
 					</div>
 				</div>
 				<div class="row mt-2">

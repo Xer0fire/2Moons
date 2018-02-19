@@ -35,8 +35,17 @@
 	color: #fff;
 	border-left: 0;
 }
-.card-header, .card-footer, .spyReportHead {
+.card-header, .card-footer, .spyReportCat {
 	background-color: #252831;
+}
+.spyReportHead, .spyReportCat {
+	font-weight:bold;
+}
+.spyReportCat {
+	margin-bottom: 0;
+}
+.spyReportHead, .spyReportCat, .spyReportDetail{
+	padding: .25rem .50rem;
 }
 .card-header {
 	border-bottom: 1px solid #444
@@ -164,9 +173,6 @@ body {
 }
 .mail-nav .nav-item {
 	width: 100%;
-}
-.spyReportHead {
-	font-weight: bold;
 }
 .galaxy-badge-e, .galaxy-badge-y {
 	position:relative;
