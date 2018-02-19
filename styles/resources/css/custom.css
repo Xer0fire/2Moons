@@ -2,8 +2,8 @@
 .app-body{
 	background: #252831 url(../img/bg.jpg) top center;
 }
-.header-fixed .app-header {
-	z-index: 1099;
+.popover {
+	z-index: 1000;
 }
 .app-footer {
 	background: #1e2026 url(../img/bg_footer.jpg) no-repeat bottom center;
@@ -124,7 +124,7 @@
 .modal-open {
 	overflow: auto;
 }
-form, .form-group {
+form, .card-body .form-group {
 	margin-bottom: 0;
 }
 .popover-header {
