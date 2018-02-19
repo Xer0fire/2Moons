@@ -54,20 +54,18 @@
           <div class="dropdown-header text-center">
             <strong>Most Recent</strong>
           </div>
-          {nocache}
 		  {foreach $MessageResult as $mid => $mv}
-			<a href="game.php?page=messages" class="dropdown-item">
+			<a href="game.php?page=messages#messagehead_{$mv.message_id}" class="dropdown-item">
 				<div class="message">
 				  <div>
 					<small class="text-muted">From: {$mv.message_from}</small>
-					<small class="text-muted float-right">{$mv.message_time|date_format:"%D %I:%M %p"}</small>
+					<small class="text-muted float-right">{$mv.message_time|date_format:"%D %H:%M"}</small>
 				  </div>
 				  <div class="text-truncate">
 					Subject: {$mv.message_subject}</div>
 				</div>
 			</a>
           {/foreach}
-          {/nocache}
           <a href="game.php?page=messages" class="dropdown-item text-center">
             <strong>View all messages</strong>
           </a>
