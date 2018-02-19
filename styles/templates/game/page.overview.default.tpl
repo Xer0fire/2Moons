@@ -207,6 +207,43 @@
             <!--/.col-->
           </div>
           <!--/.row-->
+
+		{if $ref_active}
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card border-0">
+						<div class="card-header">
+							{$LNG.ov_reflink}
+							<div class="card-actions">
+								<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#referal" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+							</div>
+						</div>
+						<div class="card-body collapse show" id="referal">
+							<div class="row">
+								<div class="col-12">
+									<input id="referral" class="form-control type="text" disabled="disabled" value="{$path}index.php?ref={$userid}" />
+								</div>
+							</div>
+							<div class="row">
+									{foreach $RefLinks as $RefID => $RefLink}
+										<div class="col-6">
+											<a href="#" onclick="return Dialog.Playercard({$RefID}, '{$RefLink.username}');">{$RefLink.username}</a>
+										</div>
+										<div class="col-6 text-right">
+											{{$RefLink.points|number}} / {$ref_minpoints|number}
+										</div>
+									{foreachelse}
+										<div class="col-12">
+											{$LNG.ov_noreflink}
+										</div>
+									{/foreach}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		{/if}
+
           <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-primary" role="document">
               <div class="modal-content">
