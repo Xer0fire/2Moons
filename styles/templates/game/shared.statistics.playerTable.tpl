@@ -11,7 +11,7 @@
 	<tr>
 		<td>{if $RangeInfo.ranking == 0}<span style='color:#87CEEB'>*</span>{elseif $RangeInfo.ranking < 0}<span style='color:red'>-{$RangeInfo.ranking}</span>{elseif $RangeInfo.ranking > 0}<span style='color:green'>+{$RangeInfo.ranking}</span>{/if}{$RangeInfo.rank}</td>
 		<td><a href="#" onclick="return Dialog.Playercard({$RangeInfo.id}, '{$RangeInfo.name}');"{if $RangeInfo.id == $CUser_id} style="color:lime"{/if}>{$RangeInfo.name}</a></td>
-		<td>{if $RangeInfo.id != $CUser_id}<a href="#" onclick="return Dialog.PM({$RangeInfo.id});"><i class="fa fa-envelope-o"></i></a>{/if}</td>
+		<td>{if $RangeInfo.id != $CUser_id}<a href="#" onclick="PM({$RangeInfo.id},'')" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope-o"></i></a>{/if}</td>
 		<td>{if $RangeInfo.allyid != 0}<a href="game.php?page=alliance&amp;mode=info&amp;id={$RangeInfo.allyid}">{if $RangeInfo.allyid == $CUser_ally}<span style="color:#33CCFF">{$RangeInfo.allyname}</span>{else}{$RangeInfo.allyname}{/if}</a>{else}-{/if}</td>
 		<td>{$RangeInfo.points}</td>
 	</tr>

@@ -9,6 +9,7 @@
 				<table class="table table-striped table-sm">
 					<tr>
 						<th>{$LNG.bu_player}</td>
+						<th>Message</td>
 						<th>{$LNG.bu_alliance}</th>
 						<th>{$LNG.bu_coords}</th>
 						<th>{$LNG.bu_online}</th>
@@ -18,6 +19,9 @@
 						<tr>
 							<td>
 								<a href="#" onclick="return Dialog.PM({$myBuddyRow.id});">{$myBuddyRow.username}</a>
+							</td>
+							<td>
+								<a href="#" onclick="PM({$myBuddyRow.id},'')" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope-o"></i></a>
 							</td>
 							<td>
 								{if {$myBuddyRow.ally_name}}
@@ -141,4 +145,18 @@
 		</div>
 	</div>
 	{/if}
+
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{$LNG.mg_send_new}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="messageModalBody" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
 {/block}
