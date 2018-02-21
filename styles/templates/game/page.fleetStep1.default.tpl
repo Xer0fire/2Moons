@@ -100,65 +100,102 @@
 					</div>
 				</div>
 		</div>
-	</div>	
-	
+	</div>
+
 	{if isModuleAvailable($smarty.const.MODULE_SHORTCUTS)}
-	<table class="table519 shortcut" style="table-layout: fixed;">
-		<tr style="height:20px;">
-			<th colspan="{$themeSettings.SHORTCUT_ROWS_ON_FLEET1}">{$LNG.fl_shortcut} (<a href="#" onclick="EditShortcuts();return false" class="shortcut-link-edit shortcut-link">{$LNG.fl_shortcut_edition}</a><a href="#" onclick="SaveShortcuts();return false" class="shortcut-edit">{$LNG.fl_shortcut_save}</a>)</th>
-		</tr>
-		{foreach $shortcutList as $shortcutID => $shortcutRow}
-			{if ($shortcutRow@iteration % $themeSettings.SHORTCUT_ROWS_ON_FLEET1) === 1}<tr style="height:20px;" class="shortcut-row">{/if}			
-			<td style="width:{100 / $themeSettings.SHORTCUT_ROWS_ON_FLEET1}%" class="shortcut-colum shortcut-isset">
-				<div class="shortcut-link">
-					<a href="javascript:setTarget({$shortcutRow.galaxy},{$shortcutRow.system},{$shortcutRow.planet},{$shortcutRow.type});updateVars();">{$shortcutRow.name}{if $shortcutRow.type == 1}{$LNG.fl_planet_shortcut}{elseif $shortcutRow.type == 2}{$LNG.fl_debris_shortcut}{elseif $shortcutRow.type == 3}{$LNG.fl_moon_shortcut}{/if} [{$shortcutRow.galaxy}:{$shortcutRow.system}:{$shortcutRow.planet}]</a>
+		<div class="card">
+			<div class="card-header">
+				{$LNG.fl_shortcut} 
+				(
+					<a href="#" onclick="EditShortcuts();" class="shortcut-link-edit">{$LNG.fl_shortcut_edition}</a>
+					<a href="#" onclick="SaveShortcuts();" class="shortcut-link-save d-none">{$LNG.fl_shortcut_save}&nbsp;</a>
+					<a href="#" onclick="AddShortcuts();" class="shortcut-link-save d-none">&nbsp;{$LNG.fl_shortcut_add}</a>
+				)
+				<div class="card-actions">
+					<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#fleet-shortcut" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				</div>
-				<div class="shortcut-edit">
-					<input type="text" class="shortcut-input" name="shortcut[{$shortcutID}][name]" value="{$shortcutRow.name}">
-					<div class="shortcut-delete" title="{$LNG.fl_dlte_shortcut}"></div>
+			</div>
+			<div class="card-body" id="fleet-shortcut">
+				<span id="shortcut-max" data-shortcut="{$shortcutList|@count}"></span>
+				<div id="shortcut-edit-new" class="col-12 col-md-6 d-none">
+					<div class="row mb-1">
+						<div class="col">
+							<div class="input-group">
+								<input type="text" id="shortcut-name" class="form-control form-control-sm" value="">
+								<span class="input-group-append">
+									<button type="button" class="btn btn-danger shortcut-delete" data-shortcut-no=""><i class="fa fa-times"></i></button>
+								</span>
+							</div>
+						</div>
+					</div>
+					<div class="row mb-3">
+						<div class="col">
+							<div class="input-group">
+								<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="" size="3" maxlength="2">
+								<span class="ml-1 mr-1">:</span>
+								<input type="text" id="shortcut-system" class="form-control form-control-sm" value="" size="3" maxlength="2">
+								<span class="ml-1 mr-1">:</span>
+								<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="" size="3" maxlength="2">
+								<select id="shortcut-type" class="form-control form-control-sm">
+									{html_options options=$typeSelect}
+								</select>
+							</div>
+						</div>
+					</div>
 				</div>
-				<div class="shortcut-edit">
-					<input type="text" class="shortcut-input" name="shortcut[{$shortcutID}][galaxy]" value="{$shortcutRow.galaxy}" size="3" maxlength="2">:<input type="text" class="shortcut-input" name="shortcut[{$shortcutID}][system]" value="{$shortcutRow.system}" size="3" maxlength="3">:<input type="text" class="shortcut-input" name="shortcut[{$shortcutID}][planet]" value="{$shortcutRow.planet}" size="3" maxlength="2">
-					<select class="shortcut-input" name="shortcut[{$shortcutID}][type]">
-						{html_options selected=$shortcutRow.type options=$typeSelect}
-					</select>
+				<div class="row shortcut-edit d-none">
+					{foreach from=$shortcutList key=shortcutID item=shortcutRow name=List}
+						<div id="shortcut-edit-{$shortcutID}" class="col-12 col-md-6">
+							<div class="row mb-1">
+								<div class="col">
+									<div class="input-group">
+										<input type="text" id="shortcut-name" class="form-control form-control-sm" value="{$shortcutRow.name}">
+										<span class="input-group-append">
+											<button type="button" class="btn btn-danger shortcut-delete" data-shortcut-no="{$shortcutID}"><i class="fa fa-times"></i></button>
+										</span>
+									</div>
+								</div>
+							</div>
+							<div class="row mb-3">
+								<div class="col">
+									<div class="input-group">
+										<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="{$shortcutRow.galaxy}" size="3" maxlength="2">
+										<span class="ml-1 mr-1">:</span>
+										<input type="text" id="shortcut-system" class="form-control form-control-sm" value="{$shortcutRow.system}" size="3" maxlength="2">
+										<span class="ml-1 mr-1">:</span>
+										<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="{$shortcutRow.planet}" size="3" maxlength="2">
+										<select id="shortcut-type" class="form-control form-control-sm" data-scid="{$shortcutID}">
+											{html_options selected=$shortcutRow.type options=$typeSelect}
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+					{/foreach}
 				</div>
-			</td>
-			{if $shortcutRow@last && ($shortcutRow@iteration % $themeSettings.SHORTCUT_ROWS_ON_FLEET1) !== 0}
-			{$to = $themeSettings.SHORTCUT_ROWS_ON_FLEET1 - ($shortcutRow@iteration % $themeSettings.SHORTCUT_ROWS_ON_FLEET1)}
-			{for $foo=1 to $to}
-			<td class="shortcut-colum" style="width:{100 / $themeSettings.SHORTCUT_ROWS_ON_FLEET1}%">&nbsp;</td>
-			{/for}
-			{/if}
-			{if ($shortcutRow@iteration % $themeSettings.SHORTCUT_ROWS_ON_FLEET1) === 0}</tr>{/if}
-		{foreachelse}
-		<tr style="height:20px;" class="shortcut-none">
-			<td colspan="{$themeSettings.SHORTCUT_ROWS_ON_FLEET1}">{$LNG.fl_no_shortcuts}</td>
-		</tr>
-		{/foreach}
-		<tr style="height:20px;" class="shortcut-edit shortcut-new">
-			<td>
-				<div class="shortcut-link">
-					
+				<div class="row justify-content-md-around shortcut-view">
+					{foreach $shortcutList as $shortcutID => $shortcutRow}
+						<div class="col-auto">
+							<a href="javascript:setTarget({$shortcutRow.galaxy},{$shortcutRow.system},{$shortcutRow.planet},{$shortcutRow.type});updateVars();">
+								{$shortcutRow.name}
+								{if $shortcutRow.type == 1}
+									{$LNG.fl_planet_shortcut}
+								{elseif $shortcutRow.type == 2}
+									{$LNG.fl_debris_shortcut}
+								{elseif $shortcutRow.type == 3}
+									{$LNG.fl_moon_shortcut}
+								{/if}
+								[{$shortcutRow.galaxy}:{$shortcutRow.system}:{$shortcutRow.planet}]
+							</a>
+						</div>
+					{foreachelse}
+						<div class="col-12 text-center">
+							{$LNG.fl_no_shortcuts}
+						</div>
+					{/foreach}
 				</div>
-				<div class="shortcut-edit">
-					<input type="text" class="shortcut-input" name="shortcut[][name]" placeholder="{$LNG.fl_shortcut_name}">
-					<div class="shortcut-delete" title="{$LNG.fl_dlte_shortcut}"></div>
-				</div>
-				<div class="shortcut-edit">
-					<input type="text" class="shortcut-input" name="shortcut[][galaxy]" value="" size="3" maxlength="2" placeholder="G" pattern="[0-9]*">:<input type="text" class="shortcut-input" name="shortcut[][system]" value="" size="3" maxlength="3" placeholder="S" pattern="[0-9]*">:<input type="text" class="shortcut-input" name="shortcut[][planet]" value="" size="3" maxlength="2" placeholder="P" pattern="[0-9]*">
-					<select class="shortcut-input" name="shortcut[][type]">
-						{html_options options=$typeSelect}
-					</select>
-				</div>
-			</td>
-		</tr>
-		<tr style="height:20px;" class="shortcut-edit">
-			<td colspan="{$themeSettings.SHORTCUT_ROWS_ON_FLEET1}">
-				<a href="#" onclick="AddShortcuts();return false">{$LNG.fl_shortcut_add}</a>
-			</td>
-		</tr>		
-	</table>
+			</div>
+		</div>
 	{/if}
 	
 	<div class="card">

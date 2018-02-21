@@ -597,7 +597,7 @@ CREATE TABLE `%PREFIX%session` (
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
 CREATE TABLE `%PREFIX%shortcuts` (
-  `shortcutID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `shortcutID` int(10) unsigned NOT NULL AUTO_INCREMENT = 1000,
   `ownerID` int(10) unsigned NOT NULL,
   `name` varchar(32) NOT NULL,
   `galaxy` tinyint(3) unsigned NOT NULL,

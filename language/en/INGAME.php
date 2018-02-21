@@ -297,6 +297,7 @@ $LNG['fl_shortcut_add']						= 'Add';
 $LNG['fl_shortcut_edition']					= 'Edit Shortcut';
 $LNG['fl_shortcut_save']					= 'Save Shortcut';
 $LNG['fl_shortcut_saved']					= 'Shortcut saved!';
+$LNG['fl_shortcut_deleted']					= 'Shortcut deleted!';
 $LNG['fl_no_colony']						= 'There is no colony';
 $LNG['fl_send_fleet']						= 'Send fleet';
 $LNG['fl_fleet_speed']						= 'Fleet speed';

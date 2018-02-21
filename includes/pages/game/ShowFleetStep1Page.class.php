@@ -113,9 +113,44 @@ class ShowFleetStep1Page extends AbstractGamePage
 
         $db = Database::get();
 
-		$ShortcutData	= $_REQUEST['shortcut'];
+		$ShortcutData	= json_decode($_REQUEST['shortcut'], true);
+		$ShortcutArr = array();
+		$count = 0;
+		foreach($ShortcutData as $k => $v) {
+			foreach ($v as $i => $j) {
+				if($count % 6 == 0) {
+					$count = 0;
+				}
+				switch ($count) {
+					case 0:
+						$ShortcutArr[$v[5]]['name'] = $j;
+						$count++;
+					break;
+					case 1:
+						$ShortcutArr[$v[5]]['galaxy'] = $j;
+						$count++;
+					break;
+					case 2:
+						$ShortcutArr[$v[5]]['system'] = $j;
+						$count++;
+					break;
+					case 3:
+						$ShortcutArr[$v[5]]['planet'] = $j;
+						$count++;
+					break;
+					case 4:
+						$ShortcutArr[$v[5]]['type'] = $j;
+						$count++;
+					break;
+					default:
+						$count++;
+					break;
+				}
+			}
+			$count = 0;
+		}
 		$ShortcutUser	= $this->GetUserShotcut();
-		foreach($ShortcutData as $ID => $planetData) {
+		foreach($ShortcutArr as $ID => $planetData) {
 			if(!isset($ShortcutUser[$ID])) {
 				if(empty($planetData['name']) || empty($planetData['galaxy']) || empty($planetData['system']) || empty($planetData['planet'])) {
 					continue;
@@ -130,6 +165,9 @@ class ShowFleetStep1Page extends AbstractGamePage
                     ':planet'   => $planetData['planet'],
                     ':type'     => $planetData['type']
                 ));
+				$ShortcutArr[$ID]['oldid'] = $ID;
+				$ShortcutArr[$db->lastInsertId()] = $ShortcutArr[$ID];
+				unset($ShortcutArr[$ID]);
 			} elseif(empty($planetData['name'])) {
 				$sql = "DELETE FROM %%SHORTCUTS%% WHERE shortcutID = :shortcutID AND ownerID = :userID;";
                 $db->delete($sql, array(
@@ -154,7 +192,21 @@ class ShowFleetStep1Page extends AbstractGamePage
 			}
 		}
 		
-		$this->sendJSON($LNG['fl_shortcut_saved']);
+		$this->sendJSON(json_encode($ShortcutArr));
+	}
+	
+	public function deleteShortcut () 
+	{
+		global $USER, $LNG;
+
+		$db = Database::get();
+		$sql = "DELETE FROM %%SHORTCUTS%% WHERE shortcutID = :shortcutID AND ownerID = :userID;";
+		$db->delete($sql, array(
+			':shortcutID'   => $_REQUEST['scid'],
+			':userID'       => $USER['id']
+		));
+
+		$this->sendJSON($LNG['fl_shortcut_deleted']);
 	}
 	
 	private function GetColonyList()
