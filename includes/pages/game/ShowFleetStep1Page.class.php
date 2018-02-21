@@ -200,13 +200,22 @@ class ShowFleetStep1Page extends AbstractGamePage
 		global $USER, $LNG;
 
 		$db = Database::get();
-		$sql = "DELETE FROM %%SHORTCUTS%% WHERE shortcutID = :shortcutID AND ownerID = :userID;";
-		$db->delete($sql, array(
-			':shortcutID'   => $_REQUEST['scid'],
-			':userID'       => $USER['id']
+
+		$sql = "SELECT ownerID FROM %%SHORTCUTS%% WHERE shortcutID = :shortcutID;";
+		$ShortcutResult = $db->select($sql, array(
+			':shortcutID'   => $_REQUEST['scid']
 		));
 
-		$this->sendJSON($LNG['fl_shortcut_deleted']);
+		if ($ShortcutResult[0]['ownerID'] == $USER['id']) {
+			$sql = "DELETE FROM %%SHORTCUTS%% WHERE shortcutID = :shortcutID AND ownerID = :userID;";
+			$db->delete($sql, array(
+			':shortcutID'   => $_REQUEST['scid'],
+			':userID'       => $USER['id']
+			));
+			$this->sendJSON($LNG['fl_shortcut_deleted']);
+		} else {
+		    $this->sendJSON($LNG['fl_shortcut_incorrect_owner']);
+		}
 	}
 	
 	private function GetColonyList()

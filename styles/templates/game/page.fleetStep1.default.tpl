@@ -121,7 +121,7 @@
 					<div class="row mb-1">
 						<div class="col">
 							<div class="input-group">
-								<input type="text" id="shortcut-name" class="form-control form-control-sm" value="">
+								<input type="text" id="shortcut-name" class="form-control form-control-sm" placeholder="Name">
 								<span class="input-group-append">
 									<button type="button" class="btn btn-danger shortcut-delete" data-shortcut-no=""><i class="fa fa-times"></i></button>
 								</span>
@@ -131,11 +131,11 @@
 					<div class="row mb-3">
 						<div class="col">
 							<div class="input-group">
-								<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="" size="3" maxlength="2">
+								<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="G">
 								<span class="ml-1 mr-1">:</span>
-								<input type="text" id="shortcut-system" class="form-control form-control-sm" value="" size="3" maxlength="2">
+								<input type="text" id="shortcut-system" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="S">
 								<span class="ml-1 mr-1">:</span>
-								<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="" size="3" maxlength="2">
+								<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="P">
 								<select id="shortcut-type" class="form-control form-control-sm">
 									{html_options options=$typeSelect}
 								</select>
@@ -189,7 +189,7 @@
 							</a>
 						</div>
 					{foreachelse}
-						<div class="col-12 text-center">
+						<div class="col-12 text-center shortcut-view">
 							{$LNG.fl_no_shortcuts}
 						</div>
 					{/foreach}
@@ -244,5 +244,9 @@
 data			= {$fleetdata|json};
 shortCutRows	= {$themeSettings.SHORTCUT_ROWS_ON_FLEET1};
 fl_no_shortcuts	= '{$LNG.fl_no_shortcuts}';
+fl_shortcut_saved = '{$LNG.fl_shortcut_saved}';
+fl_shortcut_error = '{$LNG.fl_shortcut_error}';
+lm_info = '{$LNG.lm_info}';
+op_error = '{$LNG.op_error}';
 </script>
 {/block}
