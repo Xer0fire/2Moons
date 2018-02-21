@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="{$game_name}">
-  <link rel="shortcut icon" href="./styles/resources/img/favicon.png">
+  <link rel="manifest" href="{$dpath}manifest.json">
+  <link rel="shortcut icon" href="{$dpath}images/favicon.png">
 	<meta name="generator" content="2Moons {$VERSION}">
 	<!-- 
 		This website is powered by 2Moons {$VERSION}
