@@ -147,7 +147,7 @@
                 <div class="card-body">
 					<div class="media">
 						{if $buildInfo.buildings}
-							<div class="d-flex mr-3 building-sprite sprite-{$buildInfo.buildings['id']}"></div>
+							<div class="d-flex mr-3 build-sprite sprite-{$buildInfo.buildings['id']}"></div>
 						{/if}
 						<div class="media-body align-self-center">
 							{if $buildInfo.buildings}
@@ -171,7 +171,7 @@
                 <div class="card-body">
 					<div class="media">
 						{if $buildInfo.tech}
-							<div class="d-flex mr-3 building-sprite sprite-{$buildInfo.tech['id']}"></div>
+							<div class="d-flex mr-3 build-sprite sprite-{$buildInfo.tech['id']}"></div>
 						{/if}
 						<div class="media-body align-self-center">
 							{if $buildInfo.tech}{$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})<br><div class="timer" data-time="{$buildInfo.tech['timeleft']}">{$buildInfo.tech['starttime']}</div>{else}{$LNG.ov_free_research}{/if}
@@ -195,7 +195,7 @@
 					<div class="media">
 						
 						{if $buildInfo.fleet}
-							<div class="d-flex mr-3 building-sprite sprite-{$buildInfo.fleet['id']}"></div>
+							<div class="d-flex mr-3 build-sprite sprite-{$buildInfo.fleet['id']}"></div>
 						{/if}
 						<div class="media-body align-self-center">
 							{if $buildInfo.fleet}{$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})<br><div class="timer" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</div>{else}{$LNG.ov_free_fleet}{/if}
