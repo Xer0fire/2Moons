@@ -9,53 +9,55 @@
 						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#galaxy-explorer" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 					</div>
 				</div>
-				<div class="card-body collapse show" id="galaxy-explorer">
-					<form action="?page=galaxy" method="post" id="galaxy_form">
-						<input type="hidden" id="auto" value="dr">
-						<div class="row">
-							<div class="col-12 col-md-6">
-								<div class="row content-center">
-									<div class="controls mt-1 col-12">
-										<label for="galaxy">{$LNG.gl_galaxy}</label>
-										<div class="input-group">
-											<span class="input-group-append">
-												<button class="btn btn-warning" type="button" value="galaxyLeft" onclick="galaxy_submit('galaxyLeft')">
-													<i class="fa fa-arrow-left"></i>
-												</button>
-											</span>
-											<input class="form-control" size="16" type="text" name="galaxy" value="{$galaxy}" tabindex="">
-											<span class="input-group-append">
-												<button class="btn btn-warning" type="button" value="galaxyRight" onclick="galaxy_submit('galaxyRight')">
-													<i class="fa fa-arrow-right"></i>
-												</button>
-											</span>
+				<div class="card-body-container collapse show" id="galaxy-explorer">
+					<div class="card-body">
+						<form action="?page=galaxy" method="post" id="galaxy_form">
+							<input type="hidden" id="auto" value="dr">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="row content-center">
+										<div class="controls mt-1 col-12">
+											<label for="galaxy">{$LNG.gl_galaxy}</label>
+											<div class="input-group">
+												<span class="input-group-append">
+													<button class="btn btn-warning" type="button" value="galaxyLeft" onclick="galaxy_submit('galaxyLeft')">
+														<i class="fa fa-arrow-left"></i>
+													</button>
+												</span>
+												<input class="form-control" size="16" type="text" name="galaxy" value="{$galaxy}" tabindex="">
+												<span class="input-group-append">
+													<button class="btn btn-warning" type="button" value="galaxyRight" onclick="galaxy_submit('galaxyRight')">
+														<i class="fa fa-arrow-right"></i>
+													</button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="row content-center">
+										<div class="controls mt-1 col-12">
+											<label for="system">{$LNG.gl_solar_system}</label>
+											<div class="input-group">
+												<span class="input-group-append">
+													<button class="btn btn-warning" type="button" value="systemLeft" onclick="galaxy_submit('systemLeft')"><i class="fa fa-arrow-left"></i></button>
+												</span>
+												<input class="form-control" size="16" type="text" name="system" value="{$system}" tabindex="">
+												<span class="input-group-append">
+													<button class="btn btn-warning" type="button" value="systemRight" onclick="galaxy_submit('systemRight')"><i class="fa fa-arrow-right"></i></button>
+												</span>
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-12 col-md-6">
-								<div class="row content-center">
-									<div class="controls mt-1 col-12">
-										<label for="system">{$LNG.gl_solar_system}</label>
-										<div class="input-group">
-											<span class="input-group-append">
-												<button class="btn btn-warning" type="button" value="systemLeft" onclick="galaxy_submit('systemLeft')"><i class="fa fa-arrow-left"></i></button>
-											</span>
-											<input class="form-control" size="16" type="text" name="system" value="{$system}" tabindex="">
-											<span class="input-group-append">
-												<button class="btn btn-warning" type="button" value="systemRight" onclick="galaxy_submit('systemRight')"><i class="fa fa-arrow-right"></i></button>
-											</span>
-										</div>
-									</div>
+							<div class="row">
+								<div class="col-12">
+									<button type="submit" class="btn btn-success btn-block mt-2">{$LNG.gl_show}</button>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<button type="submit" class="btn btn-success btn-block mt-2">{$LNG.gl_show}</button>
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -72,43 +74,45 @@
                     <a href="#" class="btn-close"><i class="fa fa-close"></i></a>
                   </div>
 				</div>
-				<div class="card-body" id="missileattack">
-					<form action="?page=fleetMissile" method="post">
-						<input type="hidden" name="galaxy" value="{$galaxy}">
-						<input type="hidden" name="system" value="{$system}">
-						<input type="hidden" name="planet" value="{$planet}">
-						<input type="hidden" name="type" value="{$type}">
-						<div class="row">
-							<div class="col-12 col-md-6">
-								<div class="row">
-									<div class="controls mt-1 col-12">
-										<label for="SendMI">{$missile_count}</label>
-										<div class="input-group">
-											<input class="form-control" size="16" type="text" name="SendMI" tabindex="">
-											<span class="input-group-append">
-												<button class="btn btn-warning" type="button" value="maxmissile" onclick="#">max</button>
-											</span>
+				<div class="card-body-container" id="missileattack">
+					<div class="card-body">
+						<form action="?page=fleetMissile" method="post">
+							<input type="hidden" name="galaxy" value="{$galaxy}">
+							<input type="hidden" name="system" value="{$system}">
+							<input type="hidden" name="planet" value="{$planet}">
+							<input type="hidden" name="type" value="{$type}">
+							<div class="row">
+								<div class="col-12 col-md-6">
+									<div class="row">
+										<div class="controls mt-1 col-12">
+											<label for="SendMI">{$missile_count}</label>
+											<div class="input-group">
+												<input class="form-control" size="16" type="text" name="SendMI" tabindex="">
+												<span class="input-group-append">
+													<button class="btn btn-warning" type="button" value="maxmissile" onclick="#">max</button>
+												</span>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-12 col-md-6">
+									<div class="row">
+										<div class="controls mt-1 col-12">
+											<label for="Target">{$LNG.gl_objective}</label>
+											<div class="input-group">
+												{html_options name=Target class="form-control" options=$missileSelector}
+											</div>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div class="col-12 col-md-6">
-								<div class="row">
-									<div class="controls mt-1 col-12">
-										<label for="Target">{$LNG.gl_objective}</label>
-										<div class="input-group">
-											{html_options name=Target class="form-control" options=$missileSelector}
-										</div>
-									</div>
+							<div class="row">
+								<div class="col-12">
+									<button type="submit" class="btn btn-success btn-block mt-2">{$LNG.gl_missil_launch_action}</button>
 								</div>
 							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<button type="submit" class="btn btn-success btn-block mt-2">{$LNG.gl_missil_launch_action}</button>
-							</div>
-						</div>
-					</form>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -439,31 +443,33 @@
 		<div class="col-md-12">
 			<div class="card border-0">
 				<div class="card-header">
-				Fleet Status
-				<div class="card-actions">
-					<a href="game.php?page=fleetTable"><i class="fa fa-space-shuttle"></i></a>
-					<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#galaxy-fleet-status" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
-				</div>
-				</div>
-				<div class="card-body collapse show" id="galaxy-fleet-status">
-					<div class="row text-center">
-						<div class="col-12 col-md-6">
-							<span id="missiles">{$currentmip|number}</span> {$LNG.gl_avaible_missiles}
-						</div>
-						<div class="col-12 col-md-6">
-							<span id="slots">{$maxfleetcount}</span>/{$fleetmax} {$LNG.gl_fleets}
-						</div>
+					Fleet Status
+					<div class="card-actions">
+						<a href="game.php?page=fleetTable"><i class="fa fa-space-shuttle"></i></a>
+						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#galaxy-fleet-status" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 					</div>
-					<div class="row text-center">
-						<div class="col-12 col-md-6">
-							<span id="elementID210">{$spyprobes|number}</span> {$LNG.gl_avaible_spyprobes}
+				</div>
+				<div class="card-body-container collapse show" id="galaxy-fleet-status">
+					<div class="card-body">
+						<div class="row text-center">
+							<div class="col-12 col-md-6">
+								<span id="missiles">{$currentmip|number}</span> {$LNG.gl_avaible_missiles}
+							</div>
+							<div class="col-12 col-md-6">
+								<span id="slots">{$maxfleetcount}</span>/{$fleetmax} {$LNG.gl_fleets}
+							</div>
 						</div>
-						<div class="col-12 col-md-6">
-							<span id="elementID209">{$recyclers|number}</span> {$LNG.gl_avaible_recyclers}
+						<div class="row text-center">
+							<div class="col-12 col-md-6">
+								<span id="elementID210">{$spyprobes|number}</span> {$LNG.gl_avaible_spyprobes}
+							</div>
+							<div class="col-12 col-md-6">
+								<span id="elementID209">{$recyclers|number}</span> {$LNG.gl_avaible_recyclers}
+							</div>
 						</div>
-					</div>
-					<div class="row">
-							<span style="display: none;" id="fleetstatusrow">{$LNG.cff_fleet_target}</span>
+						<div class="row">
+								<span style="display: none;" id="fleetstatusrow">{$LNG.cff_fleet_target}</span>
+						</div>
 					</div>
 				</div>
 			</div>

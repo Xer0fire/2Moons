@@ -20,27 +20,29 @@
 				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#hangerqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				</div>
 			</div>
-			<div class="card-body collapse show" id="hangerqueue">
-				<form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
-					<input type="hidden" name="action" value="delete">
-					<div class="row">
-						<div class="col">
-							<select class="form-control" name="auftr[]" id="auftr" size="10" multiple><option>&nbsp;</option></select>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<div class="alert alert-danger mt-1" role="alert">
-								{$LNG.bd_cancel_warning}
+			<div class="card-body-container collapse show" id="hangerqueue">
+				<div class="card-body">
+					<form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
+						<input type="hidden" name="action" value="delete">
+						<div class="row">
+							<div class="col">
+								<select class="form-control" name="auftr[]" id="auftr" size="10" multiple><option>&nbsp;</option></select>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col">
-							<button type="submit" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_cancel_send}</button>
+						<div class="row">
+							<div class="col">
+								<div class="alert alert-danger mt-1" role="alert">
+									{$LNG.bd_cancel_warning}
+								</div>
+							</div>
 						</div>
-					</div>
-				</form>
+						<div class="row">
+							<div class="col">
+								<button type="submit" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">{$LNG.bd_cancel_send}</button>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 			<div class="card-footer">
 				<div class="row">

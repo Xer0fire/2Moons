@@ -2,72 +2,77 @@
 {block name="content"}
 {if !empty($Queue)}
 <div class="row">
-<div class="col-md-12">
-<div class="card border-0">
-<div class="card-header">
-Queue
-<div class="card-actions">
-<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#buildingsqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
-</div>
-</div>
-<div class="card-body collapse show" id="buildingsqueue">
-<div id="buildlist" class="buildlist">
-	{foreach $Queue as $List}
-		{$ID = $List.element}
-		<div class="row">
-			<div class="col-8">
-				{if !($isBusy.research && ($ID == 6 || $ID == 31)) && !($isBusy.shipyard && ($ID == 15 || $ID == 21)) && $RoomIsOk && $CanBuildElement && $BuildInfoList[$ID].buyable}
-					<form class="build_form" action="game.php?page=buildings" method="post">
-						<input type="hidden" name="cmd" value="insert">
-						<input type="hidden" name="building" value="{$ID}">
-						<button type="submit" class="build_submit onlist">{$List@iteration}. {$LNG.tech.{$ID}} {$List.level}{if $List.destroy} {$LNG.bd_dismantle}{/if}</button>
-					</form>
-				{else}
-					{$List@iteration}. {$LNG.tech.{$ID}} {$List.level} {if $List.destroy}{$LNG.bd_dismantle}{/if}
-				{/if}
-				{if $List@first}
-				{assign var="firstqueuename" value="{$LNG.tech.{$ID}}"}
-				{assign var="firstqueuelvl" value="{$List.level}"}
-				{assign var="firstqueueresttime" value="{$List.time}"}
-				<div class="progress">
-					<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" data-time="{$List.resttime}" aria-valuenow="0.01" aria-valuemin="0" aria-valuemax="100"></div>
+	<div class="col-md-12">
+		<div class="card border-0">
+			<div class="card-header">
+				Queue
+				<div class="card-actions">
+				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#buildingsqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				</div>
 			</div>
-			<div class="col-4">
-				<div id="time" data-time="{$List.time}"><br></div>
-				<form action="game.php?page=buildings" method="post" class="build_form">
-					<input type="hidden" name="cmd" value="cancel">
-					<button type="submit" class="build_submit onlist">{$LNG.bd_cancel}</button>
-				</form>
-				
-				<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
+			<div class="card-body-container collapse show" id="buildingsqueue">
+				<div class="card-body">
+					<div id="buildlist" class="buildlist">
+						{foreach $Queue as $List}
+							{$ID = $List.element}
+							<div class="row">
+								<div class="col-8">
+									{if !($isBusy.research && ($ID == 6 || $ID == 31)) && !($isBusy.shipyard && ($ID == 15 || $ID == 21)) && $RoomIsOk && $CanBuildElement && $BuildInfoList[$ID].buyable}
+											<form class="build_form" action="game.php?page=buildings" method="post">
+											<input type="hidden" name="cmd" value="insert">
+											<input type="hidden" name="building" value="{$ID}">
+											<button type="submit" class="build_submit onlist">{$List@iteration}. {$LNG.tech.{$ID}} {$List.level}
+												{if $List.destroy}
+													{$LNG.bd_dismantle}
+												{/if}
+											</button>
+											</form>
+									{else}
+										{$List@iteration}. {$LNG.tech.{$ID}} {$List.level} {if $List.destroy}{$LNG.bd_dismantle}{/if}
+									{/if}
+									{if $List@first}
+										{assign var="firstqueuename" value="{$LNG.tech.{$ID}}"}
+										{assign var="firstqueuelvl" value="{$List.level}"}
+										{assign var="firstqueueresttime" value="{$List.time}"}
+										<div class="progress">
+											<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" data-time="{$List.resttime}" aria-valuenow="0.01" aria-valuemin="0" aria-valuemax="100"></div>
+										</div>
+								</div>
+								<div class="col-4">
+									<div id="time" data-time="{$List.time}"><br></div>
+									<form action="game.php?page=buildings" method="post" class="build_form">
+										<input type="hidden" name="cmd" value="cancel">
+										<button type="submit" class="build_submit onlist">{$LNG.bd_cancel}</button>
+									</form>
+
+									<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
+								</div>
+									{else}
+								</div>
+								<div class="col-4">
+									<form action="game.php?page=buildings" method="post" class="build_form">
+									<input type="hidden" name="cmd" value="remove">
+									<input type="hidden" name="listid" value="{$List@iteration}">
+									<button type="submit" class="build_submit onlist">{$LNG.bd_cancel}</button>
+									</form>
+
+									<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
+								</div>
+									{/if}
+							</div>
+						{/foreach}
+					</div>
+				</div>
 			</div>
-		</div>
-		{else}
-			</div>
-			<div class="col-4">
-				<form action="game.php?page=buildings" method="post" class="build_form">
-					<input type="hidden" name="cmd" value="remove">
-					<input type="hidden" name="listid" value="{$List@iteration}">
-					<button type="submit" class="build_submit onlist">{$LNG.bd_cancel}</button>
-				</form>
-				
-				<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
-			</div>
-		</div>
-		{/if}
-	{/foreach}
+				<div class="card-footer">
+					<div class="row">
+						<div class="col-12 text-center">
+							{$firstqueuename} ({$firstqueuelvl}) <div id="timequeue" class="d-inline-block" data-time="{$firstqueueresttime}"></div>
+						</div>
+					</div>
+				</div>
 		</div>
 	</div>
-	<div class="card-footer">
-		<div class="row">
-			<div class="col-12 text-center">
-				{$firstqueuename} ({$firstqueuelvl}) <div id="timequeue" class="d-inline-block" data-time="{$firstqueueresttime}"></div>
-			</div>
-		</div>
-	</div>
-  </div>
-</div>
 </div>
 {/if}
 

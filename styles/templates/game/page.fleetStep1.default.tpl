@@ -115,84 +115,86 @@
 					<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#fleet-shortcut" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				</div>
 			</div>
-			<div class="card-body" id="fleet-shortcut">
-				<span id="shortcut-max" data-shortcut="{$shortcutList|@count}"></span>
-				<div id="shortcut-edit-new" class="col-12 col-md-6 d-none">
-					<div class="row mb-1">
-						<div class="col">
-							<div class="input-group">
-								<input type="text" id="shortcut-name" class="form-control form-control-sm" placeholder="Name">
-								<span class="input-group-append">
-									<button type="button" class="btn btn-danger shortcut-delete" data-shortcut-no=""><i class="fa fa-times"></i></button>
-								</span>
-							</div>
-						</div>
-					</div>
-					<div class="row mb-3">
-						<div class="col">
-							<div class="input-group">
-								<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="G">
-								<span class="ml-1 mr-1">:</span>
-								<input type="text" id="shortcut-system" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="S">
-								<span class="ml-1 mr-1">:</span>
-								<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="P">
-								<select id="shortcut-type" class="form-control form-control-sm">
-									{html_options options=$typeSelect}
-								</select>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row shortcut-edit d-none">
-					{foreach from=$shortcutList key=shortcutID item=shortcutRow name=List}
-						<div id="shortcut-edit-{$shortcutID}" class="col-12 col-md-6">
-							<div class="row mb-1">
-								<div class="col">
-									<div class="input-group">
-										<input type="text" id="shortcut-name" class="form-control form-control-sm" value="{$shortcutRow.name}">
-										<span class="input-group-append">
-											<button type="button" class="btn btn-danger shortcut-delete" data-shortcut-no="{$shortcutID}"><i class="fa fa-times"></i></button>
-										</span>
-									</div>
-								</div>
-							</div>
-							<div class="row mb-3">
-								<div class="col">
-									<div class="input-group">
-										<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="{$shortcutRow.galaxy}" size="3" maxlength="2">
-										<span class="ml-1 mr-1">:</span>
-										<input type="text" id="shortcut-system" class="form-control form-control-sm" value="{$shortcutRow.system}" size="3" maxlength="2">
-										<span class="ml-1 mr-1">:</span>
-										<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="{$shortcutRow.planet}" size="3" maxlength="2">
-										<select id="shortcut-type" class="form-control form-control-sm" data-scid="{$shortcutID}">
-											{html_options selected=$shortcutRow.type options=$typeSelect}
-										</select>
-									</div>
+			<div class="card-body-container collapse show" id="fleet-shortcut">
+				<div class="card-body" id="fleet-shortcut-body">
+					<span id="shortcut-max" data-shortcut="{$shortcutList|@count}"></span>
+					<div id="shortcut-edit-new" class="col-12 col-md-6 d-none">
+						<div class="row mb-1">
+							<div class="col">
+								<div class="input-group">
+									<input type="text" id="shortcut-name" class="form-control form-control-sm" placeholder="Name">
+									<span class="input-group-append">
+										<button type="button" class="btn btn-danger shortcut-delete" data-shortcut-no=""><i class="fa fa-times"></i></button>
+									</span>
 								</div>
 							</div>
 						</div>
-					{/foreach}
-				</div>
-				<div class="row justify-content-md-around shortcut-view">
-					{foreach $shortcutList as $shortcutID => $shortcutRow}
-						<div class="col-auto">
-							<a href="javascript:setTarget({$shortcutRow.galaxy},{$shortcutRow.system},{$shortcutRow.planet},{$shortcutRow.type});updateVars();">
-								{$shortcutRow.name}
-								{if $shortcutRow.type == 1}
-									{$LNG.fl_planet_shortcut}
-								{elseif $shortcutRow.type == 2}
-									{$LNG.fl_debris_shortcut}
-								{elseif $shortcutRow.type == 3}
-									{$LNG.fl_moon_shortcut}
-								{/if}
-								[{$shortcutRow.galaxy}:{$shortcutRow.system}:{$shortcutRow.planet}]
-							</a>
+						<div class="row mb-3">
+							<div class="col">
+								<div class="input-group">
+									<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="G">
+									<span class="ml-1 mr-1">:</span>
+									<input type="text" id="shortcut-system" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="S">
+									<span class="ml-1 mr-1">:</span>
+									<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="" size="3" maxlength="2" placeholder="P">
+									<select id="shortcut-type" class="form-control form-control-sm">
+										{html_options options=$typeSelect}
+									</select>
+								</div>
+							</div>
 						</div>
-					{foreachelse}
-						<div class="col-12 text-center shortcut-view">
-							{$LNG.fl_no_shortcuts}
-						</div>
-					{/foreach}
+					</div>
+					<div class="row shortcut-edit d-none">
+						{foreach from=$shortcutList key=shortcutID item=shortcutRow name=List}
+							<div id="shortcut-edit-{$shortcutID}" class="col-12 col-md-6">
+								<div class="row mb-1">
+									<div class="col">
+										<div class="input-group">
+											<input type="text" id="shortcut-name" class="form-control form-control-sm" value="{$shortcutRow.name}">
+											<span class="input-group-append">
+												<button type="button" class="btn btn-danger shortcut-delete" data-shortcut-no="{$shortcutID}"><i class="fa fa-times"></i></button>
+											</span>
+										</div>
+									</div>
+								</div>
+								<div class="row mb-3">
+									<div class="col">
+										<div class="input-group">
+											<input type="text" id="shortcut-galaxy" class="form-control form-control-sm" value="{$shortcutRow.galaxy}" size="3" maxlength="2">
+											<span class="ml-1 mr-1">:</span>
+											<input type="text" id="shortcut-system" class="form-control form-control-sm" value="{$shortcutRow.system}" size="3" maxlength="2">
+											<span class="ml-1 mr-1">:</span>
+											<input type="text" id="shortcut-planet" class="form-control form-control-sm" value="{$shortcutRow.planet}" size="3" maxlength="2">
+											<select id="shortcut-type" class="form-control form-control-sm" data-scid="{$shortcutID}">
+												{html_options selected=$shortcutRow.type options=$typeSelect}
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+						{/foreach}
+					</div>
+					<div class="row justify-content-md-around shortcut-view">
+						{foreach $shortcutList as $shortcutID => $shortcutRow}
+							<div class="col-auto">
+								<a href="javascript:setTarget({$shortcutRow.galaxy},{$shortcutRow.system},{$shortcutRow.planet},{$shortcutRow.type});updateVars();">
+									{$shortcutRow.name}
+									{if $shortcutRow.type == 1}
+										{$LNG.fl_planet_shortcut}
+									{elseif $shortcutRow.type == 2}
+										{$LNG.fl_debris_shortcut}
+									{elseif $shortcutRow.type == 3}
+										{$LNG.fl_moon_shortcut}
+									{/if}
+									[{$shortcutRow.galaxy}:{$shortcutRow.system}:{$shortcutRow.planet}]
+								</a>
+							</div>
+						{foreachelse}
+							<div class="col-12 text-center shortcut-view">
+								{$LNG.fl_no_shortcuts}
+							</div>
+						{/foreach}
+					</div>
 				</div>
 			</div>
 		</div>

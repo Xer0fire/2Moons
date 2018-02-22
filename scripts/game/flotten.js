@@ -259,7 +259,7 @@ function SaveShortcuts() {
 
 		if (!Array.isArray(scArr) || !scArr.length) {
 			$('#shortcut-max').data('shortcut', 0);
-			$("#fleet-shortcut").append(
+			$("#fleet-shortcut-body").append(
 				'<div class="row"><div class="col-12 text-center shortcut-view">'+fl_no_shortcuts+'</div></div>'
 			);
 		} else {
@@ -291,7 +291,7 @@ function SaveShortcuts() {
 				}
 			});
 			$('#shortcut-max').attr('data-shortcut',scArr.length);
-			$("#fleet-shortcut").append(append+'</div>');
+			$("#fleet-shortcut-body").append(append+'</div>');
 		}
 		toastr["info"](fl_shortcut_saved,lm_info);
 	});
@@ -310,7 +310,7 @@ $(function() {
 			$(".shortcut-edit, .shortcut-link-save").addClass("d-none");
 			$(".shortcut-link-edit").removeClass("d-none");
 			$(".shortcut-view").remove();
-			$("#fleet-shortcut").append(
+			$("#fleet-shortcut-body").append(
 				'<div class="row"><div class="col-12 text-center shortcut-view">'+fl_no_shortcuts+'</div></div>'
 			);
 		}

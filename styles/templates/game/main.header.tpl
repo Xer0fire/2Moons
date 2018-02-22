@@ -66,4 +66,4 @@
   
 </head>
 
-<body class="app header-fixed sidebar-fixed aside-menu-fixed">
+<body class="preload app header-fixed sidebar-fixed aside-menu-fixed">

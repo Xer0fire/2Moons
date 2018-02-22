@@ -11,12 +11,14 @@
                     <a href="#" class="btn-minimize" data-toggle="collapse" data-target="#fleetevents" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
                   </div>
                 </div>
-                  <div class="card-body collapse show" id="fleetevents">
-                  {foreach $fleets as $index => $fleet}
-					<span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
-					<span colspan="2">{$fleet.text}</span>
-					<br/>
-                  {/foreach}
+                  <div class="card-body-container collapse show" id="fleetevents">
+					<div class="card-body">
+						{foreach $fleets as $index => $fleet}
+							<span id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</span>
+							<span colspan="2">{$fleet.text}</span>
+							<br/>
+						{/foreach}
+					</div>
                 </div>
               </div>
             </div>
@@ -33,10 +35,12 @@
 								<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#news" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 							</div>
 						</div>
-						<div class="card-body collapse show" id="news">
-							<div class="row">
-								<div class="col-12">
-									{$news}
+						<div class="card-body-container collapse show" id="news">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-12">
+										{$news}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -218,25 +222,27 @@
 								<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#referal" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 							</div>
 						</div>
-						<div class="card-body collapse show" id="referal">
-							<div class="row">
-								<div class="col-12">
-									<input id="referral" class="form-control type="text" disabled="disabled" value="{$path}index.php?ref={$userid}" />
+						<div class="card-body-container collapse show" id="referal">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-12">
+										<input id="referral" class="form-control type="text" disabled="disabled" value="{$path}index.php?ref={$userid}" />
+									</div>
 								</div>
-							</div>
-							<div class="row">
-									{foreach $RefLinks as $RefID => $RefLink}
-										<div class="col-6">
-											<a href="#" onclick="return Dialog.Playercard({$RefID}, '{$RefLink.username}');">{$RefLink.username}</a>
-										</div>
-										<div class="col-6 text-right">
-											{{$RefLink.points|number}} / {$ref_minpoints|number}
-										</div>
-									{foreachelse}
-										<div class="col-12">
-											{$LNG.ov_noreflink}
-										</div>
-									{/foreach}
+								<div class="row">
+										{foreach $RefLinks as $RefID => $RefLink}
+											<div class="col-6">
+												<a href="#" onclick="return Dialog.Playercard({$RefID}, '{$RefLink.username}');">{$RefLink.username}</a>
+											</div>
+											<div class="col-6 text-right">
+												{{$RefLink.points|number}} / {$ref_minpoints|number}
+											</div>
+										{foreachelse}
+											<div class="col-12">
+												{$LNG.ov_noreflink}
+											</div>
+										{/foreach}
+								</div>
 							</div>
 						</div>
 					</div>

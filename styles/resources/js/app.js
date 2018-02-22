@@ -8,6 +8,7 @@ $.navigation = $('nav > ul.nav');
 $.panelIconOpened = 'fa fa-chevron-down';
 $.panelIconClosed = 'fa fa-chevron-up';
 
+/*
 //Default colours
 $.brandPrimary =  '#20a8d8';
 $.brandSuccess =  '#4dbd74';
@@ -20,8 +21,13 @@ $.gray =          '#55595c';
 $.grayLight =     '#818a91';
 $.grayLighter =   '#d1d4d7';
 $.grayLightest =  '#f8f9fa';
+*/
 
 'use strict';
+
+ $(window).on('load', function () {
+  $("body").removeClass("preload");
+});
 
 /****
 * MAIN NAVIGATION
@@ -154,6 +160,11 @@ $(document).ready(function($){
 	if($("#"+v).length != 0) {
 		var toggle = localStorage.getItem("omicron-collapse-"+v);
 		$('#'+v).collapse(toggle);
+		if (toggle == 'hide') {
+			$('#'+v).parent().find('i').removeClass($.panelIconClosed).addClass($.panelIconOpened);
+		} else {
+			$('#'+v).parent().find('i').removeClass($.panelIconOpened).addClass($.panelIconClosed);
+		}
 	}
   });
 
