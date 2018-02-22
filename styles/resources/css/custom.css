@@ -238,14 +238,11 @@ body {
 	color: #ddd;
 	padding: 0;
 }
-
-/* formate */
-
-a:hover {
-	color:red;
-	text-decoration:none
+.input-group>.form-control {
+	text-align: center;
 }
 
+/* formate */
 .admin {
 	color:red;
 }
