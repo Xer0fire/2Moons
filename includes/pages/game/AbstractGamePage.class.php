@@ -225,6 +225,21 @@ abstract class AbstractGamePage
 
 		$config	= Config::get();
 
+		//HACK: null variables to allow for various js to be executed at the bottom of the page
+		if (isset($_GET['page'])) {
+			switch ($_GET['page']){
+				case "logout":
+					$this->assign(array(
+						'shortlyNumber'		=> 0,
+						'resourceTable'		=> 0,
+						'closed'		=> 0,
+						'vacation'		=> 0,
+						'delete'		=> 0,
+						'hasGate'		=> 0,
+					));
+				break;
+			}
+		}
 		$this->assign(array(
 			'vmode'				=> $USER['urlaubs_modus'],
 			'authlevel'			=> $USER['authlevel'],
