@@ -5,8 +5,8 @@
 //Main navigation
 $.navigation = $('nav > ul.nav');
 
-$.panelIconOpened = 'fa fa-chevron-down';
-$.panelIconClosed = 'fa fa-chevron-up';
+$.panelIconOpened = 'fa-chevron-down';
+$.panelIconClosed = 'fa-chevron-up';
 
 /*
 //Default colours
@@ -158,13 +158,18 @@ $(document).ready(function($){
   }
   lsCollapsed.forEach(function(v) {
 	if($("#"+v).length != 0) {
-		var toggle = localStorage.getItem("omicron-collapse-"+v);
-		$('#'+v).collapse(toggle);
-		if (toggle == 'hide') {
-			$('#'+v).parent().find('i').removeClass($.panelIconClosed).addClass($.panelIconOpened);
-		} else {
-			$('#'+v).parent().find('i').removeClass($.panelIconOpened).addClass($.panelIconClosed);
-		}
+		$('#'+v).parent().find('i').each( function( i, el ) {
+			var elem = $( el );
+			if (elem.hasClass($.panelIconOpened) || elem.hasClass($.panelIconClosed)) {
+				var toggle = localStorage.getItem("omicron-collapse-"+v);
+				$('#'+v).collapse(toggle);
+				if (toggle == 'hide') {
+					$('#'+v).parent().find('i').eq(i).removeClass($.panelIconClosed).addClass($.panelIconOpened);
+				} else {
+					$('#'+v).parent().find('i').eq(i).removeClass($.panelIconOpened).addClass($.panelIconClosed);
+				}
+			}
+		});
 	}
   });
 
