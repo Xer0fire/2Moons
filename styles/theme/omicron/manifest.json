@@ -17,7 +17,22 @@
     "src": "images/touch/chrome-touch-icon-192x192.png",
     "type": "image/png",
     "sizes": "192x192"
+  }, {
+    "src": "images/touch/icon-256x256.png",
+    "type": "image/png",
+    "sizes": "256x256"
+  }, {
+    "src": "images/touch/icon-384x384.png",
+    "type": "image/png",
+    "sizes": "384x384"
+  }, {
+    "src": "images/touch/icon-512x512.png",
+    "type": "image/png",
+    "sizes": "512x512"
   }],
   "start_url": "../../../index.php?launcher=true",
-  "display": "standalone"
+  "background_color": "#252831",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "landscape"
 }
