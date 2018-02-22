@@ -15,9 +15,9 @@
 	<div class="col-md-12">
 		<div class="card border-0">
 			<div class="card-header">
-				Queue
+				{$LNG.lm_queue}
 				<div class="card-actions">
-				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#hangerqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+					<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#hangerqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				</div>
 			</div>
 			<div class="card-body-container collapse show" id="hangerqueue">
@@ -26,7 +26,7 @@
 						<input type="hidden" name="action" value="delete">
 						<div class="row">
 							<div class="col">
-								<select class="form-control" name="auftr[]" id="auftr" size="10" multiple><option>&nbsp;</option></select>
+								<select class="form-control" name="auftr[]" id="auftr" size="5" multiple><option>&nbsp;</option></select>
 							</div>
 						</div>
 						<div class="row">

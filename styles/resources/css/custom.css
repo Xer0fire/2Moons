@@ -158,10 +158,6 @@ form, .card-body .form-group {
 .switch {
 	margin-bottom: 0;
 }
-.onlist {
-	background-color: transparent;
-	border: 0;
-}
 .bs-popover-auto[x-placement^=bottom] .popover-header::before, .bs-popover-bottom .popover-header::before {
 	border: 0;
 }
@@ -235,6 +231,12 @@ body {
 }
 .planet-nav-building {
 	font-size: .625rem;
+}
+.buildlist .build-submit{
+	background: transparent;
+	border: 0;
+	color: #ddd;
+	padding: 0;
 }
 
 /* formate */
