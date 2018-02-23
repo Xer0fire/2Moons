@@ -209,43 +209,48 @@
 							<td class="d-none d-md-table-cell align-middle">{$currentPlanet.planet.name}</td>
 							<td>
 								{if $currentPlanet.moon}
-									
-								<a href="#" data-toggle="popover" data-html="true" data-content="
-									{$LNG.gl_features}<br/>
-									{$LNG.gl_diameter} {$currentPlanet.moon.diameter|number}<br/>
-									{$LNG.gl_temperature} {$currentPlanet.moon.temp_min}<br/><br/>
-									{$LNG.gl_actions}<br/>
-									{if $currentPlanet.missions.1}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=1'>{$LNG['type_mission_1']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.3}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=3'>{$LNG['type_mission_3']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.3}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=4'>{$LNG['type_mission_4']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.5}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=5'>{$LNG['type_mission_5']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.6}
-										<a href='javascript:doit(6,{$currentPlanet.moon.id});'>{$LNG['type_mission_6']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.9}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=9'>{$LNG['type_mission_9']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.10}
-										<a href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=3'>{$LNG['type_mission_10']}</a>
-										<br>
-									{/if}
-								" data-original-title="{$LNG.gl_moon} {$currentPlanet.moon.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-								<div class="mx-auto planet-sprite sprite-mond"></div>
-								</a>
+									<a href="#" data-toggle="popover" data-html="true" data-content="
+										{$LNG.gl_features}<br/>
+										{$LNG.gl_diameter} {$currentPlanet.moon.diameter|number}<br/>
+										{$LNG.gl_temperature} {$currentPlanet.moon.temp_min}<br/><br/>
+										{$LNG.gl_actions}<br/>
+										{if $currentPlanet.missions.1}
+											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=1'>{$LNG['type_mission_1']}</a>
+											<br>
+										{/if}
+										{if $currentPlanet.missions.3}
+											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=3'>{$LNG['type_mission_3']}</a>
+											<br>
+										{/if}
+										{if $currentPlanet.missions.3}
+											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=4'>{$LNG['type_mission_4']}</a>
+											<br>
+										{/if}
+										{if $currentPlanet.missions.5}
+											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=5'>{$LNG['type_mission_5']}</a>
+											<br>
+										{/if}
+										{if $currentPlanet.missions.6}
+											<a href='javascript:doit(6,{$currentPlanet.moon.id});'>{$LNG['type_mission_6']}</a>
+											<br>
+										{/if}
+										{if $currentPlanet.missions.9}
+											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=9'>{$LNG['type_mission_9']}</a>
+											<br>
+										{/if}
+										{if $currentPlanet.missions.10}
+											<a href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=3'>{$LNG['type_mission_10']}</a>
+											<br>
+										{/if}
+										" data-original-title="{$LNG.gl_moon} {$currentPlanet.moon.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
+										{if $currentPlanet.moon.lastActivity == 'lessthan15'}
+											<div class="galaxy-badge-e mt-1 mb-1 mx-auto planet-sprite sprite-mond" data-badge="e"></div>
+										{elseif $currentPlanet.moon.lastActivity == ''}
+											<div class="mt-1 mb-1 mx-auto planet-sprite sprite-mond"></div>
+										{else}
+											<div class="galaxy-badge-y mt-1 mb-1 mx-auto planet-sprite sprite-mond" data-badge="{$currentPlanet.moon.lastActivity}"></div>
+										{/if}
+									</a>
 								{/if}
 							</td>
 							<td class="align-middle">

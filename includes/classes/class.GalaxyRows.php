@@ -108,7 +108,7 @@ class GalaxyRows
 	{
 		global $LNG;
 		
-		$lastActivity	= floor((TIMESTAMP - max($this->galaxyRow['last_update'], $this->galaxyRow['m_last_update'])) / 60);
+		$lastActivity	= floor((TIMESTAMP - $this->galaxyRow['last_update']) / 60);
 		
 		if ($lastActivity < 15) {
 			$this->galaxyData[$this->galaxyRow['planet']]['lastActivity']	= 'lessthan15';
@@ -279,6 +279,15 @@ class GalaxyRows
 				'temp_min'	=> $this->galaxyRow['m_temp_min'], 
 				'diameter'	=> $this->galaxyRow['m_diameter'],
 			);
+			$lastActivity	= floor((TIMESTAMP - $this->galaxyRow['m_last_update']) / 60);
+
+			if ($lastActivity < 15) {
+				$this->galaxyData[$this->galaxyRow['planet']]['moon']['lastActivity']	= 'lessthan15';
+			} elseif($lastActivity < 60) {
+				$this->galaxyData[$this->galaxyRow['planet']]['moon']['lastActivity']	= $lastActivity;
+			} else {
+				$this->galaxyData[$this->galaxyRow['planet']]['moon']['lastActivity']	= '';
+			}
 		}
 	}
 
