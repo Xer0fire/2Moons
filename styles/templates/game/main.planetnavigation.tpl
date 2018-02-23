@@ -11,7 +11,7 @@
 						{/if}
 					</a>
 				</div>
-				<div class="col-8">
+				<div class="col-8{if $PlanetRow.id == $current_pid || $PlanetRow.id_luna == $current_pid} text-green{/if}">
 					{$PlanetRow.name}</br>
 					<a href="game.php?page=galaxy&amp;galaxy=1&amp;system=1">[{$PlanetRow.galaxy}:{$PlanetRow.system}:{$PlanetRow.planet}]</a>
 					{if $PlanetRow.id_luna != 0}
