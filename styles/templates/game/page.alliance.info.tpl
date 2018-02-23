@@ -140,7 +140,7 @@
 					</div>
 				</div>
 				<div class="card-body-container collapse show" id="alliance-stats">
-					<div class="card-body"
+					<div class="card-body">
 						<div class="row">
 							<div class="col-6">
 								{$LNG.pl_totalfight}
