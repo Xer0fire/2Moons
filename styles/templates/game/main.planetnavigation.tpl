@@ -1,5 +1,10 @@
     <aside class="aside-menu">
 	<div class="container border-0">
+		<div class="row mb-2">
+			<div class="col-12 text-center">
+				<small>{$AllPlanets|count} / {$MaxPlanets} {$LNG.pn_planets}</small>
+			</div>
+		</div>
 		{foreach $AllPlanets as $PlanetRow}
 			<div class="row">
 				<div class="col-auto align-self-center">

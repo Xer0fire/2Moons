@@ -85,8 +85,7 @@
 	height: calc(100vh - 3.4375rem);
 }
 .aside-menu  {
-	padding-top: 1.5rem;
-	padding-bottom: 1.5rem;
+	padding-top: .5rem;
 	position: relative;
     overflow-x: hidden;
     overflow-y: auto;

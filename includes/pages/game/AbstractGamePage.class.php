@@ -181,6 +181,8 @@ abstract class AbstractGamePage
 			':limit'    => 4
 		));
 
+		$maxPlanetCount = (int) ceil($config->min_player_planets + ($USER[$resource[124]] * $config->planets_per_tech));
+
 		$this->assign(array(
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
@@ -199,6 +201,7 @@ abstract class AbstractGamePage
 			'username'			=> $USER['username'],
 			'pagename'			=> $pagename,
 			'AllPlanets'		=> $AllPlanets,
+			'MaxPlanets'		=> $maxPlanetCount,
 			'statRank'			=> $statData['total_rank']
 		));
 	}

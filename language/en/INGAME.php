@@ -65,6 +65,8 @@ $LNG['admin_access_2']				    	= ", If you don't need any longer";
 $LNG['tn_vacation_mode']					= "Now you're in vacation mode";
 $LNG['tn_delete_mode']						= 'The account at %s will be automatically deleted!';
 
+$LNG['pn_planets']							= 'Planets';
+
 //----------------------------------------------------------------------------//
 // Menu
 $LNG['lm_changelog']						= 'Changelog';
