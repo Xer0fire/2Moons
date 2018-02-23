@@ -327,7 +327,7 @@
 									-
 								{/if}
 							</td>
-							<td class="d-none d-md-table-cell align-middle">
+							<td class="d-none d-md-table-cell align-middle text-left">
 								{if $currentPlanet.action}
 									{if $currentPlanet.action.esp}
 										<a class="mr-2" href="javascript:doit(6,{$currentPlanet.planet.id},{$spyShips|json|escape:'html'})">
