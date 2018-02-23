@@ -274,9 +274,11 @@
 										{/if}
 										<a href='#' onclick='PM({$currentPlanet.user.id},``)' data-toggle='modal' data-target='#messageModal'>{$LNG.write_message}</a>
 										<br/>
-										{$LNG.gl_playercard}
+										<a href='#' onclick='playerCard({$currentPlanet.user.id})' data-toggle='modal' data-target='#playerModal'>{$LNG.gl_playercard}</a>
 										<br/>
 										<a href='?page=statistics&amp;who=1&amp;start={$currentPlanet.user.rank}'>{$LNG.gl_see_on_stats}</a>
+									{else}
+										<a href='#' onclick='playerCard({$currentPlanet.user.id})' data-toggle='modal' data-target='#playerModal'>{$LNG.gl_myplayercard}</a>
 									{/if}
 								" data-original-title="{$currentPlanet.user.username}" data-placement="bottom">
 								<span class="{foreach $currentPlanet.user.class as $class}{if !$class@first} {/if}galaxy-username-{$class}{/foreach} galaxy-username">
@@ -486,6 +488,19 @@
 					</button>
 				</div>
 				<div id="messageModalBody" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="playerModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{$LNG.lm_playercard}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="playerModalBody" class="modal-body"></div>
 			</div>
 		</div>
 	</div>

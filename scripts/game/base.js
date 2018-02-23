@@ -210,6 +210,18 @@ function PM(ID, Subject) {
 		}
 	});
 }
+function playerCard(ID) {
+	$('.popover').each(function() {
+		$(this).popover('hide');
+	});
+	$.ajax({
+		url: "game.php?page=playerCard&id="+ID, 
+		success: function(data){
+			$('#playerModalBody').empty();
+			$('#playerModalBody').append(data);
+		}
+	});
+}
 
 function NotifyBox(text) {
 	tip = $('#tooltip')

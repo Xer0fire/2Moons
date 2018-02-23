@@ -1,105 +1,170 @@
 {block name="title" prepend}{$LNG.lm_playercard}{/block}
 {block name="content"}
-<table style="width:95%">
-	<tr>
-		<th colspan="3">{$LNG.pl_overview}</th>
-		</tr>
-	<tr>
-		<td style="width:40%">{$LNG.pl_name}</td>
-		<td colspan="2">{$name}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_homeplanet}</td>
-		<td colspan="2">{$homeplanet} <a href="#" onclick="parent.location = 'game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}';return false;">[{$galaxy}:{$system}:{$planet}]</a></td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_ally}</td>
-		<td colspan="2">{if $allyname}<a href="#" onclick="parent.location = 'game.php?page=alliance&amp;mode=info&amp;id={$allyid}';return false;">{$allyname}</a>{else}-{/if}</td>
-	</tr>
-	<tr>
-		<th>&nbsp;</th>
-		<th>{$LNG.pl_points}</th>
-		<th>{$LNG.pl_range}</th>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_builds}</td>
-		<td>{$build_points}</td>
-		<td>{$build_rank}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_tech}</td>
-		<td>{$tech_points}</td>
-		<td>{$tech_rank}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_fleet}</td>
-		<td>{$fleet_points}</td>
-		<td>{$fleet_rank}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_def}</td>
-		<td>{$defs_points}</td>
-		<td>{$defs_rank}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_total}</td>
-		<td>{$total_points}</td>
-		<td>{$total_rank}</td>
-	</tr>
-	<tr>
-		<th colspan="3">{$LNG.pl_fightstats}</th>
-	</tr>
-	<tr>
-		<td>&nbsp;</td>
-		<td>{$LNG.pl_fights}</td>
-		<td>{$LNG.pl_fprocent}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_fightwon}</td>
-		<td>{$wons}</td>
-		<td>{$siegprozent} %</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_fightdraw}</td>
-		<td>{$draws}</td>
-		<td>{$drawsprozent} %</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_fightlose}</td>
-		<td>{$loos}</td>
-		<td>{$loosprozent} %</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_totalfight}</td>
-		<td>{$totalfights}</td>
-		<td>100 %</td>
-	</tr>
-	<tr>
-		<th colspan="3">{$playerdestory}:</th>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_unitsshot}</td>
-		<td colspan="2">{$desunits}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_unitslose}</td>
-		<td colspan="2">{$lostunits}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_dermetal}</td>
-		<td colspan="2">{$kbmetal}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.pl_dercrystal}</td>
-		<td colspan="2">{$kbcrystal}</td>
-	</tr>
-{if $id != $yourid}
-	<tr>
-		<th colspan="3">{$LNG.pl_etc}</th>
-	</tr>
-	<tr>
-		<td><a href="#" onclick="return Dialog.Buddy({$id})">{$LNG.pl_buddy}</a></td><td colspan="2"><a href="#" onclick="return Dialog.PM({$id});" title="{$LNG.pl_message}">{$LNG.pl_message}</a></td>
-	</tr>
-{/if}
-</table>
+	<div class="row">
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_name}</span>
+		</div>
+		<div class="col-8">
+			{$name}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_ally}</span>
+		</div>
+		<div class="col-8">
+			{if $allyname}
+				<a href="game.php?page=alliance&amp;mode=info&amp;id={$allyid}">{$allyname}</a>
+			{else}
+				-
+			{/if}
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_pointstats}</span>
+		</div>
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_points}</span>
+		</div>
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_range}</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			{$LNG.pl_builds}
+		</div>
+		<div class="col-4">
+			{$build_points}
+		</div>
+		<div class="col-4">
+			{$build_rank}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			{$LNG.pl_tech}
+		</div>
+		<div class="col-4">
+			{$tech_points}
+		</div>
+		<div class="col-4">
+			{$tech_rank}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			{$LNG.pl_fleet}
+		</div>
+		<div class="col-4">
+			{$fleet_points}
+		</div>
+		<div class="col-4">
+			{$fleet_rank}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			{$LNG.pl_def}
+		</div>
+		<div class="col-4">
+			{$defs_points}
+		</div>
+		<div class="col-4">
+			{$defs_rank}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_total}</span>
+		</div>
+		<div class="col-4">
+			{$total_points}
+		</div>
+		<div class="col-4">
+			{$total_rank}
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_fightstats}</span>
+		</div>
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_fights}</span>
+		</div>
+		<div class="col-4">
+			<span class="font-weight-bold">{$LNG.pl_fprocent}</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			{$LNG.pl_fightwon}
+		</div>
+		<div class="col-4">
+			{$wons}
+		</div>
+		<div class="col-4">
+			{$siegprozent} %
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			{$LNG.pl_fightdraw}
+		</div>
+		<div class="col-4">
+			{$draws}
+		</div>
+		<div class="col-4">
+			{$drawsprozent} %
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-4">
+			{$LNG.pl_fightlose}
+		</div>
+		<div class="col-4">
+			{$loos}
+		</div>
+		<div class="col-4">
+			{$loosprozent} %
+		</div>
+	</div>
+	<div class="row mt-3">
+		<div class="col-12">
+			<span class="font-weight-bold">{$playerdestory}</span>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-5">
+			{$LNG.pl_unitsshot}
+		</div>
+		<div class="col-7">
+			{$desunits}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-5">
+			{$LNG.pl_unitslose}
+		</div>
+		<div class="col-7">
+			{$lostunits}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-5">
+			{$LNG.pl_dermetal}
+		</div>
+		<div class="col-7">
+			{$kbmetal}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-5">
+			{$LNG.pl_dercrystal}
+		</div>
+		<div class="col-7">
+			{$kbcrystal}
+		</div>
+	</div>
 {/block}

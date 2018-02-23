@@ -100,7 +100,7 @@ $LNG['lm_chat']								= 'Chat';
 $LNG['lm_support']							= 'Support';
 $LNG['lm_rules']							= 'Rules';
 $LNG['lm_battlesim']						= 'Simulator';
-$LNG['lm_playercard']                       = 'Player Profile';
+$LNG['lm_playercard']                       = 'Player Card';
 $LNG['lm_info']                     		= 'Info';
 $LNG['lm_disclamer']						= 'Credits';
 	
@@ -221,7 +221,8 @@ $LNG['gl_diameter']							= 'Diameter';
 $LNG['gl_temperature']						= 'Temperatura';
 $LNG['gl_phalanx']							= 'Phalanx';
 $LNG['gl_planet_destroyed']					= 'Planet destroyed';
-$LNG['gl_playercard']						= 'Player profile';
+$LNG['gl_myplayercard']						= 'My player card';
+$LNG['gl_playercard']						= 'Player card';
 $LNG['gl_in_the_rank']						= 'Player %s in pos. %d';
 $LNG['gl_activity']							= '(*)';
 $LNG['gl_activity_inactive']				= '(%d min)';
@@ -1074,12 +1075,13 @@ $LNG['tkb_missing']							= '<br>Missing in Action: The user account does not ex
 
 //----------------------------------------------------------------------------//
 // Perfil de Jogador
-$LNG['pl_overview']							= 'Player Profile';
+$LNG['pl_overview']							= 'Player Card';
 $LNG['pl_name']								= 'Username';
 $LNG['pl_homeplanet']						= 'Home planet';
 $LNG['pl_ally']								= 'Alliance';
 $LNG['pl_message']							= 'Message';
 $LNG['pl_buddy']							= 'Buddy';
+$LNG['pl_pointstats']						= 'Point Stats';
 $LNG['pl_points']							= 'Points';
 $LNG['pl_range']							= 'Rank';
 $LNG['pl_builds']							= 'Buildings';

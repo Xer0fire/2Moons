@@ -31,8 +31,9 @@ class ShowPlayerCardPage extends AbstractGamePage
 	{
 		global $USER, $LNG;
 		
-		$this->setWindow('popup');
+		//$this->setWindow('popup');
 		$this->initTemplate();
+		$this->setWindow('ajax');
 
 		$db = Database::get();
 
