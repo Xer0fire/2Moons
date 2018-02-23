@@ -127,7 +127,7 @@
 	<div class="row">
 		<div class="col-12">
 			<div class="table-responsive">
-				<table class="table table-striped table-sm">
+				<table class="table table-striped table-sm text-center">
 					<tr>
 						<th>{$LNG.gl_pos}</th>
 						<th>{$LNG.gl_planet}</th>
@@ -141,33 +141,33 @@
 					{for $planet=1 to $max_planets}
 						<tr>
 						{if !isset($GalaxyRows[$planet])}
-							<td>
+							<td class="align-middle">
 								<a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=7">{$planet}</a>
 							</td>
 							<td></td>
-							<td class="d-none d-md-table-cell"></td>
+							<td class="d-none d-md-table-cell align-middle"></td>
 							<td></td>
 							<td></td>
 							<td></td>
 							<td></td>
 							<td class="d-none d-md-table-cell"></td>
 						{elseif $GalaxyRows[$planet] === false}
-							<td>
+							<td class="align-middle">
 								{$planet}
 							</td>
 							<td></td>
-							<td class="d-none d-md-table-cell">{$LNG.gl_planet_destroyed}</td>
+							<td class="d-none d-md-table-cell align-middle">{$LNG.gl_planet_destroyed}</td>
 							<td></td>
 							<td></td>
 							<td></td>
 							<td></td>
-							<td class="d-none d-md-table-cell"></td>
+							<td class="d-none d-md-table-cell align-middle"></td>
 						{else}
-							<td>
+							<td class="align-middle">
 								{$planet}
 							</td>
 							{$currentPlanet = $GalaxyRows[$planet]}
-							<td>
+							<td class="align-middle">
 								<a href="#" data-toggle="popover" data-html="true" data-content="
 									{if $currentPlanet.missions.6}
 										<a href='javascript:doit(6,{$currentPlanet.planet.id});'>{$LNG['type_mission_6']}</a>
@@ -198,15 +198,15 @@
 									{/if}
 								" data-original-title="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
 								{if $currentPlanet.lastActivity == 'lessthan15'}
-									<div class="galaxy-badge-e mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="e"></div>
+									<div class="galaxy-badge-e mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="e"></div>
 								{elseif $currentPlanet.lastActivity == ''}
-									<div class="mx-auto planet-sprite sprite-{$currentPlanet.planet.image}"></div>
+									<div class="mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}"></div>
 								{else}
-									<div class="galaxy-badge-y mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="{$currentPlanet.lastActivity}"></div>
+									<div class="galaxy-badge-y mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="{$currentPlanet.lastActivity}"></div>
 								{/if}
 								</a>
 							</td>
-							<td class="d-none d-md-table-cell">{$currentPlanet.planet.name}</td>
+							<td class="d-none d-md-table-cell align-middle">{$currentPlanet.planet.name}</td>
 							<td>
 								{if $currentPlanet.moon}
 									
@@ -248,7 +248,7 @@
 								</a>
 								{/if}
 							</td>
-							<td>
+							<td class="align-middle">
 								{if $currentPlanet.debris}
 									<a href="#" data-toggle="popover" data-html="true" data-content="
 										{$LNG.gl_resources}:<br/>
@@ -264,7 +264,7 @@
 									</a>
 								{/if}
 							</td>
-							<td>
+							<td class="align-middle">
 								<a href="#" data-toggle="popover" data-html="true" data-content="
 									{$currentPlanet.user.playerrank}<br/>
 									{if !$currentPlanet.ownPlanet}
@@ -298,7 +298,7 @@
 								{/if}
 								</a>
 							</td>
-							<td>
+							<td class="align-middle">
 								{if $currentPlanet.alliance}
 									
 									<a href="#" data-toggle="popover" data-html="true" data-content="
@@ -322,7 +322,7 @@
 									-
 								{/if}
 							</td>
-							<td class="d-none d-md-table-cell">
+							<td class="d-none d-md-table-cell align-middle">
 								{if $currentPlanet.action}
 									{if $currentPlanet.action.esp}
 										<a class="mr-2" href="javascript:doit(6,{$currentPlanet.planet.id},{$spyShips|json|escape:'html'})">
