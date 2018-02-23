@@ -13,6 +13,9 @@
 .popover {
 	z-index: 1000;
 }
+.nav-popover {
+	z-index: 1060;
+}
 .dropdown-message {
 	min-width: 18rem;
 }

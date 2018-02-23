@@ -14,7 +14,10 @@
 			{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
 				<div class="d-flex mr-2 align-self-center res-sprite sprite-{$resourceData.name}"></div>
 			{else}
-			<a class="d-flex mr-2 align-self-center" href="#" data-toggle="popover" data-trigger="hover" data-html="true" data-content="
+			<a class="d-flex mr-2 align-self-center" href="#" data-toggle="popover" data-trigger="hover" data-html="true"
+			 data-template="
+				<div class='popover nav-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body'></div></div>
+			" data-content="
 				Production per hour: {$resourceData.production|number}
 				{if $resourceData.current < $resourceData.max}
 				<br/>
