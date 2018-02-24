@@ -727,12 +727,14 @@ $LNG['al_diplo']							= 'Diplomacy';
 $LNG['al_no_diplo']							= 'No Diplomatic Standing';
 $LNG['al_events']							= 'Events';
 $LNG['al_no_events']						= 'There are currently no events';
+$LNG['al_page_reload']						= 'Page will reload.';
 $LNG['al_diplo_level'][1]                   = 'Wing';
 $LNG['al_diplo_level'][2]                   = 'Alliance';
 $LNG['al_diplo_level'][3]                   = 'Trade Pact';
 $LNG['al_diplo_level'][4]                   = 'Non-agression Pact';
 $LNG['al_diplo_level'][5]                   = 'War';
 $LNG['al_diplo_level'][6]					= 'Secret Alliance';
+$LNG['al_diplo_create_pact']                = 'Create Pact';
 $LNG['al_diplo_no_entry']                   = '- There is no Pact -';
 $LNG['al_diplo_no_accept']                  = '- Without applications available -';
 $LNG['al_diplo_accept']                     = 'Applications';
@@ -880,6 +882,7 @@ $LNG['sh_loading']							= '(Loading ...)';
 //----------------------------------------------------------------------------//
 //OPTIONS
 $LNG['op_error']							= 'Error';
+$LNG['op_success']							= 'Success';
 $LNG['op_cant_activate_vacation_mode']		= 'You can not activate the vacation mode with fleet actiividades.';
 $LNG['op_password_changed']					= 'Password changed';
 $LNG['op_username_changed']					= 'Username changed';

@@ -1581,7 +1581,7 @@ class ShowAlliancePage extends AbstractGamePage
 		$db = Database::get();
 
 		$this->initTemplate();
-		$this->setWindow('popup');
+		$this->setWindow('ajax');
 
 		$diplomaticMode	= HTTP::_GP('diploMode', 0);
 
