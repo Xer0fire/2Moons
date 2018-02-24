@@ -550,8 +550,8 @@ class ShowAlliancePage extends AbstractGamePage
 			'ally_max_members'	 		=> $this->allianceData['ally_members'],
 			'ally_name'					=> $this->allianceData['ally_name'],
 			'ally_image'				=> $this->allianceData['ally_image'],
-			'ally_description'			=> BBCode::parse($this->allianceData['ally_description']),
-			'ally_text' 				=> BBCode::parse($this->allianceData['ally_text']),
+			'ally_description'			=> base64_decode($this->allianceData['ally_description']),
+			'ally_text' 				=> base64_decode($this->allianceData['ally_text']),
 			'rankName'					=> $rankName,
 			'requests'					=> sprintf($LNG['al_new_requests'], $ApplyCount),
 			'applyCount'				=> $ApplyCount,
@@ -746,6 +746,19 @@ class ShowAlliancePage extends AbstractGamePage
 			$this->allianceData['ally_request_min_points']  = HTTP::_GP('request_min_points', 0);
 			$this->allianceData['ally_events'] 				= implode(',', HTTP::_GP('events', array(0)));
 
+			switch($_REQUEST['textMode'])
+			{
+				case 'external':
+					$this->allianceData['ally_description'] = "'".base64_encode(addslashes($_REQUEST['trumbowyg']))."'";
+					break;
+				case 'internal':
+					$this->allianceData['ally_text'] = "'".base64_encode(addslashes($_REQUEST['trumbowyg']))."'";
+					break;
+				case 'apply':
+					$this->allianceData['ally_request'] = "'".base64_encode(addslashes($_REQUEST['trumbowyg']))."'";
+					break;
+			}
+
 			$new_ally_tag 	= HTTP::_GP('ally_tag', $this->allianceData['ally_tag'], UTF8_SUPPORT);
 			$new_ally_name	= HTTP::_GP('ally_name', $this->allianceData['ally_name'], UTF8_SUPPORT);
 
@@ -795,22 +808,23 @@ class ShowAlliancePage extends AbstractGamePage
 				$this->allianceData['ally_request_notallow'] = 0;
 			}
 
-			$text 		= HTTP::_GP('text', '', true);
-			$textMode  	= HTTP::_GP('textMode', 'external');
+			$text = "'".base64_encode(addslashes($_REQUEST['trumbowyg']))."'";
 
-			$textSQL	= "";
+			$textSQL = "";
 
-			switch($textMode)
-			{
-				case 'external':
-					$textSQL	= "ally_description = :text, ";
-					break;
-				case 'internal':
-					$textSQL	= "ally_text = :text, ";
-					break;
-				case 'apply':
-					$textSQL	= "ally_request = :text, ";
-					break;
+			if (isset($_REQUEST['trumbowyg'])) {
+				switch($_REQUEST['textMode'])
+				{
+					case 'external':
+						$textSQL	= "ally_description = :text,";
+						break;
+					case 'internal':
+						$textSQL	= "ally_text = :text,";
+						break;
+					case 'apply':
+						$textSQL	= "ally_request = :text,";
+						break;
+				}
 			}
 
 			$sql = "UPDATE %%ALLIANCE%% SET
@@ -840,19 +854,6 @@ class ShowAlliancePage extends AbstractGamePage
 				':text'						=> $text
 			));
 
-		} else {
-			switch($textMode)
-			{
-				case 'internal':
-					$text	= $this->allianceData['ally_text'];
-					break;
-				case 'apply':
-					$text	= $this->allianceData['ally_request'];
-					break;
-				default:
-					$text	= $this->allianceData['ally_description'];
-					break;
-			}
 		}
 
         require 'includes/classes/class.FlyingFleetHandler.php';
@@ -867,7 +868,9 @@ class ShowAlliancePage extends AbstractGamePage
 			'RequestSelector'			=> array(0 => $LNG['al_requests_allowed'], 1 => $LNG['al_requests_not_allowed']),
 			'YesNoSelector'				=> array(1 => $LNG['al_go_out_yes'], 0 => $LNG['al_go_out_no']),
 			'textMode' 					=> $textMode,
-			'text' 						=> $text,
+			'ally_text' 				=> "'".base64_decode($this->allianceData['ally_text'])."'",
+			'ally_request' 				=> "'".base64_decode($this->allianceData['ally_request'])."'",
+			'ally_description' 			=> "'".base64_decode($this->allianceData['ally_description'])."'",
 			'ally_tag' 					=> $this->allianceData['ally_tag'],
 			'ally_name'					=> $this->allianceData['ally_name'],
 			'ally_web' 					=> $this->allianceData['ally_web'],

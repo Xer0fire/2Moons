@@ -23,30 +23,30 @@
 
 	<div class="card">
 		<div class="card-header">
-			{$LNG.al_texts}
+			{$LNG.al_texts} <span id="textModeDisp">({$LNG.al_mode}{$LNG.al_outside_text})</span>
 			<div class="card-actions">
 				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#alliance-optionstext" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 			</div>
 		</div>
 		<div class="card-body-container collapse show" id="alliance-optionstext">
 			<div class="card-body">
-				<form action="game.php?page=alliance&mode=admin" method="post">
-				<input type="hidden" name="textMode" value="{$textMode}">
+				<form action="game.php?page=alliance&mode=admin&send=1" method="post">
+				<input id="textMode" type="hidden" name="textMode" value="{$textMode}">
 				<input type="hidden" name="send" value="1">
 				<div class="row justify-content-around">
 					<div class="col-12 col-md-auto">
-						<a href="game.php?page=alliance&amp;mode=admin&amp;textMode=external">{$LNG.al_outside_text}</a>
+						<a href="#" onclick="textMode('{$LNG.al_outside_text}')">{$LNG.al_outside_text}</a>
 					</div>
 					<div class="col-12 col-md-auto">
-						<a href="game.php?page=alliance&amp;mode=admin&amp;textMode=internal">{$LNG.al_inside_text}</a>
+						<a href="#" onclick="textMode('{$LNG.al_inside_text}')">{$LNG.al_inside_text}</a>
 					</div>
 					<div class="col-12 col-md-auto">
-						<a href="game.php?page=alliance&amp;mode=admin&amp;textMode=apply">{$LNG.al_request_text}</a>
+						<a href="#" onclick="textMode('{$LNG.al_request_text}')">{$LNG.al_request_text}</a>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
-						<textarea id="trumbowyg" name="text" id="text" cols="70" rows="15">{$text}</textarea>
+						<div id="trumbowyg"></div>
 					</div>
 				</div>
 				<div class="row mt-2">
@@ -189,7 +189,7 @@
 	{if $AllianceOwner}
 		<div class="card mt-4">
 			<div class="card-header">
-				[[Owner options]]
+				{$LNG.al_owner_options}
 			<div class="card-actions">
 				<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#alliance-ownerop" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 			</div>
@@ -219,11 +219,34 @@
 	<link href="scripts/base/trumbowyg/ui/trumbowyg.min.css" rel="stylesheet">
 	<script type="text/javascript" src="scripts/base/trumbowyg/trumbowyg.min.js"></script>
 	<script type="text/javascript">
+	function textMode(mode) {
+		switch (mode){
+			case '{$LNG.al_outside_text}':
+				$('#textMode').val('external');
+				$('#trumbowyg').empty().html(stripslashes({$ally_description}));
+				break;
+			case '{$LNG.al_inside_text}':
+				$('#textMode').val('internal');
+				$('#trumbowyg').empty().html(stripslashes({$ally_text}));
+				break;
+			case '{$LNG.al_request_text}':
+				$('#textMode').val('apply');
+				$('#trumbowyg').empty().html(stripslashes({$ally_request}));
+				break;
+			default:
+		}
+		$('#textModeDisp').html('({$LNG.al_mode}'+mode+')');
+		localStorage.setItem("omicron-alliance-admin-textmode", mode);
+	}
 	$(function() {
 		$('#trumbowyg').trumbowyg({
 			btns: ['viewHTML','|','strong','em','link','|','fullscreen'],
 			autogrow: true
 		});
+		var aat = localStorage.getItem("omicron-alliance-admin-textmode");
+		if (aat) {
+			textMode(aat);
+		}
 	});
 	</script>
 {/block}
