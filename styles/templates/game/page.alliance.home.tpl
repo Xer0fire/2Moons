@@ -127,11 +127,28 @@
 								</div>
 							{/if}
 						{/if}
-						<div class="row">
-							<div class="col-12">
-								{if $ally_description}{$ally_description}{else}{$LNG.al_description_message}{/if}
-							</div>
-						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-12">
+			<div class="card">
+				<div class="card-header">
+					{$LNG.al_alliance_desc}
+					<div class="card-actions">
+						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#alliance-desc" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+					</div>
+				</div>
+				<div class="card-body-container collapse show" id="alliance-desc">
+					<div class="card-body">
+						{if !empty($ally_description)}
+							{$ally_description}
+						{else}
+							{$LNG.al_description_message}
+						{/if}
 					</div>
 				</div>
 			</div>

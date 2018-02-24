@@ -727,6 +727,7 @@ $LNG['al_memberlist_on']					= 'Online';
 $LNG['al_memberlist_off']					= 'Offline';
 $LNG['al_diplo']							= 'Diplomacy';
 $LNG['al_no_diplo']							= 'No Diplomatic Standing';
+$LNG['al_alliance_desc']					= 'Alliance Description';
 $LNG['al_events']							= 'Events';
 $LNG['al_no_events']						= 'There are currently no events';
 $LNG['al_page_reload']						= 'Page will reload.';
