@@ -1,5 +1,25 @@
 {block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
+	{if $ally_image != ''}
+		<div class="row">
+			<div class="col-12">
+				<div class="card">
+					<div class="card-header">
+						{$LNG.al_manage_image}
+						<div class="card-actions">
+							<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#alliance-image" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+						</div>
+					</div>
+					<div class="card-body-container collapse show" id="alliance-image">
+						<div class="card-body p-0">
+							<img class="img-fluid" src="{$ally_image}" alt="{$ally_name}-alliance-image" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	{/if}
+
 	<div class="row">
 		<div class="col-12">
 			<div class="card">

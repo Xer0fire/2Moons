@@ -571,11 +571,11 @@ $LNG['mg_receiver_block_pm']				= 'The receiver block private messages.';
 //----------------------------------------------------------------------------//
 // Aliança
 
-$LNG['al_not_exists']					= 'The Alliance ceased to exist';
+$LNG['al_not_exists']						= 'The Alliance ceased to exist';
 $LNG['al_newname_specialchar']				= 'The alliance and the tag must be write with alphanumeric characters, word, _, -, .!';
 $LNG['al_description_message']		        = 'Message from description of Alliance';
 $LNG['al_web_text']							= 'Alliance Web site';
-$LNG['al_request']					        = 'Aplication';
+$LNG['al_request']					        = 'Application';
 $LNG['al_click_to_send_request']		    = 'Click here to send a message to the Alliance';
 $LNG['al_tag_required']					    = 'Missing the tag of the Alliance';
 $LNG['al_name_required']					= 'Missing the name of the Alliance';
