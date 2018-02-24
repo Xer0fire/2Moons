@@ -246,6 +246,9 @@ body {
 .input-group>.form-control {
 	text-align: center;
 }
+a {
+	color: #63c2de;
+}
 
 /* formate */
 .admin {
