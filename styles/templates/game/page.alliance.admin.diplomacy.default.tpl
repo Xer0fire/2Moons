@@ -84,7 +84,7 @@
 									</div>
 									<div class="col-2">
 										<a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyAccept&amp;id={$diploID}" onclick="return confirm('{$LNG.al_diplo_accept_yes_confirm}');">
-											<i class="fa fa-tick text-green"></i>
+											<i class="fa fa-check text-green"></i>
 										</a>
 										<a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacyDelete&amp;id={$diploID}" onclick="return confirm('{$LNG.al_diplo_accept_no_confirm}');">
 											<i class="fa fa-times text-red"></i>
