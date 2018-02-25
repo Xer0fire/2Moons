@@ -20,7 +20,7 @@
 				{$LNG.mg_send_to}
 			</div>
 			<div class="col">
-				<input class="form-control" disabled="disabled" type="text" name="to" size="40" value="{$OwnerRecord.username} [{$OwnerRecord.galaxy}:{$OwnerRecord.system}:{$OwnerRecord.planet}]">
+				<input class="form-control" disabled="disabled" type="text" name="to" size="40" value="{$OwnerRecord.username}">
 			</div>
 		</div>
 		<div class="row form-group">
