@@ -21,5 +21,6 @@
 
 {include file="main.planetnavigation.tpl"}
 
+{include file="main.footer.tpl"}
+
 {foreach $cronjobs as $cronjob}<img src="cronjob.php?cronjobID={$cronjob}" alt="">{/foreach}
-{include file="main.footer.tpl" nocache}

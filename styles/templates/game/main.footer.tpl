@@ -27,31 +27,53 @@
 		</script>
 	{/if}
 
-	<!-- Main config for this application -->
-	{if !$vmode}
-		<script type="text/javascript">
-		var viewShortlyNumber	= {$shortlyNumber|json};
-		var vacation			= {$vmode};
-		$(function() {
-		{foreach $resourceTable as $resourceID => $resourceData}
-			{if isset($resourceData.production)}
-				resourceTicker({
-					available: {$resourceData.current|json},
-					limit: [0, {$resourceData.max|json}],
-					production: {$resourceData.production|json},
-					valueElem: "current_{$resourceData.name}"
-				}, true);
-				getRestStorage({
-					current: {$resourceData.current|json},
-					max: [0, {$resourceData.max|json}],
-					prod: {$resourceData.production|json},
-					valueElem: "fullin_{$resourceData.name}"
-				}, true);
-			{/if}
-		{/foreach}
-		});
-		</script>
-	{/if}
+	<!-- START Main scripts for this application -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var ServerTimezoneOffset = {$Offset};
+		var serverTime 	= new Date({$date.0}, {$date.1 - 1}, {$date.2}, {$date.3}, {$date.4}, {$date.5});
+		var startTime	= serverTime.getTime();
+		var localTime 	= serverTime;
+		var localTS 	= startTime;
+		var Gamename	= document.title;
+		var Ready		= "{$LNG.ready}";
+		var Skin		= "{$dpath}";
+		var Lang		= "{$lang}";
+		var head_info	= "{$LNG.fcm_info}";
+		var auth		= {$authlevel|default:'0'};
+		var days 		= {$LNG.week_day|json|default:'[]'}
+		var months 		= {$LNG.months|json|default:'[]'} ;
+		var tdformat	= "{$LNG.js_tdformat}";
+		var queryString	= "{$queryString|escape:'javascript'}";
+		var isPlayerCardActive	= {$isPlayerCardActive|json};
+
+		setInterval(function() {
+			serverTime.setSeconds(serverTime.getSeconds()+1);
+		}, 1000);
+
+		{if !$vmode}
+			var viewShortlyNumber	= {$shortlyNumber|json};
+			var vacation			= {$vmode};
+			$(function() {
+			{foreach $resourceTable as $resourceID => $resourceData}
+				{if isset($resourceData.production)}
+					resourceTicker({
+						available: {$resourceData.current|json},
+						limit: [0, {$resourceData.max|json}],
+						production: {$resourceData.production|json},
+						valueElem: "current_{$resourceData.name}"
+					}, true);
+					getRestStorage({
+						current: {$resourceData.current|json},
+						max: [0, {$resourceData.max|json}],
+						prod: {$resourceData.production|json},
+						valueElem: "fullin_{$resourceData.name}"
+					}, true);
+				{/if}
+			{/foreach}
+			});
+		{/if}
+	</script>
 
 	{if $closed || $delete || $vacation}
 		<script type="text/javascript">
@@ -84,7 +106,17 @@
 		</script>
 	{/if}
 
-	<!-- Main scripts for this application -->
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+	<script type="text/javascript" src="./scripts/game/base.js"></script>
+	{foreach item=scriptname from=$scripts}
+		<script type="text/javascript" src="./scripts/game/{$scriptname}.js"></script>
+	{/foreach}
+	{block name="script"}{/block}
+	<script type="text/javascript">
+	$(function() {
+		{$execscript}
+	});
+	</script>
 	<script type="text/javascript" src="scripts/game/topnav.js"></script>
 	{if $hasGate}<script src="scripts/game/gate.js"></script>{/if}
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
@@ -104,6 +136,7 @@
 			toastr["warning"]("{$LNG.admin_access_1} <a id='drop-admin'>{$LNG.admin_access_link}</a>{$LNG.admin_access_2}", "Warning");
 		</script>
 	{/if}
+	<!-- END Main scripts for this application -->
 
 </body>
 </html>
