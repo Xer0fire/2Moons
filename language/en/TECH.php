@@ -43,7 +43,7 @@ $LNG['shortNames'] = array (
 407 => 'Small Shield Dome',
 408 => 'Large Shield Dome',
 );
-					
+
 $LNG['tech'] = array(
   0 => 'Buildings',
   1 => 'Metal Mine',
@@ -119,12 +119,20 @@ $LNG['tech'] = array(
 502 => 'Interceptor',
 503 => 'Interplanetary missiles',
 
-	900 => 'Ressources',
-	901 => 'Metal',
-	902 => 'Crystal',
-	903 => 'Deuterium',
-	911 => 'Energy',
-	921 => 'Dark Matter',
+900 => 'Resources',
+901 => 'Metal',
+902 => 'Crystal',
+903 => 'Deuterium',
+911 => 'Energy',
+921 => 'Dark Matter',
+);
+//DO NOT CHANGE sprite array
+$LNG['sprite'] = array(
+	901 => 'metal',
+	902 => 'crystal',
+	903 => 'deuterium',
+	911 => 'energy',
+	921 => 'darkmatter',
 );
 
 $LNG['shortDescription'] = array(

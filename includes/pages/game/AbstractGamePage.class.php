@@ -111,6 +111,7 @@ abstract class AbstractGamePage
 		foreach($reslist['resstype'][1] as $resourceID)
 		{
 			$resourceTable[$resourceID]['name']			= $resource[$resourceID];
+			$resourceTable[$resourceID]['LNGname']		= $LNG['tech'][$resourceID];
 			$resourceTable[$resourceID]['current']		= $PLANET[$resource[$resourceID]];
 			$resourceTable[$resourceID]['max']			= $PLANET[$resource[$resourceID].'_max'];
 			$resourceTable[$resourceID]['production']	= $PLANET[$resource[$resourceID].'_perhour'];
@@ -119,6 +120,7 @@ abstract class AbstractGamePage
 		foreach($reslist['resstype'][2] as $resourceID)
 		{
 			$resourceTable[$resourceID]['name']			= $resource[$resourceID];
+			$resourceTable[$resourceID]['LNGname']		= $LNG['tech'][$resourceID];
 			$resourceTable[$resourceID]['used']			= $PLANET[$resource[$resourceID].'_used'];
 			$resourceTable[$resourceID]['max']			= $PLANET[$resource[$resourceID]];
 		}
@@ -126,6 +128,7 @@ abstract class AbstractGamePage
 		foreach($reslist['resstype'][3] as $resourceID)
 		{
 			$resourceTable[$resourceID]['name']			= $resource[$resourceID];
+			$resourceTable[$resourceID]['LNGname']		= $LNG['tech'][$resourceID];
 			$resourceTable[$resourceID]['current']		= $USER[$resource[$resourceID]];
 		}
 

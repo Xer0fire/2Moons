@@ -128,7 +128,7 @@
 						{foreach $ResourceCost.$ID as $ResID => $ResAmount}
 							<div class="col">
 								<div class="media">
-									<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.tech.{$ResID}}"></div>
+									<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.sprite.{$ResID}}"></div>
 									<div class="media-body">
 										<span class="{if $ResAmount.overflow == 0}text-green{else}text-red{/if}">{$ResAmount.cost|number}</span><br/>
 										{if $ResAmount.overflow != 0}{$ResAmount.overflow|number}{/if}

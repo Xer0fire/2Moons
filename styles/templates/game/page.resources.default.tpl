@@ -30,7 +30,7 @@
 										{/if}
 										<div class="col-12 col-md-6 align-self-center">
 											<div class="media">
-												<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.tech.{$resID}}"></div>
+												<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.sprite.{$resID}}"></div>
 												<div class="media-body">
 													{if $resID != 911 && $productionID != 12 && $productionID != 212}
 														({$basicProduction.$resID|number})
@@ -72,7 +72,7 @@
 										<div class="col-md-6"></div>
 										<div class="col-auto col-md-6 align-self-center">
 											<div class="media">
-												<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.tech.{$resID}}"></div>
+												<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.sprite.{$resID}}"></div>
 												<div class="media-body">
 													<span class="{if {$productionMoon.0.energy|number} > 0}text-green{elseif {$productionMoon.0.energy|number} < 0}text-red{else}text-white{/if}">
 														{$productionMoon.0.energy|number}
@@ -112,7 +112,7 @@
 						<div class="row">
 							{foreach $totalProduction as $resID => $resVal}
 								<div class="col-6">
-									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.tech.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal|number}</span>
+									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.sprite.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal|number}</span>
 								</div>
 							{/foreach}
 						</div>
@@ -134,7 +134,7 @@
 						<div class="row">
 							{foreach $protectedProduction as $resID => $resVal}
 								<div class="col-6">
-									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.tech.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal}</span>
+									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.sprite.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal}</span>
 								</div>
 							{/foreach}
 						</div>
@@ -156,7 +156,7 @@
 						<div class="row">
 							{foreach $dailyProduction as $resID => $resVal}
 								<div class="col-6">
-									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.tech.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal|number}</span>
+									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.sprite.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal|number}</span>
 								</div>
 							{/foreach}
 						</div>
@@ -178,7 +178,7 @@
 						<div class="row">
 							{foreach $weeklyProduction as $resID => $resVal}
 								<div class="col-6">
-									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.tech.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal|number}</span>
+									<div class="d-inline-block align-middle align-self-center mr-2 res-sprite sprite-{$LNG.sprite.{$resID}}"></div><span class="{if $resID > 0}text-green{elseif $resID < 0}text-red{else}text-white{/if}">{$resVal|number}</span>
 								</div>
 							{/foreach}
 						</div>

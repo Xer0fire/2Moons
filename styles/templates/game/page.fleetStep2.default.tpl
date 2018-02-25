@@ -45,7 +45,7 @@
 							<div class="col-12 form-group">
 								<div class="input-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><span class="res-sprite sprite-{$LNG.tech.901}"</span></span>
+										<span class="input-group-text fleet-2-res"><span class="res-sprite sprite-{$LNG.sprite.901}"</span></span>
 									</div>
 									<div class="input-group-prepend">
 										<button class="btn btn-warning" type="button" onclick="$('#fleetmetal').val('0')">zero</button>
@@ -61,7 +61,7 @@
 							<div class="col-12 form-group">
 								<div class="input-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><span class="res-sprite sprite-{$LNG.tech.902}"</span></span>
+										<span class="input-group-text fleet-2-res"><span class="res-sprite sprite-{$LNG.sprite.902}"</span></span>
 									</div>
 									<div class="input-group-prepend">
 										<button class="btn btn-warning" type="button" onclick="$('#fleetcrystal').val('0')">zero</button>
@@ -77,7 +77,7 @@
 							<div class="col-12 form-group">
 								<div class="input-group">
 									<div class="input-group-prepend">
-										<span class="input-group-text"><span class="res-sprite sprite-{$LNG.tech.903}"</span></span>
+										<span class="input-group-text fleet-2-res"><span class="res-sprite sprite-{$LNG.sprite.903}"</span></span>
 									</div>
 									<div class="input-group-prepend">
 										<button class="btn btn-warning" type="button" onclick="$('#fleetdeuterium').val('0')">zero</button>

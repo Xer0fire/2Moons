@@ -16,6 +16,10 @@
 .text-orange {
 	color: #d29d00;
 }
+.fleet-2-res {
+	background-color: transparent;
+	border: 0;
+}
 .app-body{
 	background: #252831 url(../img/bg.jpg) top center;
 }

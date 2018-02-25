@@ -23,7 +23,7 @@
 				<br/>
 				Max Storage: {$resourceData.max|number}
 				{/if}
-			" data-original-title="{$resourceData.name}" data-placement="bottom">
+			" data-original-title="{$resourceData.LNGname}" data-placement="bottom">
 				<div class="res-sprite sprite-{$resourceData.name}"></div>
 			</a>
 			{/if}
@@ -32,8 +32,7 @@
 			<div class="media-body">
 				{if !isset($resourceData.current)}
 					{$resourceData.current = $resourceData.max + $resourceData.used}
-					<span class="res_current">
-					<span{if $resourceData.current < 0} class="text-red"{/if}>{$resourceData.current|number} / {$resourceData.max|number}</span>
+						<span class="res_current {if $resourceData.current < 0} text-red{/if}">{$resourceData.current|number} / {$resourceData.max|number}</span>
 				{else}
 					<span class="res_current" id="current_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</span>
 				{/if}<br/>

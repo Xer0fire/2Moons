@@ -72,15 +72,14 @@
                   {foreach $resourceTable as $resourceID => $resourceData}
                   <div class="row">
                     <div class="col-md-3">
-                      {$resourceData.name}
+                      {$resourceData.LNGname}
                     </div>
                     <div class="col-md-auto">
 						{if $shortlyNumber}
 						{else}
 							{if !isset($resourceData.current)}
 								{$resourceData.current = $resourceData.max + $resourceData.used}
-								<span class="res_current">
-								<span{if $resourceData.current < 0} style="color:red"{/if}>{$resourceData.current|number} / {$resourceData.max|number}</span>
+									<span class="ovr_current {if $resourceData.current < 0} text-red{/if}">{$resourceData.current|number} / {$resourceData.max|number}</span>
 								{else}
 								{if isset($resourceData.production)}
 									<span class="text-green">(+{$resourceData.production|number})</span> 
