@@ -19,6 +19,10 @@ function resourceTicker(config, init) {
 
 	if (nrResource < config.limit[1]) 
 	{
+		if (nrResource > (config.limit[1] * 0.8) && !element.hasClass('text-orange')) {
+			element.removeClass('text-green');
+			element.addClass('text-orange');
+		}
 		if(viewShortlyNumber) {
 			element.attr('data-tooltip-content', NumberGetHumanReadable(nrResource));
 			element.html(shortly_number(nrResource));
@@ -51,9 +55,9 @@ function getRestStorage(config, init) {
 	var timeLeft = rest / prodpersec;
 	if (parseFloat(config.current) < config.max[1])
 	{
-		if (timeLeft < 43200 && !element.hasClass('text-yellow')) {
+		if (timeLeft < 43200 && !element.hasClass('text-orange')) {
 			element.removeClass('text-green');
-			element.addClass('text-yellow');
+			element.addClass('text-orange');
 		}
 		element.html(_timeformat(timeLeft));
 	} else {
