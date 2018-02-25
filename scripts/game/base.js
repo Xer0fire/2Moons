@@ -222,15 +222,6 @@ function playerCard(ID) {
 		}
 	});
 }
-function diplomacyCreate(Mode) {
-	$.ajax({
-		url: "game.php?page=alliance&mode=admin&action=diplomacyCreate&diploMode="+Mode, 
-		success: function(data){
-			$('#admindiplomacyBody').empty();
-			$('#admindiplomacyBody').append(data);
-		}
-	});
-}
 
 function NotifyBox(text) {
 	tip = $('#tooltip')

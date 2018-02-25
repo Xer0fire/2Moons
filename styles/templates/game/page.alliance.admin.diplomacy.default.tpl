@@ -160,3 +160,16 @@
 		</div>
 	</div>
 {/block}
+{block name="script" append}
+	<script type"text/javascript">
+		function diplomacyCreate(Mode) {
+			$.ajax({
+				url: "game.php?page=alliance&mode=admin&action=diplomacyCreate&diploMode="+Mode, 
+				success: function(data){
+					$('#admindiplomacyBody').empty();
+					$('#admindiplomacyBody').append(data);
+				}
+			});
+		}
+	</script>
+{/block}
