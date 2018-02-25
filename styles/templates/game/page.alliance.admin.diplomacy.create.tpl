@@ -1,32 +1,40 @@
 {block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
-<form name="message" id="message">
-	<table style="width:95%">
-	<tr>
-		<th colspan="2">{$LNG.al_circular_send_ciruclar}</th>
-	</tr>
-	<tr>
-		<td>{$LNG.al_diplo_ally}</td>
-		<td>{html_options name="ally_id" values=$IdList output=$AllyList}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.al_diplo_level_des}</td>
-		<td>{html_options name="level" values=range(1,6) output=$LNG.al_diplo_level selected=$diploMode}</td>
-	</tr>
-	<tr>
-		<td>{$LNG.al_diplo_text}<br>(<span id="cntChars">0</span> / 5000 {$LNG.al_characters})</td>
-		<td>
-			<textarea name="text" cols="60" rows="10" onkeyup="$('#cntChars').text($(this).val().length);"></textarea>
-		</td>
-	</tr>
-	<tr>
-		<th colspan="2" style="text-align:center;">
-		<input type="reset" value="{$LNG.al_circular_reset}">
-		<input type="button" onclick="check();" value="{$LNG.al_circular_send_submit}">
-		</th>
-	</tr>
-	</table>
-</form>
+	<form name="message" id="message" class="form-horizontal">
+		<div class="row form-group">
+			<div class="col-4">
+				{$LNG.al_diplo_ally}
+			</div>
+			<div class="col">
+				{html_options name="ally_id" class="form-control" values=$IdList output=$AllyList}
+			</div>
+		</div>
+		<div class="row form-group">
+			<div class="col-4">
+				{$LNG.al_diplo_level_des}
+			</div>
+			<div class="col">
+				{html_options name="level" class="form-control" values=range(1,6) output=$LNG.al_diplo_level selected=$diploMode}
+			</div>
+		</div>
+		<div class="row form-group">
+			<div class="col-4">
+				{$LNG.al_diplo_text}
+				<br/>
+				{$LNG.mg_characters}:
+				<br/>
+				(<span id="cntChars">0</span>&nbsp;/&nbsp;5.000)
+			</div>
+			<div class="col">
+				<textarea class="form-control" name="text" id="text" cols="40" rows="10" onkeyup="$('#cntChars').text($(this).val().length);"></textarea>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<input id="submit" class="btn btn-block btn-success" type="button" onClick="check();" name="button" value="{$LNG.mg_send}">
+			</div>
+		</div>
+	</form>
 <script type="text/javascript">
 function check(){
 	if(document.message.text.value == '') {
