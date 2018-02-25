@@ -39,7 +39,7 @@
 				{/if}<br/>
 				{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
 				{else}
-					<span class="text-green" id="fullin_{$resourceData.name}" data-prod="{$resourceData.production}"></span>
+					<span class="res_fullin text-green" id="fullin_{$resourceData.name}" data-prod="{$resourceData.production}"></span>
 				{/if}
 			</div>
 			{/if}
