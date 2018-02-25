@@ -696,7 +696,7 @@ class ShowAlliancePage extends AbstractGamePage
 		}
 
 		$this->initTemplate();
-		$this->setWindow('popup');
+		$this->setWindow('ajax');
 		$RangeList[]	= $LNG['al_all_players'];
 
 		if (is_array($this->ranks))

@@ -79,7 +79,7 @@
 									{$LNG.al_circular_message}
 								</div>
 								<div class="col-12 col-md-8">
-									<a href="game.php?page=alliance&mode=circular">{$LNG.al_send_circular_message}</a>
+									<a href='#' onclick='circular()' data-toggle='modal' data-target='#messageModal'>{$LNG.al_send_circular_message}</a>
 								</div>
 							</div>
 						{/if}
@@ -299,4 +299,37 @@
 			</div>
 		</div>
 	{/if}
+
+	<div class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{$LNG.mg_send_new}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="messageModalBody" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+{/block}
+{block name="script" append}
+	<script type"text/javascript">
+		function circular() {
+			if(typeof Subject !== 'string')
+					Subject	= '';
+
+			$('.popover').each(function() {
+				$(this).popover('hide');
+			});
+			$.ajax({
+				url: "game.php?page=alliance&mode=circular", 
+				success: function(data){
+					$('#messageModalBody').empty();
+					$('#messageModalBody').append(data);
+				}
+			});
+		}
+	</script>
 {/block}
