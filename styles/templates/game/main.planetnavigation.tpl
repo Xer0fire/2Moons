@@ -17,7 +17,7 @@
 					</a>
 				</div>
 				<div class="col-8{if $PlanetRow.id == $current_pid || $PlanetRow.id_luna == $current_pid} text-green{/if}">
-					{$PlanetRow.name}</br>
+					{$PlanetRow.name}<br/>
 					<a href="game.php?page=galaxy&amp;galaxy={$PlanetRow.galaxy}&amp;system={$PlanetRow.system}">[{$PlanetRow.galaxy}:{$PlanetRow.system}:{$PlanetRow.planet}]</a>
 					{if $PlanetRow.id_luna != 0}
 						&nbsp;<a class="no-text-decoration" href="game.php?page={if $pagename != ''}{$pagename}{else}overview{/if}&amp;cp={$PlanetRow.id_luna}">
@@ -27,7 +27,7 @@
 							<div class="d-inline-block planet-sprite sprite-mond align-middle"></div>
 						{/if}
 						</a>
-					{/if}</br>
+					{/if}<br/>
 					<span class="planet-nav-building">{$PlanetRow.build}</span>
 				</div>
 			</div>

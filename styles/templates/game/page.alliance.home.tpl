@@ -315,7 +315,7 @@
 	</div>
 {/block}
 {block name="script" append}
-	<script type"text/javascript">
+	<script type="text/javascript">
 		function circular() {
 			if(typeof Subject !== 'string')
 					Subject	= '';
