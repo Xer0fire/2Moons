@@ -120,333 +120,349 @@
 	{/if}
 
 	<div class="row">
-		<div class="col-12">
-			<a class="btn btn-warning btn-block" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets + 1}&amp;planettype=1&amp;target_mission=15">{$LNG.gl_out_space}</a>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-12">
-			<div class="table-responsive">
-				<table class="table table-striped table-sm text-center">
-					<tr>
-						<th>{$LNG.gl_pos}</th>
-						<th>{$LNG.gl_planet}</th>
-						<th class="d-none d-md-table-cell">{$LNG.gl_name_activity}</th>
-						<th>{$LNG.gl_moon}</th>
-						<th>{$LNG.gl_debris}</th>
-						<th>{$LNG.gl_player_estate}</th>
-						<th>{$LNG.gl_alliance}</th>
-						<th class="d-none d-md-table-cell">{$LNG.gl_actions}</th>
-					</tr>
-					{for $planet=1 to $max_planets}
-						<tr>
-						{if !isset($GalaxyRows[$planet])}
-							<td class="align-middle">
-								<a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=7">{$planet}</a>
-							</td>
-							<td></td>
-							<td class="d-none d-md-table-cell align-middle"></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td class="d-none d-md-table-cell"></td>
-						{elseif $GalaxyRows[$planet] === false}
-							<td class="align-middle">
-								{$planet}
-							</td>
-							<td></td>
-							<td class="d-none d-md-table-cell align-middle">{$LNG.gl_planet_destroyed}</td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td class="d-none d-md-table-cell align-middle"></td>
-						{else}
-							<td class="align-middle">
-								{$planet}
-							</td>
-							{$currentPlanet = $GalaxyRows[$planet]}
-							<td class="align-middle">
-								<a href="#" data-toggle="popover" data-html="true" data-content="
-									{if $currentPlanet.missions.6}
-										<a href='javascript:doit(6,{$currentPlanet.planet.id});'>{$LNG['type_mission_6']}</a>
-										<br><br>
-									{/if}
-									{if $currentPlanet.planet.phalanx}
-										<a href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);'>{$LNG.gl_phalanx}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.1}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=1'>{$LNG['type_mission_1']}</a>
-									<br>
-									{/if}
-									{if $currentPlanet.missions.5}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=5'>{$LNG['type_mission_5']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.4}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=4'>{$LNG['type_mission_4']}</a>
-										<br>
-									{/if}
-									{if $currentPlanet.missions.3}
-										<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=3'>{$LNG['type_mission_3']}</a>
-										<br>{/if}
-									{if $currentPlanet.missions.10}
-										<a href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}'>{$LNG['type_mission_10']}</a>
-										<br>
-									{/if}
-								" data-original-title="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-								{if $currentPlanet.lastActivity == 'lessthan15'}
-									<div class="galaxy-badge-e mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="e"></div>
-								{elseif $currentPlanet.lastActivity == ''}
-									<div class="mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}"></div>
-								{else}
-									<div class="galaxy-badge-y mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="{$currentPlanet.lastActivity}"></div>
-								{/if}
-								</a>
-							</td>
-							<td class="d-none d-md-table-cell align-middle">{$currentPlanet.planet.name}</td>
-							<td>
-								{if $currentPlanet.moon}
-									<a href="#" data-toggle="popover" data-html="true" data-content="
-										{$LNG.gl_features}<br/>
-										{$LNG.gl_diameter} {$currentPlanet.moon.diameter|number}<br/>
-										{$LNG.gl_temperature} {$currentPlanet.moon.temp_min}<br/><br/>
-										{$LNG.gl_actions}<br/>
-										{if $currentPlanet.missions.1}
-											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=1'>{$LNG['type_mission_1']}</a>
-											<br>
-										{/if}
-										{if $currentPlanet.missions.3}
-											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=3'>{$LNG['type_mission_3']}</a>
-											<br>
-										{/if}
-										{if $currentPlanet.missions.3}
-											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=4'>{$LNG['type_mission_4']}</a>
-											<br>
-										{/if}
-										{if $currentPlanet.missions.5}
-											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=5'>{$LNG['type_mission_5']}</a>
-											<br>
-										{/if}
-										{if $currentPlanet.missions.6}
-											<a href='javascript:doit(6,{$currentPlanet.moon.id});'>{$LNG['type_mission_6']}</a>
-											<br>
-										{/if}
-										{if $currentPlanet.missions.9}
-											<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=9'>{$LNG['type_mission_9']}</a>
-											<br>
-										{/if}
-										{if $currentPlanet.missions.10}
-											<a href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=3'>{$LNG['type_mission_10']}</a>
-											<br>
-										{/if}
-										" data-original-title="{$LNG.gl_moon} {$currentPlanet.moon.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-										{if $currentPlanet.moon.lastActivity == 'lessthan15'}
-											<div class="galaxy-badge-e mt-1 mb-1 mx-auto planet-sprite sprite-mond" data-badge="e"></div>
-										{elseif $currentPlanet.moon.lastActivity == ''}
-											<div class="mt-1 mb-1 mx-auto planet-sprite sprite-mond"></div>
-										{else}
-											<div class="galaxy-badge-y mt-1 mb-1 mx-auto planet-sprite sprite-mond" data-badge="{$currentPlanet.moon.lastActivity}"></div>
-										{/if}
-									</a>
-								{/if}
-							</td>
-							<td class="align-middle">
-								{if $currentPlanet.debris}
-									<a href="#" data-toggle="popover" data-html="true" data-content="
-										{$LNG.gl_resources}:<br/>
-										{$LNG.tech.901}: {$currentPlanet.debris.metal|number}<br/>
-										{$LNG.tech.902}: {$currentPlanet.debris.crystal|number}
-										{if $currentPlanet.missions.8}
-											<br/><br/>
-											{$LNG.gl_actions}<br/>
-											<a href='javascript:doit(8, {$currentPlanet.planet.id});'>{$LNG['type_mission_8']}</a>
-										{/if}
-									" data-original-title="{$LNG.gl_debris_field} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
-									<div class="mx-auto planet-sprite sprite-debris"></div>
-									</a>
-								{/if}
-							</td>
-							<td class="align-middle">
-								<a href="#" data-toggle="popover" data-html="true" data-content="
-									{$currentPlanet.user.playerrank}<br/>
-									{if !$currentPlanet.ownPlanet}
-										{if $currentPlanet.user.isBuddy}
-											{$LNG.gl_buddy_request}
-											<br/>
-										{/if}
-										<a href='#' onclick='PM({$currentPlanet.user.id},``)' data-toggle='modal' data-target='#messageModal'>{$LNG.write_message}</a>
-										<br/>
-										<a href='#' onclick='playerCard({$currentPlanet.user.id})' data-toggle='modal' data-target='#playerModal'>{$LNG.gl_playercard}</a>
-										<br/>
-										<a href='?page=statistics&amp;who=1&amp;start={$currentPlanet.user.rank}'>{$LNG.gl_see_on_stats}</a>
-									{else}
-										<a href='#' onclick='playerCard({$currentPlanet.user.id})' data-toggle='modal' data-target='#playerModal'>{$LNG.gl_myplayercard}</a>
-									{/if}
-								" data-original-title="{$currentPlanet.user.username}" data-placement="bottom">
-								<span class="{foreach $currentPlanet.user.class as $class}{if !$class@first} {/if}galaxy-username-{$class}{/foreach} galaxy-username">
-									{$currentPlanet.user.username}
-								</span>
-								{if !empty($currentPlanet.user.class)}
-									<span>(</span>
-										{foreach $currentPlanet.user.class as $class}
-											{if !$class@first}
-												&nbsp;
+		<div class="col-md-12">
+			<div class="card border-0">
+				<div class="card-header">
+					{$LNG.lm_galaxy}
+					<div class="card-actions">
+						<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#galaxy-main" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
+					</div>
+				</div>
+				<div class="card-body-container collapse show" id="galaxy-main">
+					<div class="card-body p-0">
+						<div class="row">
+							<div class="col-12">
+								<a class="btn btn-warning btn-block" href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$max_planets + 1}&amp;planettype=1&amp;target_mission=15">{$LNG.gl_out_space}</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class="table-responsive">
+									<table class="table table-striped table-sm text-center">
+										<tr>
+											<th>{$LNG.gl_pos}</th>
+											<th>{$LNG.gl_planet}</th>
+											<th class="d-none d-md-table-cell">{$LNG.gl_name_activity}</th>
+											<th>{$LNG.gl_moon}</th>
+											<th>{$LNG.gl_debris}</th>
+											<th>{$LNG.gl_player_estate}</th>
+											<th>{$LNG.gl_alliance}</th>
+											<th class="d-none d-md-table-cell">{$LNG.gl_actions}</th>
+										</tr>
+										{for $planet=1 to $max_planets}
+											<tr>
+											{if !isset($GalaxyRows[$planet])}
+												<td class="align-middle">
+													<a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=7">{$planet}</a>
+												</td>
+												<td></td>
+												<td class="d-none d-md-table-cell align-middle"></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td class="d-none d-md-table-cell"></td>
+											{elseif $GalaxyRows[$planet] === false}
+												<td class="align-middle">
+													{$planet}
+												</td>
+												<td></td>
+												<td class="d-none d-md-table-cell align-middle">{$LNG.gl_planet_destroyed}</td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td></td>
+												<td class="d-none d-md-table-cell align-middle"></td>
+											{else}
+												<td class="align-middle">
+													{$planet}
+												</td>
+												{$currentPlanet = $GalaxyRows[$planet]}
+												<td class="align-middle">
+													<a href="#" data-toggle="popover" data-html="true" data-content="
+														{if $currentPlanet.missions.6}
+															<a href='javascript:doit(6,{$currentPlanet.planet.id});'>{$LNG['type_mission_6']}</a>
+															<br><br>
+														{/if}
+														{if $currentPlanet.planet.phalanx}
+															<a href='javascript:OpenPopup(&quot;?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&quot;, &quot;&quot;, 640, 510);'>{$LNG.gl_phalanx}</a>
+															<br>
+														{/if}
+														{if $currentPlanet.missions.1}
+															<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=1'>{$LNG['type_mission_1']}</a>
+														<br>
+														{/if}
+														{if $currentPlanet.missions.5}
+															<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=5'>{$LNG['type_mission_5']}</a>
+															<br>
+														{/if}
+														{if $currentPlanet.missions.4}
+															<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=4'>{$LNG['type_mission_4']}</a>
+															<br>
+														{/if}
+														{if $currentPlanet.missions.3}
+															<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=3'>{$LNG['type_mission_3']}</a>
+															<br>{/if}
+														{if $currentPlanet.missions.10}
+															<a href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}'>{$LNG['type_mission_10']}</a>
+															<br>
+														{/if}
+													" data-original-title="{$LNG.gl_planet} {$currentPlanet.planet.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
+													{if $currentPlanet.lastActivity == 'lessthan15'}
+														<div class="galaxy-badge-e mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="e"></div>
+													{elseif $currentPlanet.lastActivity == ''}
+														<div class="mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}"></div>
+													{else}
+														<div class="galaxy-badge-y mt-1 mb-1 mx-auto planet-sprite sprite-{$currentPlanet.planet.image}" data-badge="{$currentPlanet.lastActivity}"></div>
+													{/if}
+													</a>
+												</td>
+												<td class="d-none d-md-table-cell align-middle">{$currentPlanet.planet.name}</td>
+												<td>
+													{if $currentPlanet.moon}
+														<a href="#" data-toggle="popover" data-html="true" data-content="
+															{$LNG.gl_features}<br/>
+															{$LNG.gl_diameter} {$currentPlanet.moon.diameter|number}<br/>
+															{$LNG.gl_temperature} {$currentPlanet.moon.temp_min}<br/><br/>
+															{$LNG.gl_actions}<br/>
+															{if $currentPlanet.missions.1}
+																<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=1'>{$LNG['type_mission_1']}</a>
+																<br>
+															{/if}
+															{if $currentPlanet.missions.3}
+																<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=3'>{$LNG['type_mission_3']}</a>
+																<br>
+															{/if}
+															{if $currentPlanet.missions.3}
+																<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=4'>{$LNG['type_mission_4']}</a>
+																<br>
+															{/if}
+															{if $currentPlanet.missions.5}
+																<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=5'>{$LNG['type_mission_5']}</a>
+																<br>
+															{/if}
+															{if $currentPlanet.missions.6}
+																<a href='javascript:doit(6,{$currentPlanet.moon.id});'>{$LNG['type_mission_6']}</a>
+																<br>
+															{/if}
+															{if $currentPlanet.missions.9}
+																<a href='?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=3&amp;target_mission=9'>{$LNG['type_mission_9']}</a>
+																<br>
+															{/if}
+															{if $currentPlanet.missions.10}
+																<a href='?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=3'>{$LNG['type_mission_10']}</a>
+																<br>
+															{/if}
+															" data-original-title="{$LNG.gl_moon} {$currentPlanet.moon.name} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
+															{if $currentPlanet.moon.lastActivity == 'lessthan15'}
+																<div class="galaxy-badge-e mt-1 mb-1 mx-auto planet-sprite sprite-mond" data-badge="e"></div>
+															{elseif $currentPlanet.moon.lastActivity == ''}
+																<div class="mt-1 mb-1 mx-auto planet-sprite sprite-mond"></div>
+															{else}
+																<div class="galaxy-badge-y mt-1 mb-1 mx-auto planet-sprite sprite-mond" data-badge="{$currentPlanet.moon.lastActivity}"></div>
+															{/if}
+														</a>
+													{/if}
+												</td>
+												<td class="align-middle">
+													{if $currentPlanet.debris}
+														<a href="#" data-toggle="popover" data-html="true" data-content="
+															{$LNG.gl_resources}:<br/>
+															{$LNG.tech.901}: {$currentPlanet.debris.metal|number}<br/>
+															{$LNG.tech.902}: {$currentPlanet.debris.crystal|number}
+															{if $currentPlanet.missions.8}
+																<br/><br/>
+																{$LNG.gl_actions}<br/>
+																<a href='javascript:doit(8, {$currentPlanet.planet.id});'>{$LNG['type_mission_8']}</a>
+															{/if}
+														" data-original-title="{$LNG.gl_debris_field} [{$galaxy}:{$system}:{$planet}]" data-placement="bottom">
+														<div class="mx-auto planet-sprite sprite-debris"></div>
+														</a>
+													{/if}
+												</td>
+												<td class="align-middle">
+													<a href="#" data-toggle="popover" data-html="true" data-content="
+														{$currentPlanet.user.playerrank}<br/>
+														{if !$currentPlanet.ownPlanet}
+															{if $currentPlanet.user.isBuddy}
+																{$LNG.gl_buddy_request}
+																<br/>
+															{/if}
+															<a href='#' onclick='PM({$currentPlanet.user.id},``)' data-toggle='modal' data-target='#messageModal'>{$LNG.write_message}</a>
+															<br/>
+															<a href='#' onclick='playerCard({$currentPlanet.user.id})' data-toggle='modal' data-target='#playerModal'>{$LNG.gl_playercard}</a>
+															<br/>
+															<a href='?page=statistics&amp;who=1&amp;start={$currentPlanet.user.rank}'>{$LNG.gl_see_on_stats}</a>
+														{else}
+															<a href='#' onclick='playerCard({$currentPlanet.user.id})' data-toggle='modal' data-target='#playerModal'>{$LNG.gl_myplayercard}</a>
+														{/if}
+													" data-original-title="{$currentPlanet.user.username}" data-placement="bottom">
+													<span class="{foreach $currentPlanet.user.class as $class}{if !$class@first} {/if}galaxy-username-{$class}{/foreach} galaxy-username">
+														{$currentPlanet.user.username}
+													</span>
+													{if !empty($currentPlanet.user.class)}
+														<span>(</span>
+															{foreach $currentPlanet.user.class as $class}
+																{if !$class@first}
+																	&nbsp;
+																{/if}
+																<span class="galaxy-short-{$class} galaxy-short">
+																	{$ShortStatus.$class}
+																</span>
+															{/foreach}
+														<span>)</span>
+													{/if}
+													</a>
+												</td>
+												<td class="align-middle">
+													{if $currentPlanet.alliance}
+														
+														<a href="#" data-toggle="popover" data-html="true" data-content="
+															{$currentPlanet.alliance.member}
+															<br/>
+															{if $currentPlanet.alliance.class}
+																<a href='?page=alliance'>{$LNG.gl_alliance_page}</a>
+															{else}
+																<a href='?page=alliance&amp;mode=info&amp;id={$currentPlanet.alliance.id}'>{$LNG.gl_alliance_page}</a>
+															{/if}
+															<br/>
+															<a href='?page=statistics&amp;start={$currentPlanet.alliance.rank}&amp;who=2'>{$LNG.gl_see_on_stats}</a>
+															<br/>
+															{if $currentPlanet.alliance.web}
+																<a href='{$currentPlanet.alliance.web}' target='allyweb'>{$LNG.gl_alliance_web_page}</a>
+															{/if}
+														" data-original-title="{$currentPlanet.alliance.name}" data-placement="bottom">
+															<span class="{foreach $currentPlanet.alliance.class as $class}{if !$class@first} {/if}galaxy-alliance-{$class}{/foreach} galaxy-alliance">{$currentPlanet.alliance.tag}</span>
+														</a>
+													{else}
+														-
+													{/if}
+												</td>
+												<td class="d-none d-md-table-cell align-middle text-left">
+													{if $currentPlanet.action}
+														{if $currentPlanet.action.esp}
+															<a class="mr-2" href="javascript:doit(6,{$currentPlanet.planet.id},{$spyShips|json|escape:'html'})">
+																<i class="fa fa-eye"></i>
+															</a>
+														{/if}
+														{if $currentPlanet.action.message}
+															<a class="mr-2" href="#" onclick="PM({$currentPlanet.user.id},'')" data-toggle="modal" data-target="#messageModal">
+																<i class="fa fa-envelope-o"></i>
+															</a>
+														{/if}
+														{if $currentPlanet.action.buddy}
+															<a class="mr-2" href="#" onclick="return Dialog.Buddy({$currentPlanet.user.id})">
+																<i class="fa fa-magic"></i>
+															</a>
+														{/if}
+														{if $currentPlanet.action.missle}
+															<a class="mr-2" href="?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=1">
+																<i class="fa fa-bolt"></i>
+															</a>
+														{/if}
+													{/if}
+													{if $currentPlanet.planet.phalanx}
+														<a class="textForBlind" href="#" onclick="OpenPopup('?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1','',640,510);return false;"><i class="fa fa-assistive-listening-systems"></i>
+														</a>
+													{/if}
+												</td>
 											{/if}
-											<span class="galaxy-short-{$class} galaxy-short">
-												{$ShortStatus.$class}
-											</span>
-										{/foreach}
-									<span>)</span>
-								{/if}
-								</a>
-							</td>
-							<td class="align-middle">
-								{if $currentPlanet.alliance}
-									
-									<a href="#" data-toggle="popover" data-html="true" data-content="
-										{$currentPlanet.alliance.member}
-										<br/>
-										{if $currentPlanet.alliance.class}
-											<a href='?page=alliance'>{$LNG.gl_alliance_page}</a>
-										{else}
-											<a href='?page=alliance&amp;mode=info&amp;id={$currentPlanet.alliance.id}'>{$LNG.gl_alliance_page}</a>
-										{/if}
-										<br/>
-										<a href='?page=statistics&amp;start={$currentPlanet.alliance.rank}&amp;who=2'>{$LNG.gl_see_on_stats}</a>
-										<br/>
-										{if $currentPlanet.alliance.web}
-											<a href='{$currentPlanet.alliance.web}' target='allyweb'>{$LNG.gl_alliance_web_page}</a>
-										{/if}
-									" data-original-title="{$currentPlanet.alliance.name}" data-placement="bottom">
-										<span class="{foreach $currentPlanet.alliance.class as $class}{if !$class@first} {/if}galaxy-alliance-{$class}{/foreach} galaxy-alliance">{$currentPlanet.alliance.tag}</span>
-									</a>
-								{else}
-									-
-								{/if}
-							</td>
-							<td class="d-none d-md-table-cell align-middle text-left">
-								{if $currentPlanet.action}
-									{if $currentPlanet.action.esp}
-										<a class="mr-2" href="javascript:doit(6,{$currentPlanet.planet.id},{$spyShips|json|escape:'html'})">
-											<i class="fa fa-eye"></i>
-										</a>
-									{/if}
-									{if $currentPlanet.action.message}
-										<a class="mr-2" href="#" onclick="PM({$currentPlanet.user.id},'')" data-toggle="modal" data-target="#messageModal">
-											<i class="fa fa-envelope-o"></i>
-										</a>
-									{/if}
-									{if $currentPlanet.action.buddy}
-										<a class="mr-2" href="#" onclick="return Dialog.Buddy({$currentPlanet.user.id})">
-											<i class="fa fa-magic"></i>
-										</a>
-									{/if}
-									{if $currentPlanet.action.missle}
-										<a class="mr-2" href="?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=1">
-											<i class="fa fa-bolt"></i>
-										</a>
-									{/if}
-								{/if}
-								{if $currentPlanet.planet.phalanx}
-									<a class="textForBlind" href="#" onclick="OpenPopup('?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1','',640,510);return false;"><i class="fa fa-assistive-listening-systems"></i>
-									</a>
-								{/if}
-							</td>
-						{/if}
-						</tr>
-					{/for}
-				<tr>
-					<td colspan="2">
-						<a href="#" data-toggle="popover" data-html="true" data-content="
-							<table>
-								<tr>
-								<td>
-										{$LNG.gl_alliance_member}
-									</td>
-									<td>
-										<span class='galaxy-alliance-member'>{$LNG.gl_short_member}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_alliance_enemy}
-									</td>
-									<td>
-										<span class='galaxy-alliance-enemy'>{$LNG.gl_short_enemy}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_alliance_pact}
-									</td>
-									<td>
-										<span class='galaxy-alliance-pact'>{$LNG.gl_short_alliance_pact}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_strong_player}
-									</td>
-									<td>
-										<span class='galaxy-short-strong'>{$LNG.gl_short_strong}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_week_player}
-									</td>
-									<td>
-										<span class='galaxy-short-noob'>{$LNG.gl_short_newbie}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_vacation}
-									</td>
-									<td>
-										<span class='galaxy-short-vacation'>{$LNG.gl_short_vacation}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_banned}
-									</td>
-									<td>
-										<span class='galaxy-short-banned'>{$LNG.gl_short_ban}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_inactive_seven}
-									</td>
-									<td>
-										<span class='galaxy-short-inactive'>{$LNG.gl_short_inactive}</span>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										{$LNG.gl_inactive_twentyeight}
-									</td>
-									<td>
-										<span class='galaxy-short-longinactive'>{$LNG.gl_short_long_inactive}</span>
-									</td>
-								</tr>
-							</table>
-						" data-original-title="{$LNG.gl_legend}" data-placement="bottom">
-						{$LNG.gl_legend}
-						</a>
-					</td>
-					<td colspan="6" class="text-center">({$planetcount})</td>
-				</tr>
-				</table>
+											</tr>
+										{/for}
+									<tr>
+										<td colspan="2">
+											<a href="#" data-toggle="popover" data-html="true" data-content="
+												<table>
+													<tr>
+													<td>
+															{$LNG.gl_alliance_member}
+														</td>
+														<td>
+															<span class='galaxy-alliance-member'>{$LNG.gl_short_member}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_alliance_enemy}
+														</td>
+														<td>
+															<span class='galaxy-alliance-enemy'>{$LNG.gl_short_enemy}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_alliance_pact}
+														</td>
+														<td>
+															<span class='galaxy-alliance-pact'>{$LNG.gl_short_alliance_pact}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_strong_player}
+														</td>
+														<td>
+															<span class='galaxy-short-strong'>{$LNG.gl_short_strong}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_week_player}
+														</td>
+														<td>
+															<span class='galaxy-short-noob'>{$LNG.gl_short_newbie}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_vacation}
+														</td>
+														<td>
+															<span class='galaxy-short-vacation'>{$LNG.gl_short_vacation}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_banned}
+														</td>
+														<td>
+															<span class='galaxy-short-banned'>{$LNG.gl_short_ban}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_inactive_seven}
+														</td>
+														<td>
+															<span class='galaxy-short-inactive'>{$LNG.gl_short_inactive}</span>
+														</td>
+													</tr>
+													<tr>
+														<td>
+															{$LNG.gl_inactive_twentyeight}
+														</td>
+														<td>
+															<span class='galaxy-short-longinactive'>{$LNG.gl_short_long_inactive}</span>
+														</td>
+													</tr>
+												</table>
+											" data-original-title="{$LNG.gl_legend}" data-placement="bottom">
+											{$LNG.gl_legend}
+											</a>
+										</td>
+										<td colspan="6" class="text-center">({$planetcount})</td>
+									</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="row mt-4">
+	<div class="row">
 		<div class="col-md-12">
 			<div class="card border-0">
 				<div class="card-header">
