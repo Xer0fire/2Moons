@@ -12,6 +12,9 @@
 				<div class="col-12 col-md-auto">
 					<a href="game.php?page=alliance&amp;mode=admin&amp;action=members">{$LNG.al_manage_members}</a>
 				</div>
+				{if $rights.SEEAPPLY || $rights.MANAGEAPPLY}
+					<a href="game.php?page=alliance&mode=admin&amp;action=mangeApply">{$LNG.al_manage_apply}</a>
+				{/if}
 				{if $rights.DIPLOMATIC}
 					<div class="col-12 col-md-auto">
 						<a href="game.php?page=alliance&amp;mode=admin&amp;action=diplomacy">{$LNG.al_manage_diplo}</a>
