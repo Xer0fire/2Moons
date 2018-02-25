@@ -2,12 +2,12 @@
 	<script type="text/javascript">
 		function check(){
 			if($('#text').val().length == 0) {
-				toastr["error"]('{$LNG.mg_empty_text}','Error');
+				toastr["error"]('{$LNG.mg_empty_text}',"{$LNG.toastr_error}");
 				return false;
 			} else {
 				$('submit').attr('disabled','disabled');
 				$.post('game.php?page=messages&mode=send&id={$id}&ajax=1', $('#message').serialize(), function(data) {
-					toastr["success"](data,'Success');
+					toastr["success"](data,"{$LNG.toastr_success}");
 					return true;
 				}, 'json');
 				$('#messageModal').modal('hide');
