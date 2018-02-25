@@ -59,6 +59,10 @@ $LNG['admin_access_1']				    	= 'Players have access temporarily s administrati
 $LNG['admin_access_link']				    = 'Disable this access';
 $LNG['admin_access_2']				    	= ", If you don't need any longer";
 
+$LNG['toastr_error']						= "Error";
+$LNG['toastr_info']							= "Info";
+$LNG['toastr_warning']						= "Warning";
+$LNG['toastr_success']						= "Success";
 
 //----------------------------------------------------------------------------//
 // Topnav
@@ -583,6 +587,7 @@ $LNG['al_already_exists']					= 'The Alliance %s already exists.';
 $LNG['al_created']					        = 'The Alliance %s was created';
 $LNG['al_continue']							= 'Continue';
 $LNG['al_alliance_closed']			        = 'This Alliance does not support more members';
+$LNG['al_manage_apply']						= 'Applications';
 $LNG['al_request_confirmation_message']     = 'Registered application. You will receive a message when youre accepted or/rejected. <br><a href="game.php?page=alliance">back</a>';
 $LNG['al_default_request_text']		        = 'The leader of the Alliance didnt wrote any message of introduction.';
 $LNG['al_write_request']					= 'Writes the application to the Alliance %s';
@@ -768,6 +773,7 @@ $LNG['al_diplo_no_alliance']				= 'There is no alliance with the name of %s!';
 $LNG['al_diplo_info']						= '<p>Here is displayed different kinds of Alliance and can see your Covenants [TODO: FAQ]</p>';
 $LNG['al_leave_ally']						= 'Are you sure to leave the Alliance?';
 $LNG['al_default_leader_name']				= 'Leader';
+$LNG['al_rank_adjust']						= 'Rank adjusted';
 $LNG['al_rank_name']						= 'Name';
 $LNG['al_rank_desc']['MEMBERLIST']			= 'Can see the members';
 $LNG['al_rank_desc']['ONLINESTATE']			= 'Can see who is online';
@@ -1181,8 +1187,8 @@ $LNG['ft_count']							= 'Number';
 $LNG['ft_max']								= 'max';
 $LNG['ft_total']							= 'TOTAL';
 $LNG['ft_charge']							= 'Merchant rate';
-$LNG['ft_absenden']							= 'Send';	
-$LNG['ft_empty']							= 'Empty';	
+$LNG['ft_absenden']							= 'Send';
+$LNG['ft_empty']							= 'Empty';
 
 //----------------------------------------------------------------------------//
 // Logout

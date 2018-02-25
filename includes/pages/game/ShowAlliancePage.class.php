@@ -1421,7 +1421,7 @@ class ShowAlliancePage extends AbstractGamePage
 			));
 		}
 
-		$this->sendJSON($LNG['fl_shortcut_saved']);
+		$this->sendJSON($LNG['al_rank_adjust']);
 	}
 
 	protected function adminMembersKick()
