@@ -76,7 +76,11 @@
 	  {/if}
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img src="styles/resources/img/default_avatar.png" class="img-avatar" alt="player-avatar">
+			{if $uncompresedIMG == 1}
+              <img src="styles/resources/img/default_avatar.jpg" class="img-avatar" alt="player-avatar">
+			{else}
+              <img src="styles/resources/img/c_default_avatar.jpg" class="img-avatar" alt="player-avatar">
+			{/if}
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-header text-center">

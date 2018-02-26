@@ -20,9 +20,6 @@
 	background-color: transparent;
 	border: 0;
 }
-.app-body{
-	background: #252831 url(../img/bg.jpg) top center;
-}
 .popover {
 	z-index: 1000;
 }
@@ -36,7 +33,6 @@
 	min-width: 18rem;
 }
 .app-footer {
-	background: #1e2026 url(../img/bg_footer.jpg) no-repeat bottom center;
 	color: #fff;
 	border-top: solid 1px #30333c;
 }

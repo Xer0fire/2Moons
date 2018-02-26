@@ -29,7 +29,11 @@
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
 		<link href="./styles/resources/css/custom.css" rel="stylesheet">
-		<link href="{$dpath}theme.min.css" rel="stylesheet">
+		{if $uncompresedIMG == 1}
+			<link href="{$dpath}theme.min.css" rel="stylesheet">
+		{else}
+			<link href="{$dpath}c_theme.min.css" rel="stylesheet">
+		{/if}
 	</head>
 
 	<body class="preload app header-fixed sidebar-fixed aside-menu-fixed">

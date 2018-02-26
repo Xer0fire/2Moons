@@ -1,11 +1,11 @@
 .app-body{
-    background: #252831 url(images/bg.jpg) top center;
+    background: #252831 url(images/c_bg.jpg) top center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
 .app-footer {
-    background: #1e2026 url(images/bg_footer.jpg) no-repeat bottom center;
+    background: #1e2026 url(images/c_bg_footer.jpg) no-repeat bottom center;
 }
 
 .res-sprite {
@@ -14,12 +14,12 @@
 }
 
 .build-sprite {
-    background-image: url(images/buildspritesheet.png);
+    background-image: url(images/c_buildspritesheet.png);
     background-repeat: no-repeat;
 }
 
 .planet-sprite {
-    background-image: url(images/planetspritesheet.png);
+    background-image: url(images/c_planetspritesheet.png);
     background-repeat: no-repeat;
 }
 

@@ -173,6 +173,18 @@
 						</label>
 					</div>
 				</div>
+				<div class="row mt-2">
+					<div class="col-7 col-md-6 align-self-center">
+						{$LNG.op_uncompressed_img}
+					</div>
+					<div class="col-4 col-md-6">
+						<label class="switch switch-text switch-lg switch-success">
+							<input class="switch-input" name="uncompresedIMG" type="checkbox" value="1" {if $uncompresedIMG == 1}checked="checked"{/if}>
+							<span class="switch-label" data-on="On" data-off="Off"></span>
+							<span class="switch-handle"></span>
+						</label>
+					</div>
+				</div>
 				<div class="row mt-4">
 					<div class="col">
 						<p class="h5">{$LNG.op_galaxy_settings}</p>
