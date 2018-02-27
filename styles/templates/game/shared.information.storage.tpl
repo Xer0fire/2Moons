@@ -22,11 +22,11 @@
 				</tr>
 				{foreach $productionTable.storage as $elementLevel => $productionData}
 				<tr>
-					<td><span{if $CurrentLevel == $elementLevel} style="color:#ff0000"{/if}>{$elementLevel}</span></td>
+					<td><span{if $CurrentLevel == $elementLevel} class="text-red"{/if}>{$elementLevel}</span></td>
 					{foreach $productionData as $resourceID => $storage}
 					{$storageDiff = $storage - $productionTable.storage.$CurrentLevel.$resourceID}
-					<td><span style="color:{if $storage > 0}lime{elseif $storage < 0}red{else}white{/if}">{$storage|number}</span></td>
-					<td><span style="color:{if $storageDiff > 0}lime{elseif $storageDiff < 0}red{else}white{/if}">{$storageDiff|number}</span></td>
+					<td><span class="{if $storage > 0}text-green{elseif $storage < 0}text-red{/if}">{$storage|number}</span></td>
+					<td><span class="{if $storageDiff > 0}text-green{elseif $storageDiff < 0}text-red{/if}">{$storageDiff|number}</span></td>
 					{/foreach}
 				</tr>
 				{/foreach}

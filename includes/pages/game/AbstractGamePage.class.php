@@ -237,12 +237,13 @@ abstract class AbstractGamePage
 			switch ($_GET['page']){
 				case "logout":
 					$this->assign(array(
+						'uncompresedIMG'	=> 0,
 						'shortlyNumber'		=> 0,
 						'resourceTable'		=> 0,
-						'closed'		=> 0,
-						'vacation'		=> 0,
-						'delete'		=> 0,
-						'hasGate'		=> 0,
+						'closed'			=> 0,
+						'vacation'			=> 0,
+						'delete'			=> 0,
+						'hasGate'			=> 0,
 					));
 				break;
 			}

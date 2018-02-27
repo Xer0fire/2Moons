@@ -22,11 +22,11 @@
 				</tr>
 				{foreach $productionTable.protected as $elementLevel => $productionData}
 				<tr>
-					<td><span{if $CurrentLevel == $elementLevel} style="color:#ff0000"{/if}>{$elementLevel}</span></td>
+					<td><span{if $CurrentLevel == $elementLevel} class="text-red"{/if}>{$elementLevel}</span></td>
 					{foreach $productionData as $resourceID => $protected}
 					{$protectedDiff = $protected - $productionTable.protected.$CurrentLevel.$resourceID}
-					<td><span style="color:{if $protected > 0}lime{elseif $protected < 0}red{else}white{/if}">{$protected|number}</span></td>
-					<td><span style="color:{if $protectedDiff > 0}lime{elseif $protectedDiff < 0}red{else}white{/if}">{$protectedDiff|number}</span></td>
+					<td><span class="{if $protected > 0}text-green{elseif $protected < 0}text-red{/if}">{$protected|number}</span></td>
+					<td><span class="{if $protectedDiff > 0}text-green{elseif $protectedDiff < 0}text-red{/if}">{$protectedDiff|number}</span></td>
 					{/foreach}
 				</tr>
 				{/foreach}
