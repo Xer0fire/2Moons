@@ -19,10 +19,8 @@
 				<div class='popover nav-popover' role='tooltip'><div class='arrow'></div><h3 class='popover-header'></h3><div class='popover-body'></div></div>
 			" data-content="
 				Production per hour: {$resourceData.production|number}
-				{if $resourceData.current < $resourceData.max}
 				<br/>
-				Max Storage: {$resourceData.max|number}
-				{/if}
+				Max storage: {$resourceData.max|number}
 			" data-original-title="{$resourceData.LNGname}" data-placement="bottom">
 				<div class="res-sprite sprite-{$resourceData.name}"></div>
 			</a>
@@ -38,7 +36,7 @@
 				{/if}<br/>
 				{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
 				{else}
-					<span class="res_fullin text-green" id="fullin_{$resourceData.name}" data-prod="{$resourceData.production}"></span>
+					<small><span class="res_fullin text-green" id="fullin_{$resourceData.name}" data-prod="{$resourceData.production}"></span> <span id="fullin_{$resourceData.name}_f0" class="res_fullin_f0"></span></small>
 				{/if}
 			</div>
 			{/if}

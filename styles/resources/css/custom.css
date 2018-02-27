@@ -175,10 +175,10 @@ form, .card-body .form-group {
 .bs-popover-auto[x-placement^=bottom] .popover-header::before, .bs-popover-bottom .popover-header::before {
 	border: 0;
 }
-body {
+body, .text-default{
 	color: #ddd;
 }
-.nav-item .res_current {
+.nav-item .res_current, .nav-item .res_fullin_f0 {
 	color: #333;
 }
 .table-striped tbody tr:nth-of-type(odd) {

@@ -39,8 +39,11 @@ function getRessource(name) {
 }
 
 function getRestStorage(config, init) {
-	if(typeof init !== "undefined" && init === true)
+	if(typeof init !== "undefined" && init === true) {
 		window.setInterval(function(){getRestStorage(config)}, 1000);
+		var time2fill = config.max[1] / (parseFloat(config.prod) / 3600);
+		$('#'+config.valueElem+'_f0').html('('+_timeformat(time2fill)+')');
+	}
 
 	var element = $('#'+config.valueElem)
 	if(element.hasClass('text-red'))
@@ -63,6 +66,6 @@ function getRestStorage(config, init) {
 	} else {
 		element.removeClass('text-green');
 		element.addClass('text-red');
-		element.html(number_format(config.max[1]));
+		element.empty();
 	}
 }
