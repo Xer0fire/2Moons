@@ -30,12 +30,14 @@
 										<button type="button" onclick="togglePassword()" class="btn btn-warning"><i id="unmask" class="fa fa-eye"></i></button>
 									</div>
 								</div>
+								<!--
 								<div class="input-group mb-3 text-right">
 									<div class="form-check form-check-inline">
 										<input class="form-check-input" type="checkbox" id="rememberme" name="rememberme[]" value="remeberme">
 										<label class="form-check-label" for="rememberme">Remember me on this computer</label>
 									</div>
 								</div>
+								-->
 								<div class="row">
 									{if $mailEnable}
 										<div class="col-6">

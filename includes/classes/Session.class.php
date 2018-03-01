@@ -258,6 +258,9 @@ class Session
 			':sessionId'	=> session_id(),
 		));
 
+		$HTTP_ROOT = MODE === 'INSTALL' ? dirname(HTTP_ROOT) : HTTP_ROOT;
+		unset($_COOKIE['omicron']);
+		setcookie('omicron', null, -1, $HTTP_ROOT);
 		@session_destroy();
 	}
 

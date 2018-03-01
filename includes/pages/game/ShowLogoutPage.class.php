@@ -28,7 +28,8 @@ class ShowLogoutPage extends AbstractGamePage
 	
 	function show() 
 	{
-		Session::load()->delete();
+		$session = new Session;
+		$session->delete();
 		$this->display('page.logout.default.tpl');
 	}
 }

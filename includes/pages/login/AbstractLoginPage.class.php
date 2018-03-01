@@ -35,6 +35,10 @@ abstract class AbstractLoginPage
 		} else {
 			$this->setWindow('ajax');
 		}
+
+		if(isset($_COOKIE['omicron'])) {
+			HTTP::redirectTo('game.php');
+		}
 	}
 
 	protected function getUniverseSelector()
