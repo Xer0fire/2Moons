@@ -141,7 +141,7 @@ define('BASH_TIME'					, 86400);
 // Bash rule on wars:
 // 0 = NORMAL
 // 1 = ON WAR, BASH RULE IS DEACTIVE
-define('BASH_WAR'					, 0);
+define('BASH_WAR'					, 1);
 
 // MINIMUM FLEET TIME MUST HIGHER THEN BASH_TIME
 define('FLEETLOG_AGE'				, 86400);	
