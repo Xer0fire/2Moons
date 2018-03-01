@@ -1,32 +1,31 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]> <html lang="{$lang}" class="no-js ie6"> <![endif]-->
-<!--[if IE 7 ]>    <html lang="{$lang}" class="no-js ie7"> <![endif]-->
-<!--[if IE 8 ]>    <html lang="{$lang}" class="no-js ie8"> <![endif]-->
-<!--[if IE 9 ]>    <html lang="{$lang}" class="no-js ie9"> <![endif]-->
-<!--[if (gt IE 9)|!(IE)]><!--> <html lang="{$lang}" class="no-js"> <!--<![endif]-->
-<head>
-	<link rel="stylesheet" type="text/css" href="styles/resource/css/login/main.css?v={$REV}">
-	<link rel="stylesheet" type="text/css" href="styles/resource/css/base/jquery.fancybox.css?v={$REV}">
-	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-	<title>{block name="title"} - {$gameName}{/block}</title>
-	<meta name="generator" content="2Moons {$VERSION}">
-	<!-- 
-		This website is powered by 2Moons {$VERSION}
-		2Moons is a free Space Browsergame initially created by Jan-Otto Kröpke and licensed under MIT.
-		2Moons is copyright 2009-2016 of Jan-Otto Kröpke. Extensions are copyright of their respective owners.
-		Information and contribution at https://github.com/jkroepke/2Moons/
-	-->
-	<meta name="keywords" content="Weltraum Browsergame, XNova, 2Moons, Space, Private, Server, Speed">
-	<meta name="description" content="2Moons Browsergame powerd by https://github.com/jkroepke/2Moons/"> <!-- Noob Check :) -->
-	<!--[if lt IE 9]>
-	<script src="scripts/base/html5.js"></script>
-	<![endif]-->
-	<script src="scripts/base/jquery.js?v={$REV}"></script>
-	<script src="scripts/base/jquery.cookie.js?v={$REV}"></script>
-	<script src="scripts/base/jquery.fancybox.js?v={$REV}"></script>
-	<script src="scripts/login/main.js"></script>
-	<script>{if isset($code)}var loginError = {$code|json};{/if}</script>
-	{block name="script"}{/block}	
-</head>
-<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass}">
-	<div id="page">
+<html lang="{$lang}">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="{$gameName} - Space-war themed multiplayer online browser game">
+		<meta name="keywords" content="Space War, Space, War, Multiplayer Online Browser Game, Multiplayer, Online, Browser Game, Browsergame, Text based game, Timer based game, 2Moons, XNova">
+		<meta name="theme-color" content="#252831"/>
+		<meta name="generator" content="2Moons {$VERSION}">
+		<!--
+			This website is powered by 2Moons {$VERSION}
+			2Moons is a free Space Browsergame initially created by Jan Kröpke and licensed under GNU/GPL.
+			2Moons is copyright 2009-2013 of Jan Kröpke. Extensions are copyright of their respective owners.
+			Information and contribution at http://2moons.cc/
+		-->
+		<link rel="manifest" href="{$dpath}manifest.json">
+		<link rel="shortcut icon" href="{$dpath}images/favicon.png">
+
+		<title>{block name="title"} - {$gameName}{/block}</title>
+
+		<!-- Main styles for this application -->
+		<link href="./styles/resources/css/style.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.6/cookieconsent.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
+		<link href="./styles/resources/css/login.css" rel="stylesheet">
+	</head>
+
+	<body id="{$smarty.get.page|htmlspecialchars|default:'overview'}" class="{$bodyclass} app flex-row align-items-center">

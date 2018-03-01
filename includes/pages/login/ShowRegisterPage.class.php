@@ -20,6 +20,7 @@ class ShowRegisterPage extends AbstractLoginPage
 	function __construct() 
 	{
 		parent::__construct();
+		$this->setWindow('light');
 	}
 	
 	function show()
@@ -113,7 +114,7 @@ class ShowRegisterPage extends AbstractLoginPage
 
 		$userName 		= HTTP::_GP('username', '', UTF8_SUPPORT);
 		$password 		= HTTP::_GP('password', '', true);
-		$password2 		= HTTP::_GP('passwordReplay', '', true);
+		//$password2 		= HTTP::_GP('passwordReplay', '', true);
 		$mailAddress 	= HTTP::_GP('email', '');
 		$mailAddress2	= HTTP::_GP('emailReplay', '');
 		$rulesChecked	= HTTP::_GP('rules', 0);
@@ -147,9 +148,9 @@ class ShowRegisterPage extends AbstractLoginPage
 			$errors[]	= $LNG['registerErrorPasswordLength'];
 		}
 			
-		if($password != $password2) {
-			$errors[]	= $LNG['registerErrorPasswordSame'];
-		}
+		//if($password != $password2) {
+		//	$errors[]	= $LNG['registerErrorPasswordSame'];
+		//}
 			
 		if(!PlayerUtil::isMailValid($mailAddress)) {
 			$errors[]	= $LNG['registerErrorMailInvalid'];

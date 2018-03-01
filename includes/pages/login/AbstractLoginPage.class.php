@@ -85,7 +85,7 @@ abstract class AbstractLoginPage
 	
 	protected function getPageData() 
     {		
-		global $LNG;
+		global $THEME, $LNG;
 
 		$config	= Config::get();
 
@@ -105,6 +105,7 @@ abstract class AbstractLoginPage
 			'VERSION'				=> $config->VERSION,
 			'REV'					=> substr($config->VERSION, -4),
 			'languages'				=> Language::getAllowedLangs(false),
+			'dpath'					=> $THEME->getTheme(),
 		));
 	}
 	

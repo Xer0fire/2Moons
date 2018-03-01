@@ -1,0 +1,46 @@
+@charset "UTF-8";
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+  transition: none !important;
+  display: none !important;
+}
+.text-red {
+	color: #d43635;
+}
+.text-green {
+	color: #9c0;
+}
+.text-orange {
+	color: #d29d00;
+}
+.app{
+	background: #252831 url(../../../styles/resources/img/login-bg.jpg);
+	background-repeat: repeat;
+}
+.card-special {
+	background-color: rgba(5, 5, 5, 0.9) !important;
+	border: 1px solid #444;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+.card-main {
+	background-color: rgba(255, 255, 255, 0.9) !important;
+	border: 1px solid #444;
+	border-top-left-radius: 2px;
+	border-top-right-radius: 2px;
+}
+break{
+  flex-basis: 100%;
+  width: 0px; 
+  height: 0px; 
+  overflow: hidden;
+}
+
+/* IE10 child fix: child elements must not be inline elements 
+   can be: block|inline-block|flex|inline-flex */
+break{ 
+  display: inline-block; 
+}

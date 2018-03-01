@@ -55,7 +55,7 @@ class ShowLoginPage extends AbstractLoginPage
 						':loginID'			=> $loginData['id']
 					));
 				} else {
-					HTTP::redirectTo('index.php?code=1');	
+					HTTP::redirectTo('index.php?code=1&username='.$username);	
 				}
 			}
 

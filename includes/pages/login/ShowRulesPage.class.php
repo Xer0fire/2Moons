@@ -28,6 +28,8 @@ class ShowRulesPage extends AbstractLoginPage
 	function show() 
 	{
 		global $LNG;
+        $this->initTemplate();
+        $this->setWindow('ajax');
 		$this->assign(array(
 			'rules'		=> $LNG->getTemplate('rules'),
 		));

@@ -44,26 +44,28 @@ $LNG['universe']					= 'Universe';
 $LNG['uni_closed']					= ' (closed)';
 
 // Button
-$LNG['buttonRegister']				= 'Regist Now!';
+$LNG['buttonRegisterNow']			= 'Register Now!';
+$LNG['buttonRegister']				= 'Register';
 $LNG['buttonScreenshot']			= 'Screenshots';
 $LNG['buttonLostPassword']			= 'Lost Password?';
 
 // Start
-$LNG['gameInformations']    		= "A space strategy game in real time.\nGame with hundreds of users.\nNo download, it only requires a standard browser.\nFree registration";
+$LNG['gameInformations']    		= "No download, it only requires a standard browser.\nFree registration";
 
 // Login
-$LNG['loginHeader']					= 'Login';
+$LNG['loginHeader']					= 'Sign In to your account';
 $LNG['loginUsername']				= 'Username';
 $LNG['loginPassword']				= 'Password';
 $LNG['loginButton']					= 'Login';
-$LNG['loginInfo']					= 'With the login I accept the %s.';
+$LNG['loginInfo']					= 'Upon login I accept the';
 $LNG['loginWelcome']				= 'Welcome to %s';
-$LNG['loginServerDesc']				= '%s is a space strategy game with hundreds of players playing together <strong>at the same time</strong> trying to be the best. Everything what you need to the play is a Standard Browser.';
+$LNG['loginServerDesc']				= '%s is a space strategy game with hundreds of players playing together at the same time. The only thing you need to the play is a Standard Browser.';
 
 // Register
+$LNG['registerNew']					= 'Register new account';
 $LNG['registerFacebookAccount']		= 'Facebook Account';
 $LNG['registerUsername']			= 'Username';
-$LNG['registerUsernameDesc']		= 'The Username must be at least 3 and maximum of 25 characters and points, and may consist of numbers, letters, underscores and spaces';
+$LNG['registerUsernameDesc']		= 'The Username must be between 3 and 25 characters long';
 $LNG['registerPassword']			= 'Password';
 $LNG['registerPasswordDesc']		= 'The password must be at least 8 characters long.';
 $LNG['registerPasswordReplay']		= 'Repeat Password';
@@ -78,12 +80,13 @@ $LNG['registerCaptcha']				= 'Security code';
 $LNG['registerCaptchaDesc']			= 'Please enter the characters below in the empty field. There does not have case sensitivity';
 $LNG['registerCaptchaReload']		= 'Reload Captcha.';
 $LNG['registerRules']				= 'Rules';
-$LNG['registerRulesDesc']			= 'I agree with the %s';
+$LNG['registerRulesDesc']			= 'I agree with the';
 
 $LNG['registerBack']				= 'Back';
 $LNG['registerNext']				= 'Next';
 
-$LNG['registerErrorUniClosed']		= 'The registration is closed in this universe.!';
+$LNG['registerError']				= 'Error!';
+$LNG['registerErrorUniClosed']		= 'The registration is closed in this universe!';
 $LNG['registerErrorUsernameEmpty']	= 'You must enter a username!';
 $LNG['registerErrorUsernameChar']	= 'Your username must consist in numbers, Letters, Spaces, _, -, . only!';
 $LNG['registerErrorUsernameExist']	= 'The username is already taken!';
@@ -136,6 +139,10 @@ $LNG['passwordNext']				= 'Next';
 
 //case default
 
+$LNG['toastr_error']				= 'Error';
+$LNG['toastr_warning']				= 'Warning';
+$LNG['toastr_info']					= 'Info';
+$LNG['toastr_success']				= 'Success';
 $LNG['login_error_1']				= 'Wrong username/password!';
 $LNG['login_error_2']				= 'Someone has logged in from a different PC in your account, or your IP is different!';
 $LNG['login_error_3']				= 'Your session has expired!';
