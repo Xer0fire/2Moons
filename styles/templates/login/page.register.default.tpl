@@ -71,10 +71,7 @@
 							{/if}
 							{if !empty($referralData.name)}
 								<div class="input-group mb-3">
-									<div class="input-group-prepend">
-										<span class="input-group-text"><i class="fa fa-tags"></i></span>
-									</div>
-									<span class="text">{$referralData.name}</span>
+									<span class="align-middle">{$LNG.registerReferral}{$referralData.name}</span>
 								</div>
 							{/if}
 							{if $recaptchaEnable}
