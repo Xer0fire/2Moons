@@ -15,9 +15,6 @@
  * @link https://github.com/jkroepke/2Moons
  */
 
-require 'includes/pages/game/OmicronShowInformationPage.class.php';
-require_once('AbstractGamePage.class.php');
-
 class ShowResearchPage extends AbstractGamePage
 {
 	public static $requireModule = MODULE_RESEARCH;
@@ -398,15 +395,12 @@ class ShowResearchPage extends AbstractGamePage
 			}
 		}
 
-		$infoObj = new OmicronShowInformationPage;
-
 		$this->assign(array(
 			'ResearchList'	=> $ResearchList,
 			'ResourceCost'	=> $ResourceCost,
 			'IsLabinBuild'	=> !$bContinue,
 			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || Config::get()->max_elements_tech == count($TechQueue),
 			'Queue'			=> $TechQueue,
-			'infoObj'		=> $infoObj,
 		));
 		
 		$this->display('page.research.default.tpl');
