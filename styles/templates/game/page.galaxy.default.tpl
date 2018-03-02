@@ -285,7 +285,7 @@
 														{$currentPlanet.user.playerrank}<br/>
 														{if !$currentPlanet.ownPlanet}
 															{if $currentPlanet.user.isBuddy}
-																{$LNG.gl_buddy_request}
+																<a href='#' onclick='friendReq({$currentPlanet.user.id})' data-toggle='modal' data-target='#friendReqModal'>{$LNG.gl_buddy_request}</a>
 																<br/>
 															{/if}
 															<a href='#' onclick='PM({$currentPlanet.user.id},``)' data-toggle='modal' data-target='#messageModal'>{$LNG.write_message}</a>
@@ -522,6 +522,19 @@
 					</button>
 				</div>
 				<div id="playerModalBody" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="friendReqModal" tabindex="-1" role="dialog" aria-labelledby="friendReqModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{$LNG.bu_request_message}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="friendReqModalBody" class="modal-body"></div>
 			</div>
 		</div>
 	</div>

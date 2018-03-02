@@ -29,7 +29,7 @@ class ShowBuddyListPage extends AbstractGamePage
 		global $USER, $LNG;
 		
 		$this->initTemplate();
-		$this->setWindow('popup');
+		$this->setWindow('ajax');
 		
 		$id	= HTTP::_GP('id', 0);
 		
@@ -72,15 +72,14 @@ class ShowBuddyListPage extends AbstractGamePage
 		global $USER, $LNG;
 		
 		$this->initTemplate();
-		$this->setWindow('popup');
-		$this->tplObj->execscript('window.setTimeout(parent.$.fancybox.close, 2000);');
+		$this->setWindow('ajax');
 		
 		$id		= HTTP::_GP('id', 0);
 		$text	= HTTP::_GP('text', '', UTF8_SUPPORT);
 
 		if($id == $USER['id'])
 		{
-			$this->printMessage($LNG['bu_cannot_request_yourself']);
+			$this->sendJSON($LNG['bu_cannot_request_yourself']);
 		}
 
         $db = Database::get();
@@ -119,13 +118,13 @@ class ShowBuddyListPage extends AbstractGamePage
 		$Friend_LNG = $LNG;
 		
 		if($USER['lang'] != $row['lang']){
-			$Friend_LNG = new Language($language);
+			$Friend_LNG = new Language($row['lang']);
 			$Friend_LNG->includeData(array('INGAME'));
 		}
 		
         PlayerUtil::sendMessage($id, $USER['id'], $USER['username'], 4, $Friend_LNG['bu_new_request_title'], sprintf($Friend_LNG['bu_new_request_body'], $row['username'], $USER['username']), TIMESTAMP);
 
-		$this->printMessage($LNG['bu_request_send']);
+		$this->sendJSON($LNG['bu_request_send']);
 	}
 	
 	function delete()
@@ -156,14 +155,14 @@ class ShowBuddyListPage extends AbstractGamePage
                     'userID'    => $USER['id']
                 ));
 				
-				$Enemy_LNG = $LNG;
+				$Friend_LNG = $LNG;
 				
 				if($USER['lang'] != $requestData['lang']){
-					$Enemy_LNG = new Language($language);
-					$Enemy_LNG->includeData(array('INGAME'));
+					$Friend_LNG = new Language($language);
+					$Friend_LNG->includeData(array('INGAME'));
 				}
 
-				PlayerUtil::sendMessage($requestData['id'], $USER['id'], $USER['username'], 4, $Enemy_LNG['bu_rejected_request_title'], sprintf($Enemy_LNG['bu_rejected_request_body'], $requestData['username'], $USER['username']), TIMESTAMP);
+				PlayerUtil::sendMessage($requestData['id'], $USER['id'], $USER['username'], 4, $Friend_LNG['bu_rejected_request_title'], sprintf($Friend_LNG['bu_rejected_request_body'], $requestData['username'], $USER['username']), TIMESTAMP);
 			}
 
             $sql = "DELETE b.*, r.* FROM %%BUDDY%% b LEFT JOIN %%BUDDY_REQUEST%% r USING (id) WHERE b.id = :id;";

@@ -222,6 +222,18 @@ function playerCard(ID) {
 		}
 	});
 }
+function friendReq(ID) {
+	$('.popover').each(function() {
+		$(this).popover('hide');
+	});
+	$.ajax({
+		url: "game.php?page=buddyList&mode=request&id="+ID+"&ajax=1", 
+		success: function(data){
+			$('#friendReqModalBody').empty();
+			$('#friendReqModalBody').append(data);
+		}
+	});
+}
 
 function NotifyBox(text) {
 	tip = $('#tooltip')
