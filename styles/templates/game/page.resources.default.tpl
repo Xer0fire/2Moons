@@ -18,7 +18,7 @@
 						{foreach $productionList as $productionID => $productionRow}
 							<div class="row">
 								<div class="col">
-									<p class="h5">{$LNG.tech.$productionID } ({$productionRow.elementLevel})</p>
+									<p class="h5"><a href='#' onclick='info({$productionID}, "{$LNG.tech.$productionID}")' data-toggle='modal' data-target='#infoModal'>{$LNG.tech.$productionID}</a> ({$productionRow.elementLevel})</p>
 								</div>
 							</div>
 							<div class="row">
@@ -184,6 +184,20 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="infoModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title"></h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="infoModalBody" class="modal-body"></div>
 			</div>
 		</div>
 	</div>
