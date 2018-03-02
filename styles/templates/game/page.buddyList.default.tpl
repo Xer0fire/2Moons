@@ -18,7 +18,7 @@
 					{foreach $myBuddyList as $myBuddyID => $myBuddyRow}
 						<tr>
 							<td>
-								<a href="#" onclick="return Dialog.PM({$myBuddyRow.id});">{$myBuddyRow.username}</a>
+								<a href='#' onclick='playerCard({$myBuddyRow.id})' data-toggle='modal' data-target='#playerModal'>{$myBuddyRow.username}</a>
 							</td>
 							<td>
 								<a href="#" onclick="PM({$myBuddyRow.id},'')" data-toggle="modal" data-target="#messageModal"><i class="fa fa-envelope-o"></i></a>
@@ -76,7 +76,7 @@
 						{foreach $otherRequestList as $otherRequestID => $otherRequestRow}
 							<tr>
 								<td>
-									<a href="#" onclick="return Dialog.PM({$otherRequestRow.id});">{$otherRequestRow.username}</a>
+									<a href='#' onclick='playerCard({$otherRequestRow.id})' data-toggle='modal' data-target='#playerModal'>{$otherRequestRow.username}</a>
 								</td>
 								<td>
 									{if {$otherRequestRow.ally_name}}
@@ -115,7 +115,7 @@
 						{foreach $myRequestList as $myRequestID => $myRequestRow}
 							<tr>
 								<td>
-									<a href="#" onclick="return Dialog.PM({$myRequestRow.id});">{$myRequestRow.username}</a>
+									<a href='#' onclick='playerCard({$otherRequestRow.id})' data-toggle='modal' data-target='#playerModal'>{$myRequestRow.username}</a>
 								</td>
 								<td>
 									{if {$myRequestRow.ally_name}}
@@ -156,6 +156,19 @@
 					</button>
 				</div>
 				<div id="messageModalBody" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="playerModal" tabindex="-1" role="dialog" aria-labelledby="playerModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{$LNG.lm_playercard}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="playerModalBody" class="modal-body"></div>
 			</div>
 		</div>
 	</div>
