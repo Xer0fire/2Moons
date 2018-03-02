@@ -178,6 +178,9 @@ form, .card-body .form-group {
 body, .text-default{
 	color: #ddd;
 }
+body {
+	background-color: #252831;
+}
 .nav-item .res_current, .nav-item .res_fullin_f0 {
 	color: #333;
 }
