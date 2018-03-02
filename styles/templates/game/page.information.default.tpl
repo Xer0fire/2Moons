@@ -1,3 +1,4 @@
+{block name="content"}
 <div class="row">
 	<div class="col">
 		{$LNG.longDescription.$elementID}
@@ -54,3 +55,4 @@
 <hr/>
 {include file="shared.information.protected.tpl"}
 {/if}
+{/block}

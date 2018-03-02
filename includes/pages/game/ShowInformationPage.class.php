@@ -203,8 +203,8 @@ class ShowInformationPage extends AbstractGamePage
 
 		$elementID 	= HTTP::_GP('id', 0);
 
-		$this->setWindow('popup');
 		$this->initTemplate();
+		$this->setWindow('ajax');
 
 		$productionTable	= array();
 		$FleetInfo			= array();

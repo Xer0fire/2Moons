@@ -234,6 +234,19 @@ function friendReq(ID) {
 		}
 	});
 }
+function info(ID, Name) {
+	$('.popover').each(function() {
+		$(this).popover('hide');
+	});
+	$.ajax({
+		url: "game.php?page=information&id="+ID+"&ajax=1",
+		success: function(data){
+			$('#infoModal .modal-title').html(Name);
+			$('#infoModalBody').empty();
+			$('#infoModalBody').append(data);
+		}
+	});
+}
 
 function NotifyBox(text) {
 	tip = $('#tooltip')
