@@ -243,9 +243,6 @@ body, .text-default{
 	-moz-osx-font-smoothing: grayscale;
 	color: #20a8d8!important;
 }
-.planet-nav-building {
-	font-size: .625rem;
-}
 .buildlist .build-submit{
 	background: transparent;
 	border: 0;

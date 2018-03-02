@@ -28,7 +28,7 @@
 						{/if}
 						</a>
 					{/if}<br/>
-					<span class="planet-nav-building">{$PlanetRow.build}</span>
+					<small class="text-default">{$PlanetRow.build}</small>
 				</div>
 			</div>
 
