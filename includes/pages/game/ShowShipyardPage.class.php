@@ -15,8 +15,6 @@
  * @link https://github.com/jkroepke/2Moons
  */
  
-require 'includes/pages/game/OmicronShowInformationPage.class.php';
-
 class ShowShipyardPage extends AbstractGamePage
 {
 	public static $requireModule = 0;
@@ -285,8 +283,6 @@ class ShowShipyardPage extends AbstractGamePage
 			}
 		}
 
-		$infoObj = new OmicronShowInformationPage;
-
 		
 		$this->assign(array(
 			'elementList'	=> $elementList,
@@ -295,7 +291,6 @@ class ShowShipyardPage extends AbstractGamePage
 			'BuildList'		=> $buildList,
 			'maxlength'		=> strlen(Config::get()->max_fleet_per_build),
 			'mode'			=> $mode,
-			'infoObj'		=> $infoObj,
 		));
 
 		$this->display('page.shipyard.default.tpl');
