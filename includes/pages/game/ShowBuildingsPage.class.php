@@ -14,7 +14,6 @@
  * @version 1.8.0
  * @link https://github.com/jkroepke/2Moons
  */
-require 'includes/pages/game/OmicronShowInformationPage.class.php';
 
 class ShowBuildingsPage extends AbstractGamePage
 {	
@@ -363,8 +362,6 @@ class ShowBuildingsPage extends AbstractGamePage
 			$this->tplObj->loadscript('buildlist.js');
 		}
 
-		$infoObj = new OmicronShowInformationPage;
-
 		$this->assign(array(
 			'BuildInfoList'		=> $BuildInfoList,
 			'ResourceCost'		=> $ResourceCost,
@@ -373,7 +370,6 @@ class ShowBuildingsPage extends AbstractGamePage
 			'Queue'				=> $Queue,
 			'isBusy'			=> array('shipyard' => !empty($PLANET['b_hangar_id']), 'research' => $USER['b_tech_planet'] != 0),
 			'HaveMissiles'		=> (bool) $PLANET[$resource[503]] + $PLANET[$resource[502]],
-			'infoObj' 			=> $infoObj,
 		));
 
 		$this->display('page.buildings.default.tpl');
