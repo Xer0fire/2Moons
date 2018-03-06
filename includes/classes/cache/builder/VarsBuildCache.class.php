@@ -32,7 +32,6 @@ class VarsBuildCache implements BuildCache
 		$reslist['build']		= array();
 		$reslist['pbuild']      = array();
 		$reslist['mbuild']      = array();
-		$reslist['sbuild']      = array();
 		$reslist['allow'][1]	= array();
 		$reslist['allow'][3]	= array();
 		$reslist['tech']		= array();
@@ -104,9 +103,6 @@ class VarsBuildCache implements BuildCache
 			switch($varsRow['class']) {
 				case 0: 
 					$reslist['build'][]	= $varsRow['elementID'];
-					if ($varsRow['elementID'] == 35 || $varsRow['elementID'] == 36 || $varsRow['elementID'] == 37) {
-					    $reslist['sbuild'][] = $varsRow['elementID'];
-					}
 					$tmp	= explode(',', $varsRow['onPlanetType']);
 					foreach($tmp as $type) {
 						$reslist['allow'][$type][]	= $varsRow['elementID'];

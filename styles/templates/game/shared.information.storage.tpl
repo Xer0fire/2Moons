@@ -9,24 +9,27 @@
 					<th>{$LNG.in_level}</th>
 				{if $count > 1}
 					{foreach $productionTable.usedResource as $resourceID}
-					<th colspan="2">{$LNG.tech.$resourceID}</th>
+						<th colspan="2">{$LNG.tech.$resourceID}</th>
 					{/foreach}
 				</tr>
 				<tr>
 					<th>&nbsp;</th>
 				{/if}
 					{foreach $productionTable.usedResource as $resourceID}
-					<th>{$LNG.in_storage}</th>
-					<th>{$LNG.in_difference}</th>
+						<th>{$LNG.in_storage}</th>
+						<th>{$LNG.in_difference}</th>
+						<th>{$LNG.in_protected}</th>
 					{/foreach}
 				</tr>
 				{foreach $productionTable.storage as $elementLevel => $productionData}
 				<tr>
 					<td><span{if $CurrentLevel == $elementLevel} class="text-red"{/if}>{$elementLevel}</span></td>
 					{foreach $productionData as $resourceID => $storage}
-					{$storageDiff = $storage - $productionTable.storage.$CurrentLevel.$resourceID}
-					<td><span class="{if $storage > 0}text-green{elseif $storage < 0}text-red{/if}">{$storage|number}</span></td>
-					<td><span class="{if $storageDiff > 0}text-green{elseif $storageDiff < 0}text-red{/if}">{$storageDiff|number}</span></td>
+						{$storageDiff = $storage - $productionTable.storage.$CurrentLevel.$resourceID}
+						{$levelDiff = $elementLevel - $CurrentLevel}
+						<td><span class="{if $storage > 0}text-green{elseif $storage < 0}text-red{/if}">{$storage|number}</span></td>
+						<td><span class="{if $storageDiff > 0}text-green{elseif $storageDiff < 0}text-red{/if}">{$storageDiff|number}</span></td>
+						<td><span class="{if $levelDiff > 0 && $elementLevel < 11}text-green{elseif $levelDiff < 0}text-red{/if}">{if $elementLevel < 10}{$elementLevel}%{else}10%{/if}</span></td>
 					{/foreach}
 				</tr>
 				{/foreach}

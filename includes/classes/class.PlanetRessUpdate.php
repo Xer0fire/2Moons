@@ -211,11 +211,13 @@ class ResourceUpdate
 		return $researchLevelList;
 	}
 
-	public static function getProtectedResources($denLevel)
+	public static function getProtectedResources($storagelvl, $res)
 	{
 		global $config;
 
-		return round(3125 * (pow($denLevel, 4) / max($denLevel - 1, 1))) * $config->storage_multiplier;
+		if ($storagelvl > 10) { $storagelvl = 10; }
+
+		return ($res / 100) * $storagelvl;
 	}
 
 	public static function getReflector($USER, $PLANET)

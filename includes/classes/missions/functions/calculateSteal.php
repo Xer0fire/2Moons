@@ -59,17 +59,17 @@ function calculateSteal($attackFleets, $defenderPlanet, $simulate = false)
 	}
 	
 	// Step 1
-	$defFirstResource = max($defenderPlanet[$resource[$firstResource]] - ResourceUpdate::getProtectedResources($defenderPlanet[$resource[35]]), 0);
+	$defFirstResource = max(($defenderPlanet[$resource[$firstResource]] - ResourceUpdate::getProtectedResources($defenderPlanet[$resource[22]], $defenderPlanet['metal_max'])), 0);
 	$stealResource[$firstResource]		= min($capacity / 3, $defFirstResource / 2);
 	$capacity	-= $stealResource[$firstResource];
 	 
 	// Step 2
-	$defSecondResource = max($defenderPlanet[$resource[$secondResource]] - ResourceUpdate::getProtectedResources($defenderPlanet[$resource[36]]), 0) ;
+	$defSecondResource = max(($defenderPlanet[$resource[$secondResource]] - ResourceUpdate::getProtectedResources($defenderPlanet[$resource[23]], $defenderPlanet['crystal_max'])), 0);
 	$stealResource[$secondResource] 	= min($capacity / 2, $defSecondResource / 2);
 	$capacity	-= $stealResource[$secondResource];
 	 
 	// Step 3
-	$defThirdResource = max($defenderPlanet[$resource[$thirdResource]] - ResourceUpdate::getProtectedResources($defenderPlanet[$resource[37]]), 0);
+	$defThirdResource = max(($defenderPlanet[$resource[$defThirdResource]] - ResourceUpdate::getProtectedResources($defenderPlanet[$resource[24]], $defenderPlanet['deuterium_max'])), 0);
 	$stealResource[$thirdResource] 		= min($capacity, $defThirdResource / 2);
 	$capacity	-= $stealResource[$thirdResource];
 		 

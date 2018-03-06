@@ -105,10 +105,10 @@ class MissionCaseSpy extends MissionFunctions implements Mission
 		{
 		    switch ($targetPlanet['planet_type']) {
 		        case 1:
-		            $classIDs[0] = array_diff($reslist['pbuild'], $reslist['sbuild']);
+		            $classIDs[0] = array_diff($reslist['pbuild']);
 		        break;
 		        case 3:
-		            $classIDs[0] = array_diff($reslist['mbuild'], $reslist['sbuild']);
+		            $classIDs[0] = array_diff($reslist['mbuild']);
 		        break;
 		    }
 		}
