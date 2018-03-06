@@ -162,6 +162,7 @@
 							<div class="col">
 								{$LNG.fl_no_ships}
 							</div>
+						</div>
 					{else}
 						<div class="row mt-3">
 							<div class="col">
@@ -170,18 +171,18 @@
 							<div class="col">
 								<button class="btn btn-block btn-warning" type="button" onclick="javascript:maxShips()">{$LNG.fl_select_all_ships}</button>
 							</div>
-					{/if}
-					</div>
-					<div class="row mt-3">
-						<div class="col">
-							{if $maxFleetSlots != $activeFleetSlots}
-								<button class="btn btn-lg btn-block btn-success" type="submit">{$LNG.fl_continue}</button>
-							{else}
-								<button disabled="disabled" class="btn btn-lg btn-block btn-success" type="submit">{$LNG.fl_continue}</button>
-							{/if}
-							
 						</div>
-					</div>
+						<div class="row mt-3">
+							<div class="col">
+								{if $maxFleetSlots != $activeFleetSlots}
+									<button class="btn btn-lg btn-block btn-success" type="submit">{$LNG.fl_continue}</button>
+								{else}
+									<button disabled="disabled" class="btn btn-lg btn-block btn-success" type="submit">{$LNG.fl_continue}</button>
+								{/if}
+								
+							</div>
+						</div>
+					{/if}
 				</form>
 			</div>
 		</div>
