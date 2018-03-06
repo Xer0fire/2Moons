@@ -32,10 +32,12 @@
 											<div class="media">
 												<div class="d-flex mr-2 align-self-center res-sprite sprite-{$LNG.sprite.{$resID}}"></div>
 												<div class="media-body">
-													{if $resID != 911 && $productionID != 12 && $productionID != 212}
-														({$basicProduction.$resID|number})
-													{elseif $productionID == 4}
-														({$basicProduction.$resID|number})
+													{if $basicProduction.$resID != 0}
+														{if $resID != 911 && $productionID != 12 && $productionID != 212}
+															({$basicProduction.$resID|number})
+														{elseif $productionID == 4}
+															({$basicProduction.$resID|number})
+														{/if}
 													{/if}
 													<span class="{if $productionRow.production.$resID > 0}text-green{elseif $productionRow.production.$resID < 0}text-red{else}text-white{/if}">
 														{if isset($basicProduction.$resID)}
