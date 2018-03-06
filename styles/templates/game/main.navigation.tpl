@@ -63,6 +63,11 @@
                 <a class="nav-link" href="game.php?page=alliance" target="_top"><i class="fa fa-link"></i> {$LNG.lm_alliance}</a>
               </li>
 			  {/if}
+			  {if isModuleAvailable($smarty.const.MODULE_TRADER)}
+			  <li class="nav-item">
+                 <a class="nav-link" href="game.php?page=trader" target="_top"><i class="fa fa-comments"></i> {$LNG.lm_trader}</a>
+			  </li>
+			  {/if}
 			  {if isModuleAvailable($smarty.const.MODULE_STATISTICS)}
               <li class="nav-item">
                 <a class="nav-link" href="game.php?page=statistics" target="_top"><i class="fa fa-line-chart"></i> {$LNG.lm_statistics} {nocache}<span class="badge badge-pill badge-info align-self-center">{$statRank}</span>{/nocache}</a>
