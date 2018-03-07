@@ -318,6 +318,13 @@ function stripslashes(str) {
     return str;
 }
 
+function maxMissile(id) {
+	if (document.getElementsByName(id)[0]) {
+		var amount = document.getElementById(id + "_value").innerHTML;
+		document.getElementsByName(id)[0].value = amount.replace(/\./g, "");
+	}
+}
+
 $(function() {
 	$('#drop-admin').on('click', function() {
 		$.get('admin.php?page=logout', function() {

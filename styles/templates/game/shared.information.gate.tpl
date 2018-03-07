@@ -1,42 +1,67 @@
-<table class="table table-responsive-sm table-sm">
-	<tbody>
-		<tr style="height:20px;">
-			<th colspan="3" class="left">{$LNG.in_jump_gate_select_ships}</th>
-		</tr>
-		{if $gateData.restTime != 0}
-		<tr style="height:20px;">
-			<td colspan="3">{$LNG.in_jump_gate_wait_time} {$gateData.nextTime}&nbsp;(<span class="countdown" data-time="{$gateData.restTime}">{pretty_fly_time($gateData.restTime)}</span>)</td>
-		</tr>
-		{else}
-			<tr style="height:20px;">
-				<td>{$LNG.in_jump_gate_start_moon}</td>
-				<td colspan="2">{$gateData.startLink}</td>
-			</tr>
-			{if !empty($gateData.gateList)}
-				<tr style="height:20px;">
-					<td>{$LNG.in_jump_gate_finish_moon}</td>
-					<td colspan="2">{html_options options=$gateData.gateList name="jmpto" class="jumpgate"}</td>
-				</tr>
-				<tr>
-					<th>{$LNG.fl_ship_type}</td>
-					<th>{$LNG.fl_ship_available}</td>
-					<th></td>
-				</tr>
-				{foreach $gateData.fleetList as $fleetID => $amount}
-				<tr>
-					<td style="width:33%;">{$LNG.tech.$fleetID}</td>
-					<td style="width:33%;"><span id="ship{$fleetID}_value">{$amount|number}</span></td>
-					<td style="width:33%;"><input class="jumpgate" name="ship[{$fleetID}]" id="ship{$fleetID}_input" size="7" value="0" type="text"><input onclick="Gate.max({$fleetID});" value="max" type="button"></td>
-				</tr>
-				{/foreach}
-				<tr>
-					<td colspan="3"><input value="{$LNG.in_jump_gate_jump}" type="button" onclick="Gate.submit();"></td>
-				</tr>
-			{else}
-				<tr style="height:20px;">
-					<td colspan="3"><span class="text-red">{$LNG.in_jump_gate_no_target}</span></td>
-				</tr>
-			{/if}
-		{/if}
-	</tbody>
-</table>
+<div class="row">
+	<div class="col align-self-center">
+		<strong>{$LNG.in_jump_gate_select_ships}</strong>
+	</div>
+</div>
+{if $gateData.restTime != 0}
+	<div class="row">
+		<div class="col align-self-center">
+			{$LNG.in_jump_gate_wait_time} {$gateData.nextTime}&nbsp;(<span class="countdown" data-time="{$gateData.restTime}">{pretty_fly_time($gateData.restTime)}</span>)
+		</div>
+	</div>
+{else}
+	<div class="row">
+		<div class="col align-self-center">
+			{$LNG.in_jump_gate_start_moon}
+		</div>
+		<div class="col align-self-center">
+			{$gateData.startLink}
+		</div>
+	</div>
+	{if !empty($gateData.gateList)}
+		<div class="row">
+			<div class="col align-self-center">
+				{$LNG.in_jump_gate_finish_moon}
+			</div>
+			<div class="col align-self-center">
+				{html_options options=$gateData.gateList name="jmpto" class="jumpgate form-control-sm"}
+			</div>
+		</div>
+		<div class="row">
+			<div class="col align-self-center">
+				<strong>{$LNG.fl_ship_type} / {$LNG.fl_ship_available}</strong>
+			</div>
+		</div>
+		{foreach $gateData.fleetList as $fleetID => $amount}
+			<div class="row">
+				<div class="col-12 col-md-6 align-self-center">
+					{$LNG.tech.$fleetID} (<span id="ship{$fleetID}_value">{$amount|number}</span>)
+				</div>
+				<div class="col-12 col-md-6 align-self-center">
+					<div class="controls p-0 mt-1 col align-self-center-12">
+						<div class="input-group">
+							<span class="input-group-append">
+								<button class="btn btn-warning" type="button" onclick="$('#ship{$fleetID}_input').val('0')">zero</button>
+							</span>
+							<input class="jumpgate form-control" name="ship[{$fleetID}]" id="ship{$fleetID}_input" size="7" value="0" type="text" tabindex="">
+							<span class="input-group-append">
+								<input class="btn btn-warning" onclick="Gate.max({$fleetID});" value="max" type="button">
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		{/foreach}
+		<div class="row mt-4">
+			<div class="col align-self-center">
+				<input class="btn btn-block btn-success" value="{$LNG.in_jump_gate_jump}" type="button" onclick="Gate.submit();">
+			</div>
+		</div>
+	{else}
+		<div class="row">
+			<div class="col align-self-center">
+				<span class="text-red">{$LNG.in_jump_gate_no_target}</span>
+			</div>
+		</div>
+	{/if}
+{/if}

@@ -162,7 +162,6 @@ function maxShips() {
 	})
 }
 
-
 function noShip(id) {
 	if (document.getElementsByName(id)[0]) {
 		document.getElementsByName(id)[0].value = 0;

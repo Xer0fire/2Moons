@@ -5,11 +5,8 @@ var Gate	= {
 	
 	submit: function() {
 		$.getJSON('?page=information&mode=sendFleet&'+$('.jumpgate').serialize(), function(data) {
-			alert(data.message);
-			if(!data.error)
-			{
-				parent.$.fancybox.close();
-			}
-		});		
+			toastr['success'](data.message, "Success");
+			$('#infoModal').modal('hide');
+		});
 	}
 }
