@@ -362,7 +362,8 @@
 														{/if}
 													{/if}
 													{if $currentPlanet.planet.phalanx}
-														<a class="textForBlind" href="#" onclick="OpenPopup('?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1','',640,510);return false;"><i class="fa fa-assistive-listening-systems"></i>
+														<a class="mr-2" href="#" onclick="phalanx({$galaxy},{$system},{$planet},{$type})" data-toggle="modal" data-target="#phalanxModal">
+															<i class="fa fa-assistive-listening-systems"></i>
 														</a>
 													{/if}
 												</td>
@@ -535,6 +536,19 @@
 					</button>
 				</div>
 				<div id="friendReqModalBody" class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="phalanxModal" tabindex="-1" role="dialog" aria-labelledby="phalanxModal" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog modal-primary" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">{$LNG.gl_phalanx}</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div id="phalanxModalBody" class="modal-body"></div>
 			</div>
 		</div>
 	</div>

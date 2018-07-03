@@ -247,6 +247,18 @@ function info(ID, Name) {
 		}
 	});
 }
+function phalanx(g, s, p, pt) {
+    $('.popover').each(function() {
+        $(this).popover('hide');
+    });
+    $.ajax({
+        url: "game.php?page=phalanx&galaxy="+g+"&system="+s+"&planet="+p+"&planettype="+pt+"&ajax=1",
+        success: function(data){
+            $('#phalanxModalBody').empty();
+            $('#phalanxModalBody').append(data);
+        }
+    });
+}
 
 function NotifyBox(text) {
 	tip = $('#tooltip')

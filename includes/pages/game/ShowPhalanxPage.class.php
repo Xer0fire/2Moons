@@ -49,7 +49,7 @@ class ShowPhalanxPage extends AbstractGamePage
 		global $PLANET, $LNG, $resource;
 
 		$this->initTemplate();
-		$this->setWindow('popup');
+		$this->setWindow('ajax');
 		$this->tplObj->loadscript('phalanx.js');
 		
 		$Galaxy 			= HTTP::_GP('galaxy', 0);
