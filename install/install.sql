@@ -594,7 +594,7 @@ CREATE TABLE `%PREFIX%session` (
 ) ENGINE=MEMORY DEFAULT CHARSET=utf8;
 
 CREATE TABLE `%PREFIX%shortcuts` (
-  `shortcutID` int(10) unsigned NOT NULL AUTO_INCREMENT = 1000,
+  `shortcutID` int(10) unsigned NOT NULL,
   `ownerID` int(10) unsigned NOT NULL,
   `name` varchar(32) NOT NULL,
   `galaxy` tinyint(3) unsigned NOT NULL,
@@ -603,7 +603,7 @@ CREATE TABLE `%PREFIX%shortcuts` (
   `type` tinyint(1) unsigned NOT NULL,
   PRIMARY KEY (`shortcutID`),
   KEY `ownerID` (`ownerID`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT = 1000;
 
 CREATE TABLE `%PREFIX%statpoints` (
   `id_owner` int(11) unsigned NOT NULL DEFAULT '0',
