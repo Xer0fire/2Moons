@@ -303,9 +303,12 @@ class ShowBuildingsPage extends AbstractGamePage
 				$this->tplObj->loadscript('gate.js');
 			}
 
+			$inQueue            = FALSE;
+
 			if(isset($queueData['quickinfo'][$Element]))
 			{
 				$levelToBuild	= $queueData['quickinfo'][$Element];
+				$inQueue        = TRUE;
 			}
 			else
 			{
@@ -329,8 +332,12 @@ class ShowBuildingsPage extends AbstractGamePage
 					$infoEnergy	= sprintf($LNG['bd_more_engine'], pretty_number(abs($requireEnergy)), $LNG['tech'][911]);
 				}
 			}
-			
-			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $levelToBuild+1);
+
+			if ($inQueue) {
+			    $costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $queueData['quickinfo'][$Element]+1);
+			} else {
+			    $costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, NULL);
+			}
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costResources);
 			$destroyResources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, true);

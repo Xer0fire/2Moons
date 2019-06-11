@@ -49,6 +49,10 @@ class BuildFunctions
             return array();
         }
 
+        if (!is_null($forLevel)) {
+            $elementLevel = $forLevel;
+        }
+
         $price	= array();
         foreach ($reslist['ressources'] as $resType)
         {
