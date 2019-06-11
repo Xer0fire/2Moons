@@ -87,7 +87,7 @@
 				{$LNG.lm_shipshard}
 				<div class="card-actions">
 					<a href="game.php?page=resources"><i class="fa fa-leaf"></i></a>
-					<a href="game.php?page=fleettable"><i class="fa fa-space-shuttle"></i></a>
+					<a href="game.php?page=fleetTable"><i class="fa fa-space-shuttle"></i></a>
 					<a href="game.php?page=shipyard&amp;mode=defense"><i class="fa fa-flag"></i></a>
 				</div>
 			{/if}
