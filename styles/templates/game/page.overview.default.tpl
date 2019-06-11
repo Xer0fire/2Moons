@@ -163,6 +163,7 @@
             </div>
             <!--/.col-->
 
+			{if isModuleAvailable($smarty.const.MODULE_RESEARCH) && $navResearch > 0}
             <div class="col-md-auto">
               <div class="card border-0">
                 <div class="card-header">
@@ -184,7 +185,9 @@
               </div>
             </div>
             <!--/.col-->
-
+            {/if}
+			
+			{if isModuleAvailable($smarty.const.MODULE_RESEARCH) && $navShipyard > 0}
             <div class="col-md-auto">
               <div class="card border-0">
                 <div class="card-header">
@@ -208,6 +211,7 @@
               </div>
             </div>
             <!--/.col-->
+            {/if}
           </div>
           <!--/.row-->
 

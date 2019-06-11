@@ -22,17 +22,17 @@
                 <a class="nav-link" href="game.php?page=buildings" target="_top"><i class="fa fa-university"></i> {$LNG.lm_buildings}</a>
               </li>
 			  {/if}
-			  {if isModuleAvailable($smarty.const.MODULE_RESEARCH)}
+			  {if isModuleAvailable($smarty.const.MODULE_RESEARCH) && $navResearch > 0}
               <li class="nav-item">
                 <a class="nav-link" href="game.php?page=research" target="_top"><i class="fa fa-flask"></i> {$LNG.lm_research}</a>
               </li>
 			  {/if}
-			  {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET)}
+			  {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_FLEET) && $navShipyard > 0}
               <li class="nav-item">
                 <a class="nav-link" href="game.php?page=shipyard&amp;mode=fleet" target="_top"><i class="fa fa-microchip"></i> {$LNG.lm_shipshard}</a>
               </li>
 			  {/if}
-			  {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}
+			  {if isModuleAvailable($smarty.const.MODULE_SHIPYARD_DEFENSIVE) && $navShipyard > 0}
               <li class="nav-item">
                 <a class="nav-link" href="game.php?page=shipyard&amp;mode=defense" target="_top"><i class="fa fa-flag"></i> {$LNG.lm_defenses}</a>
               </li>

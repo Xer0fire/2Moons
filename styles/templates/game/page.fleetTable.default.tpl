@@ -7,7 +7,9 @@
 				Fleet
 				<div class="card-actions">
 					<a href="game.php?page=galaxy"><i class="fa fa-globe"></i></a>
+					{if isModuleAvailable($smarty.const.MODULE_RESEARCH) && $navShipyard > 0}
 					<a href="game.php?page=shipyard&mode=fleet"><i class="fa fa-microchip"></i></a>
+					{/if}
 					<a href="#" class="btn-minimize" data-toggle="collapse" data-target="#fleetqueue" aria-expanded="true"><i class="fa fa-chevron-up"></i></a>
 				</div>
 			</div>

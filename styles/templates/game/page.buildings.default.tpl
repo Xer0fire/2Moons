@@ -88,7 +88,9 @@
 			  Buildings
 				<div class="card-actions">
 				<a href="game.php?page=resources"><i class="fa fa-leaf"></i></a>
+				{if isModuleAvailable($smarty.const.MODULE_RESEARCH) && $navResearch > 0}
 				<a href="game.php?page=research"><i class="fa fa-flask"></i></a>
+				{/if}
 			  </div>
 			</div>
 			<div class="card-body" id="buildings">

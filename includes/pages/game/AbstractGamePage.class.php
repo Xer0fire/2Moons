@@ -189,7 +189,7 @@ abstract class AbstractGamePage
 		$this->assign(array(
 			'PlanetSelect'		=> $PlanetSelect,
 			'new_message' 		=> $USER['messages'],
-			'MessageResult' 		=> $MessageResult,
+			'MessageResult' 	=> $MessageResult,
 			'vacation'			=> $USER['urlaubs_modus'] ? _date($LNG['php_tdformat'], $USER['urlaubs_until'], $USER['timezone']) : false,
 			'delete'			=> $USER['db_deaktjava'] ? sprintf($LNG['tn_delete_mode'], _date($LNG['php_tdformat'], $USER['db_deaktjava'] + ($config->del_user_manually * 86400)), $USER['timezone']) : false,
 			'darkmatter'		=> $USER['darkmatter'],
@@ -206,7 +206,9 @@ abstract class AbstractGamePage
 			'pagename'			=> $pagename,
 			'AllPlanets'		=> $AllPlanets,
 			'MaxPlanets'		=> $maxPlanetCount,
-			'statRank'			=> $statData['total_rank']
+		    'statRank'			=> $statData['total_rank'],
+		    'navShipyard'       => $PLANET[$resource[21]],
+		    'navResearch'       => $PLANET[$resource[31]]
 		));
 	}
 
