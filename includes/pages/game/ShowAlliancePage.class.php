@@ -260,7 +260,7 @@ class ShowAlliancePage extends AbstractGamePage
 			$this->redirectToHome();
 		}
 
-		$text		= HTTP::_GP('text' , '', true);
+		$text		= HTTP::_GP('trumbowyg' , '', true);
 		$allianceId	= HTTP::_GP('id', 0);
 
 		$db 	= Database::get();
@@ -292,7 +292,7 @@ class ShowAlliancePage extends AbstractGamePage
 
 			$db->insert($sql, array(
 				':allianceId'	=> $allianceId,
-				':text'			=> $text,
+			    ':text'			=> base64_encode(addslashes($text)),
 				':time'			=> TIMESTAMP,
 				':userId'		=> $USER['id']
 			));
@@ -1090,7 +1090,7 @@ class ShowAlliancePage extends AbstractGamePage
 
 		require 'includes/classes/BBCode.class.php';
 
-		$applyDetail['text']    	= BBCode::parse($applyDetail['text']);
+		$applyDetail['text']    	= base64_decode(stripslashes($applyDetail['text']));
 		$applyDetail['kbmetal']    	= pretty_number($applyDetail['kbmetal']);
 		$applyDetail['kbcrystal']   = pretty_number($applyDetail['kbcrystal']);
 		$applyDetail['lostunits']   = pretty_number($applyDetail['lostunits']);
