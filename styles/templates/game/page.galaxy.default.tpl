@@ -147,7 +147,6 @@
 											<th>{$LNG.gl_debris}</th>
 											<th>{$LNG.gl_player_estate}</th>
 											<th>{$LNG.gl_alliance}</th>
-											<th class="d-none d-md-table-cell">{$LNG.gl_actions}</th>
 										</tr>
 										{for $planet=1 to $max_planets}
 											<tr>
@@ -160,8 +159,7 @@
 												<td></td>
 												<td></td>
 												<td></td>
-												<td></td>
-												<td class="d-none d-md-table-cell"></td>
+												<td></td
 											{elseif $GalaxyRows[$planet] === false}
 												<td class="align-middle">
 													{$planet}
@@ -172,7 +170,6 @@
 												<td></td>
 												<td></td>
 												<td></td>
-												<td class="d-none d-md-table-cell align-middle"></td>
 											{else}
 												<td class="align-middle">
 													{$planet}
@@ -338,35 +335,6 @@
 														-
 													{/if}
 												</td>
-												<td class="d-none d-md-table-cell align-middle text-left">
-													{if $currentPlanet.action}
-														{if $currentPlanet.action.esp}
-															<a class="mr-2" href="javascript:doit(6,{$currentPlanet.planet.id},{$spyShips|json|escape:'html'})">
-																<i class="fa fa-eye"></i>
-															</a>
-														{/if}
-														{if $currentPlanet.action.message}
-															<a class="mr-2" href="#" onclick="PM({$currentPlanet.user.id},'')" data-toggle="modal" data-target="#messageModal">
-																<i class="fa fa-envelope-o"></i>
-															</a>
-														{/if}
-														{if $currentPlanet.action.buddy}
-															<a class="mr-2" href="#" onclick="return Dialog.Buddy({$currentPlanet.user.id})">
-																<i class="fa fa-magic"></i>
-															</a>
-														{/if}
-														{if $currentPlanet.action.missle}
-															<a class="mr-2" href="?page=galaxy&amp;action=sendMissle&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;type=1">
-																<i class="fa fa-bolt"></i>
-															</a>
-														{/if}
-													{/if}
-													{if $currentPlanet.planet.phalanx}
-														<a class="mr-2" href="#" onclick="phalanx({$galaxy},{$system},{$planet},{$type})" data-toggle="modal" data-target="#phalanxModal">
-															<i class="fa fa-assistive-listening-systems"></i>
-														</a>
-													{/if}
-												</td>
 											{/if}
 											</tr>
 										{/for}
@@ -451,7 +419,7 @@
 											{$LNG.gl_legend}
 											</a>
 										</td>
-										<td colspan="6" class="text-center">({$planetcount})</td>
+										<td colspan="5" class="text-center">({$planetcount})</td>
 									</tr>
 									</table>
 								</div>
