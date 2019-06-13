@@ -90,7 +90,6 @@
           <a class="dropdown-item" href="game.php?page=rules"><i class="fa fa-key"></i> {$LNG.lm_rules}</a>
           <a class="dropdown-item" href="game.php?page=settings"><i class="fa fa-server"></i> {$LNG.lm_options}</a>
           <a class="dropdown-item" href="game.php?page=logout"><i class="fa fa-sign-out"></i> Logout</a>
-          <a class="dropdown-item" href="game.php?page=changelog"><i class="fa fa-repeat"></i> {$LNG.lm_changelog}</a>
 		  {if $authlevel > 0}
           <a class="dropdown-item" target="_blank" href="./admin.php"><i class="fa fa-star"></i> {$LNG.lm_administration} ({$VERSION})</a>
 		  {/if}
