@@ -959,6 +959,7 @@ $LNG['op_dst_mode_sel'][2]					= 'Automatic';
 $LNG['op_timezone']							= 'Time zone';
 $LNG['op_block_pm']							= 'Block private messages';
 $LNG['op_uncompressed_img']					= 'Use uncompressed images';
+$LNG['op_compressbuilding']					= 'Use compressed building view';
 
 //----------------------------------------------------------------------------//
 // Lista de Jogadores Banidos

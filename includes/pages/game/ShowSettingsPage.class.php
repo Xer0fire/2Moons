@@ -73,8 +73,9 @@ class ShowSettingsPage extends AbstractGamePage
 				'galaxyBuddyList' 	=> $USER['settings_bud'],
 				'galaxyMissle' 		=> $USER['settings_mis'],
 				'galaxyMessage' 	=> $USER['settings_wri'],
-				'blockPM' 			=> $USER['settings_blockPM'],
-				'uncompresedIMG'	=> $USER['settings_uncompresedIMG'],
+			    'blockPM' 			=> $USER['settings_blockPM'],
+			    'uncompresedIMG'	=> $USER['settings_uncompresedIMG'],
+			    'compressBuilding'	=> $USER['settings_compressBuilding'],
 				'userid'		 	=> $USER['id'],
 				'ref_active'		=> Config::get()->ref_active,
 				'SELF_URL'          => PROTOCOL.HTTP_HOST.HTTP_ROOT
@@ -220,6 +221,7 @@ class ShowSettingsPage extends AbstractGamePage
 		$galaxyMissle		= HTTP::_GP('galaxyMissle', 0);
 		$blockPM			= HTTP::_GP('blockPM', 0);
 		$uncompresedIMG		= HTTP::_GP('uncompresedIMG', 0);
+		$compressBuilding	= HTTP::_GP('compressBuilding', 0);
 		
 		$vacation			= HTTP::_GP('vacation', 0);	
 		$delete				= HTTP::_GP('delete', 0);
@@ -387,6 +389,7 @@ class ShowSettingsPage extends AbstractGamePage
 		settings_mis			= :galaxyMissle,
 		settings_blockPM		= :blockPM,
 		settings_uncompresedIMG	= :uncompresedIMG,
+		settings_compressBuilding = :compressBuilding,
 		authattack				= :adminProtection,
 		lang					= :language,
 		hof						= :queueMessages,
@@ -403,8 +406,9 @@ class ShowSettingsPage extends AbstractGamePage
 			':galaxyMessage'	=> $galaxyMessage,
 			':galaxyBuddyList'	=> $galaxyBuddyList,
 			':galaxyMissle'		=> $galaxyMissle,
-			':blockPM'			=> $blockPM,
-			':uncompresedIMG'	=> $uncompresedIMG,
+		    ':blockPM'			=> $blockPM,
+		    ':uncompresedIMG'	=> $uncompresedIMG,
+		    ':compressBuilding'	=> $compressBuilding,
 			':adminProtection'	=> $adminprotection,
 			':language'			=> $language,
 			':queueMessages'	=> $queueMessages,
