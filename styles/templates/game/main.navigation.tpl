@@ -83,11 +83,44 @@
                 <a class="nav-link" href="game.php?page=buddyList" target="_top"><i class="fa fa-magic"></i> {$LNG.lm_buddylist}</a>
               </li>
 			  {/if}
-			  {if isModuleAvailable($smarty.const.MODULE_SUPPORT)}
-              <li class="nav-item">
-                <a class="nav-link" href="game.php?page=ticket" target="_top"><i class="fa fa-support"></i> {$LNG.lm_support}</a>
-              </li>
-			  {/if}
+            </ul>
+          </li>
+
+          <li class="nav-item nav-dropdown .d-none d-sm-block d-md-none">
+            <a class="nav-link nav-dropdown-toggle" href="#">			
+	            {if $uncompresedIMG == 1}
+	              <img src="styles/resources/img/default_avatar.jpg" class="avatar avatar-xs" alt="player-avatar">
+				{else}
+	              <img src="styles/resources/img/c_default_avatar.jpg" class="avatar avatar-xs" alt="player-avatar">
+				{/if} 
+				{$username}
+			</a>
+            <ul class="nav-dropdown-items">
+				{if isModuleAvailable($smarty.const.MODULE_NOTICE)}
+				<li class="nav-item">
+					<a class="nav-link" href="game.php?page=notes"><i class="fa fa-address-book"></i> {$LNG.lm_notes}</a>
+				</li>
+				{/if}
+				{if isModuleAvailable($smarty.const.MODULE_SUPPORT)}
+				<li class="nav-item">
+					<a class="nav-link" href="game.php?page=ticket" target="_top"><i class="fa fa-support"></i> {$LNG.lm_support}</a>
+				</li>
+				{/if}
+				<li class="nav-item">
+					<a class="nav-link" href="game.php?page=settings"><i class="fa fa-server"></i> {$LNG.lm_options}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="game.php?page=rules"><i class="fa fa-key"></i> {$LNG.lm_rules}</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="game.php?page=logout"><i class="fa fa-sign-out"></i> Logout</a>
+				</li>
+				<li class="nav-item">
+				{if $authlevel > 0}
+				<li class="nav-item">
+					<a class="nav-link" target="_blank" href="./admin.php"><i class="fa fa-star"></i> {$LNG.lm_administration} ({$VERSION})</a>
+				</li>
+				{/if}
             </ul>
           </li>
 

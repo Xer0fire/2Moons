@@ -8457,12 +8457,15 @@ body {
     border-radius: 50em; }
 
 .avatar.avatar-xs {
-  position: relative;
   display: inline-block;
-  width: 20px; }
+  width: 20px;
+  margin: 0 .5rem 0 0;
+  font-size: 14px;
+  color: #536c79;
+  text-align: center;
+  margin-bottom: 1px;}
   .avatar.avatar-xs .img-avatar {
-    width: 20px;
-    height: 20px; }
+    width: 20px;}
   .avatar.avatar-xs .avatar-status {
     position: absolute;
     right: 0;
