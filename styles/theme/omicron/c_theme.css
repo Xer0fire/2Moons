@@ -19,7 +19,7 @@
 }
 
 .build-sprite-comp {
-    background-image: url(images/buildspritesheet.png);
+    background-image: url(images/c_buildspritesheet.png);
     background-repeat: no-repeat;
     margin-bottom: -120px;
     opacity: 0.3;
