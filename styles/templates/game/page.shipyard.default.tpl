@@ -92,7 +92,7 @@
 				</div>
 			{/if}
 			</div>
-			<div class="card-body" id="">
+			<div class="card-body" id="shipyard-{$mode}">
 				{foreach $elementList as $ID => $Element}
 					<div class="row">
 						<div class="col-4 col-xl-2 d-none d-sm-block align-self-center"><div class="mx-auto build-sprite sprite-{$ID}"></div></div>
