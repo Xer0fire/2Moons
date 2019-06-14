@@ -96,7 +96,7 @@
 				{assign var="i" value="1" nocache}
 				<div class="row">
 				{foreach $elementList as $ID => $Element}
-					<div class="col-md-4 mt-3 mb-3">
+					<div class="col-md-4 mb-3">
 						<div class="row">
 							<div class="col-md-12">
 								<div class="build-sprite-comp sprite-{$ID} float-right"></div>
