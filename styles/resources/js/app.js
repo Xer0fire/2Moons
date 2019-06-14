@@ -224,11 +224,17 @@ $(document).ready(function($){
   });
 
   $('.mobile-sidebar-toggler').click(function(){
+    if ($("body").hasClass("aside-mobile-show")) {
+        $('body').toggleClass('aside-mobile-show');
+    }
     $('body').toggleClass('sidebar-mobile-show');
     resizeBroadcast();
   });
 
   $('.mobile-aside-menu-toggler').click(function(){
+    if ($("body").hasClass("sidebar-mobile-show")) {
+        $('body').toggleClass('sidebar-mobile-show');
+    }
     $('body').toggleClass('aside-mobile-show');
     resizeBroadcast();
   });
