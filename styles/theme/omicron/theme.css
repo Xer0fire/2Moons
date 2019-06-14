@@ -18,6 +18,13 @@
     background-repeat: no-repeat;
 }
 
+.build-sprite-comp {
+    background-image: url(images/buildspritesheet.png);
+    background-repeat: no-repeat;
+    margin-bottom: -120px;
+    opacity: 0.3;
+}
+
 .planet-sprite {
     background-image: url(images/planetspritesheet.png);
     background-repeat: no-repeat;
