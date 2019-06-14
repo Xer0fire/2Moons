@@ -402,7 +402,11 @@ class ShowResearchPage extends AbstractGamePage
 			'IsFullQueue'	=> Config::get()->max_elements_tech == 0 || Config::get()->max_elements_tech == count($TechQueue),
 			'Queue'			=> $TechQueue,
 		));
-		
-		$this->display('page.research.default.tpl');
+
+		if ($USER['settings_compressBuilding'] == 1) {
+			$this->display('page.researchc.default.tpl');
+		} else {
+			$this->display('page.research.default.tpl');
+		}
 	}
 }
