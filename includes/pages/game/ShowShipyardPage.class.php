@@ -293,6 +293,10 @@ class ShowShipyardPage extends AbstractGamePage
 			'mode'			=> $mode,
 		));
 
-		$this->display('page.shipyard.default.tpl');
+		if ($USER['settings_compressBuilding'] == 1) {
+			$this->display('page.shipyardc.default.tpl');
+		} else {
+			$this->display('page.shipyard.default.tpl');
+		}
 	}
 }
