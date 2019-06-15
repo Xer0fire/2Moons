@@ -117,8 +117,9 @@ $(document).ready(function($){
       $(this).parent().toggleClass('open');
       var navState = [];
       $("nav > ul > li.nav-item").each(function( index ) {
-        var isOpen = $( this )[0].className.split(" ")[2];
-        navState[index] = isOpen;
+        if ($( this ).hasClass("open")) {
+        navState[index] = "open";
+        }
       });
       localStorage.setItem("omicron-navState", navState);
       resizeBroadcast();
