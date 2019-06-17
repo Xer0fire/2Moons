@@ -257,7 +257,7 @@
             <div class="modal-dialog modal-primary" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h4 class="modal-title">[[PLANETNAME]]</h4>
+                  <h4 class="modal-title">{$LNG["type_planet_{$planet_type}"]} {$planetname}</h4>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                   </button>
@@ -266,30 +266,36 @@
 					<div class="col-auto">
 						<ul class="nav nav-tabs" role="tablist">
 							<li class="nav-item">
-								<a class="nav-link active" data-toggle="tab" href="#rename" role="tab" aria-controls="rename">Rename Planet</a>
+								<a class="nav-link active" data-toggle="tab" href="#rename" role="tab" aria-controls="rename">{$LNG.ov_planet_rename}</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" data-toggle="tab" href="#delete" role="tab" aria-controls="delete">Delete Planet</a>
+								<a class="nav-link" data-toggle="tab" href="#delete" role="tab" aria-controls="delete">{$LNG.ov_delete_planet}</a>
 							</li>
 						</ul>
 
 						<div class="tab-content">
-						<div class="tab-pane active" id="rename" role="tabpanel">
-							<form action="" method="post" class="form-horizontal">
+							<div class="tab-pane active" id="rename" role="tabpanel">
 								<div class="form-group row">
-									<label class="col-md-3 col-form-label" for="hf-password">New Name</label>
+									<label class="col-md-3 col-form-label" for="name">{$LNG.ov_rename_label}</label>
 									<div class="col-md-9">
-										<input type="text" id="hf-password" name="hf-password" class="form-control" placeholder="New Name..">
+										<input class="left" type="text" name="name" id="name" size="25" maxlength="20" autocomplete="off" />
 									</div>
 								</div>
 								<div class="form-group form-actions">
-									<button type="submit" class="btn btn-primary"><i class="fa fa-dot-circle-o"></i> Rename Planet</button>
+									<input class="btn btn-primary" type="button" onclick="checkrename()" value="{$LNG.ov_planet_rename}" />
 								</div>
-							</form>
-						</div>
-						<div class="tab-pane" id="delete" role="tabpanel">
-							
-						</div>
+							</div>
+							<div class="tab-pane" id="delete" role="tabpanel">
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label" for="password">{$LNG.ov_password}</label>
+									<div class="col-md-9">
+										<input class="left" type="password" name="password" id="password" size="25" maxlength="20" autocomplete="off">
+									</div>
+								</div>
+								<div class="form-group form-actions">
+									<input class="btn btn-primary" type="button" onclick="checkcancel()" value="{$LNG.ov_delete_planet}" />
+								</div>
+							</div>
 						</div>
 					</div>
                 </div>
@@ -319,4 +325,5 @@
 		</script>
 		{/if}
     <script src="scripts/game/overview.js"></script>
+    <script src="scripts/game/overview.actions.js"></script>
 {/block}

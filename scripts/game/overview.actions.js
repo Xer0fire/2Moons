@@ -1,15 +1,14 @@
-$(function() {
-	$('#tabs').tabs();
-});
-
 function checkrename()
 {
 	if($.trim($('#name').val()) == '') {
 		return false;
 	} else {
-		$.getJSON('game.php?page=overview&mode=rename&name='+$('#name').val(), function(response){
-			alert(response.message);
-			if(!response.error) {
+		var pname = $('#name').val();
+		$.ajax({
+			url: "game.php?page=overview&mode=rename&name="+pname,
+			success: function(jdata){
+				var data = JSON.parse(jdata);
+				toastr["success"](data.message);
 				parent.location.reload();
 			}
 		});
@@ -22,11 +21,15 @@ function checkcancel()
 	if(password == '') {
 		return false;
 	} else {
-		$.post('game.php?page=overview', {'mode' : 'delete', 'password': password}, function(response) {
-			alert(response.message);
-			if(response.ok){
-				parent.location.reload();
+		$.ajax({
+			url: "game.php?page=overview&mode=delete&password="+password,
+			success: function(jdata){
+				var data = JSON.parse(jdata);
+				toastr["info"](data.message);
+				if (data.ok) {
+					parent.location.reload();
+				}
 			}
-		}, "json");
+		});
 	}
 }

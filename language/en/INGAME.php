@@ -114,7 +114,7 @@ $LNG['lm_disclamer']						= 'Credits';
 // Vista Geral
 
 $LNG['ov_newname_specialchar']				= 'The names of the planet is allowed only numbers, letters, spaces, _,-,.';
-$LNG['ov_newname_done']						= 'The new name was entered!';
+$LNG['ov_newname_done']						= 'Rename was successful!';
 $LNG['ov_planet_abandoned']					= 'The planet was destroyed!';
 $LNG['ov_principal_planet_cant_abanone']	= 'You can not delete the main planet!';
 $LNG['ov_abandon_planet_not_possible']		= 'The planet cannot be erased, by having existing activities!';

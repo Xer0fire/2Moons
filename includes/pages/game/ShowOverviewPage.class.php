@@ -352,10 +352,10 @@ class ShowOverviewPage extends AbstractGamePage
 
 			if ($IfFleets > 0) {
 				$this->sendJSON(array('message' => $LNG['ov_abandon_planet_not_possible']));
-			} elseif ($USER['id_planet'] == $PLANET['id']) {
-				$this->sendJSON(array('message' => $LNG['ov_principal_planet_cant_abanone']));
 			} elseif (PlayerUtil::cryptPassword($password) != $USER['password']) {
 				$this->sendJSON(array('message' => $LNG['ov_wrong_pass']));
+			} elseif ($USER['id_planet'] == $PLANET['id']) {
+				$this->sendJSON(array('message' => $LNG['ov_principal_planet_cant_abanone']));
 			} else {
                 if($PLANET['planet_type'] == 1) {
                     $sql = "UPDATE %%PLANETS%% SET destruyed = :time WHERE id = :planetID;";
