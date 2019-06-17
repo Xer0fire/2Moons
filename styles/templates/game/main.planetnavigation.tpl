@@ -1,5 +1,41 @@
-    <aside class="aside-menu">
+<aside class="aside-menu">
 	<div class="container border-0">
+		<div class="row blue-bg d-sm-block d-md-none">
+			<div class="col">
+				{foreach $AllPlanets as $PlanetRow}
+					{if $PlanetRow.id == $current_pid}
+						<h5>{$PlanetRow.name}</h5>
+					{/if}
+				{/foreach}
+			</div>
+		</div>
+		{foreach $resourceTable as $resourceID => $resourceData}
+		<div class="row d-sm-block d-md-none">
+			<div class="col-1">
+				<div class="d-flex align-self-center res-sprite sprite-{$resourceData.name}"></div>
+			</div>
+			<div class="col-auto">
+				{if $shortlyNumber}
+				{else}
+					{if !isset($resourceData.current)}
+						{$resourceData.current = $resourceData.max + $resourceData.used}
+							<span class="ovr_current {if $resourceData.current < 0} text-red{/if}">{$resourceData.current|number} / {$resourceData.max|number}</span>
+						{else}
+						{if isset($resourceData.production)}
+							<span class="text-green">(+{$resourceData.production|number})</span> 
+						{/if}
+						<span class="ovr_current" id="ovr_{$resourceData.name}" data-real="{$resourceData.current}">{$resourceData.current|number}</span>
+					{/if}
+					{if !isset($resourceData.current) || !isset($resourceData.max) || $resourceID == 911}
+					{else}
+						/ <span class="text-green" id="max_{$resourceData.name}">{$resourceData.max|number}
+						</span>
+					{/if}
+				{/if}
+			</div>
+		</div>
+		<!--/.row-->
+		{/foreach}
 		<div class="row mb-2">
 			<div class="col-12 text-center">
 				<small>{$AllPlanets|count} / {$MaxPlanets} {$LNG.pn_planets}</small>
@@ -37,4 +73,4 @@
 			{/if}
 		{/foreach}
 	</div>
-    </aside>
+</aside>

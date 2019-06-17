@@ -90,15 +90,17 @@
 	border-bottom-left-radius: 2px;
 	border-bottom-right-radius: 2px;
 }
-.aside-menu {
-	color: #fff;
-	background-color: #29363d;
+.blue-bg {
+	padding-top: 0.5rem;
+	background-color: #20a8d8;
+	margin-bottom: 0.5rem;
 }
 .aside-menu-fixed .aside-menu {
 	height: calc(100vh - 3.4375rem);
 }
 .aside-menu  {
-	padding-top: .5rem;
+	color: #fff;
+	background-color: #29363d;
 	position: relative;
     overflow-x: hidden;
     overflow-y: auto;
