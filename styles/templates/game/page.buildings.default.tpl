@@ -32,6 +32,7 @@
 												{/if}
 										{else}
 											{$List@iteration}. {$LNG.tech.{$ID}} {$List.level} {if $List.destroy}{$LNG.bd_dismantle}{/if}
+											<br/>
 											<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
 										{/if}
 										{if $List@first}
@@ -41,7 +42,6 @@
 											<div class="progress">
 												<div class="progress-bar progress-bar-striped progress-bar-animated bg-info" role="progressbar" data-time="{$List.resttime}" aria-valuenow="0.01" aria-valuemin="0" aria-valuemax="100"></div>
 											</div>
-											<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
 									</div>
 									<div class="col-4 text-md-center align-self-center">
 										<div id="time" data-time="{$List.time}"><br></div>
