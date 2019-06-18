@@ -318,9 +318,8 @@ function capitalizeFirstLetter(string) {
 function init() {
 
   /* ---------- Popover ---------- */
-  $('[data-toggle="popover"]').popover();
-    $('.popover-dismiss').popover({
-		trigger: 'focus'
+  $('[data-toggle="popover"]').popover({
+    trigger: 'focus'
   });
 
 }
