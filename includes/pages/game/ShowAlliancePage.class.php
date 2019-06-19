@@ -1115,7 +1115,7 @@ class ShowAlliancePage extends AbstractGamePage
 
 		$db = Database::get();
 
-		$text  		= makebr(HTTP::_GP('text', '', true));
+		$text  		= makebr(HTTP::_GP('trumbowyg', '', true));
 		$answer		= HTTP::_GP('answer', '');
 		$applyID	= HTTP::_GP('id', 0);
 
