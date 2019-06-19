@@ -1,13 +1,5 @@
 {block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
-
-	<style>
-		.trumbowyg-box, .trumbowyg-editor {
-			border: 0px;
-			margin: auto;
-		}
-	</style>
-
 	<form action="game.php?page=alliance&amp;mode=admin&amp;action=sendAnswerToApply&amp;id={$applyDetail.applyID}" method="post">
 		<div class="row">
 			<div class="col">
