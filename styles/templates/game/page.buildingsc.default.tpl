@@ -168,7 +168,7 @@
 												{/if}
 											{else}
 												{if $Element.levelToBuild != 0}
-													<button type="button" disabled="disabled" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+													<button type="button" class="btn btn-danger btn-lg mt-1 mt-md-0 dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 												{else}
 													<span class="w-100">
 												{/if}
