@@ -56,7 +56,7 @@ class ShowResearchPage extends AbstractGamePage
 		$db = Database::get();
 
 		$elementId		= $USER['b_tech_id'];
-		$costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, false, $USER[$resource[$elementId]] + 1);
+		$costResources	= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, false);
 		
 		if($PLANET['id'] == $USER['b_tech_planet'])
 		{
@@ -234,7 +234,7 @@ class ShowResearchPage extends AbstractGamePage
 				return false;
 			}
 
-			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, !$AddMode, $BuildLevel);
+			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, !$AddMode);
 			
 			if(!BuildFunctions::isElementBuyable($USER, $PLANET, $elementId, $costResources))
 			{
@@ -364,17 +364,24 @@ class ShowResearchPage extends AbstractGamePage
 		{
 			if (!BuildFunctions::isTechnologieAccessible($USER, $PLANET, $elementId))
 				continue;
-				
+
+			$inQueue            = FALSE;
+
 			if(isset($queueData['quickinfo'][$elementId]))
 			{
 				$levelToBuild	= $queueData['quickinfo'][$elementId];
+				$inQueue        = TRUE;
 			}
 			else
 			{
 				$levelToBuild	= $USER[$resource[$elementId]];
 			}
-			
-			$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, false, $levelToBuild+1);
+
+			if ($inQueue) {
+				$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, false, $levelToBuild);
+			} else {
+				$costResources		= BuildFunctions::getElementPrice($USER, $PLANET, $elementId, false);
+			}
 			$costOverflow		= BuildFunctions::getRestPrice($USER, $PLANET, $elementId, $costResources);
 			$elementTime    	= BuildFunctions::getBuildingTime($USER, $PLANET, $elementId, $costResources);
 			$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $elementId, $costResources);
