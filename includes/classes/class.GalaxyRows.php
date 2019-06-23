@@ -161,13 +161,6 @@ class GalaxyRows
 		global $USER;
         if($this->galaxyData[$this->galaxyRow['planet']]['ownPlanet']) {
             $this->galaxyData[$this->galaxyRow['planet']]['action'] = false;
-        } else {
-            $this->galaxyData[$this->galaxyRow['planet']]['action'] = array(
-                'esp'		=> $USER['settings_esp'] == 1 && $this->galaxyData[$this->galaxyRow['planet']]['missions'][6],
-                'message'	=> $USER['settings_wri'] == 1 && isModuleAvailable(MODULE_MESSAGES),
-                'buddy'		=> $USER['settings_bud'] == 1 && isModuleAvailable(MODULE_BUDDYLIST) && $this->galaxyRow['buddy'] == 0,
-                'missle'	=> $USER['settings_mis'] == 1 && $this->galaxyData[$this->galaxyRow['planet']]['missions'][10],
-            );
         }
 	}
 

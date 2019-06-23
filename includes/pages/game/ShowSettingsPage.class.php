@@ -69,10 +69,6 @@ class ShowSettingsPage extends AbstractGamePage
 				'delete'			=> $USER['db_deaktjava'],
 				'queueMessages'		=> $USER['hof'],
 				'spyMessagesMode'	=> $USER['spyMessagesMode'],
-				'galaxySpy' 		=> $USER['settings_esp'],
-				'galaxyBuddyList' 	=> $USER['settings_bud'],
-				'galaxyMissle' 		=> $USER['settings_mis'],
-				'galaxyMessage' 	=> $USER['settings_wri'],
 			    'blockPM' 			=> $USER['settings_blockPM'],
 			    'uncompresedIMG'	=> $USER['settings_uncompresedIMG'],
 			    'compressBuilding'	=> $USER['settings_compressBuilding'],
@@ -214,11 +210,7 @@ class ShowSettingsPage extends AbstractGamePage
 
 		$spycount			= HTTP::_GP('spycount', 1.0);	
 		$fleetactions		= HTTP::_GP('fleetactions', 5);	
-		
-		$galaxySpy			= HTTP::_GP('galaxySpy', 0);	
-		$galaxyMessage		= HTTP::_GP('galaxyMessage', 0);	
-		$galaxyBuddyList	= HTTP::_GP('galaxyBuddyList', 0);	
-		$galaxyMissle		= HTTP::_GP('galaxyMissle', 0);
+
 		$blockPM			= HTTP::_GP('blockPM', 0);
 		$uncompresedIMG		= HTTP::_GP('uncompresedIMG', 0);
 		$compressBuilding	= HTTP::_GP('compressBuilding', 0);
@@ -383,10 +375,6 @@ class ShowSettingsPage extends AbstractGamePage
 		planet_sort_order		= :planetOrder,
 		spio_anz				= :spyCount,
 		settings_fleetactions	= :fleetActions,
-		settings_esp			= :galaxySpy,
-		settings_wri			= :galaxyMessage,
-		settings_bud			= :galaxyBuddyList,
-		settings_mis			= :galaxyMissle,
 		settings_blockPM		= :blockPM,
 		settings_uncompresedIMG	= :uncompresedIMG,
 		settings_compressBuilding = :compressBuilding,
@@ -402,10 +390,6 @@ class ShowSettingsPage extends AbstractGamePage
 			':planetOrder'		=> $planetOrder,
 			':spyCount'			=> $spycount,
 			':fleetActions'		=> $fleetactions,
-			':galaxySpy'		=> $galaxySpy,
-			':galaxyMessage'	=> $galaxyMessage,
-			':galaxyBuddyList'	=> $galaxyBuddyList,
-			':galaxyMissle'		=> $galaxyMissle,
 		    ':blockPM'			=> $blockPM,
 		    ':uncompresedIMG'	=> $uncompresedIMG,
 		    ':compressBuilding'	=> $compressBuilding,

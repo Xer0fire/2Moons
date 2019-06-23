@@ -220,59 +220,6 @@
 				</div>
 				<div class="row mt-4">
 					<div class="col">
-						<p class="h5">{$LNG.op_shortcut}</p>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-7 col-md-6 align-self-center">
-						<i class="fa fa-eye"></i> {$LNG.op_spy}
-					</div>
-					<div class="col-4 col-md-6">
-						<label class="switch switch-text switch-lg switch-success">
-							<input class="switch-input" name="galaxySpy" type="checkbox" value="1" {if $galaxySpy == 1}checked="checked"{/if}>
-							<span class="switch-label" data-on="On" data-off="Off"></span>
-							<span class="switch-handle"></span>
-						</label>
-					</div>
-				</div>
-				<div class="row mt-2">
-					<div class="col-7 col-md-6 align-self-center">
-						<i class="fa fa-envelope-o"></i> {$LNG.op_write_message}
-					</div>
-					<div class="col-4 col-md-6">
-						<label class="switch switch-text switch-lg switch-success">
-							<input class="switch-input" name="galaxyMessage" type="checkbox" value="1" {if $galaxyMessage == 1}checked="checked"{/if}>
-							<span class="switch-label" data-on="On" data-off="Off"></span>
-							<span class="switch-handle"></span>
-						</label>
-					</div>
-				</div>
-				<div class="row mt-2">
-					<div class="col-7 col-md-6 align-self-center">
-						<i class="fa fa-magic"></i> {$LNG.op_add_to_buddy_list}
-					</div>
-					<div class="col-4 col-md-6">
-						<label class="switch switch-text switch-lg switch-success">
-							<input class="switch-input" name="galaxyBuddyList" type="checkbox" value="1" {if $galaxyBuddyList == 1}checked="checked"{/if}>
-							<span class="switch-label" data-on="On" data-off="Off"></span>
-							<span class="switch-handle"></span>
-						</label>
-					</div>
-				</div>
-				<div class="row mt-2">
-					<div class="col-7 col-md-6 align-self-center">
-						<i class="fa fa-bolt"></i> {$LNG.op_missile_attack} 
-					</div>
-					<div class="col-4 col-md-6">
-						<label class="switch switch-text switch-lg switch-success">
-							<input class="switch-input" name="galaxyMissle" type="checkbox" value="1" {if $galaxyMissle == 1}checked="checked"{/if}>
-							<span class="switch-label" data-on="On" data-off="Off"></span>
-							<span class="switch-handle"></span>
-						</label>
-					</div>
-				</div>
-				<div class="row mt-4">
-					<div class="col">
 						<p class="h5">{$LNG.op_vacation_delete_mode}</p>
 					</div>
 				</div>
