@@ -18,7 +18,7 @@
 								<div class="row">
 									<div class="col-8 align-self-center">
 										{if !($isBusy.research && ($ID == 6 || $ID == 31)) && !($isBusy.shipyard && ($ID == 15 || $ID == 21)) && $RoomIsOk && $CanBuildElement && $BuildInfoList[$ID].buyable}
-												<form class="build_form" action="game.php?page=buildings" method="post">
+											<form class="build_form" action="game.php?page=buildings" method="post">
 												<input type="hidden" name="cmd" value="insert">
 												<input type="hidden" name="building" value="{$ID}">
 												<button type="submit" class="build-submit">{$List@iteration}. {$LNG.tech.{$ID}} {$List.level}
@@ -26,10 +26,8 @@
 														{$LNG.bd_dismantle}
 													{/if}
 												</button>
-												</form>
-												{if !$List@first}
-													<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
-												{/if}
+											</form>
+											<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
 										{else}
 											{$List@iteration}. {$LNG.tech.{$ID}} {$List.level} {if $List.destroy}{$LNG.bd_dismantle}{/if}
 											<br/>
@@ -105,6 +103,7 @@
 									<div class="col">
 										<span class="float-sm-right">{if $Element.level > 0} {$LNG.bd_lvl} {$Element.level}{if $Element.maxLevel != 255}/{$Element.maxLevel}{/if}{/if}</span>
 										<p class="h5"><a href='#' onclick='info({$ID}, "{$LNG.tech.$ID}")' data-toggle='modal' data-target='#infoModal'>{$LNG.tech.{$ID}}</a></p>
+										{if !empty($Element.infoEnergy)}{$LNG.bd_next_level} {$Element.infoEnergy}<br/>{/if}
 										{$LNG.fgf_time} {$Element.elementTime|time}
 									</div>
 								</div>
@@ -153,7 +152,7 @@
 													<form action="game.php?page=buildings" method="post" class="btn-block">
 														<input type="hidden" name="cmd" value="insert">
 														<input type="hidden" name="building" value="{$ID}">
-														<button type="submit" class="btn btn-success btn-lg btn-block mt-1 mt-md-0">Improve</button>
+														<button type="submit" class="btn btn-success btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
 													</form>
 												{if $Element.levelToBuild != 0 && ($Element.level != 0 || $Element.inQueue == FALSE) }
 													<span class="sr-only">Toggle Dropdown</span>
@@ -172,7 +171,7 @@
 												{else}
 													<span class="w-100">
 												{/if}
-														<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">Improve</button>
+														<button type="button" disabled="disabled" class="btn btn-danger btn-lg btn-block mt-1 mt-md-0">Improve ({$LNG.bd_lvl} {$Element.levelToBuild+1})</button>
 												{if $Element.levelToBuild != 0 && ($Element.level != 0 || $Element.inQueue == FALSE) }
 													<span class="sr-only">Toggle Dropdown</span>
 												</button>

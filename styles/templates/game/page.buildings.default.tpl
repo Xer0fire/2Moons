@@ -18,7 +18,7 @@
 								<div class="row">
 									<div class="col-8 align-self-center">
 										{if !($isBusy.research && ($ID == 6 || $ID == 31)) && !($isBusy.shipyard && ($ID == 15 || $ID == 21)) && $RoomIsOk && $CanBuildElement && $BuildInfoList[$ID].buyable}
-												<form class="build_form" action="game.php?page=buildings" method="post">
+											<form class="build_form" action="game.php?page=buildings" method="post">
 												<input type="hidden" name="cmd" value="insert">
 												<input type="hidden" name="building" value="{$ID}">
 												<button type="submit" class="build-submit">{$List@iteration}. {$LNG.tech.{$ID}} {$List.level}
@@ -26,10 +26,8 @@
 														{$LNG.bd_dismantle}
 													{/if}
 												</button>
-												</form>
-												{if !$List@first}
-													<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
-												{/if}
+											</form>
+											<span style="color:lime" data-time="{$List.endtime}" class="timer">{$List.display}</span>
 										{else}
 											{$List@iteration}. {$LNG.tech.{$ID}} {$List.level} {if $List.destroy}{$LNG.bd_dismantle}{/if}
 											<br/>
