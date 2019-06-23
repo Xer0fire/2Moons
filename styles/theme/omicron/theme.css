@@ -13,14 +13,13 @@
     background-repeat: no-repeat;
 }
 
-.build-sprite {
+.build-sprite, .build-sprite-comp {
     background-image: url(images/buildspritesheet.png);
     background-repeat: no-repeat;
+    border-radius: 20px;
 }
 
 .build-sprite-comp {
-    background-image: url(images/buildspritesheet.png);
-    background-repeat: no-repeat;
     margin-bottom: -120px;
     opacity: 0.3;
 }
