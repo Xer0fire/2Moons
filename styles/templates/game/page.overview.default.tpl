@@ -229,7 +229,7 @@
 							<div class="card-body">
 								<div class="row">
 									<div class="col-12">
-										<input id="referral" class="form-control type="text" disabled="disabled" value="{$path}index.php?ref={$userid}" />
+										<input id="referral" class="form-control" type="text" disabled="disabled" value="{$path}index.php?ref={$userid}" />
 									</div>
 								</div>
 								<div class="row">
