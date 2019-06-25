@@ -1200,7 +1200,8 @@ $LNG['ft_empty']							= 'Empty';
 $LNG['lo_title']							= 'Successfully logged out';
 $LNG['lo_logout']							= 'Your session was terminated. Hopefully voltes';
 $LNG['lo_redirect']							= 'Redirect';
-$LNG['lo_notify']							= 'Will be redirected in <span id="seconds">5</span> seconds';
+$LNG['lo_notify']							= 'Will be redirected in';
+$LNG['lo_seconds']							= 'seconds';
 $LNG['lo_continue']							= 'Click here not to wait';
 
 //----------------------------------------------------------------------------//
