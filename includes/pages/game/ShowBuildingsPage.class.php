@@ -344,6 +344,7 @@ class ShowBuildingsPage extends AbstractGamePage
 			$destroyTime		= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $destroyResources);
 			$destroyOverflow	= BuildFunctions::getRestPrice($USER, $PLANET, $Element, $destroyResources);
 			$buyable			= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costResources);
+			$destroyable		= BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $destroyResources);
 
 			$BuildInfoList[$Element]	= array(
 				'level'				=> $PLANET[$resource[$Element]],
@@ -356,6 +357,7 @@ class ShowBuildingsPage extends AbstractGamePage
 				'destroyTime'		=> $destroyTime,
 				'destroyOverflow'	=> $destroyOverflow,
 				'buyable'			=> $buyable,
+				'destroyable'		=> $destroyable,
 				'levelToBuild'		=> $levelToBuild,
 				'inQueue'			=> $inQueue,
 			);

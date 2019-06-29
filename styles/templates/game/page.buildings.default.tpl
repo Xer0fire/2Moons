@@ -253,7 +253,11 @@
 									<form action='game.php?page=buildings' method='post' class='build_form'>
 										<input type='hidden' name='cmd' value='destroy'>
 										<input type='hidden' name='building' value='{$ID}'>
-										<button type='submit' class='btn btn-danger'>{$LNG.bd_dismantle}</button>
+										{if $BuildInfoList[$ID].destroyable}
+											<button type='submit' class='btn btn-danger'>{$LNG.bd_dismantle}</button>
+										{else}
+											<button type='submit' disabled="disabled" class='btn btn-danger'>{$LNG.bd_dismantle}</button>
+										{/if}
 									</form>
 								</div>
 							</div>
