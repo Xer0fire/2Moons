@@ -274,132 +274,135 @@ class ShowSettingsPage extends AbstractGamePage
 				}
 			}
 		}
-		
-		if (!empty($newpassword) && PlayerUtil::cryptPassword($password) == $USER["password"] && $newpassword == $newpassword2)
-		{
-			$newpass 	 = PlayerUtil::cryptPassword($newpassword);
-			$sql = "UPDATE %%USERS%% SET password = :newpass WHERE id = :userID;";
-			$db->update($sql, array(
-				':newpass'	=> $newpass,
-				':userID'	=> $USER['id']
-			));
-			Session::load()->delete();
-		}
 
-		if (!empty($email) && $email != $USER['email'])
-		{
-			if(PlayerUtil::cryptPassword($password) != $USER['password'])
-			{
-				$this->printMessage($LNG['op_need_pass_mail'], array(array(
-					'label'	=> $LNG['sys_back'],
-					'url'	=> 'game.php?page=settings'
-				)));
-			}
-			elseif(!ValidateAddress($email))
-			{
-				$this->printMessage($LNG['op_not_vaild_mail'], array(array(
-					'label'	=> $LNG['sys_back'],
-					'url'	=> 'game.php?page=settings'
-				)));
-			}
-			else
-			{
-				$sql = "SELECT
-							(SELECT COUNT(*) FROM %%USERS%% WHERE id != :userID AND universe = :universe AND (email = :email OR email_2 = :email)) +
-							(SELECT COUNT(*) FROM %%USERS_VALID%% WHERE universe = :universe AND email = :email)
-						as count";
-				$Count = $db->selectSingle($sql, array(
-					':universe'	=> Universe::current(),
-					':userID'	=> $USER['id'],
-					':email'	=> $email
-				), 'count');
+		$isDemo = Config::get()->game_demo;
 
-				if (!empty($Count)) {
-					$this->printMessage(sprintf($LNG['op_change_mail_exist'], $email), array(array(
+		if ($isDemo == 0) {
+			if (!empty($newpassword) && PlayerUtil::cryptPassword($password) == $USER["password"] && $newpassword == $newpassword2)
+			{
+				$newpass 	 = PlayerUtil::cryptPassword($newpassword);
+				$sql = "UPDATE %%USERS%% SET password = :newpass WHERE id = :userID;";
+				$db->update($sql, array(
+					':newpass'	=> $newpass,
+					':userID'	=> $USER['id']
+				));
+				Session::load()->delete();
+			}
+
+			if (!empty($email) && $email != $USER['email'])
+			{
+				if(PlayerUtil::cryptPassword($password) != $USER['password'])
+				{
+					$this->printMessage($LNG['op_need_pass_mail'], array(array(
 						'label'	=> $LNG['sys_back'],
 						'url'	=> 'game.php?page=settings'
 					)));
-				} else {
-					$sql	= "UPDATE %%USERS%% SET email = :email, setmail = :time WHERE id = :userID;";
+				}
+				elseif(!ValidateAddress($email))
+				{
+					$this->printMessage($LNG['op_not_vaild_mail'], array(array(
+						'label'	=> $LNG['sys_back'],
+						'url'	=> 'game.php?page=settings'
+					)));
+				}
+				else
+				{
+					$sql = "SELECT
+								(SELECT COUNT(*) FROM %%USERS%% WHERE id != :userID AND universe = :universe AND (email = :email OR email_2 = :email)) +
+								(SELECT COUNT(*) FROM %%USERS_VALID%% WHERE universe = :universe AND email = :email)
+							as count";
+					$Count = $db->selectSingle($sql, array(
+						':universe'	=> Universe::current(),
+						':userID'	=> $USER['id'],
+						':email'	=> $email
+					), 'count');
+
+					if (!empty($Count)) {
+						$this->printMessage(sprintf($LNG['op_change_mail_exist'], $email), array(array(
+							'label'	=> $LNG['sys_back'],
+							'url'	=> 'game.php?page=settings'
+						)));
+					} else {
+						$sql	= "UPDATE %%USERS%% SET email = :email, setmail = :time WHERE id = :userID;";
+						$db->update($sql, array(
+							':email'	=> $email,
+							':time'		=> (TIMESTAMP + 604800),
+							':userID'	=> $USER['id']
+						));
+					}
+				}
+			}
+
+			if ($vacation == 1)
+			{
+				if(!$this->CheckVMode())
+				{
+					$this->printMessage($LNG['op_cant_activate_vacation_mode'], array(array(
+						'label'	=> $LNG['sys_back'],
+						'url'	=> 'game.php?page=settings'
+					)));
+				}
+				else
+				{
+					$sql = "UPDATE %%USERS%% SET urlaubs_modus = '1', urlaubs_until = :time WHERE id = :userID";
 					$db->update($sql, array(
-						':email'	=> $email,
-						':time'		=> (TIMESTAMP + 604800),
-						':userID'	=> $USER['id']
+						':userID'	=> $USER['id'],
+						':time'		=> (TIMESTAMP + Config::get()->vmode_min_time),
+					));
+
+					$sql = "UPDATE %%PLANETS%% SET energy_used = '0', energy = '0', metal_mine_porcent = '0', crystal_mine_porcent = '0', deuterium_sintetizer_porcent = '0', solar_plant_porcent = '0', fusion_plant_porcent = '0', solar_satelit_porcent = '0', metal_perhour = '0', crystal_perhour = '0', deuterium_perhour = '0' WHERE id_owner = :userID;";
+					$db->update($sql, array(
+						':userID'	=> $USER['id'],
 					));
 				}
 			}
-		}		
-			
-		
-		if ($vacation == 1)
-		{
-			if(!$this->CheckVMode())
-			{
-				$this->printMessage($LNG['op_cant_activate_vacation_mode'], array(array(
-					'label'	=> $LNG['sys_back'],
-					'url'	=> 'game.php?page=settings'
-				)));
-			}
-			else
-			{
-				$sql = "UPDATE %%USERS%% SET urlaubs_modus = '1', urlaubs_until = :time WHERE id = :userID";
+
+			if($delete == 1) {
+				$sql	= "UPDATE %%USERS%% SET db_deaktjava = :timestamp WHERE id = :userID;";
 				$db->update($sql, array(
 					':userID'	=> $USER['id'],
-					':time'		=> (TIMESTAMP + Config::get()->vmode_min_time),
+					':timestamp'	=> TIMESTAMP
 				));
-
-				$sql = "UPDATE %%PLANETS%% SET energy_used = '0', energy = '0', metal_mine_porcent = '0', crystal_mine_porcent = '0', deuterium_sintetizer_porcent = '0', solar_plant_porcent = '0', fusion_plant_porcent = '0', solar_satelit_porcent = '0', metal_perhour = '0', crystal_perhour = '0', deuterium_perhour = '0' WHERE id_owner = :userID;";
+			} else {
+				$sql	= "UPDATE %%USERS%% SET db_deaktjava = 0 WHERE id = :userID;";
 				$db->update($sql, array(
 					':userID'	=> $USER['id'],
 				));
 			}
+
+			$sql =  "UPDATE %%USERS%% SET
+			dpath					= :theme,
+			timezone				= :timezone,
+			planet_sort				= :planetSort,
+			planet_sort_order		= :planetOrder,
+			spio_anz				= :spyCount,
+			settings_fleetactions	= :fleetActions,
+			settings_blockPM		= :blockPM,
+			settings_uncompresedIMG	= :uncompresedIMG,
+			settings_compressBuilding = :compressBuilding,
+			authattack				= :adminProtection,
+			lang					= :language,
+			hof						= :queueMessages,
+			spyMessagesMode			= :spyMessagesMode
+			WHERE id = :userID;";
+			$db->update($sql, array(
+				':theme'			=> $theme,
+				':timezone'			=> $timezone,
+				':planetSort'		=> $planetSort,
+				':planetOrder'		=> $planetOrder,
+				':spyCount'			=> $spycount,
+				':fleetActions'		=> $fleetactions,
+				':blockPM'			=> $blockPM,
+				':uncompresedIMG'	=> $uncompresedIMG,
+				':compressBuilding'	=> $compressBuilding,
+				':adminProtection'	=> $adminprotection,
+				':language'			=> $language,
+				':queueMessages'	=> $queueMessages,
+				':spyMessagesMode'	=> $spyMessagesMode,
+				':userID'			=> $USER['id']
+			));
 		}
 
-		if($delete == 1) {
-			$sql	= "UPDATE %%USERS%% SET db_deaktjava = :timestamp WHERE id = :userID;";
-			$db->update($sql, array(
-				':userID'	=> $USER['id'],
-				':timestamp'	=> TIMESTAMP
-			));
-		} else {
-			$sql	= "UPDATE %%USERS%% SET db_deaktjava = 0 WHERE id = :userID;";
-			$db->update($sql, array(
-				':userID'	=> $USER['id'],
-			));
-		}
-
-		$sql =  "UPDATE %%USERS%% SET
-		dpath					= :theme,
-		timezone				= :timezone,
-		planet_sort				= :planetSort,
-		planet_sort_order		= :planetOrder,
-		spio_anz				= :spyCount,
-		settings_fleetactions	= :fleetActions,
-		settings_blockPM		= :blockPM,
-		settings_uncompresedIMG	= :uncompresedIMG,
-		settings_compressBuilding = :compressBuilding,
-		authattack				= :adminProtection,
-		lang					= :language,
-		hof						= :queueMessages,
-		spyMessagesMode			= :spyMessagesMode
-		WHERE id = :userID;";
-		$db->update($sql, array(
-			':theme'			=> $theme,
-			':timezone'			=> $timezone,
-			':planetSort'		=> $planetSort,
-			':planetOrder'		=> $planetOrder,
-			':spyCount'			=> $spycount,
-			':fleetActions'		=> $fleetactions,
-		    ':blockPM'			=> $blockPM,
-		    ':uncompresedIMG'	=> $uncompresedIMG,
-		    ':compressBuilding'	=> $compressBuilding,
-			':adminProtection'	=> $adminprotection,
-			':language'			=> $language,
-			':queueMessages'	=> $queueMessages,
-			':spyMessagesMode'	=> $spyMessagesMode,
-			':userID'			=> $USER['id']
-		));
-		
 		$this->printMessage($LNG['op_options_changed'], array(array(
 			'label'	=> $LNG['sys_forward'],
 			'url'	=> 'game.php?page=settings'

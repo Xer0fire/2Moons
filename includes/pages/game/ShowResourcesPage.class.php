@@ -47,7 +47,9 @@ class ShowResourcesPage extends AbstractGamePage
 				$PLANET[$FieldName]			= $Value;
 			}
 
-			if(!empty($updateSQL))
+		$isDemo = Config::get()->game_demo;
+
+			if(!empty($updateSQL) && $isDemo == 0)
 			{
 				$sql	= 'UPDATE %%PLANETS%% SET '.implode(', ', $updateSQL).' WHERE id = :planetId;';
 
