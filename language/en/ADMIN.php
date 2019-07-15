@@ -353,6 +353,7 @@ $LNG['se_halt_speed'] = 'Expedition speed';
 $LNG['se_forum_link'] = 'Forum Link';
 $LNG['se_server_op_close'] = 'Server Online?';
 $LNG['se_server_status_message'] = 'Closed server message';
+$LNG['se_server_demo'] = 'Server Demo?';
 $LNG['se_server_planet_parameters'] = 'Settings of the planets';
 $LNG['se_initial_fields'] = 'Initial Fields:';
 $LNG['se_fields'] = 'Field';

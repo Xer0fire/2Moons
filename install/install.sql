@@ -169,6 +169,7 @@ CREATE TABLE `%PREFIX%config` (
   `game_name` varchar(30) NOT NULL,
   `game_disable` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `close_reason` text NOT NULL,
+  `game_demo` tinyint(1) unsigned NOT NULL DEFAULT '1',
   `metal_basic_income` int(11) NOT NULL DEFAULT '20',
   `crystal_basic_income` int(11) NOT NULL DEFAULT '10',
   `deuterium_basic_income` int(11) NOT NULL DEFAULT '0',

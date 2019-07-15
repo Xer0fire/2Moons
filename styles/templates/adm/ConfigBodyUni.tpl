@@ -51,6 +51,10 @@
 	<td><textarea name="close_reason" cols="80" rows="5">{$close_reason}</textarea></td>
 	<td>&nbsp;</td>
 </tr><tr>
+	<td>{$se_server_demo}<br></td>
+	<td><input name="demo"{if $game_demo == '1'} checked="checked"{/if} type="checkbox"></td>
+	<td>&nbsp;</td>
+</tr><tr>
 	<th colspan="2">{$se_buildlist}</th><th>&nbsp;</th>
 </tr><tr>
 	<td>{$se_max_elements_build}</td>

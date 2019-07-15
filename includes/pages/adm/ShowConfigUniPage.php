@@ -33,6 +33,7 @@ function ShowConfigUniPage()
 			'Fleet_Cdr'				=> $config->Fleet_Cdr,
 			'game_disable'			=> $config->game_disable,
 			'close_reason'			=> $config->close_reason,
+			'game_demo'				=> $config->game_demo,
 			'OverviewNewsFrame'		=> $config->OverviewNewsFrame,
 			'reg_closed'			=> $config->reg_closed,
 			'OverviewNewsText'		=> $config->OverviewNewsText,
@@ -93,6 +94,7 @@ function ShowConfigUniPage()
 		);
 		
 		$game_disable			= isset($_POST['closed']) && $_POST['closed'] == 'on' ? 1 : 0;
+		$game_demo				= isset($_POST['demo']) && $_POST['demo'] == 'on' ? 1 : 0;
 		$noobprotection 		= isset($_POST['noobprotection']) && $_POST['noobprotection'] == 'on' ? 1 : 0;
 		$debug 					= isset($_POST['debug']) && $_POST['debug'] == 'on' ? 1 : 0;
 		$adm_attack 			= isset($_POST['adm_attack']) && $_POST['adm_attack'] == 'on' ? 1 : 0;		
@@ -161,6 +163,7 @@ function ShowConfigUniPage()
 			'Defs_Cdr'				=> $Defs_Cdr,
 			'Fleet_Cdr'				=> $Fleet_Cdr,
 			'game_disable'			=> $game_disable,
+			'game_demo'				=> $game_demo,
 			'close_reason'			=> $close_reason,
 			'OverviewNewsFrame'		=> $OverviewNewsFrame,
 			'reg_closed'			=> $reg_closed,
@@ -254,9 +257,10 @@ function ShowConfigUniPage()
 		'se_storage_producion_speed'	=> $LNG['se_storage_producion_speed'],
 		'se_normal_speed_resoruces'		=> $LNG['se_normal_speed_resoruces'],
 		'se_normal_speed_halt'			=> $LNG['se_normal_speed_halt'],
-		'se_forum_link'					=> $LNG['se_forum_link'	],
+		'se_forum_link'					=> $LNG['se_forum_link'],
 		'se_server_op_close'			=> $LNG['se_server_op_close'],
 		'se_server_status_message'		=> $LNG['se_server_status_message'],
+		'se_server_demo'				=> $LNG['se_server_demo'],
 		'se_server_planet_parameters'	=> $LNG['se_server_planet_parameters'],
 		'se_initial_fields'				=> $LNG['se_initial_fields'],
 		'se_metal_production'			=> $LNG['se_metal_production'],
